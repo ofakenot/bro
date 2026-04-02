@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidade - Bro Pharmaceuticals</title>
+  <style>
+    /* ===== Variáveis e Reset (Baseado no seu design) ===== */
+    :root {
+      --background: #000000;
+      --foreground: #ffffff;
+      --card: #0a0a0a;
+      --card-hover: #111111;
+      --muted: #1a1a1a;
+      --muted-foreground: #888888;
+      --border: #222222;
+      --border-light: #333333;
+      --radius: 1rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background-color: var(--background);
+      color: var(--foreground);
+      line-height: 1.6;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+
+    /* ===== Layout do Container ===== */
+    .privacy-wrapper {
+      max-width: 800px;
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 3rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== Cabeçalho ===== */
+    .header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .icon-box {
+      width: 64px;
+      height: 64px;
+      background: var(--muted);
+      border: 1px solid var(--border-light);
+      border-radius: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: var(--foreground);
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    .date {
+      color: var(--muted-foreground);
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    /* ===== Conteúdo Textual ===== */
+    .content {
+      color: var(--muted-foreground);
+      font-size: 0.95rem;
+    }
+
+    .content p {
+      margin-bottom: 1.5rem;
+    }
+
+    .content strong {
+      color: var(--foreground);
+    }
+
+    .section {
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--muted);
+    }
+
+    h3 {
+      color: var(--foreground);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* ===== Card de Compromisso ===== */
+    .commitment-box {
+      background: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 2rem;
+      margin: 3rem 0;
+    }
+
+    .commitment-box h3 {
+      margin-top: 0;
+    }
+
+    .commitment-box ul {
+      list-style: none;
+    }
+
+    .commitment-box li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .commitment-box li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--foreground);
+      font-weight: bold;
+    }
+
+    /* ===== Rodapé e Botão ===== */
+    .footer-actions {
+      text-align: center;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--muted);
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--foreground);
+      color: var(--background);
+      border: none;
+      padding: 1rem 2.5rem;
+      border-radius: 0.75rem;
+      font-weight: 800;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-back:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+      filter: brightness(0.9);
+    }
+
+    /* ===== Responsividade ===== */
+    @media (max-width: 640px) {
+      .privacy-wrapper {
+        padding: 2rem 1.5rem;
+        border: none;
+      }
+      h1 { font-size: 1.4rem; }
+      .commitment-box { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="privacy-wrapper">
+    <header class="header">
+      <div class="icon-box">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+      </div>
+      <h1>Política de Privacidade</h1>
+      <p class="date">Atualizado em 17 de Janeiro de 2026</p>
+    </header>
+
+    <div class="content">
+      <p>A sua privacidade é importante para nós. É política do <strong>Bro Pharmaceuticals</strong> respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar no site Bro Pharmaceuticals, e outros sites que possuímos e operamos.</p>
+      
+      <p>Solicitamos informações pessoais apenas quando realmente precisamos delas para lhe fornecer um serviço. Fazemo-lo por meios justos e legais, com o seu conhecimento e consentimento.</p>
+
+      <div class="section">
+        <h3>Uso de Dados</h3>
+        <p>Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço solicitado. Quando armazenamos dados, protegemos dentro de meios comercialmente aceitáveis ​​para evitar perdas e roubos, bem como acesso ou modificação não autorizados.</p>
+        <p>Não compartilhamos informações de identificação pessoal publicamente ou com terceiros, exceto quando exigido por lei.</p>
+      </div>
+
+      <div class="section">
+        <h3>Cookies e Publicidade</h3>
+        <p>O serviço <strong>Google AdSense</strong> que usamos para veicular publicidade usa um cookie DoubleClick para veicular anúncios mais relevantes em toda a Web e limitar o número de vezes que um determinado anúncio é exibido para você.</p>
+        <p>Os cookies de publicidade comportamental usados ​​por este site foram projetados para garantir que você receba os anúncios mais relevantes sempre que possível, rastreando anonimamente seus interesses.</p>
+      </div>
+
+      <div class="commitment-box">
+        <h3>Compromisso do Usuário</h3>
+        <p style="margin-bottom: 1rem; font-size: 0.85rem;">O usuário se compromete a fazer uso adequado dos conteúdos e da informação:</p>
+        <ul>
+          <li><strong>A)</strong> Não se envolver em atividades que sejam ilegais ou contrárias à boa fé;</li>
+          <li><strong>B)</strong> Não difundir propaganda ou conteúdo de natureza racista, xenofóbica ou ilícita;</li>
+          <li><strong>C)</strong> Não causar danos aos sistemas físicos (hardware) e lógicos (software) do Bro Pharmaceuticals.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>Mais Informações</h3>
+        <p>Esperemos que esteja esclarecido e, como mencionado anteriormente, se houver algo que você não tem certeza se precisa ou não, geralmente é mais seguro deixar os cookies ativados, caso interaja com um dos recursos que você usa em nosso site.</p>
+      </div>
+
+      <footer class="footer-actions">
+        <button class="btn-back" onclick="window.location.href='/app'">Voltar à Loja</button>
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    // Script simples para evitar seleção de texto (conforme solicitado anteriormente)
+    document.addEventListener('selectstart', e => e.preventDefault());
+    document.addEventListener('contextmenu', e => e.preventDefault());
+  </script>
+
+</body>
+</html>

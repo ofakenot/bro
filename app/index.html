@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#000000">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Bro Pharma - Catálogo Premium</title>
+  <meta name="description" content="Produtos farmacêuticos premium importados. Qualidade global com distribuição internacional.">
+  <link rel="icon" href="/logo.png?v=20260120">
+  <link rel="stylesheet" href="/style.css?v=20260120">
+  <script src="/app.js?v=20260120" defer></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --background: #000000; --foreground: #ffffff; --card: #0a0a0a;
+      --card-hover: #111111; --muted: #1a1a1a; --muted-foreground: #888888;
+      --border: #222222; --border-light: #333333; --radius: 1rem;
+    }
+    html { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+    body { background-color: var(--background); color: var(--foreground); line-height: 1.5; min-height: 100vh; overflow-x: hidden; }
+    .hidden { display: none !important; }
+
+    @keyframes shine { 0% { left: -150%; } 30% { left: 150%; } 100% { left: 150%; } }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulseGlow { 0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.2); } 70% { box-shadow: 0 0 0 15px rgba(255,255,255,0); } 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); } }
+    @keyframes floatBalls { from { transform: translate(0,0) scale(1); } to { transform: translate(40px,60px) scale(1.1); } }
+    .animate-slide-up { animation: slideUp 0.4s ease-out forwards; opacity: 0; }
+
+    .text-metallic { background: linear-gradient(to bottom, #888 0%, #fff 45%, #555 50%, #ddd 55%, #777 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .text-metallic-silver { background: linear-gradient(to bottom, #ffffff 0%, #777777 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    /* HEADER */
+    .header { position: sticky; top: 0; z-index: 40; background: var(--background); padding: 0 1.25rem; display: flex; align-items: center; justify-content: space-between; overflow: hidden; border-bottom: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.8); height: 60px; }
+    .header::after { content: ""; position: absolute; top: 0; left: -150%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0) 30%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0) 70%, transparent 100%); animation: shine 5s infinite linear; }
+    .header-logo { height: 2rem; width: auto; filter: grayscale(1) brightness(1.5); z-index: 2; }
+    .brand-name { position: absolute; left: 50%; transform: translateX(-50%); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2rem; white-space: nowrap; pointer-events: none; }
+    .header-btn { width: 2.2rem; height: 2.2rem; border-radius: 4px; background: linear-gradient(145deg, #222, #000); border: 1px solid var(--border); color: white; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; z-index: 2; }
+    .header-btn:hover { background: #ffffff; color: #000000; border-color: #ffffff; }
+    .header-btn svg { width: 1.1rem; height: 1.1rem; }
+
+    /* HERO */
+    .hero { background: var(--background); padding: 4rem 1.5rem; text-align: center; position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; border-bottom: 1px solid var(--muted); }
+    .hero::before { content: ''; position: absolute; border-radius: 50%; filter: blur(80px); z-index: 0; opacity: 0.2; animation: floatBalls 10s ease-in-out infinite alternate; width: 250px; height: 250px; background: #444; top: -100px; left: -50px; }
+    .hero-bg-extra { position: absolute; border-radius: 50%; filter: blur(80px); z-index: 0; opacity: 0.15; animation: floatBalls 15s ease-in-out infinite alternate-reverse; width: 300px; height: 300px; background: #222; bottom: -120px; right: -50px; }
+    .hero-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.375rem; padding: 0.375rem 0.875rem; background: #111; border: 1px solid var(--border); border-radius: 9999px; color: #fff; font-size: 0.7rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+    .hero-logo { width: 120px; height: auto; margin-bottom: 1.5rem; filter: drop-shadow(0 0 15px rgba(255,255,255,0.1)); }
+    .hero-title { color: #ffffff; font-size: 1.6rem; font-weight: 800; margin-bottom: 1.4rem; letter-spacing: -0.4px; display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap; justify-content: center; }
+    .hero-subtitle { display: flex; flex-direction: column; align-items: center; gap: 12px; max-width: 450px; }
+    .flag-container { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
+    .mini-flag { width: 18px; height: 12px; object-fit: cover; border-radius: 1px; border: 1px solid var(--border); filter: grayscale(0.4) brightness(0.7); transition: all 0.3s ease; }
+    .mini-flag:hover { filter: grayscale(0) brightness(1); border-color: #fff; transform: scale(1.2); }
+    .hero-subtitle span { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
+
+    /* CATEGORY FILTER */
+    .category-filter { padding: 1.5rem 0; background: var(--background); position: sticky; top: 0; z-index: 100; }
+    .category-list { display: flex; gap: 0.6rem; padding: 0 1.5rem 0.5rem; overflow-x: auto; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    .category-list::-webkit-scrollbar { display: none; }
+    .category-btn { display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 0.6rem 1.4rem; border-radius: 2rem; font-size: 0.75rem; font-weight: 700; border: 1px solid #222; background: #0a0a0a; color: #666; cursor: pointer; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); white-space: nowrap; text-transform: uppercase; letter-spacing: 0.8px; }
+    .category-btn:hover { border-color: #444; color: #bbb; background: #111; }
+    .category-btn.active { background: #ffffff; border-color: #ffffff; color: #000000 !important; box-shadow: 0 8px 20px rgba(255,255,255,0.1); transform: translateY(-1px); }
+    .category-btn:active { transform: scale(0.92); }
+
+    /* PRODUCTS */
+    .products-section { padding: 2rem 1rem 7rem; background: var(--background); }
+    .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; }
+    .section-title { font-size: 1.25rem; font-weight: 800; color: #ffffff; text-transform: uppercase; letter-spacing: 1px; }
+    .product-count { font-size: 0.7rem; font-weight: 700; color: #888; background: #111; padding: 0.3rem 0.8rem; border-radius: 9999px; border: 1px solid var(--border); }
+    .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    @media (min-width: 640px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 1024px) { .product-grid { grid-template-columns: repeat(4, 1fr); } .products-section { padding: 3rem 2rem 7rem; } }
+
+    /* PRODUCT CARD */
+    .product-card { background: var(--card); border: 1px solid var(--muted); border-radius: 1.25rem; overflow: hidden; cursor: pointer; transition: all 0.4s ease; position: relative; display: flex; flex-direction: column; }
+    .product-card:hover { border-color: #444; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transform: translateY(-5px); }
+    .product-image-container { position: relative; width: 100%; aspect-ratio: 1/1; background: #ffffff; overflow: hidden; border-bottom: 1px solid var(--muted); display: flex; }
+    .product-image-slider { display: flex; width: 100%; height: 100%; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
+    .product-image-slider::-webkit-scrollbar { display: none; }
+    .slider-page { flex: 0 0 100%; width: 100%; height: 100%; scroll-snap-align: start; display: flex; align-items: center; justify-content: center; }
+    .slider-img { width: 55% !important; height: 55% !important; object-fit: contain; display: block; transition: transform 0.5s ease; }
+    .product-card:hover .slider-img { transform: scale(1.1); }
+    .product-badge { position: absolute; top: 0.75rem; left: 0.75rem; padding: 0.3rem 0.7rem; background: #000000; color: #ffffff; font-size: 0.65rem; font-weight: 800; border-radius: 0.5rem; text-transform: uppercase; z-index: 2; }
+    .swipe-indicator { position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.5); color: #ffffff; font-size: 9px; padding: 3px 8px; border-radius: 6px; pointer-events: none; z-index: 5; text-transform: uppercase; }
+    .product-content { padding: 1.25rem; text-align: center; background: var(--card); flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+    .product-name { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: #ffffff; margin-bottom: 0.5rem; }
+    .product-description { font-size: 0.75rem; color: #555; margin-bottom: 1rem; line-height: 1.4; }
+    .product-buy-btn { display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; height: 44px; padding: 0 1rem; background: #ffffff; color: #000000; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; border: none; border-radius: 0.75rem; cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden; margin-top: auto; }
+    .product-buy-btn svg { width: 20px !important; height: 20px !important; flex-shrink: 0; }
+    .product-buy-btn:hover { background: #f0f0f0; transform: scale(1.02); }
+    .product-buy-btn::after { content: ""; position: absolute; top: 0; left: -150%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(0,0,0,0.05), transparent); animation: shine 5s infinite linear; }
+    @media (max-width: 768px) { .product-content { padding: 1rem; } .product-name { font-size: 0.82rem; } .product-description { font-size: 0.74rem; } .product-buy-btn { height: 44px; font-size: 0.74rem; } }
+
+    /* BOTTOM NAV */
+    .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000; background: #000000; border-top: 1px solid #222; padding-bottom: env(safe-area-inset-bottom, 0); height: 70px; }
+    .bottom-nav-inner { display: flex; align-items: center; justify-content: space-around; height: 100%; max-width: 500px; margin: 0 auto; }
+    .nav-item { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; background: none; border: none; padding: 0; text-decoration: none; color: #666; cursor: pointer; transition: color 0.25s ease, transform 0.25s ease; -webkit-tap-highlight-color: transparent; outline: none; }
+    .nav-item .nav-icon::after { content: none !important; display: none !important; }
+    .nav-item.active { color: #ffffff; }
+    .nav-icon { display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; margin-bottom: 4px; position: relative; }
+    .nav-item svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2px; transition: transform 0.25s ease, filter 0.25s ease; }
+    .nav-item.active svg { transform: scale(1.08); filter: drop-shadow(0 0 4px rgba(255,255,255,0.35)); }
+    .nav-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+    .nav-item:focus { outline: none; }
+    .nav-item:focus-visible { outline: 2px solid rgba(255,255,255,0.35); outline-offset: 4px; border-radius: 10px; }
+
+    /* MODAL */
+    .modal-overlay { position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,0.9); display: flex; align-items: flex-end; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0.4s ease; backdrop-filter: blur(12px); }
+    .modal-overlay.active { opacity: 1; visibility: visible; }
+    .modal-content { background: #050505; width: 100%; max-width: 480px; max-height: 85vh; border-radius: 2.5rem 2.5rem 0 0; border: 1px solid var(--muted); display: flex; flex-direction: column; transform: translateY(100%); transition: transform 0.5s cubic-bezier(0.16,1,0.3,1); overflow: hidden; }
+    .modal-overlay.active .modal-content { transform: translateY(0); }
+    .modal-header { padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; background: #050505; }
+    .modal-close { width: 2.5rem; height: 2.5rem; border-radius: 50%; background: #111; border: 1px solid #222; color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+    .modal-body { overflow-y: auto; padding: 1.5rem; flex: 1; }
+    .detail-image-wrapper { position: relative; aspect-ratio: 1; background: #ffffff; border-radius: 1.5rem; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .detail-image-wrapper .product-image-slider { display: flex; width: 100%; height: 100%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+    .detail-image-wrapper .slider-img { width: 65% !important; height: 65% !important; object-fit: contain; margin: auto; }
+    .detail-image-wrapper .slider-page { flex: 0 0 100%; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; scroll-snap-align: start; }
+    .detail-badge { display: inline-block; padding: 0.3rem 0.7rem; background: #fff; color: #000; font-size: 0.6rem; font-weight: 800; border-radius: 0.5rem; margin: 1rem 0 0.75rem; text-transform: uppercase; }
+    .detail-name { font-size: 1.5rem; font-weight: 800; color: #fff; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+    .detail-description { color: #888; font-size: 0.9rem; line-height: 1.5; margin-bottom: 1.5rem; }
+    .feature-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: #0f0f0f; border: 1px solid var(--muted); border-radius: 1rem; margin-bottom: 0.5rem; }
+    .feature-icon { width: 1.2rem; height: 1.2rem; color: #fff; flex-shrink: 0; }
+    .feature-text { font-size: 0.85rem; color: #eee; font-weight: 500; }
+    .modal-footer { padding: 1.25rem; background: #050505; border-top: 1px solid var(--muted); }
+    .btn-whatsapp { width: 100%; height: 3.5rem; background: #fff; color: #000; border-radius: 1.25rem; display: flex; align-items: center; justify-content: center; gap: 0.75rem; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: 0.3s ease; }
+    .btn-whatsapp:active { transform: scale(0.96); }
+
+    /* CATEGORIES VIEW */
+    .categories-view { background: #000; padding-bottom: 8rem; min-height: 100vh; width: 100%; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; }
+    .categories-container { width: 100%; max-width: 600px; padding: 0 1.5rem; box-sizing: border-box; }
+    .category-header { width: 100%; text-align: center; padding: 3rem 0 2rem; box-sizing: border-box; }
+    .main-title { color: #fff; font-size: 2rem; font-weight: 900; margin: 0; text-transform: uppercase; letter-spacing: 1px; }
+    .main-subtitle { color: #777; font-size: 1rem; margin-top: 0.6rem; }
+    .category-card { display: flex; align-items: center; gap: 1.25rem; padding: 0 1.5rem; height: 100px; background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 1.5rem; margin-bottom: 1rem; width: 100%; box-sizing: border-box; text-decoration: none; transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease; overflow: hidden; cursor: pointer; }
+    .category-card:hover { background: #111; border-color: #333; transform: translateY(-2px); }
+    .category-icon-wrapper { width: 58px; height: 58px; background: #ffffff; border-radius: 1.2rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .category-icon-wrapper svg { width: 30px; height: 30px; display: block; fill: none; stroke: #000; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .category-info { flex: 1; display: flex; flex-direction: column; justify-content: center; text-align: left; min-width: 0; }
+    .category-name { font-weight: 800; color: #fff; font-size: 1.1rem; text-transform: uppercase; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .category-desc { color: #777; font-size: 0.85rem; margin-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .category-arrow { flex-shrink: 0; margin-left: 0.5rem; color: #444; transition: color 0.25s ease; }
+    .category-arrow svg { width: 18px; height: 18px; display: block; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .category-card:hover .category-arrow { color: #fff; }
+    @media (max-width: 480px) { .categories-container { padding: 0 1rem; } .main-title { font-size: 1.6rem; } .category-card { height: 90px; padding: 0 1rem; gap: 1rem; } .category-icon-wrapper { width: 52px; height: 52px; } .category-icon-wrapper svg { width: 28px; height: 28px; } }
+
+    /* PROFILE */
+    .profile-view { min-height: 100vh; background: var(--background); padding-bottom: 7rem; }
+    .profile-header { background: linear-gradient(180deg, #1a1a1a 0%, #000000 100%); padding: 3rem 1.5rem 2.5rem; text-align: center; border-bottom: 1px solid #222; }
+    .profile-avatar { width: 6rem; height: 6rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; overflow: hidden; }
+    .profile-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .profile-name { color: white; font-size: 1.4rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+    .profile-tagline { color: #666; font-size: 0.85rem; margin-top: 0.4rem; font-weight: 500; }
+    .profile-content { padding: 2rem 1.25rem; }
+    .profile-section { margin-bottom: 2rem; }
+    .profile-section-title { font-size: 0.75rem; font-weight: 800; color: #444; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 1rem; padding-left: 0.5rem; }
+    .profile-card { background: var(--card); border: 1px solid var(--muted); border-radius: 1.25rem; overflow: hidden; }
+    .profile-item { display: flex; align-items: center; gap: 1rem; padding: 1.125rem; text-decoration: none; color: inherit; transition: all 0.3s ease; }
+    .profile-item:not(:last-child) { border-bottom: 1px solid var(--muted); }
+    .profile-item:hover { background: #111; }
+    .profile-item-icon { width: 2.75rem; height: 2.75rem; background: #151515; border: 1px solid #222; border-radius: 0.85rem; display: flex; align-items: center; justify-content: center; color: #fff; }
+    .profile-item-icon svg { width: 1.25rem; height: 1.25rem; }
+    .profile-item-content { flex: 1; }
+    .profile-item-label { font-weight: 700; color: #ffffff; font-size: 0.95rem; }
+    .profile-item-value { font-size: 0.8rem; color: #555; margin-top: 1px; }
+    .profile-item-arrow svg { width: 1.1rem; height: 1.1rem; color: #333; }
+
+    /* ACCESS */
+    .access-page { background: var(--background); min-height: calc(100vh - 70px); display: flex; align-items: center; justify-content: center; padding: 20px; }
+    .access-container { width: 100%; max-width: 380px; }
+    .vip-card { position: relative; background: linear-gradient(145deg, #111111, #050505); border: 1px solid #222; border-radius: 24px; padding: 30px 20px; text-align: center; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.9); }
+    .card-glow { position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%); pointer-events: none; }
+    .badge-vip { display: inline-flex; align-items: center; gap: 6px; background: #1a1a1a; border: 1px solid #333; padding: 6px 14px; border-radius: 50px; font-size: 0.65rem; font-weight: 800; letter-spacing: 2px; color: #888; margin-bottom: 15px; }
+    .vip-title { font-size: 1.5rem; font-weight: 900; margin: 0; letter-spacing: -1px; }
+    .vip-text { color: #aaa; font-size: 0.9rem; line-height: 1.5; margin-top: 1rem; }
+    .price-box { background: rgba(255,255,255,0.02); border: 1px dashed #333; border-radius: 16px; padding: 20px; margin: 25px 0; }
+    .price-tag { font-size: 0.6rem; color: #555; letter-spacing: 2px; }
+    .price-amount { font-size: 3rem; font-weight: 900; color: #fff; line-height: 1; }
+    .price-amount .currency { font-size: 1rem; vertical-align: super; color: #444; }
+    .btn-vip-metallic { display: flex; align-items: center; justify-content: center; gap: 12px; background: linear-gradient(180deg, #ffffff 0%, #a0a0a0 100%); color: #000; text-decoration: none; font-weight: 900; font-size: 0.9rem; padding: 18px; border-radius: 12px; transition: all 0.3s ease; box-shadow: 0 10px 20px rgba(255,255,255,0.1); animation: pulseGlow 2s infinite; }
+    .btn-vip-metallic:hover { transform: scale(1.02); filter: brightness(1.1); }
+
+    /* SEARCH */
+    .search-overlay { position: fixed; inset: 0; z-index: 100; background: var(--card); opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+    .search-overlay.active { opacity: 1; visibility: visible; }
+    .search-header { display: flex; align-items: center; gap: 0.75rem; padding: 1rem; border-bottom: 1px solid #333; background: linear-gradient(180deg, #1a1a1a 0%, var(--card) 100%); }
+    .search-back { width: 2.5rem; height: 2.5rem; border-radius: 4px; background: linear-gradient(145deg, #2e2e2e, #1a1a1a); border: 1px solid #444; color: #ffffff; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+    .search-back:hover { background: #ffffff; color: #000000; }
+    .search-input-wrapper { flex: 1; position: relative; }
+    .search-input { width: 100%; padding: 0.75rem 1rem 0.75rem 2.75rem; background: #111; border: 1px solid #333; border-radius: 4px; font-size: 0.9375rem; color: #fff; outline: none; }
+    .search-input:focus { border-color: #888; background: #000; }
+    .search-input::placeholder { color: #666; }
+    .search-icon { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: #888; }
+    .search-results { padding: 1rem; max-height: calc(100vh - 5rem); overflow-y: auto; background: var(--card); }
+    .search-empty { text-align: center; padding: 4rem 1.5rem; color: #fff; }
+    .search-empty-icon { width: 3rem; height: 3rem; margin: 0 auto 1rem; color: #444; }
+
+    /* FOOTER */
+    .main-footer { width: 100%; background-color: #000000; border-top: 1px solid #222222; padding: 60px 20px 140px 20px; margin-top: 50px; display: flex; flex-direction: column; align-items: center; justify-content: center; box-sizing: border-box; }
+    .footer-container { width: 100%; max-width: 600px; display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center; }
+    .footer-brand-section, .footer-copyright { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 100%; }
+    .footer-logo { font-size: 1.1rem; font-weight: 900; letter-spacing: 2px; color: #888888; margin: 0; line-height: 1.2; }
+    .footer-text { color: #888888; font-size: 0.85rem; margin: 0; line-height: 1.5; }
+    .footer-nav { display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 15px; width: 100%; margin: 5px 0; }
+    .footer-link { color: #888888; text-decoration: none; font-size: 0.85rem; transition: opacity 0.2s; }
+    .footer-link:hover { opacity: 0.7; }
+    .footer-dot { color: #333333; }
+    @media (max-width: 480px) { .footer-logo { font-size: 1rem; } .footer-text { font-size: 0.8rem; } .footer-container { gap: 15px; } }
+
+    /* GLOBE */
+    .map-locked { pointer-events: none; }
+    .map-unlocked { pointer-events: auto; cursor: grab; }
+    .info-globe-box { position: relative; overflow: hidden; border-radius: 18px; border: 1px solid rgba(255,255,255,0.14); background-color: #000005; background-image: url('https://assets.codepen.io/127738/milky-way.jpg'); background-size: cover; background-position: center; box-shadow: inset 0 0 110px rgba(0,0,0,0.92); }
+    #globe-info { width: 100%; height: 500px; }
+    #globe-info canvas { width: 100% !important; height: 100% !important; display: block !important; }
+    .info-flags-row { display: flex; align-items: stretch; gap: 10px; flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; padding: 8px 16px; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; scroll-padding-left: 16px; scroll-padding-right: 16px; justify-content: flex-start; margin-top: 1rem; }
+    .info-flags-row::before, .info-flags-row::after { content: ""; flex: 0 0 16px; }
+    .info-flag-card { width: 78px; padding: 6px 6px 8px; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 0 0 auto; scroll-snap-align: center; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); overflow: visible; }
+    .info-flag-card img { width: 34px; height: 22px; border-radius: 4px; object-fit: cover; display: block; box-shadow: 0 2px 6px rgba(0,0,0,0.22); }
+    .info-flag-card span { margin-top: 6px; font-size: 0.67rem; font-weight: 800; line-height: 1.1; text-align: center; color: #888; max-width: 74px; white-space: normal; word-break: break-word; }
+    @media (max-width: 768px) { .info-flags-row { gap: 8px; padding: 6px 16px; } .info-flag-card { width: 72px; } }
+
+    /* LANGUAGE SELECTOR */
+    .language-selector { position: absolute; top: 1.2rem; left: 50%; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 0.25rem; z-index: 20; background: rgba(0,0,0,0.45); backdrop-filter: blur(10px); padding: 0.22rem; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); width: max-content; }
+    .lang-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.25rem; padding: 0.22rem 0.40rem; border-radius: 999px; background: transparent; border: none; cursor: pointer; color: #aaa; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.4px; transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease; -webkit-tap-highlight-color: transparent; }
+    .lang-btn img { width: 15px; height: 11px; object-fit: cover; border-radius: 2px; display: block; }
+    .lang-btn:hover { color: #fff; }
+    .lang-btn.active { background: #fff; color: #000; }
+    .lang-btn:active { transform: scale(0.98); }
+    @media (max-width: 480px) { .language-selector { top: 0.85rem; left: 50%; right: auto; transform: translateX(-50%); padding: 0.20rem; } .lang-btn { padding: 0.22rem; } .lang-btn span { display: none; } }
+
+    /* M3 CARDS */
+    .m3-wrap, .m3-grid, .m3-card, .m3-shell, .m3-content { box-sizing: border-box; }
+    .m3-wrap { width: 100%; }
+    .m3-wrap, .m3-grid { overflow: visible; }
+    .m3-wrap { padding: 28px 0 44px; }
+    .m3-grid { width: min(1200px, 100%); margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left)); padding-right: max(20px, env(safe-area-inset-right)); display: grid; gap: 18px; }
+    .m3-card { position: relative; overflow: visible; border-radius: 24px; perspective: 1100px; }
+    .m3-shell { position: relative; overflow: hidden; border-radius: 24px; min-height: 360px; background: linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.020)); border: 1px solid rgba(255,255,255,.12); box-shadow: 0 26px 80px rgba(0,0,0,.62), inset 0 1px 0 rgba(255,255,255,.08); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); isolation: isolate; }
+    .m3-bg { position: absolute; inset: 0; z-index: 0; background: radial-gradient(860px 520px at 18% 20%, rgba(255,255,255,.10), transparent 60%), radial-gradient(740px 460px at 86% 78%, rgba(255,255,255,.06), transparent 62%), linear-gradient(180deg, rgba(255,255,255,.05), rgba(0,0,0,.26)), radial-gradient(closest-side at 52% 60%, rgba(0,0,0,.50), rgba(0,0,0,.92) 70%); }
+    .m3-shell::before { content:""; position:absolute; left:-80px; right:-80px; top:-80px; height:210px; z-index:1; pointer-events:none; background:radial-gradient(closest-side at 30% 45%, rgba(255,255,255,.12), rgba(255,255,255,0)); opacity:.85; }
+    .m3-shell::after { content:""; position:absolute; inset:0; z-index:1; pointer-events:none; background:linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,0) 35%, rgba(255,255,255,0) 65%, rgba(255,255,255,.05)); opacity:.25; }
+    .m3-float { position:absolute; inset:0 auto 0 0; width:420px; z-index:10; pointer-events:none; overflow:visible; }
+    .m3-img { position:absolute; left:-85px; top:50%; transform:translateY(-50%) translateZ(78px) rotateY(13deg); width:540px; height:auto; filter:drop-shadow(0 80px 170px rgba(0,0,0,.78)) drop-shadow(0 18px 34px rgba(0,0,0,.45)); transition:transform .32s ease, filter .32s ease; }
+    .m3-card:hover .m3-img { transform:translateY(-50%) translateZ(108px) rotateY(15deg) scale(1.02); filter:drop-shadow(0 92px 190px rgba(0,0,0,.82)) drop-shadow(0 20px 38px rgba(0,0,0,.48)); }
+    .m3-content { position:relative; z-index:3; margin-left:420px; padding:54px 54px 44px; max-width:760px; color:#fff; }
+    .m3-title { margin:0 0 10px; font-size:clamp(24px,2.4vw,40px); line-height:1.06; letter-spacing:-.8px; font-weight:900; color:#fff; }
+    .m3-lead { margin:0 0 14px; color:rgba(255,255,255,.82); font-size:14.6px; line-height:1.7; max-width:62ch; }
+    .m3-list { margin:12px 0 16px; padding:0; list-style:none; display:grid; gap:9px; max-width:68ch; }
+    .m3-list li { position:relative; padding-left:16px; color:rgba(255,255,255,.74); font-size:13.8px; line-height:1.6; }
+    .m3-list li::before { content:"•"; position:absolute; left:0; top:0; color:rgba(255,255,255,.92); font-weight:900; }
+    .m3-note { margin:0; font-size:12.2px; color:rgba(255,255,255,.56); }
+    .m3-in { display:none; }
+    @media (max-width: 980px) { .m3-wrap { overflow-x:clip; } .m3-grid { width:100%; } .m3-shell { min-height:auto; border-radius:20px; } .m3-float { display:none; } .m3-in { display:block; position:relative; z-index:3; padding:14px 14px 6px; } .m3-in-img { width:100%; height:auto; display:block; border-radius:14px; filter:drop-shadow(0 26px 58px rgba(0,0,0,.55)); } .m3-content { margin-left:0; padding:14px 14px 18px; max-width:100%; } .m3-title { font-size:clamp(20px,5.2vw,28px); } .m3-lead { font-size:13.6px; max-width:100%; } .m3-list { max-width:100%; } }
+    @media (max-width: 480px) { .m3-wrap { padding:22px 0 34px; } .m3-grid { padding-left:max(18px, env(safe-area-inset-left)); padding-right:max(18px, env(safe-area-inset-right)); gap:16px; } .m3-card, .m3-shell { border-radius:18px; } .m3-in { padding:12px 12px 4px; } .m3-in-img { border-radius:12px; } .m3-content { padding:12px 12px 16px; } }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- Home View -->
+    <div id="home-view">
+      <header class="header">
+        <img src="images/logobro.png" alt="Bro Pharma" class="header-logo" onerror="this.src='/placeholder.svg'">
+        <span class="brand-name text-metallic" data-i18n="headerTagline">Qualidade Premium Global</span>
+        <button class="header-btn" id="search-btn" aria-label="Buscar">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+      </header>
+
+      <section class="hero">
+        <div class="hero-bg-extra"></div>
+
+        <div class="language-selector">
+          <button class="lang-btn active" data-lang="pt">
+            <img src="https://flagcdn.com/br.svg" alt="Português">
+            <span>PT</span>
+          </button>
+          <button class="lang-btn" data-lang="en">
+            <img src="https://flagcdn.com/us.svg" alt="English">
+            <span>EN</span>
+          </button>
+          <button class="lang-btn" data-lang="es">
+            <img src="https://flagcdn.com/es.svg" alt="Español">
+            <span>ES</span>
+          </button>
+          <button class="lang-btn" data-lang="fr">
+            <img src="https://flagcdn.com/fr.svg" alt="Français">
+            <span>FR</span>
+          </button>
+        </div>
+
+        <div class="hero-content">
+          <div class="hero-badge" data-i18n="heroBadge">Todos os direitos reservados</div>
+          <img src="images/logobro.png" alt="Bro Pharma" class="hero-logo" onerror="this.src='/placeholder.svg'">
+          <h1 class="hero-title">
+            BRO PHARMACEUTICALS
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </h1>
+          <div class="hero-subtitle">
+            <div class="flag-container">
+              <img src="https://flagcdn.com/us.svg" alt="EUA" class="mini-flag">
+              <img src="https://flagcdn.com/br.svg" alt="Brasil" class="mini-flag">
+              <img src="https://flagcdn.com/py.svg" alt="Paraguai" class="mini-flag">
+              <img src="https://flagcdn.com/ae.svg" alt="Dubai" class="mini-flag">
+              <img src="https://flagcdn.com/gb.svg" alt="Reino Unido" class="mini-flag">
+              <img src="https://flagcdn.com/es.svg" alt="Espanha" class="mini-flag">
+              <img src="https://flagcdn.com/fr.svg" alt="França" class="mini-flag">
+            </div>
+            <span class="text-metallic-silver" data-i18n="heroDistribution">Distribuição Internacional</span>
+          </div>
+        </div>
+      </section>
+
+      <nav class="category-filter">
+        <div class="category-list" id="category-list"></div>
+      </nav>
+
+      <section class="products-section">
+        <div class="section-header">
+          <h2 class="section-title" id="section-title" data-i18n="allProducts">Todos os Produtos</h2>
+          <span class="product-count" id="product-count">0 produtos</span>
+        </div>
+        <div class="product-grid" id="product-grid"></div>
+      </section>
+    </div>
+
+    <!-- Categories View -->
+    <div id="categories-view" class="categories-view hidden">
+      <div class="categories-container">
+        <header class="category-header">
+          <h1 class="main-title" data-i18n="categoriesTitle">Categorias</h1>
+          <p class="main-subtitle" data-i18n="categoriesSubtitle">Explore nosso catálogo por categoria</p>
+        </header>
+        <div id="categories-list"></div>
+      </div>
+    </div>
+
+    <!-- Profile View -->
+    <div id="profile-view" class="profile-view hidden">
+      <div class="profile-header">
+        <div class="profile-avatar">
+          <img src="images/logobro.png" alt="Bro Pharma" onerror="this.src='/placeholder.svg'">
+        </div>
+        <h1 class="profile-name">BRO PHARMACEUTICALS</h1>
+        <p class="profile-tagline" data-i18n="profileTagline">Produtos Premium Importados</p>
+      </div>
+      <div class="profile-content">
+        <div class="profile-section">
+          <h2 class="profile-section-title" data-i18n="contactTitle">Contato</h2>
+          <div class="profile-card">
+            <a href="https://wa.me/595973729018" target="_blank" class="profile-item">
+              <div class="profile-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+              <div class="profile-item-content">
+                <div class="profile-item-label" data-i18n="whatsappSupport">WhatsApp Suporte</div>
+                <div class="profile-item-value">+595 973 729 018</div>
+              </div>
+              <div class="profile-item-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></div>
+            </a>
+            <a href="mailto:contato@bropharmaceuticals.com" class="profile-item">
+              <div class="profile-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+              <div class="profile-item-content">
+                <div class="profile-item-label">Email</div>
+                <div class="profile-item-value">contato@bropharmaceuticals.com</div>
+              </div>
+              <div class="profile-item-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></div>
+            </a>
+            <a href="https://bropharmaceutical.com" target="_blank" class="profile-item">
+              <div class="profile-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 0 20"/><path d="M12 2a15 15 0 0 0 0 20"/></svg></div>
+              <div class="profile-item-content">
+                <div class="profile-item-label" data-i18n="officialSite">Site Oficial</div>
+                <div class="profile-item-value">https://www.bropharmaceutical.com</div>
+              </div>
+              <div class="profile-item-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></div>
+            </a>
+          </div>
+        </div>
+        <div class="profile-section">
+          <h2 class="profile-section-title" data-i18n="aboutTitle">Sobre</h2>
+          <div class="profile-card">
+            <div class="profile-item">
+              <div class="profile-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg></div>
+              <div class="profile-item-content">
+                <div class="profile-item-label" data-i18n="originalProducts">Produtos Originais</div>
+                <div class="profile-item-value" data-i18n="originalProductsDesc">100% autênticos e certificados</div>
+              </div>
+            </div>
+            <div class="profile-item">
+              <div class="profile-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 22h14"/><path d="M5 2h14"/><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"/><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/></svg></div>
+              <div class="profile-item-content">
+                <div class="profile-item-label" data-i18n="fastShipping">Envio Rápido</div>
+                <div class="profile-item-value" data-i18n="fastShippingDesc">Entrega em todo o Brasil e Paraguay</div>
+              </div>
+            </div>
+            <div class="profile-item">
+              <div class="profile-item-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div>
+              <div class="profile-item-content">
+                <div class="profile-item-label" data-i18n="premiumSupport">Suporte Premium</div>
+                <div class="profile-item-value" data-i18n="premiumSupportDesc">Atendimento personalizado</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Access View -->
+    <div id="access-view" class="access-page hidden">
+      <div class="access-container">
+        <div class="vip-card">
+          <div class="card-glow"></div>
+          <div class="badge-vip">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            VIP ACCESS
+          </div>
+          <h2 class="vip-title text-metallic" data-i18n="vipTitle">GRUPO VIP IMPORTADOS</h2>
+          <p class="vip-text" data-i18n="vipText">Faça parte da elite Bro Pharmaceuticals. Acesse lotes exclusivos e receba suporte prioritário direto da fonte.</p>
+          <div class="price-box">
+            <span class="price-tag" data-i18n="oneTimePayment">PAGAMENTO ÚNICO</span>
+            <div class="price-amount"><span class="currency">R$</span> 67</div>
+          </div>
+          <a href="https://wa.me/595973729018?text=Quero+acesso+ao+VIP" target="_blank" class="btn-vip-metallic">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <span data-i18n="joinVipGroup">ENTRAR NO GRUPO VIP</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Nav -->
+    <nav class="bottom-nav">
+      <div class="bottom-nav-inner">
+        <button class="nav-item active" data-tab="home" type="button">
+          <div class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V21a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 23V14a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v9"/></svg></div>
+          <span class="nav-label" data-i18n="navHome">Início</span>
+        </button>
+        <button class="nav-item" data-tab="categories" type="button">
+          <div class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div>
+          <span class="nav-label" data-i18n="navCategories">Categorias</span>
+        </button>
+        <button class="nav-item" data-tab="access" type="button">
+          <div class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="M13 15.5h8"/><path d="M17 15.5v-3"/><path d="M20 15.5v-2"/></svg></div>
+          <span class="nav-label" data-i18n="navAccess">Acesso</span>
+        </button>
+        <button class="nav-item" data-tab="info" type="button">
+          <div class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="14" y2="17"/></svg></div>
+          <span class="nav-label" data-i18n="navInfo">Info</span>
+        </button>
+        <button class="nav-item" data-tab="profile" type="button">
+          <div class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <span class="nav-label" data-i18n="navContact">Contato</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Product Modal -->
+    <div class="modal-overlay" id="product-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button class="modal-close" id="modal-close"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg></button>
+          <button class="modal-close" id="modal-share"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg></button>
+        </div>
+        <div class="modal-body" id="modal-body"></div>
+        <div class="modal-footer">
+          <a href="#" id="btn-whatsapp-dynamic" class="btn-whatsapp" target="_blank">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .004 5.412.001 12.048c0 2.12.554 4.189 1.605 6.03l-1.706 6.23 6.376-1.673a11.83 11.83 0 005.772 1.493h.005c6.634 0 12.045-5.412 12.048-12.048a11.82 11.82 0 00-3.483-8.497z"/></svg>
+            <span data-i18n="finalizeOrder">Finalizar Pedido</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-overlay" id="search-modal">
+      <div class="search-header">
+        <button class="search-back" id="search-close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg></button>
+        <div class="search-input-wrapper">
+          <span class="search-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
+          <input type="text" class="search-input" id="search-input" data-i18n-placeholder="searchPlaceholder">
+        </div>
+      </div>
+      <div class="search-results" id="search-results">
+        <div class="search-empty">
+          <div class="search-empty-icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
+          <p data-i18n="searchPrompt">Digite para buscar produtos</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INFO SECTION (fora do #app para não conflitar com tab switching) -->
+  <section id="info-section" style="display:none; padding-bottom: 8rem;">
+    <div style="padding: 2rem 1rem 1rem;">
+      <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
+        <h2 style="font-size: 1.8rem; font-weight: 800; margin: 0 0 .8rem; color: #fff;" data-i18n="infoTitle">Referência Global em Peptídeos</h2>
+        <p style="margin: 0 auto 1.4rem; color: rgba(255,255,255,.78); line-height: 1.7; max-width: 760px; font-size: 1rem;" data-i18n="infoLead">Trabalhamos com <strong>peptídeos de primeira qualidade</strong>, incluindo <strong>Retatrutide</strong> e <strong>Tirzepatide</strong>, seguindo padrões rigorosos de excelência e pureza. Somos uma <strong>referência global</strong>, conectando múltiplos países e mercados estratégicos com eficiência, segurança e credibilidade.</p>
+      </div>
+    </div>
+
+    <div class="m3-wrap">
+      <div class="m3-grid">
+        <!-- CARD 1 -->
+        <article class="m3-card">
+          <div class="m3-shell">
+            <div class="m3-bg"></div>
+            <div class="m3-in"><img class="m3-in-img" src="images/tirzepatide.png" alt="Tirzepatide"></div>
+            <div class="m3-content">
+              <h3 class="m3-title">Tirzepatide</h3>
+              <p class="m3-lead" data-i18n="tirz_lead">Tirzepatide é um agonista duplo dos receptores <strong>GIP</strong> e <strong>GLP-1</strong>, envolvidos na regulação do metabolismo e da glicose.</p>
+              <ul class="m3-list">
+                <li data-i18n="tirz_li1"><strong>Glicose:</strong> melhora o controle glicêmico em muitos pacientes com DM2.</li>
+                <li data-i18n="tirz_li2"><strong>Saciedade:</strong> tende a aumentar saciedade e reduzir apetite.</li>
+                <li data-i18n="tirz_li3"><strong>Digestão:</strong> pode desacelerar o esvaziamento gástrico.</li>
+                <li data-i18n="tirz_li4"><strong>Peso:</strong> frequentemente associada à redução de peso com acompanhamento.</li>
+              </ul>
+              <p class="m3-note" data-i18n="tirz_note">Uso sob prescrição e acompanhamento profissional.</p>
+            </div>
+          </div>
+          <div class="m3-float" aria-hidden="true"><img class="m3-img" src="images/tirzepatide.png" alt=""></div>
+        </article>
+
+        <!-- CARD 2 -->
+        <article class="m3-card">
+          <div class="m3-shell">
+            <div class="m3-bg"></div>
+            <div class="m3-in"><img class="m3-in-img" src="images/retatrutide.png" alt="Retatrutide"></div>
+            <div class="m3-content">
+              <h3 class="m3-title">Retatrutide</h3>
+              <p class="m3-lead" data-i18n="reta_lead">Retatrutide é uma molécula de ação tripla (varia por país) que atua em <strong>GIP</strong>, <strong>GLP-1</strong> e <strong>glucagon</strong>.</p>
+              <ul class="m3-list">
+                <li data-i18n="reta_li1"><strong>Metabolismo:</strong> pode influenciar gasto energético.</li>
+                <li data-i18n="reta_li2"><strong>Saciedade:</strong> reduz ingestão calórica ao aumentar saciedade.</li>
+                <li data-i18n="reta_li3"><strong>Glicose:</strong> pode melhorar parâmetros glicêmicos em alguns perfis.</li>
+                <li data-i18n="reta_li4"><strong>Peso:</strong> investigada por potencial impacto em redução de peso.</li>
+              </ul>
+              <p class="m3-note" data-i18n="reta_note">Status regulatório e indicações variam conforme a região.</p>
+            </div>
+          </div>
+          <div class="m3-float" aria-hidden="true"><img class="m3-img" src="images/retatrutide.png" alt=""></div>
+        </article>
+
+        <!-- CARD 3 -->
+        <article class="m3-card">
+          <div class="m3-shell">
+            <div class="m3-bg"></div>
+            <div class="m3-in"><img class="m3-in-img" src="images/peptideos.png" alt="Peptídeos"></div>
+            <div class="m3-content">
+              <h3 class="m3-title" data-i18n="pep_title">Peptídeos</h3>
+              <p class="m3-lead" data-i18n="pep_lead">Peptídeos são cadeias curtas de aminoácidos que funcionam como sinais biológicos e podem modular processos no organismo.</p>
+              <ul class="m3-list">
+                <li data-i18n="pep_li1"><strong>Sinalização:</strong> participam da comunicação entre células.</li>
+                <li data-i18n="pep_li2"><strong>Regulação:</strong> podem influenciar metabolismo e imunidade (depende do peptídeo).</li>
+                <li data-i18n="pep_li3"><strong>Reparo:</strong> alguns atuam em regeneração e cicatrização tecidual.</li>
+                <li data-i18n="pep_li4"><strong>Especificidade:</strong> cada peptídeo tem função e alvo próprios.</li>
+              </ul>
+              <p class="m3-note" data-i18n="pep_note">Efeitos mudam conforme o tipo, dose e finalidade.</p>
+            </div>
+          </div>
+          <div class="m3-float" aria-hidden="true"><img class="m3-img" src="images/peptideos.png" alt=""></div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Globe -->
+    <div style="padding: 0 1rem;">
+      <div class="bro-box" style="padding:0; overflow:hidden; position:relative; margin-top:1rem; border:1px solid #333; background-color:#000005; background-image:url('https://assets.codepen.io/127738/milky-way.jpg'); background-size:cover; background-position:center; box-shadow:inset 0 0 100px rgba(0,0,0,0.9); border-radius:18px;">
+        <div id="globe-info" class="map-locked" style="width:100%; height:500px;"></div>
+        <button id="toggle-map-btn-info" style="position:absolute; top:20px; right:20px; z-index:10; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.3); color:white; padding:0.5rem 1.2rem; font-size:0.85rem; border-radius:50px; pointer-events:auto; display:flex; align-items:center; gap:8px; cursor:pointer; backdrop-filter:blur(5px); transition:all 0.3s ease;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+          <span data-i18n="exploreMap">Explorar Mapa</span>
+        </button>
+        <div id="zoom-hint-info" style="position:absolute; bottom:20px; left:50%; transform:translateX(-50%); opacity:0; transition:opacity 0.3s; pointer-events:none; z-index:10;">
+          <span style="font-size:0.8rem; background:rgba(0,0,0,0.7); border:1px solid rgba(255,255,255,0.2); color:white; padding:6px 12px; border-radius:20px; font-weight:600;" data-i18n="globeHint">Logística Bro Pharma</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-flags-row" style="margin-top:0.7rem;">
+      <div class="info-flag-card"><img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="EUA"><span data-i18n="flagUSA">EUA</span></div>
+      <div class="info-flag-card"><img src="https://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg" alt="Brasil"><span data-i18n="flagBrazil">Brasil</span></div>
+      <div class="info-flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/2/27/Flag_of_Paraguay.svg" alt="Paraguai"><span data-i18n="flagParaguay">Paraguai</span></div>
+      <div class="info-flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_the_United_Arab_Emirates.svg" alt="Dubai"><span data-i18n="flagDubai">Dubai</span></div>
+      <div class="info-flag-card"><img src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg" alt="Reino Unido"><span data-i18n="flagUK">Reino Unido</span></div>
+      <div class="info-flag-card"><img src="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg" alt="Espanha"><span data-i18n="flagSpain">Espanha</span></div>
+      <div class="info-flag-card"><img src="https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg" alt="França"><span data-i18n="flagFrance">França</span></div>
+    </div>
+
+    <footer class="main-footer">
+      <div class="footer-container">
+        <div class="footer-brand-section">
+          <h2 class="footer-logo">BRO PHARMACEUTICALS</h2>
+          <p class="footer-text" data-i18n="footerTagline">Qualidade e tecnologia em peptídeos.</p>
+        </div>
+        <nav class="footer-nav">
+          <a href="https://bropharmaceutical.com/app/termos.html" class="footer-link" data-i18n="footerTerms">Termos de Uso</a>
+          <span class="footer-dot">•</span>
+          <a href="https://bropharmaceutical.com/app/politicas.html" class="footer-link" data-i18n="footerPrivacy">Privacidade</a>
+        </nav>
+        <div class="footer-copyright">
+          <p class="footer-text">© 2026 Bro Pharmaceuticals.</p>
+          <p class="footer-text" data-i18n="footerRights">Todos os direitos reservados.</p>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <script src="//unpkg.com/globe.gl"></script>
+
+  <script>
+  // ============================================================
+  // i18n TRANSLATIONS
+  // ============================================================
+  const translations = {
+    pt: {
+      headerTagline: "Qualidade Premium Global",
+      heroBadge: "Todos os direitos reservados",
+      heroDistribution: "Distribuição Internacional",
+      allProducts: "Todos os Produtos",
+      productCountSuffix: "produto",
+      productCountSuffixPlural: "produtos",
+      searchPlaceholder: "Buscar produtos...",
+      searchPrompt: "Digite para buscar produtos",
+      searchNoResults: "Nenhum produto encontrado",
+      navHome: "Início",
+      navCategories: "Categorias",
+      navAccess: "Acesso",
+      navInfo: "Info",
+      navContact: "Contato",
+      categoriesTitle: "Categorias",
+      categoriesSubtitle: "Explore nosso catálogo por categoria",
+      profileTagline: "Produtos Premium Importados",
+      contactTitle: "Contato",
+      whatsappSupport: "WhatsApp Suporte",
+      officialSite: "Site Oficial",
+      aboutTitle: "Sobre",
+      originalProducts: "Produtos Originais",
+      originalProductsDesc: "100% autênticos e certificados",
+      fastShipping: "Envio Rápido",
+      fastShippingDesc: "Entrega em todo o Brasil e Paraguay",
+      premiumSupport: "Suporte Premium",
+      premiumSupportDesc: "Atendimento personalizado",
+      vipTitle: "GRUPO VIP IMPORTADOS",
+      vipText: "Faça parte da elite Bro Pharmaceuticals. Acesse lotes exclusivos e receba suporte prioritário direto da fonte.",
+      oneTimePayment: "PAGAMENTO ÚNICO",
+      joinVipGroup: "ENTRAR NO GRUPO VIP",
+      finalizeOrder: "Finalizar Pedido",
+      modalOriginal: "Produto 100% original e certificado",
+      modalSupport: "Suporte e orientação inclusos",
+      exploreMap: "Explorar Mapa",
+      closeMap: "Fechar Mapa",
+      globeHint: "Logística Bro Pharma",
+      infoTitle: "Referência Global em Peptídeos",
+      infoLead: "Trabalhamos com <strong>peptídeos de primeira qualidade</strong>, incluindo <strong>Retatrutide</strong> e <strong>Tirzepatide</strong>, seguindo padrões rigorosos de excelência e pureza. Somos uma <strong>referência global</strong>, conectando múltiplos países e mercados estratégicos com eficiência, segurança e credibilidade.",
+      tirz_lead: "Tirzepatide é um agonista duplo dos receptores <strong>GIP</strong> e <strong>GLP-1</strong>, envolvidos na regulação do metabolismo e da glicose.",
+      tirz_li1: "<strong>Glicose:</strong> melhora o controle glicêmico em muitos pacientes com DM2.",
+      tirz_li2: "<strong>Saciedade:</strong> tende a aumentar saciedade e reduzir apetite.",
+      tirz_li3: "<strong>Digestão:</strong> pode desacelerar o esvaziamento gástrico.",
+      tirz_li4: "<strong>Peso:</strong> frequentemente associada à redução de peso com acompanhamento.",
+      tirz_note: "Uso sob prescrição e acompanhamento profissional.",
+      reta_lead: "Retatrutide é uma molécula de ação tripla (varia por país) que atua em <strong>GIP</strong>, <strong>GLP-1</strong> e <strong>glucagon</strong>.",
+      reta_li1: "<strong>Metabolismo:</strong> pode influenciar gasto energético.",
+      reta_li2: "<strong>Saciedade:</strong> reduz ingestão calórica ao aumentar saciedade.",
+      reta_li3: "<strong>Glicose:</strong> pode melhorar parâmetros glicêmicos em alguns perfis.",
+      reta_li4: "<strong>Peso:</strong> investigada por potencial impacto em redução de peso.",
+      reta_note: "Status regulatório e indicações variam conforme a região.",
+      pep_title: "Peptídeos",
+      pep_lead: "Peptídeos são cadeias curtas de aminoácidos que funcionam como sinais biológicos e podem modular processos no organismo.",
+      pep_li1: "<strong>Sinalização:</strong> participam da comunicação entre células.",
+      pep_li2: "<strong>Regulação:</strong> podem influenciar metabolismo e imunidade (depende do peptídeo).",
+      pep_li3: "<strong>Reparo:</strong> alguns atuam em regeneração e cicatrização tecidual.",
+      pep_li4: "<strong>Especificidade:</strong> cada peptídeo tem função e alvo próprios.",
+      pep_note: "Efeitos mudam conforme o tipo, dose e finalidade.",
+      footerTagline: "Qualidade e tecnologia em peptídeos.",
+      footerTerms: "Termos de Uso",
+      footerPrivacy: "Privacidade",
+      footerRights: "Todos os direitos reservados.",
+      flagUSA: "EUA", flagBrazil: "Brasil", flagParaguay: "Paraguai",
+      flagDubai: "Dubai", flagUK: "Reino Unido", flagSpain: "Espanha", flagFrance: "França",
+      accessBtn: "Acessar",
+      swipeLabel: "↔ Arraste",
+      catAll: "Todos", catBropharma: "Bro Pharma", catEmagrecimento: "Emagrecimento",
+      catPerformance: "Performance", catToxina: "Toxina", catRejuvenescimento: "Rejuvenescimento",
+      catPreenchedores: "Preenchedores",
+      catAllDesc: "Veja todos os produtos disponíveis",
+      catBropharmaDesc: "Linha completa Bro Pharma com Tirzepatide, Retatrutide e peptídeos",
+      catEmagrecimentoDesc: "Canetas para protocolos de emagrecimento",
+      catPerformanceDesc: "Energia, foco, resistência e performance metabólica",
+      catToxinaDesc: "Botox Dysport, Allergan e Isaderm",
+      catRejuvenescimentoDesc: "Bioestimuladores de colágeno e rejuvenescimento avançado",
+      catPreenchedoresDesc: "Biofill, Linebody, MOMM e linha Juvederm",
+      sectionAll: "Todos os Produtos",
+    },
+
+    en: {
+      headerTagline: "Global Premium Quality",
+      heroBadge: "All rights reserved",
+      heroDistribution: "International Distribution",
+      allProducts: "All Products",
+      productCountSuffix: "product",
+      productCountSuffixPlural: "products",
+      searchPlaceholder: "Search products...",
+      searchPrompt: "Type to search products",
+      searchNoResults: "No products found",
+      navHome: "Home",
+      navCategories: "Categories",
+      navAccess: "Access",
+      navInfo: "Info",
+      navContact: "Contact",
+      categoriesTitle: "Categories",
+      categoriesSubtitle: "Explore our catalog by category",
+      profileTagline: "Premium Imported Products",
+      contactTitle: "Contact",
+      whatsappSupport: "WhatsApp Support",
+      officialSite: "Official Website",
+      aboutTitle: "About",
+      originalProducts: "Original Products",
+      originalProductsDesc: "100% authentic and certified",
+      fastShipping: "Fast Shipping",
+      fastShippingDesc: "Delivery across Brazil and Paraguay",
+      premiumSupport: "Premium Support",
+      premiumSupportDesc: "Personalized service",
+      vipTitle: "VIP IMPORTED GROUP",
+      vipText: "Join the Bro Pharmaceuticals elite. Access exclusive batches and receive priority support directly from the source.",
+      oneTimePayment: "ONE-TIME PAYMENT",
+      joinVipGroup: "JOIN VIP GROUP",
+      finalizeOrder: "Place Order",
+      modalOriginal: "100% original and certified product",
+      modalSupport: "Support and guidance included",
+      exploreMap: "Explore Map",
+      closeMap: "Close Map",
+      globeHint: "Bro Pharma Logistics",
+      infoTitle: "Global Reference in Peptides",
+      infoLead: "We work with <strong>top-quality peptides</strong>, including <strong>Retatrutide</strong> and <strong>Tirzepatide</strong>, following rigorous standards of excellence and purity. We are a <strong>global reference</strong>, connecting multiple countries and strategic markets with efficiency, safety and credibility.",
+      tirz_lead: "Tirzepatide is a dual agonist of <strong>GIP</strong> and <strong>GLP-1</strong> receptors, involved in regulating metabolism and glucose.",
+      tirz_li1: "<strong>Glucose:</strong> improves glycemic control in many DM2 patients.",
+      tirz_li2: "<strong>Satiety:</strong> tends to increase satiety and reduce appetite.",
+      tirz_li3: "<strong>Digestion:</strong> may slow gastric emptying.",
+      tirz_li4: "<strong>Weight:</strong> frequently associated with weight reduction under supervision.",
+      tirz_note: "Use under prescription and professional supervision.",
+      reta_lead: "Retatrutide is a triple-action molecule (varies by country) acting on <strong>GIP</strong>, <strong>GLP-1</strong> and <strong>glucagon</strong>.",
+      reta_li1: "<strong>Metabolism:</strong> may influence energy expenditure.",
+      reta_li2: "<strong>Satiety:</strong> reduces caloric intake by increasing satiety.",
+      reta_li3: "<strong>Glucose:</strong> may improve glycemic parameters in some profiles.",
+      reta_li4: "<strong>Weight:</strong> investigated for potential impact on weight reduction.",
+      reta_note: "Regulatory status and indications vary by region.",
+      pep_title: "Peptides",
+      pep_lead: "Peptides are short chains of amino acids that act as biological signals and can modulate processes in the body.",
+      pep_li1: "<strong>Signaling:</strong> participate in cell-to-cell communication.",
+      pep_li2: "<strong>Regulation:</strong> may influence metabolism and immunity (depends on the peptide).",
+      pep_li3: "<strong>Repair:</strong> some act in tissue regeneration and wound healing.",
+      pep_li4: "<strong>Specificity:</strong> each peptide has its own function and target.",
+      pep_note: "Effects vary according to type, dose and purpose.",
+      footerTagline: "Quality and technology in peptides.",
+      footerTerms: "Terms of Use",
+      footerPrivacy: "Privacy",
+      footerRights: "All rights reserved.",
+      flagUSA: "USA", flagBrazil: "Brazil", flagParaguay: "Paraguay",
+      flagDubai: "Dubai", flagUK: "United Kingdom", flagSpain: "Spain", flagFrance: "France",
+      accessBtn: "Access",
+      swipeLabel: "↔ Swipe",
+      catAll: "All", catBropharma: "Bro Pharma", catEmagrecimento: "Weight Loss",
+      catPerformance: "Performance", catToxina: "Toxin", catRejuvenescimento: "Rejuvenation",
+      catPreenchedores: "Fillers",
+      catAllDesc: "See all available products",
+      catBropharmaDesc: "Full Bro Pharma line with Tirzepatide, Retatrutide and peptides",
+      catEmagrecimentoDesc: "Pens for weight loss protocols",
+      catPerformanceDesc: "Energy, focus, endurance and metabolic performance",
+      catToxinaDesc: "Botox Dysport, Allergan and Isaderm",
+      catRejuvenescimentoDesc: "Collagen biostimulators and advanced rejuvenation",
+      catPreenchedoresDesc: "Biofill, Linebody, MOMM and Juvederm line",
+      sectionAll: "All Products",
+    },
+
+    es: {
+      headerTagline: "Calidad Premium Global",
+      heroBadge: "Todos los derechos reservados",
+      heroDistribution: "Distribución Internacional",
+      allProducts: "Todos los Productos",
+      productCountSuffix: "producto",
+      productCountSuffixPlural: "productos",
+      searchPlaceholder: "Buscar productos...",
+      searchPrompt: "Escribe para buscar productos",
+      searchNoResults: "No se encontraron productos",
+      navHome: "Inicio",
+      navCategories: "Categorías",
+      navAccess: "Acceso",
+      navInfo: "Info",
+      navContact: "Contacto",
+      categoriesTitle: "Categorías",
+      categoriesSubtitle: "Explora nuestro catálogo por categoría",
+      profileTagline: "Productos Premium Importados",
+      contactTitle: "Contacto",
+      whatsappSupport: "Soporte por WhatsApp",
+      officialSite: "Sitio Oficial",
+      aboutTitle: "Sobre Nosotros",
+      originalProducts: "Productos Originales",
+      originalProductsDesc: "100% auténticos y certificados",
+      fastShipping: "Envío Rápido",
+      fastShippingDesc: "Entrega en Brasil y Paraguay",
+      premiumSupport: "Soporte Premium",
+      premiumSupportDesc: "Atención personalizada",
+      vipTitle: "GRUPO VIP IMPORTADOS",
+      vipText: "Forma parte de la élite de Bro Pharmaceuticals. Accede a lotes exclusivos y recibe soporte prioritario directo de la fuente.",
+      oneTimePayment: "PAGO ÚNICO",
+      joinVipGroup: "UNIRSE AL GRUPO VIP",
+      finalizeOrder: "Finalizar Pedido",
+      modalOriginal: "Producto 100% original y certificado",
+      modalSupport: "Soporte y orientación incluidos",
+      exploreMap: "Explorar Mapa",
+      closeMap: "Cerrar Mapa",
+      globeHint: "Logística Bro Pharma",
+      infoTitle: "Referencia Global en Péptidos",
+      infoLead: "Trabajamos con <strong>péptidos de primera calidad</strong>, incluyendo <strong>Retatrutide</strong> y <strong>Tirzepatide</strong>, siguiendo estrictos estándares de excelencia y pureza. Somos una <strong>referencia global</strong>, conectando múltiples países y mercados estratégicos con eficiencia, seguridad y credibilidad.",
+      tirz_lead: "Tirzepatide es un agonista doble de los receptores <strong>GIP</strong> y <strong>GLP-1</strong>, involucrados en la regulación del metabolismo y la glucosa.",
+      tirz_li1: "<strong>Glucosa:</strong> mejora el control glucémico en muchos pacientes con DM2.",
+      tirz_li2: "<strong>Saciedad:</strong> tiende a aumentar la saciedad y reducir el apetito.",
+      tirz_li3: "<strong>Digestión:</strong> puede ralentizar el vaciado gástrico.",
+      tirz_li4: "<strong>Peso:</strong> frecuentemente asociado a reducción de peso bajo supervisión.",
+      tirz_note: "Uso bajo prescripción y supervisión profesional.",
+      reta_lead: "Retatrutide es una molécula de triple acción (varía por país) que actúa en <strong>GIP</strong>, <strong>GLP-1</strong> y <strong>glucagón</strong>.",
+      reta_li1: "<strong>Metabolismo:</strong> puede influir en el gasto energético.",
+      reta_li2: "<strong>Saciedad:</strong> reduce la ingesta calórica al aumentar la saciedad.",
+      reta_li3: "<strong>Glucosa:</strong> puede mejorar parámetros glucémicos en algunos perfiles.",
+      reta_li4: "<strong>Peso:</strong> investigada por su potencial impacto en la reducción de peso.",
+      reta_note: "El estado regulatorio e indicaciones varían según la región.",
+      pep_title: "Péptidos",
+      pep_lead: "Los péptidos son cadenas cortas de aminoácidos que funcionan como señales biológicas y pueden modular procesos en el organismo.",
+      pep_li1: "<strong>Señalización:</strong> participan en la comunicación entre células.",
+      pep_li2: "<strong>Regulación:</strong> pueden influir en el metabolismo e inmunidad (depende del péptido).",
+      pep_li3: "<strong>Reparación:</strong> algunos actúan en la regeneración y cicatrización tisular.",
+      pep_li4: "<strong>Especificidad:</strong> cada péptido tiene su función y objetivo propios.",
+      pep_note: "Los efectos cambian según el tipo, dosis y finalidad.",
+      footerTagline: "Calidad y tecnología en péptidos.",
+      footerTerms: "Términos de Uso",
+      footerPrivacy: "Privacidad",
+      footerRights: "Todos los derechos reservados.",
+      flagUSA: "EE.UU.", flagBrazil: "Brasil", flagParaguay: "Paraguay",
+      flagDubai: "Dubái", flagUK: "Reino Unido", flagSpain: "España", flagFrance: "Francia",
+      accessBtn: "Acceder",
+      swipeLabel: "↔ Desliza",
+      catAll: "Todos", catBropharma: "Bro Pharma", catEmagrecimento: "Adelgazamiento",
+      catPerformance: "Rendimiento", catToxina: "Toxina", catRejuvenescimento: "Rejuvenecimiento",
+      catPreenchedores: "Rellenos",
+      catAllDesc: "Ver todos los productos disponibles",
+      catBropharmaDesc: "Línea completa Bro Pharma con Tirzepatide, Retatrutide y péptidos",
+      catEmagrecimentoDesc: "Plumas para protocolos de adelgazamiento",
+      catPerformanceDesc: "Energía, enfoque, resistencia y rendimiento metabólico",
+      catToxinaDesc: "Botox Dysport, Allergan e Isaderm",
+      catRejuvenescimentoDesc: "Bioestimuladores de colágeno y rejuvenecimiento avanzado",
+      catPreenchedoresDesc: "Biofill, Linebody, MOMM y línea Juvederm",
+      sectionAll: "Todos los Productos",
+    },
+
+    fr: {
+      headerTagline: "Qualité Premium Mondiale",
+      heroBadge: "Tous droits réservés",
+      heroDistribution: "Distribution Internationale",
+      allProducts: "Tous les Produits",
+      productCountSuffix: "produit",
+      productCountSuffixPlural: "produits",
+      searchPlaceholder: "Rechercher des produits...",
+      searchPrompt: "Tapez pour rechercher des produits",
+      searchNoResults: "Aucun produit trouvé",
+      navHome: "Accueil",
+      navCategories: "Catégories",
+      navAccess: "Accès",
+      navInfo: "Info",
+      navContact: "Contact",
+      categoriesTitle: "Catégories",
+      categoriesSubtitle: "Explorez notre catalogue par catégorie",
+      profileTagline: "Produits Premium Importés",
+      contactTitle: "Contact",
+      whatsappSupport: "Support WhatsApp",
+      officialSite: "Site Officiel",
+      aboutTitle: "À propos",
+      originalProducts: "Produits Originaux",
+      originalProductsDesc: "100% authentiques et certifiés",
+      fastShipping: "Livraison Rapide",
+      fastShippingDesc: "Livraison au Brésil et au Paraguay",
+      premiumSupport: "Support Premium",
+      premiumSupportDesc: "Service personnalisé",
+      vipTitle: "GROUPE VIP IMPORTÉS",
+      vipText: "Rejoignez l'élite de Bro Pharmaceuticals. Accédez aux lots exclusifs et recevez un support prioritaire directement de la source.",
+      oneTimePayment: "PAIEMENT UNIQUE",
+      joinVipGroup: "REJOINDRE LE GROUPE VIP",
+      finalizeOrder: "Finaliser la Commande",
+      modalOriginal: "Produit 100% original et certifié",
+      modalSupport: "Support et orientation inclus",
+      exploreMap: "Explorer la Carte",
+      closeMap: "Fermer la Carte",
+      globeHint: "Logistique Bro Pharma",
+      infoTitle: "Référence Mondiale en Peptides",
+      infoLead: "Nous travaillons avec des <strong>peptides de première qualité</strong>, notamment <strong>Retatrutide</strong> et <strong>Tirzepatide</strong>, selon des normes rigoureuses d'excellence et de pureté. Nous sommes une <strong>référence mondiale</strong>, reliant plusieurs pays et marchés stratégiques avec efficacité, sécurité et crédibilité.",
+      tirz_lead: "Le Tirzepatide est un agoniste double des récepteurs <strong>GIP</strong> et <strong>GLP-1</strong>, impliqués dans la régulation du métabolisme et du glucose.",
+      tirz_li1: "<strong>Glucose :</strong> améliore le contrôle glycémique chez de nombreux patients DM2.",
+      tirz_li2: "<strong>Satiété :</strong> tend à augmenter la satiété et à réduire l'appétit.",
+      tirz_li3: "<strong>Digestion :</strong> peut ralentir la vidange gastrique.",
+      tirz_li4: "<strong>Poids :</strong> fréquemment associé à une réduction de poids sous surveillance.",
+      tirz_note: "Utilisation sous prescription et suivi professionnel.",
+      reta_lead: "Retatrutide est une molécule à triple action (variable selon le pays) agissant sur <strong>GIP</strong>, <strong>GLP-1</strong> et <strong>glucagon</strong>.",
+      reta_li1: "<strong>Métabolisme :</strong> peut influencer la dépense énergétique.",
+      reta_li2: "<strong>Satiété :</strong> réduit l'apport calorique en augmentant la satiété.",
+      reta_li3: "<strong>Glucose :</strong> peut améliorer les paramètres glycémiques chez certains profils.",
+      reta_li4: "<strong>Poids :</strong> étudiée pour son impact potentiel sur la réduction du poids.",
+      reta_note: "Le statut réglementaire et les indications varient selon la région.",
+      pep_title: "Peptides",
+      pep_lead: "Les peptides sont de courtes chaînes d'acides aminés qui fonctionnent comme des signaux biologiques et peuvent moduler des processus dans l'organisme.",
+      pep_li1: "<strong>Signalisation :</strong> participent à la communication entre cellules.",
+      pep_li2: "<strong>Régulation :</strong> peuvent influencer le métabolisme et l'immunité (selon le peptide).",
+      pep_li3: "<strong>Réparation :</strong> certains agissent dans la régénération et la cicatrisation tissulaire.",
+      pep_li4: "<strong>Spécificité :</strong> chaque peptide a sa propre fonction et cible.",
+      pep_note: "Les effets varient selon le type, la dose et l'objectif.",
+      footerTagline: "Qualité et technologie en peptides.",
+      footerTerms: "Conditions d'utilisation",
+      footerPrivacy: "Confidentialité",
+      footerRights: "Tous droits réservés.",
+      flagUSA: "États-Unis", flagBrazil: "Brésil", flagParaguay: "Paraguay",
+      flagDubai: "Dubaï", flagUK: "Royaume-Uni", flagSpain: "Espagne", flagFrance: "France",
+      accessBtn: "Accéder",
+      swipeLabel: "↔ Glisser",
+      catAll: "Tous", catBropharma: "Bro Pharma", catEmagrecimento: "Amincissement",
+      catPerformance: "Performance", catToxina: "Toxine", catRejuvenescimento: "Rajeunissement",
+      catPreenchedores: "Fillers",
+      catAllDesc: "Voir tous les produits disponibles",
+      catBropharmaDesc: "Gamme complète Bro Pharma avec Tirzepatide, Retatrutide et peptides",
+      catEmagrecimentoDesc: "Stylos pour protocoles d'amincissement",
+      catPerformanceDesc: "Énergie, concentration, endurance et performance métabolique",
+      catToxinaDesc: "Botox Dysport, Allergan et Isaderm",
+      catRejuvenescimentoDesc: "Biostimulateurs de collagène et rajeunissement avancé",
+      catPreenchedoresDesc: "Biofill, Linebody, MOMM et gamme Juvederm",
+      sectionAll: "Tous les Produits",
+    }
+  };
+
+  // ============================================================
+  // CURRENT LANGUAGE
+  // ============================================================
+  let currentLang = 'pt';
+
+  function t(key) {
+    return translations[currentLang][key] || translations['pt'][key] || key;
+  }
+
+  function applyTranslations() {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      el.innerHTML = t(key);
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      el.placeholder = t(key);
+    });
+    // Atualiza html lang
+    const langMap = { pt: 'pt-BR', en: 'en', es: 'es', fr: 'fr' };
+    document.documentElement.lang = langMap[currentLang] || 'pt-BR';
+  }
+
+  // ============================================================
+  // PRODUCT DATA (with i18n descriptions)
+  // ============================================================
+  const productData = {
+    pt: [
+      { id:1, name:"Tirzepatide 120mg (Bro Pharma)", description:"Auxilia no controle glicêmico e na redução do apetite. Usado em protocolos metabólicos voltados à sensibilidade à insulina, saciedade prolongada e redução de gordura corporal.", badge:"New", category:"bropharma", images:["images/tirze120.png","images/ampola120mg.png","images/caixa120.png"], whatsappMessage:"Olá! Tenho interesse no Tirzepatide 120mg da Bro Pharma" },
+      { id:2, name:"Tirzepatide 60mg (Bro Pharma)", description:"Auxilia no controle do apetite e da glicemia. Indicado para continuidade de protocolos metabólicos com foco em emagrecimento e equilíbrio glicêmico.", badge:"New", category:"bropharma", images:["images/tizerpatide60.png","images/ampola60mg.png","images/caixa60.png"], whatsappMessage:"Olá! Tenho interesse no Tirzepatide 60mg da Bro Pharma" },
+      { id:3, name:"Tirzepatide 30mg (Bro Pharma)", description:"Auxilia na adaptação metabólica inicial. Usado no início de protocolos para redução gradual do apetite e melhora da resposta glicêmica.", badge:"New", category:"bropharma", images:["images/tizerpatide30.png","images/ampola30mg.png","images/caixa30.png"], whatsappMessage:"Olá! Tenho interesse no Tirzepatide 30mg da Bro Pharma" },
+      { id:4, name:"Retatrutide 40mg (Bro Pharma)", description:"Auxilia no aumento do gasto energético e no controle do apetite. Utilizado em protocolos metabólicos avançados para emagrecimento e recomposição corporal.", badge:"New", category:"bropharma", images:["images/reta40mili.jpeg","images/ampola40mg.png","images/caixa40.png"], whatsappMessage:"Olá! Tenho interesse no Retatrutide 40mg da Bro Pharma" },
+      { id:5, name:"BB20 (BPC-157 + TB-500)", description:"Auxilia na recuperação de músculos, tendões e articulações. Muito usado em protocolos de reabilitação, pós-treino e recuperação física.", badge:"Peptídeo", category:"bropharma", images:["images/bb20.png"], whatsappMessage:"Olá! Tenho interesse no BB20" },
+      { id:6, name:"CJC-1295 + Ipamorelin", description:"Auxilia na liberação natural do hormônio do crescimento (GH). Usado para recuperação, melhora do sono, composição corporal e performance.", badge:"Peptídeo", category:"bropharma", images:["images/cjc-ipa.png"], whatsappMessage:"Olá! Tenho interesse no CJC + IPA" },
+      { id:7, name:"Tesamorelin 10 mg", description:"Auxilia na redução de gordura visceral. Utilizado em protocolos metabólicos com foco em abdômen e definição corporal.", badge:"Peptídeo", category:"bropharma", images:["images/tesamorelin.png"], whatsappMessage:"Olá! Tenho interesse no Tesamorelin 10 mg" },
+      { id:8, name:"MT2 10 mg", description:"Auxilia na estimulação da melanina. Usado em protocolos estéticos voltados ao bronzeamento e pigmentação da pele.", badge:"Peptídeo", category:"bropharma", images:["images/mt2.png"], whatsappMessage:"Olá! Tenho interesse no MT2 10 mg" },
+      { id:9, name:"Epithalon 10 mg", description:"Auxilia na regulação do ciclo do sono e recuperação celular. Associado a protocolos de longevidade e bem-estar.", badge:"Peptídeo", category:"bropharma", images:["images/epithalon.png"], whatsappMessage:"Olá! Tenho interesse no Epithalon 10 mg" },
+      { id:10, name:"SS-31 10 mg", description:"Auxilia na proteção mitocondrial e produção de energia celular. Usado para fadiga, performance e vitalidade.", badge:"Peptídeo", category:"bropharma", images:["images/ss-31.png"], whatsappMessage:"Olá! Tenho interesse no SS-31 10 mg" },
+      { id:11, name:"Semax 10 mg", description:"Auxilia no foco, memória e clareza mental. Aplicado em protocolos de cognição, produtividade e bem-estar mental.", badge:"Peptídeo", category:"bropharma", images:["images/semax.png"], whatsappMessage:"Olá! Tenho interesse no Semax 10 mg" },
+      { id:12, name:"MOTS-C 10 mg", description:"Auxilia na sensibilidade à insulina e produção de energia. Usado em protocolos metabólicos e de performance.", badge:"Peptídeo", category:"bropharma", images:["images/mots-c.png"], whatsappMessage:"Olá! Tenho interesse no MOTS-C 10 mg" },
+      { id:13, name:"HGH Frag 176-191", description:"Auxilia na mobilização de gordura. Usado em protocolos de definição corporal e redução de gordura localizada.", badge:"Peptídeo", category:"bropharma", images:["images/hghfrag176.png"], whatsappMessage:"Olá! Tenho interesse no HGH Frag 176" },
+      { id:14, name:"GHK-CU 50 mg", description:"Auxilia na regeneração da pele e estímulo de colágeno. Muito usado em protocolos estéticos e de rejuvenescimento.", badge:"Peptídeo", category:"bropharma", images:["images/ghk-cu.png"], whatsappMessage:"Olá! Tenho interesse no GHK-CU 50 mg" },
+      { id:15, name:"Glow (BPC-157 + TB-500 + GHK-CU)", description:"Auxilia na recuperação física e melhora da pele. Combinação voltada à regeneração, suporte de colágeno e estética.", badge:"Peptídeo", category:"bropharma", images:["images/glow.png"], whatsappMessage:"Olá! Tenho interesse no Glow" },
+      { id:16, name:"NAD+ 500 mg (Ampola)", description:"Auxilia na produção de energia celular. Usado em protocolos de vitalidade, longevidade e recuperação.", badge:"Peptídeo", category:"bropharma", images:["images/b12ampola.png"], whatsappMessage:"Olá! Tenho interesse no NAD+ 500 mg (Ampola)" },
+      { id:17, name:"Retatrutide 40mg (Caneta)", description:"Auxilia no controle do apetite e suporte ao metabolismo. Caneta com aplicação prática e dosagem precisa para protocolos avançados.", badge:"Emagrecimento", category:"emagrecimento", images:["images/retatrutide40.png"], whatsappMessage:"Olá! Tenho interesse no Retatrutide 40mg (Caneta)" },
+      { id:18, name:"Glow GHK-CU (Caneta) 10/10/50 mg", description:"Combinação de BPC-157, TB-500 e GHK-CU em caneta de aplicação prática. Auxilia na recuperação física, regeneração da pele e estímulo de colágeno.", badge:"Performance", category:"performance", images:["images/ghkcaneta.png"], whatsappMessage:"Olá! Tenho interesse no Glow GHK-CU (Caneta)" },
+      { id:19, name:"BPC-157 & TB-500 40mg (Caneta)", description:"Auxilia na recuperação de músculos, tendões e articulações. Caneta prática para protocolos de reabilitação e recuperação física.", badge:"Performance", category:"performance", images:["images/bpc157caneta.png"], whatsappMessage:"Olá! Tenho interesse no BPC-157 & TB-500 40mg (Caneta)" },
+      { id:20, name:"Retatrutide Alluvi 40mg (Caneta)", description:"Auxilia no controle do apetite e suporte ao metabolismo. Versão Alluvi em caneta com aplicação prática e dosagem precisa.", badge:"Performance", category:"performance", images:["images/retaalluvi.png"], whatsappMessage:"Olá! Tenho interesse no Retatrutide Alluvi 40mg (Caneta)" },
+      { id:21, name:"Botox – Dysport", description:"Auxilia na redução de rugas dinâmicas e linhas de expressão. Muito usado em protocolos estéticos faciais.", badge:"Toxina", category:"toxina", images:["images/dysport.png"], whatsappMessage:"Olá! Tenho interesse no Botox Dysport" },
+      { id:22, name:"Botox – Allergan", description:"Auxilia no relaxamento muscular para suavizar linhas de expressão. Referência em protocolos estéticos.", badge:"Toxina", category:"toxina", images:["images/botox.png"], whatsappMessage:"Olá! Tenho interesse no Botox Allergan" },
+      { id:23, name:"Botox – Israderm", description:"Auxilia na suavização de rugas e marcas de expressão. Opção premium para protocolos faciais.", badge:"Toxina", category:"toxina", images:["images/israderm.png"], whatsappMessage:"Olá! Tenho interesse no Botox Isaderm" },
+      { id:24, name:"Radiesse", description:"Auxilia na firmeza e estímulo de colágeno. Bioestimulador para melhorar textura e sustentação da pele.", badge:"Rejuvenescimento", category:"rejuvenescimento", images:["images/radiesse.png"], whatsappMessage:"Olá! Tenho interesse no Radiesse" },
+      { id:25, name:"Sculptra", description:"Auxilia no estímulo de colágeno e melhora gradual da flacidez. Indicado para rejuvenescimento progressivo.", badge:"Rejuvenescimento", category:"rejuvenescimento", images:["images/sculptra.png"], whatsappMessage:"Olá! Tenho interesse no Sculptra" },
+      { id:26, name:"Biofill 20ml", description:"Auxilia na reposição de volume e contorno corporal. Preenchedor de alta densidade para resultado uniforme.", badge:"Preenchedores", category:"preenchedores", images:["images/biofill20ml.png"], whatsappMessage:"Olá! Tenho interesse no Biofill 20ml" },
+      { id:27, name:"Biofill Shape 55ml", description:"Auxilia na modelagem e definição corporal. Preenchedor com boa sustentação e acabamento natural.", badge:"Preenchedores", category:"preenchedores", images:["images/biofillshape55ml.png"], whatsappMessage:"Olá! Tenho interesse no Biofill Shape 55ml" },
+      { id:28, name:"Biofill Hidroxiapatita", description:"Auxilia na firmeza e estímulo de colágeno. Indicado para sustentação e melhora do aspecto da pele.", badge:"Preenchedores", category:"preenchedores", images:["images/biotfill.png"], whatsappMessage:"Olá! Tenho interesse no Biofill Hidroxiapatita" },
+      { id:29, name:"Linebody 5ml Hard", description:"Auxilia na projeção e definição. Preenchedor de alta consistência para áreas que exigem sustentação.", badge:"Preenchedores", category:"preenchedores", images:["images/linebody5mlhard.png"], whatsappMessage:"Olá! Tenho interesse no Linebody 5ml Hard" },
+      { id:30, name:"Linebody 50ml Soft", description:"Auxilia no acabamento natural e harmonização. Textura suave para resultado mais delicado.", badge:"Preenchedores", category:"preenchedores", images:["images/linebody50mlsoft.png"], whatsappMessage:"Olá! Tenho interesse no Linebody 50ml Soft" },
+      { id:31, name:"Linebody 10ml Soft e Hard", description:"Auxilia na harmonização com escolha de densidade. Versões soft e hard para diferentes objetivos.", badge:"Preenchedores", category:"preenchedores", images:["images/linebody10ml.png"], whatsappMessage:"Olá! Tenho interesse no Linebody 10ml Soft e Hard" },
+      { id:32, name:"MOMM 100ml Hard", description:"Auxilia em contorno e definição com alto volume. Preenchedor corporal de alta sustentação.", badge:"Preenchedores", category:"preenchedores", images:["images/momm100ml.png"], whatsappMessage:"Olá! Tenho interesse no MOMM 100ml Hard" },
+      { id:33, name:"Juvéderm Ultra 2", description:"Auxilia na hidratação e correção de linhas finas. Preenchedor de ácido hialurônico com efeito suave.", badge:"Preenchedores", category:"preenchedores", images:["images/juvederm_ultra2.png"], whatsappMessage:"Olá! Tenho interesse no Juvéderm Ultra 2" },
+      { id:34, name:"Juvéderm Ultra 3", description:"Auxilia na correção de rugas moderadas e contorno. Boa elasticidade e projeção.", badge:"Preenchedores", category:"preenchedores", images:["images/juvederm_ultra3.png"], whatsappMessage:"Olá! Tenho interesse no Juvéderm Ultra 3" },
+      { id:35, name:"Juvéderm Ultra 4", description:"Auxilia no preenchimento de sulcos profundos e reposição de volume. Maior suporte e durabilidade.", badge:"Preenchedores", category:"preenchedores", images:["images/juvederm_ultra4.png"], whatsappMessage:"Olá! Tenho interesse no Juvéderm Ultra 4" },
+      { id:36, name:"Juvéderm Voluma", description:"Auxilia na restauração de volume e contorno facial. Indicado para maçãs do rosto e queixo.", badge:"Preenchedores", category:"preenchedores", images:["images/juvederm_voluma.png"], whatsappMessage:"Olá! Tenho interesse no Juvéderm Voluma" },
+    ],
+    en: [
+      { id:1, name:"Tirzepatide 120mg (Bro Pharma)", description:"Assists in glycemic control and appetite reduction. Used in metabolic protocols for insulin sensitivity, prolonged satiety and body fat reduction.", badge:"New", category:"bropharma", images:["images/tirze120.png","images/ampola120mg.png","images/caixa120.png"], whatsappMessage:"Hello! I'm interested in Tirzepatide 120mg from Bro Pharma" },
+      { id:2, name:"Tirzepatide 60mg (Bro Pharma)", description:"Assists in appetite and blood sugar control. Indicated for continuation of metabolic protocols focused on weight loss and glycemic balance.", badge:"New", category:"bropharma", images:["images/tizerpatide60.png","images/ampola60mg.png","images/caixa60.png"], whatsappMessage:"Hello! I'm interested in Tirzepatide 60mg from Bro Pharma" },
+      { id:3, name:"Tirzepatide 30mg (Bro Pharma)", description:"Assists in initial metabolic adaptation. Used at the beginning of protocols for gradual appetite reduction and improved glycemic response.", badge:"New", category:"bropharma", images:["images/tizerpatide30.png","images/ampola30mg.png","images/caixa30.png"], whatsappMessage:"Hello! I'm interested in Tirzepatide 30mg from Bro Pharma" },
+      { id:4, name:"Retatrutide 40mg (Bro Pharma)", description:"Assists in increasing energy expenditure and appetite control. Used in advanced metabolic protocols for weight loss and body recomposition.", badge:"New", category:"bropharma", images:["images/reta40mili.jpeg","images/ampola40mg.png","images/caixa40.png"], whatsappMessage:"Hello! I'm interested in Retatrutide 40mg from Bro Pharma" },
+      { id:5, name:"BB20 (BPC-157 + TB-500)", description:"Assists in recovery of muscles, tendons and joints. Widely used in rehabilitation, post-workout and physical recovery protocols.", badge:"Peptide", category:"bropharma", images:["images/bb20.png"], whatsappMessage:"Hello! I'm interested in BB20" },
+      { id:6, name:"CJC-1295 + Ipamorelin", description:"Assists in natural growth hormone (GH) release. Used for recovery, sleep improvement, body composition and performance.", badge:"Peptide", category:"bropharma", images:["images/cjc-ipa.png"], whatsappMessage:"Hello! I'm interested in CJC + IPA" },
+      { id:7, name:"Tesamorelin 10 mg", description:"Assists in visceral fat reduction. Used in metabolic protocols focused on abdominal area and body definition.", badge:"Peptide", category:"bropharma", images:["images/tesamorelin.png"], whatsappMessage:"Hello! I'm interested in Tesamorelin 10 mg" },
+      { id:8, name:"MT2 10 mg", description:"Assists in melanin stimulation. Used in aesthetic protocols for tanning and skin pigmentation.", badge:"Peptide", category:"bropharma", images:["images/mt2.png"], whatsappMessage:"Hello! I'm interested in MT2 10 mg" },
+      { id:9, name:"Epithalon 10 mg", description:"Assists in regulating sleep cycles and cellular recovery. Associated with longevity and wellness protocols.", badge:"Peptide", category:"bropharma", images:["images/epithalon.png"], whatsappMessage:"Hello! I'm interested in Epithalon 10 mg" },
+      { id:10, name:"SS-31 10 mg", description:"Assists in mitochondrial protection and cellular energy production. Used for fatigue, performance and vitality.", badge:"Peptide", category:"bropharma", images:["images/ss-31.png"], whatsappMessage:"Hello! I'm interested in SS-31 10 mg" },
+      { id:11, name:"Semax 10 mg", description:"Assists in focus, memory and mental clarity. Applied in cognition, productivity and mental wellness protocols.", badge:"Peptide", category:"bropharma", images:["images/semax.png"], whatsappMessage:"Hello! I'm interested in Semax 10 mg" },
+      { id:12, name:"MOTS-C 10 mg", description:"Assists in insulin sensitivity and energy production. Used in metabolic and performance protocols.", badge:"Peptide", category:"bropharma", images:["images/mots-c.png"], whatsappMessage:"Hello! I'm interested in MOTS-C 10 mg" },
+      { id:13, name:"HGH Frag 176-191", description:"Assists in fat mobilization. Used in body definition protocols and localized fat reduction.", badge:"Peptide", category:"bropharma", images:["images/hghfrag176.png"], whatsappMessage:"Hello! I'm interested in HGH Frag 176" },
+      { id:14, name:"GHK-CU 50 mg", description:"Assists in skin regeneration and collagen stimulation. Widely used in aesthetic and rejuvenation protocols.", badge:"Peptide", category:"bropharma", images:["images/ghk-cu.png"], whatsappMessage:"Hello! I'm interested in GHK-CU 50 mg" },
+      { id:15, name:"Glow (BPC-157 + TB-500 + GHK-CU)", description:"Assists in physical recovery and skin improvement. Combination targeting regeneration, collagen support and aesthetics.", badge:"Peptide", category:"bropharma", images:["images/glow.png"], whatsappMessage:"Hello! I'm interested in Glow" },
+      { id:16, name:"NAD+ 500 mg (Vial)", description:"Assists in cellular energy production. Used in vitality, longevity and recovery protocols.", badge:"Peptide", category:"bropharma", images:["images/b12ampola.png"], whatsappMessage:"Hello! I'm interested in NAD+ 500 mg (Vial)" },
+      { id:17, name:"Retatrutide 40mg (Pen)", description:"Assists in appetite control and metabolic support. Pen with practical application and precise dosing for advanced protocols.", badge:"Weight Loss", category:"emagrecimento", images:["images/retatrutide40.png"], whatsappMessage:"Hello! I'm interested in Retatrutide 40mg (Pen)" },
+      { id:18, name:"Glow GHK-CU (Pen) 10/10/50 mg", description:"Combination of BPC-157, TB-500 and GHK-CU in a practical pen. Assists in physical recovery, skin regeneration and collagen stimulation.", badge:"Performance", category:"performance", images:["images/ghkcaneta.png"], whatsappMessage:"Hello! I'm interested in Glow GHK-CU (Pen)" },
+      { id:19, name:"BPC-157 & TB-500 40mg (Pen)", description:"Assists in recovery of muscles, tendons and joints. Practical pen for rehabilitation and physical recovery protocols.", badge:"Performance", category:"performance", images:["images/bpc157caneta.png"], whatsappMessage:"Hello! I'm interested in BPC-157 & TB-500 40mg (Pen)" },
+      { id:20, name:"Retatrutide Alluvi 40mg (Pen)", description:"Assists in appetite control and metabolic support. Alluvi version in pen with practical application and precise dosing.", badge:"Performance", category:"performance", images:["images/retaalluvi.png"], whatsappMessage:"Hello! I'm interested in Retatrutide Alluvi 40mg (Pen)" },
+      { id:21, name:"Botox – Dysport", description:"Assists in reducing dynamic wrinkles and expression lines. Widely used in facial aesthetic protocols.", badge:"Toxin", category:"toxina", images:["images/dysport.png"], whatsappMessage:"Hello! I'm interested in Botox Dysport" },
+      { id:22, name:"Botox – Allergan", description:"Assists in muscle relaxation to smooth expression lines. Reference in aesthetic protocols.", badge:"Toxin", category:"toxina", images:["images/botox.png"], whatsappMessage:"Hello! I'm interested in Botox Allergan" },
+      { id:23, name:"Botox – Israderm", description:"Assists in smoothing wrinkles and expression marks. Premium option for facial protocols.", badge:"Toxin", category:"toxina", images:["images/israderm.png"], whatsappMessage:"Hello! I'm interested in Botox Isaderm" },
+      { id:24, name:"Radiesse", description:"Assists in firmness and collagen stimulation. Biostimulator to improve skin texture and support.", badge:"Rejuvenation", category:"rejuvenescimento", images:["images/radiesse.png"], whatsappMessage:"Hello! I'm interested in Radiesse" },
+      { id:25, name:"Sculptra", description:"Assists in collagen stimulation and gradual improvement of sagging. Indicated for progressive rejuvenation.", badge:"Rejuvenation", category:"rejuvenescimento", images:["images/sculptra.png"], whatsappMessage:"Hello! I'm interested in Sculptra" },
+      { id:26, name:"Biofill 20ml", description:"Assists in volume replacement and body contouring. High-density filler for uniform results.", badge:"Fillers", category:"preenchedores", images:["images/biofill20ml.png"], whatsappMessage:"Hello! I'm interested in Biofill 20ml" },
+      { id:27, name:"Biofill Shape 55ml", description:"Assists in body shaping and definition. Filler with good support and natural finish.", badge:"Fillers", category:"preenchedores", images:["images/biofillshape55ml.png"], whatsappMessage:"Hello! I'm interested in Biofill Shape 55ml" },
+      { id:28, name:"Biofill Hydroxyapatite", description:"Assists in firmness and collagen stimulation. Indicated for skin support and appearance improvement.", badge:"Fillers", category:"preenchedores", images:["images/biotfill.png"], whatsappMessage:"Hello! I'm interested in Biofill Hydroxyapatite" },
+      { id:29, name:"Linebody 5ml Hard", description:"Assists in projection and definition. High-consistency filler for areas requiring support.", badge:"Fillers", category:"preenchedores", images:["images/linebody5mlhard.png"], whatsappMessage:"Hello! I'm interested in Linebody 5ml Hard" },
+      { id:30, name:"Linebody 50ml Soft", description:"Assists in natural finish and harmonization. Soft texture for a more delicate result.", badge:"Fillers", category:"preenchedores", images:["images/linebody50mlsoft.png"], whatsappMessage:"Hello! I'm interested in Linebody 50ml Soft" },
+      { id:31, name:"Linebody 10ml Soft & Hard", description:"Assists in harmonization with density choice. Soft and hard versions for different goals.", badge:"Fillers", category:"preenchedores", images:["images/linebody10ml.png"], whatsappMessage:"Hello! I'm interested in Linebody 10ml Soft & Hard" },
+      { id:32, name:"MOMM 100ml Hard", description:"Assists in contouring and high-volume definition. High-support body filler.", badge:"Fillers", category:"preenchedores", images:["images/momm100ml.png"], whatsappMessage:"Hello! I'm interested in MOMM 100ml Hard" },
+      { id:33, name:"Juvéderm Ultra 2", description:"Assists in hydration and correction of fine lines. Hyaluronic acid filler with gentle effect.", badge:"Fillers", category:"preenchedores", images:["images/juvederm_ultra2.png"], whatsappMessage:"Hello! I'm interested in Juvéderm Ultra 2" },
+      { id:34, name:"Juvéderm Ultra 3", description:"Assists in correcting moderate wrinkles and contouring. Good elasticity and projection.", badge:"Fillers", category:"preenchedores", images:["images/juvederm_ultra3.png"], whatsappMessage:"Hello! I'm interested in Juvéderm Ultra 3" },
+      { id:35, name:"Juvéderm Ultra 4", description:"Assists in filling deep folds and volume restoration. Greater support and durability.", badge:"Fillers", category:"preenchedores", images:["images/juvederm_ultra4.png"], whatsappMessage:"Hello! I'm interested in Juvéderm Ultra 4" },
+      { id:36, name:"Juvéderm Voluma", description:"Assists in facial volume restoration and contouring. Indicated for cheekbones and chin.", badge:"Fillers", category:"preenchedores", images:["images/juvederm_voluma.png"], whatsappMessage:"Hello! I'm interested in Juvéderm Voluma" },
+    ],
+    es: [
+      { id:1, name:"Tirzepatide 120mg (Bro Pharma)", description:"Ayuda en el control glucémico y la reducción del apetito. Usado en protocolos metabólicos para sensibilidad a la insulina, saciedad prolongada y reducción de grasa corporal.", badge:"Nuevo", category:"bropharma", images:["images/tirze120.png","images/ampola120mg.png","images/caixa120.png"], whatsappMessage:"¡Hola! Me interesa el Tirzepatide 120mg de Bro Pharma" },
+      { id:2, name:"Tirzepatide 60mg (Bro Pharma)", description:"Ayuda en el control del apetito y la glucemia. Indicado para la continuidad de protocolos metabólicos con enfoque en adelgazamiento y equilibrio glucémico.", badge:"Nuevo", category:"bropharma", images:["images/tizerpatide60.png","images/ampola60mg.png","images/caixa60.png"], whatsappMessage:"¡Hola! Me interesa el Tirzepatide 60mg de Bro Pharma" },
+      { id:3, name:"Tirzepatide 30mg (Bro Pharma)", description:"Ayuda en la adaptación metabólica inicial. Usado al comienzo de protocolos para reducción gradual del apetito y mejora de la respuesta glucémica.", badge:"Nuevo", category:"bropharma", images:["images/tizerpatide30.png","images/ampola30mg.png","images/caixa30.png"], whatsappMessage:"¡Hola! Me interesa el Tirzepatide 30mg de Bro Pharma" },
+      { id:4, name:"Retatrutide 40mg (Bro Pharma)", description:"Ayuda en el aumento del gasto energético y el control del apetito. Usado en protocolos metabólicos avanzados para adelgazamiento y recomposición corporal.", badge:"Nuevo", category:"bropharma", images:["images/reta40mili.jpeg","images/ampola40mg.png","images/caixa40.png"], whatsappMessage:"¡Hola! Me interesa el Retatrutide 40mg de Bro Pharma" },
+      { id:5, name:"BB20 (BPC-157 + TB-500)", description:"Ayuda en la recuperación de músculos, tendones y articulaciones. Muy usado en protocolos de rehabilitación, post-entrenamiento y recuperación física.", badge:"Péptido", category:"bropharma", images:["images/bb20.png"], whatsappMessage:"¡Hola! Me interesa el BB20" },
+      { id:6, name:"CJC-1295 + Ipamorelin", description:"Ayuda en la liberación natural de hormona de crecimiento (GH). Usado para recuperación, mejora del sueño, composición corporal y rendimiento.", badge:"Péptido", category:"bropharma", images:["images/cjc-ipa.png"], whatsappMessage:"¡Hola! Me interesa el CJC + IPA" },
+      { id:7, name:"Tesamorelin 10 mg", description:"Ayuda en la reducción de grasa visceral. Usado en protocolos metabólicos centrados en abdomen y definición corporal.", badge:"Péptido", category:"bropharma", images:["images/tesamorelin.png"], whatsappMessage:"¡Hola! Me interesa el Tesamorelin 10 mg" },
+      { id:8, name:"MT2 10 mg", description:"Ayuda en la estimulación de melanina. Usado en protocolos estéticos para bronceado y pigmentación de la piel.", badge:"Péptido", category:"bropharma", images:["images/mt2.png"], whatsappMessage:"¡Hola! Me interesa el MT2 10 mg" },
+      { id:9, name:"Epithalon 10 mg", description:"Ayuda en la regulación del ciclo del sueño y recuperación celular. Asociado a protocolos de longevidad y bienestar.", badge:"Péptido", category:"bropharma", images:["images/epithalon.png"], whatsappMessage:"¡Hola! Me interesa el Epithalon 10 mg" },
+      { id:10, name:"SS-31 10 mg", description:"Ayuda en la protección mitocondrial y producción de energía celular. Usado para fatiga, rendimiento y vitalidad.", badge:"Péptido", category:"bropharma", images:["images/ss-31.png"], whatsappMessage:"¡Hola! Me interesa el SS-31 10 mg" },
+      { id:11, name:"Semax 10 mg", description:"Ayuda en el enfoque, memoria y claridad mental. Aplicado en protocolos de cognición, productividad y bienestar mental.", badge:"Péptido", category:"bropharma", images:["images/semax.png"], whatsappMessage:"¡Hola! Me interesa el Semax 10 mg" },
+      { id:12, name:"MOTS-C 10 mg", description:"Ayuda en la sensibilidad a la insulina y producción de energía. Usado en protocolos metabólicos y de rendimiento.", badge:"Péptido", category:"bropharma", images:["images/mots-c.png"], whatsappMessage:"¡Hola! Me interesa el MOTS-C 10 mg" },
+      { id:13, name:"HGH Frag 176-191", description:"Ayuda en la movilización de grasa. Usado en protocolos de definición corporal y reducción de grasa localizada.", badge:"Péptido", category:"bropharma", images:["images/hghfrag176.png"], whatsappMessage:"¡Hola! Me interesa el HGH Frag 176" },
+      { id:14, name:"GHK-CU 50 mg", description:"Ayuda en la regeneración de la piel y estimulación de colágeno. Muy usado en protocolos estéticos y de rejuvenecimiento.", badge:"Péptido", category:"bropharma", images:["images/ghk-cu.png"], whatsappMessage:"¡Hola! Me interesa el GHK-CU 50 mg" },
+      { id:15, name:"Glow (BPC-157 + TB-500 + GHK-CU)", description:"Ayuda en la recuperación física y mejora de la piel. Combinación para regeneración, soporte de colágeno y estética.", badge:"Péptido", category:"bropharma", images:["images/glow.png"], whatsappMessage:"¡Hola! Me interesa el Glow" },
+      { id:16, name:"NAD+ 500 mg (Ampolla)", description:"Ayuda en la producción de energía celular. Usado en protocolos de vitalidad, longevidad y recuperación.", badge:"Péptido", category:"bropharma", images:["images/b12ampola.png"], whatsappMessage:"¡Hola! Me interesa el NAD+ 500 mg (Ampolla)" },
+      { id:17, name:"Retatrutide 40mg (Pluma)", description:"Ayuda en el control del apetito y soporte metabólico. Pluma con aplicación práctica y dosificación precisa para protocolos avanzados.", badge:"Adelgazamiento", category:"emagrecimento", images:["images/retatrutide40.png"], whatsappMessage:"¡Hola! Me interesa el Retatrutide 40mg (Pluma)" },
+      { id:18, name:"Glow GHK-CU (Pluma) 10/10/50 mg", description:"Combinación de BPC-157, TB-500 y GHK-CU en pluma de aplicación práctica. Ayuda en la recuperación física, regeneración de la piel y estimulación de colágeno.", badge:"Rendimiento", category:"performance", images:["images/ghkcaneta.png"], whatsappMessage:"¡Hola! Me interesa el Glow GHK-CU (Pluma)" },
+      { id:19, name:"BPC-157 & TB-500 40mg (Pluma)", description:"Ayuda en la recuperación de músculos, tendones y articulaciones. Pluma práctica para protocolos de rehabilitación y recuperación física.", badge:"Rendimiento", category:"performance", images:["images/bpc157caneta.png"], whatsappMessage:"¡Hola! Me interesa el BPC-157 & TB-500 40mg (Pluma)" },
+      { id:20, name:"Retatrutide Alluvi 40mg (Pluma)", description:"Ayuda en el control del apetito y soporte metabólico. Versión Alluvi en pluma con aplicación práctica y dosificación precisa.", badge:"Rendimiento", category:"performance", images:["images/retaalluvi.png"], whatsappMessage:"¡Hola! Me interesa el Retatrutide Alluvi 40mg (Pluma)" },
+      { id:21, name:"Botox – Dysport", description:"Ayuda en la reducción de arrugas dinámicas y líneas de expresión. Muy usado en protocolos estéticos faciales.", badge:"Toxina", category:"toxina", images:["images/dysport.png"], whatsappMessage:"¡Hola! Me interesa el Botox Dysport" },
+      { id:22, name:"Botox – Allergan", description:"Ayuda en la relajación muscular para suavizar líneas de expresión. Referencia en protocolos estéticos.", badge:"Toxina", category:"toxina", images:["images/botox.png"], whatsappMessage:"¡Hola! Me interesa el Botox Allergan" },
+      { id:23, name:"Botox – Israderm", description:"Ayuda en el suavizado de arrugas y marcas de expresión. Opción premium para protocolos faciales.", badge:"Toxina", category:"toxina", images:["images/israderm.png"], whatsappMessage:"¡Hola! Me interesa el Botox Isaderm" },
+      { id:24, name:"Radiesse", description:"Ayuda en la firmeza y estimulación de colágeno. Bioestimulador para mejorar textura y sustentación de la piel.", badge:"Rejuvenecimiento", category:"rejuvenescimento", images:["images/radiesse.png"], whatsappMessage:"¡Hola! Me interesa el Radiesse" },
+      { id:25, name:"Sculptra", description:"Ayuda en la estimulación de colágeno y mejora gradual de la flacidez. Indicado para rejuvenecimiento progresivo.", badge:"Rejuvenecimiento", category:"rejuvenescimento", images:["images/sculptra.png"], whatsappMessage:"¡Hola! Me interesa el Sculptra" },
+      { id:26, name:"Biofill 20ml", description:"Ayuda en la reposición de volumen y contorno corporal. Relleno de alta densidad para resultados uniformes.", badge:"Rellenos", category:"preenchedores", images:["images/biofill20ml.png"], whatsappMessage:"¡Hola! Me interesa el Biofill 20ml" },
+      { id:27, name:"Biofill Shape 55ml", description:"Ayuda en el modelado y definición corporal. Relleno con buena sustentación y acabado natural.", badge:"Rellenos", category:"preenchedores", images:["images/biofillshape55ml.png"], whatsappMessage:"¡Hola! Me interesa el Biofill Shape 55ml" },
+      { id:28, name:"Biofill Hidroxiapatita", description:"Ayuda en la firmeza y estimulación de colágeno. Indicado para sustentación y mejora del aspecto de la piel.", badge:"Rellenos", category:"preenchedores", images:["images/biotfill.png"], whatsappMessage:"¡Hola! Me interesa el Biofill Hidroxiapatita" },
+      { id:29, name:"Linebody 5ml Hard", description:"Ayuda en la proyección y definición. Relleno de alta consistencia para áreas que requieren sustentación.", badge:"Rellenos", category:"preenchedores", images:["images/linebody5mlhard.png"], whatsappMessage:"¡Hola! Me interesa el Linebody 5ml Hard" },
+      { id:30, name:"Linebody 50ml Soft", description:"Ayuda en el acabado natural y armonización. Textura suave para un resultado más delicado.", badge:"Rellenos", category:"preenchedores", images:["images/linebody50mlsoft.png"], whatsappMessage:"¡Hola! Me interesa el Linebody 50ml Soft" },
+      { id:31, name:"Linebody 10ml Soft y Hard", description:"Ayuda en la armonización con elección de densidad. Versiones soft y hard para diferentes objetivos.", badge:"Rellenos", category:"preenchedores", images:["images/linebody10ml.png"], whatsappMessage:"¡Hola! Me interesa el Linebody 10ml Soft y Hard" },
+      { id:32, name:"MOMM 100ml Hard", description:"Ayuda en contorno y definición con alto volumen. Relleno corporal de alta sustentación.", badge:"Rellenos", category:"preenchedores", images:["images/momm100ml.png"], whatsappMessage:"¡Hola! Me interesa el MOMM 100ml Hard" },
+      { id:33, name:"Juvéderm Ultra 2", description:"Ayuda en la hidratación y corrección de líneas finas. Relleno de ácido hialurónico con efecto suave.", badge:"Rellenos", category:"preenchedores", images:["images/juvederm_ultra2.png"], whatsappMessage:"¡Hola! Me interesa el Juvéderm Ultra 2" },
+      { id:34, name:"Juvéderm Ultra 3", description:"Ayuda en la corrección de arrugas moderadas y contorno. Buena elasticidad y proyección.", badge:"Rellenos", category:"preenchedores", images:["images/juvederm_ultra3.png"], whatsappMessage:"¡Hola! Me interesa el Juvéderm Ultra 3" },
+      { id:35, name:"Juvéderm Ultra 4", description:"Ayuda en el relleno de surcos profundos y reposición de volumen. Mayor soporte y durabilidad.", badge:"Rellenos", category:"preenchedores", images:["images/juvederm_ultra4.png"], whatsappMessage:"¡Hola! Me interesa el Juvéderm Ultra 4" },
+      { id:36, name:"Juvéderm Voluma", description:"Ayuda en la restauración de volumen y contorno facial. Indicado para pómulos y mentón.", badge:"Rellenos", category:"preenchedores", images:["images/juvederm_voluma.png"], whatsappMessage:"¡Hola! Me interesa el Juvéderm Voluma" },
+    ],
+    fr: [
+      { id:1, name:"Tirzepatide 120mg (Bro Pharma)", description:"Aide au contrôle glycémique et à la réduction de l'appétit. Utilisé dans des protocoles métaboliques axés sur la sensibilité à l'insuline, la satiété prolongée et la réduction de la graisse corporelle.", badge:"Nouveau", category:"bropharma", images:["images/tirze120.png","images/ampola120mg.png","images/caixa120.png"], whatsappMessage:"Bonjour ! Je suis intéressé par le Tirzepatide 120mg de Bro Pharma" },
+      { id:2, name:"Tirzepatide 60mg (Bro Pharma)", description:"Aide au contrôle de l'appétit et de la glycémie. Indiqué pour la continuité des protocoles métaboliques axés sur la perte de poids et l'équilibre glycémique.", badge:"Nouveau", category:"bropharma", images:["images/tizerpatide60.png","images/ampola60mg.png","images/caixa60.png"], whatsappMessage:"Bonjour ! Je suis intéressé par le Tirzepatide 60mg de Bro Pharma" },
+      { id:3, name:"Tirzepatide 30mg (Bro Pharma)", description:"Aide à l'adaptation métabolique initiale. Utilisé en début de protocole pour réduire graduellement l'appétit et améliorer la réponse glycémique.", badge:"Nouveau", category:"bropharma", images:["images/tizerpatide30.png","images/ampola30mg.png","images/caixa30.png"], whatsappMessage:"Bonjour ! Je suis intéressé par le Tirzepatide 30mg de Bro Pharma" },
+      { id:4, name:"Retatrutide 40mg (Bro Pharma)", description:"Aide à augmenter la dépense énergétique et à contrôler l'appétit. Utilisé dans des protocoles métaboliques avancés pour la perte de poids et la recomposition corporelle.", badge:"Nouveau", category:"bropharma", images:["images/reta40mili.jpeg","images/ampola40mg.png","images/caixa40.png"], whatsappMessage:"Bonjour ! Je suis intéressé par le Retatrutide 40mg de Bro Pharma" },
+      { id:5, name:"BB20 (BPC-157 + TB-500)", description:"Aide à la récupération des muscles, tendons et articulations. Très utilisé dans les protocoles de rééducation, post-entraînement et récupération physique.", badge:"Peptide", category:"bropharma", images:["images/bb20.png"], whatsappMessage:"Bonjour ! Je suis intéressé par le BB20" },
+      { id:6, name:"CJC-1295 + Ipamorelin", description:"Aide à la libération naturelle de l'hormone de croissance (GH). Utilisé pour la récupération, l'amélioration du sommeil, la composition corporelle et la performance.", badge:"Peptide", category:"bropharma", images:["images/cjc-ipa.png"], whatsappMessage:"Bonjour ! Je suis intéressé par CJC + IPA" },
+      { id:7, name:"Tesamorelin 10 mg", description:"Aide à la réduction des graisses viscérales. Utilisé dans des protocoles métaboliques axés sur l'abdomen et la définition corporelle.", badge:"Peptide", category:"bropharma", images:["images/tesamorelin.png"], whatsappMessage:"Bonjour ! Je suis intéressé par le Tesamorelin 10 mg" },
+      { id:8, name:"MT2 10 mg", description:"Aide à la stimulation de la mélanine. Utilisé dans des protocoles esthétiques pour le bronzage et la pigmentation de la peau.", badge:"Peptide", category:"bropharma", images:["images/mt2.png"], whatsappMessage:"Bonjour ! Je suis intéressé par MT2 10 mg" },
+      { id:9, name:"Epithalon 10 mg", description:"Aide à la régulation du cycle du sommeil et à la récupération cellulaire. Associé aux protocoles de longévité et de bien-être.", badge:"Peptide", category:"bropharma", images:["images/epithalon.png"], whatsappMessage:"Bonjour ! Je suis intéressé par l'Epithalon 10 mg" },
+      { id:10, name:"SS-31 10 mg", description:"Aide à la protection mitochondriale et à la production d'énergie cellulaire. Utilisé contre la fatigue, pour la performance et la vitalité.", badge:"Peptide", category:"bropharma", images:["images/ss-31.png"], whatsappMessage:"Bonjour ! Je suis intéressé par SS-31 10 mg" },
+      { id:11, name:"Semax 10 mg", description:"Aide à la concentration, à la mémoire et à la clarté mentale. Appliqué dans les protocoles de cognition, productivité et bien-être mental.", badge:"Peptide", category:"bropharma", images:["images/semax.png"], whatsappMessage:"Bonjour ! Je suis intéressé par le Semax 10 mg" },
+      { id:12, name:"MOTS-C 10 mg", description:"Aide à la sensibilité à l'insuline et à la production d'énergie. Utilisé dans les protocoles métaboliques et de performance.", badge:"Peptide", category:"bropharma", images:["images/mots-c.png"], whatsappMessage:"Bonjour ! Je suis intéressé par MOTS-C 10 mg" },
+      { id:13, name:"HGH Frag 176-191", description:"Aide à la mobilisation des graisses. Utilisé dans les protocoles de définition corporelle et de réduction des graisses localisées.", badge:"Peptide", category:"bropharma", images:["images/hghfrag176.png"], whatsappMessage:"Bonjour ! Je suis intéressé par HGH Frag 176" },
+      { id:14, name:"GHK-CU 50 mg", description:"Aide à la régénération de la peau et à la stimulation du collagène. Très utilisé dans les protocoles esthétiques et de rajeunissement.", badge:"Peptide", category:"bropharma", images:["images/ghk-cu.png"], whatsappMessage:"Bonjour ! Je suis intéressé par GHK-CU 50 mg" },
+      { id:15, name:"Glow (BPC-157 + TB-500 + GHK-CU)", description:"Aide à la récupération physique et à l'amélioration de la peau. Combinaison axée sur la régénération, le soutien du collagène et l'esthétique.", badge:"Peptide", category:"bropharma", images:["images/glow.png"], whatsappMessage:"Bonjour ! Je suis intéressé par Glow" },
+      { id:16, name:"NAD+ 500 mg (Ampoule)", description:"Aide à la production d'énergie cellulaire. Utilisé dans les protocoles de vitalité, longévité et récupération.", badge:"Peptide", category:"bropharma", images:["images/b12ampola.png"], whatsappMessage:"Bonjour ! Je suis intéressé par NAD+ 500 mg (Ampoule)" },
+      { id:17, name:"Retatrutide 40mg (Stylo)", description:"Aide au contrôle de l'appétit et au soutien métabolique. Stylo à application pratique et dosage précis pour les protocoles avancés.", badge:"Amincissement", category:"emagrecimento", images:["images/retatrutide40.png"], whatsappMessage:"Bonjour ! Je suis intéressé par Retatrutide 40mg (Stylo)" },
+      { id:18, name:"Glow GHK-CU (Stylo) 10/10/50 mg", description:"Combinaison de BPC-157, TB-500 et GHK-CU en stylo pratique. Aide à la récupération physique, régénération de la peau et stimulation du collagène.", badge:"Performance", category:"performance", images:["images/ghkcaneta.png"], whatsappMessage:"Bonjour ! Je suis intéressé par Glow GHK-CU (Stylo)" },
+      { id:19, name:"BPC-157 & TB-500 40mg (Stylo)", description:"Aide à la récupération des muscles, tendons et articulations. Stylo pratique pour les protocoles de rééducation et de récupération physique.", badge:"Performance", category:"performance", images:["images/bpc157caneta.png"], whatsappMessage:"Bonjour ! Je suis intéressé par BPC-157 & TB-500 40mg (Stylo)" },
+      { id:20, name:"Retatrutide Alluvi 40mg (Stylo)", description:"Aide au contrôle de l'appétit et au soutien métabolique. Version Alluvi en stylo avec application pratique et dosage précis.", badge:"Performance", category:"performance", images:["images/retaalluvi.png"], whatsappMessage:"Bonjour ! Je suis intéressé par Retatrutide Alluvi 40mg (Stylo)" },
+      { id:21, name:"Botox – Dysport", description:"Aide à la réduction des rides dynamiques et des lignes d'expression. Très utilisé dans les protocoles esthétiques du visage.", badge:"Toxine", category:"toxina", images:["images/dysport.png"], whatsappMessage:"Bonjour ! Je suis intéressé par le Botox Dysport" },
+      { id:22, name:"Botox – Allergan", description:"Aide à la relaxation musculaire pour atténuer les lignes d'expression. Référence dans les protocoles esthétiques.", badge:"Toxine", category:"toxina", images:["images/botox.png"], whatsappMessage:"Bonjour ! Je suis intéressé par le Botox Allergan" },
+      { id:23, name:"Botox – Israderm", description:"Aide à l'atténuation des rides et marques d'expression. Option premium pour les protocoles faciaux.", badge:"Toxine", category:"toxina", images:["images/israderm.png"], whatsappMessage:"Bonjour ! Je suis intéressé par le Botox Isaderm" },
+      { id:24, name:"Radiesse", description:"Aide à la fermeté et à la stimulation du collagène. Biostimulateur pour améliorer la texture et le soutien de la peau.", badge:"Rajeunissement", category:"rejuvenescimento", images:["images/radiesse.png"], whatsappMessage:"Bonjour ! Je suis intéressé par Radiesse" },
+      { id:25, name:"Sculptra", description:"Aide à la stimulation du collagène et à l'amélioration graduelle du relâchement. Indiqué pour le rajeunissement progressif.", badge:"Rajeunissement", category:"rejuvenescimento", images:["images/sculptra.png"], whatsappMessage:"Bonjour ! Je suis intéressé par Sculptra" },
+      { id:26, name:"Biofill 20ml", description:"Aide à la restauration du volume et au contour corporel. Filler haute densité pour un résultat uniforme.", badge:"Fillers", category:"preenchedores", images:["images/biofill20ml.png"], whatsappMessage:"Bonjour ! Je suis intéressé par Biofill 20ml" },
+      { id:27, name:"Biofill Shape 55ml", description:"Aide au modelage et à la définition corporelle. Filler avec bonne sustentation et finition naturelle.", badge:"Fillers", category:"preenchedores", images:["images/biofillshape55ml.png"], whatsappMessage:"Bonjour ! Je suis intéressé par Biofill Shape 55ml" },
+      { id:28, name:"Biofill Hydroxyapatite", description:"Aide à la fermeté et à la stimulation du collagène. Indiqué pour le soutien et l'amélioration de l'aspect de la peau.", badge:"Fillers", category:"preenchedores", images:["images/biotfill.png"], whatsappMessage:"Bonjour ! Je suis intéressé par Biofill Hydroxyapatite" },
+      { id:29, name:"Linebody 5ml Hard", description:"Aide à la projection et à la définition. Filler haute consistance pour les zones nécessitant du soutien.", badge:"Fillers", category:"preenchedores", images:["images/linebody5mlhard.png"], whatsappMessage:"Bonjour ! Je suis intéressé par Linebody 5ml Hard" },
+      { id:30, name:"Linebody 50ml Soft", description:"Aide à la finition naturelle et à l'harmonisation. Texture douce pour un résultat plus délicat.", badge:"Fillers", category:"preenchedores", images:["images/linebody50mlsoft.png"], whatsappMessage:"Bonjour ! Je suis intéressé par Linebody 50ml Soft" },
+      { id:31, name:"Linebody 10ml Soft et Hard", description:"Aide à l'harmonisation avec choix de densité. Versions soft et hard pour différents objectifs.", badge:"Fillers", category:"preenchedores", images:["images/linebody10ml.png"], whatsappMessage:"Bonjour ! Je suis intéressé par Linebody 10ml Soft et Hard" },
+      { id:32, name:"MOMM 100ml Hard", description:"Aide au contour et à la définition avec grand volume. Filler corporel haute sustentation.", badge:"Fillers", category:"preenchedores", images:["images/momm100ml.png"], whatsappMessage:"Bonjour ! Je suis intéressé par MOMM 100ml Hard" },
+      { id:33, name:"Juvéderm Ultra 2", description:"Aide à l'hydratation et à la correction des fines lignes. Filler à l'acide hyaluronique à effet doux.", badge:"Fillers", category:"preenchedores", images:["images/juvederm_ultra2.png"], whatsappMessage:"Bonjour ! Je suis intéressé par Juvéderm Ultra 2" },
+      { id:34, name:"Juvéderm Ultra 3", description:"Aide à la correction des rides modérées et au contour. Bonne élasticité et projection.", badge:"Fillers", category:"preenchedores", images:["images/juvederm_ultra3.png"], whatsappMessage:"Bonjour ! Je suis intéressé par Juvéderm Ultra 3" },
+      { id:35, name:"Juvéderm Ultra 4", description:"Aide au comblement des sillons profonds et à la restauration du volume. Plus grand soutien et durabilité.", badge:"Fillers", category:"preenchedores", images:["images/juvederm_ultra4.png"], whatsappMessage:"Bonjour ! Je suis intéressé par Juvéderm Ultra 4" },
+      { id:36, name:"Juvéderm Voluma", description:"Aide à la restauration du volume et au contour facial. Indiqué pour les pommettes et le menton.", badge:"Fillers", category:"preenchedores", images:["images/juvederm_voluma.png"], whatsappMessage:"Bonjour ! Je suis intéressé par Juvéderm Voluma" },
+    ]
+  };
+
+  // ============================================================
+  // CATEGORIES (i18n)
+  // ============================================================
+  function getCategories() {
+    return [
+      { id:"all",             icon:"grid",     nameKey:"catAll",             descKey:"catAllDesc" },
+      { id:"bropharma",       icon:"flask",    nameKey:"catBropharma",       descKey:"catBropharmaDesc" },
+      { id:"emagrecimento",   icon:"scale",    nameKey:"catEmagrecimento",   descKey:"catEmagrecimentoDesc" },
+      { id:"performance",     icon:"bolt",     nameKey:"catPerformance",     descKey:"catPerformanceDesc" },
+      { id:"toxina",          icon:"syringe",  nameKey:"catToxina",          descKey:"catToxinaDesc" },
+      { id:"rejuvenescimento",icon:"sparkles", nameKey:"catRejuvenescimento",descKey:"catRejuvenescimentoDesc" },
+      { id:"preenchedores",   icon:"droplet",  nameKey:"catPreenchedores",   descKey:"catPreenchedoresDesc" },
+    ];
+  }
+
+  const icons = {
+    grid:'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>',
+    flask:'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></svg>',
+    droplet:'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>',
+    syringe:'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 2 4 4"/><path d="m17 7 3-3"/><path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"/><path d="m9 11 4 4"/><path d="m5 19-3 3"/><path d="m14 4 6 6"/></svg>',
+    sparkles:'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>',
+    scale:'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>',
+    bolt:'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>',
+  };
+
+  const WHATSAPP_NUMBER = "595973729018";
+  let currentTab = 'home';
+  let currentCategory = 'all';
+  let selectedProduct = null;
+  let products = productData['pt'];
+
+  function getWhatsAppLink(message) {
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  }
+
+  function generateImageSlider(images, productName) {
+    if (!images || images.length === 0) return '';
+    const indicator = images.length > 1 ? `<div class="swipe-indicator">${t('swipeLabel')}</div>` : '';
+    return `
+      <div class="product-image-slider">
+        ${images.map(img => `
+          <div class="slider-page">
+            <img src="${img}" alt="${productName}" class="slider-img" loading="lazy" onerror="this.src='https://via.placeholder.com/400?text=Produto'">
+          </div>
+        `).join('')}
+      </div>
+      ${indicator}
+    `;
+  }
+
+  const homeView = document.getElementById('home-view');
+  const categoriesView = document.getElementById('categories-view');
+  const profileView = document.getElementById('profile-view');
+  const accessView = document.getElementById('access-view');
+  const infoSection = document.getElementById('info-section');
+  const productGrid = document.getElementById('product-grid');
+  const categoryListEl = document.getElementById('category-list');
+  const categoriesListEl = document.getElementById('categories-list');
+  const sectionTitleEl = document.getElementById('section-title');
+  const productCountEl = document.getElementById('product-count');
+  const productModal = document.getElementById('product-modal');
+  const modalBody = document.getElementById('modal-body');
+  const modalClose = document.getElementById('modal-close');
+  const searchModal = document.getElementById('search-modal');
+  const searchBtn = document.getElementById('search-btn');
+  const searchClose = document.getElementById('search-close');
+  const searchInput = document.getElementById('search-input');
+  const searchResults = document.getElementById('search-results');
+  const navItems = document.querySelectorAll('.nav-item[data-tab]');
+  const btnWhatsapp = document.getElementById('btn-whatsapp-dynamic');
+
+  function renderCategoryFilter() {
+    const cats = getCategories();
+    categoryListEl.innerHTML = cats.map(cat => `
+      <button class="category-btn ${currentCategory === cat.id ? 'active' : ''}" data-category="${cat.id}">
+        ${t(cat.nameKey)}
+      </button>
+    `).join('');
+    categoryListEl.querySelectorAll('.category-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentCategory = btn.dataset.category;
+        renderCategoryFilter();
+        renderProducts();
+      });
+    });
+  }
+
+  function renderProducts() {
+    const filtered = currentCategory === 'all' ? products : products.filter(p => p.category === currentCategory);
+    const cats = getCategories();
+    const cat = cats.find(c => c.id === currentCategory);
+    if (currentCategory === 'all') {
+      sectionTitleEl.textContent = t('sectionAll');
+    } else {
+      sectionTitleEl.textContent = cat ? t(cat.nameKey) : '';
+    }
+    const suffix = filtered.length === 1 ? t('productCountSuffix') : t('productCountSuffixPlural');
+    productCountEl.textContent = `${filtered.length} ${suffix}`;
+
+    productGrid.innerHTML = filtered.map((product, index) => `
+      <article class="product-card animate-slide-up" data-product-id="${product.id}" style="animation-delay:${index*50}ms">
+        <div class="product-image-container">
+          ${generateImageSlider(product.images, product.name)}
+          <span class="product-badge">${product.badge}</span>
+        </div>
+        <div class="product-content">
+          <h3 class="product-name">${product.name}</h3>
+          <p class="product-description">${product.description}</p>
+          <button class="product-buy-btn" data-whatsapp="${product.whatsappMessage}">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            ${t('accessBtn')}
+          </button>
+        </div>
+      </article>
+    `).join('');
+    setupProductListeners(productGrid);
+  }
+
+  function setupProductListeners(parentContainer) {
+    parentContainer.querySelectorAll('.product-card').forEach(card => {
+      const slider = card.querySelector('.product-image-slider');
+      let isDragging = false, startX, scrollLeft, moved = false;
+      if (slider) {
+        slider.addEventListener('mousedown', (e) => { isDragging=true; moved=false; startX=e.pageX-slider.offsetLeft; scrollLeft=slider.scrollLeft; slider.style.scrollBehavior='auto'; });
+        slider.addEventListener('mouseleave', () => isDragging=false);
+        slider.addEventListener('mouseup', () => { isDragging=false; slider.style.scrollBehavior='smooth'; });
+        slider.addEventListener('mousemove', (e) => { if(!isDragging)return; e.preventDefault(); const x=e.pageX-slider.offsetLeft; const walk=(x-startX)*2; if(Math.abs(walk)>5)moved=true; slider.scrollLeft=scrollLeft-walk; });
+      }
+      card.addEventListener('click', (e) => { if(!e.target.closest('.product-buy-btn')&&!moved){ openProductModal(parseInt(card.dataset.productId)); } });
+    });
+    parentContainer.querySelectorAll('.product-buy-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => { e.stopPropagation(); window.open(getWhatsAppLink(btn.dataset.whatsapp),'_blank'); });
+    });
+  }
+
+  function renderCategoriesView() {
+    const cats = getCategories();
+    categoriesListEl.innerHTML = cats.map((cat, index) => `
+      <button class="category-card animate-slide-up" data-category="${cat.id}" style="animation-delay:${index*75}ms">
+        <div class="category-icon-wrapper">${icons[cat.icon]||icons.grid}</div>
+        <div class="category-info">
+          <h3 class="category-name">${t(cat.nameKey)}</h3>
+          <p class="category-desc">${t(cat.descKey)}</p>
+        </div>
+        <div class="category-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></div>
+      </button>
+    `).join('');
+    categoriesListEl.querySelectorAll('.category-card').forEach(card => {
+      card.addEventListener('click', () => { currentCategory=card.dataset.category; switchTab('home'); renderCategoryFilter(); renderProducts(); });
+    });
+  }
+
+  function openProductModal(productId) {
+    selectedProduct = products.find(p => p.id === productId);
+    if (!selectedProduct) return;
+    modalBody.innerHTML = `
+      <div class="detail-image-wrapper" style="background:#fff;border-radius:1rem;overflow:hidden;position:relative;">
+        ${generateImageSlider(selectedProduct.images, selectedProduct.name)}
+      </div>
+      <span class="detail-badge" style="display:inline-block;margin-top:15px">${selectedProduct.badge}</span>
+      <h2 class="detail-name">${selectedProduct.name}</h2>
+      <p class="detail-description">${selectedProduct.description}</p>
+      <div class="feature-item">
+        <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+        <span class="feature-text">${t('modalOriginal')}</span>
+      </div>
+      <div class="feature-item">
+        <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        <span class="feature-text">${t('modalSupport')}</span>
+      </div>
+    `;
+    const modalSlider = modalBody.querySelector('.product-image-slider');
+    if (modalSlider) setupModalSlider(modalSlider);
+    btnWhatsapp.href = getWhatsAppLink(selectedProduct.whatsappMessage);
+    productModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function setupModalSlider(slider) {
+    let isDragging=false, startX, scrollLeft;
+    slider.addEventListener('mousedown',(e)=>{isDragging=true;startX=e.pageX-slider.offsetLeft;scrollLeft=slider.scrollLeft;slider.style.scrollBehavior='auto';});
+    slider.addEventListener('mouseleave',()=>isDragging=false);
+    slider.addEventListener('mouseup',()=>{isDragging=false;slider.style.scrollBehavior='smooth';});
+    slider.addEventListener('mousemove',(e)=>{if(!isDragging)return;e.preventDefault();const x=e.pageX-slider.offsetLeft;const walk=(x-startX)*2;slider.scrollLeft=scrollLeft-walk;});
+  }
+
+  function closeProductModal() {
+    productModal.classList.remove('active');
+    document.body.style.overflow = '';
+    selectedProduct = null;
+  }
+
+  function switchTab(tab) {
+    currentTab = tab;
+    homeView.classList.toggle('hidden', tab !== 'home');
+    categoriesView.classList.toggle('hidden', tab !== 'categories');
+    profileView.classList.toggle('hidden', tab !== 'profile');
+    accessView.classList.toggle('hidden', tab !== 'access');
+    infoSection.style.display = tab === 'info' ? 'block' : 'none';
+    navItems.forEach(item => item.classList.toggle('active', item.dataset.tab === tab));
+
+    if (tab === 'info') {
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        initInfoGlobe();
+        hardResizeInfoGlobe(true);
+      }));
+    }
+  }
+
+  function openSearch() {
+    searchModal.classList.add('active');
+    searchInput.focus();
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSearch() {
+    searchModal.classList.remove('active');
+    searchInput.value = '';
+    document.body.style.overflow = '';
+    renderSearchResults('');
+  }
+
+  function renderSearchResults(query) {
+    if (!query.trim()) {
+      searchResults.innerHTML = `<div class="search-empty"><p>${t('searchPrompt')}</p></div>`;
+      return;
+    }
+    const filtered = products.filter(p =>
+      p.name.toLowerCase().includes(query.toLowerCase()) ||
+      p.description.toLowerCase().includes(query.toLowerCase())
+    );
+    if (filtered.length === 0) {
+      searchResults.innerHTML = `<div class="search-empty"><p>${t('searchNoResults')}</p></div>`;
+      return;
+    }
+    searchResults.innerHTML = `
+      <div class="product-grid">
+        ${filtered.map(product => `
+          <article class="product-card" data-product-id="${product.id}">
+            <div class="product-image-container">
+              ${generateImageSlider(product.images, product.name)}
+              <span class="product-badge">${product.badge}</span>
+            </div>
+            <div class="product-content">
+              <h3 class="product-name">${product.name}</h3>
+              <button class="product-buy-btn" data-whatsapp="${product.whatsappMessage}">${t('accessBtn')}</button>
+            </div>
+          </article>
+        `).join('')}
+      </div>
+    `;
+    setupProductListeners(searchResults);
+  }
+
+  // ============================================================
+  // LANGUAGE SWITCH
+  // ============================================================
+  function setLanguage(lang) {
+    currentLang = lang;
+    products = productData[lang] || productData['pt'];
+    applyTranslations();
+    renderCategoryFilter();
+    renderProducts();
+    renderCategoriesView();
+    // Atualiza placeholder da busca
+    if (searchInput) searchInput.placeholder = t('searchPlaceholder');
+    // Atualiza modal VIP link (texto do botão já é via data-i18n)
+    // Atualiza toggle do globo se info estiver aberta
+    const toggleBtn = document.getElementById('toggle-map-btn-info');
+    if (toggleBtn) {
+      const spanEl = toggleBtn.querySelector('span');
+      if (spanEl) spanEl.textContent = t('exploreMap');
+    }
+  }
+
+  // Lang buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      setLanguage(btn.dataset.lang);
+    });
+  });
+
+  // Nav + events
+  navItems.forEach(item => item.addEventListener('click', () => switchTab(item.dataset.tab)));
+  modalClose.addEventListener('click', closeProductModal);
+  productModal.addEventListener('click', (e) => { if(e.target===productModal) closeProductModal(); });
+  searchBtn.addEventListener('click', openSearch);
+  searchClose.addEventListener('click', closeSearch);
+  searchInput.addEventListener('input', (e) => renderSearchResults(e.target.value));
+  document.addEventListener('keydown', (e) => { if(e.key==='Escape'){closeProductModal();closeSearch();} });
+
+  // INIT
+  applyTranslations();
+  renderCategoryFilter();
+  renderProducts();
+  renderCategoriesView();
+
+  // ============================================================
+  // GLOBE
+  // ============================================================
+  let globeInfo, infoRO;
+
+  function hardResizeInfoGlobe(recenter) {
+    if (!globeInfo) return;
+    const el = document.getElementById('globe-info');
+    if (!el) return;
+    globeInfo.width(el.clientWidth);
+    globeInfo.height(el.clientHeight);
+    if (recenter) {
+      globeInfo.pointOfView({lat:25,lng:-40,altitude:2.5},0);
+      globeInfo.controls().target.set(0,0,0);
+      globeInfo.controls().update();
+    }
+  }
+
+  function initInfoGlobe() {
+    if (globeInfo) return;
+    const globeViz = document.getElementById('globe-info');
+    if (!globeViz) return;
+    const centerLoc = {lat:39.0902,lng:-98.7129,name:'EUA',code:'USA'};
+    const destinations = [
+      {lat:-14.2350,lng:-51.9253,name:'Brasil',code:'BR'},
+      {lat:-23.4425,lng:-58.4438,name:'Paraguai',code:'PY'},
+      {lat:25.2048,lng:55.2708,name:'Dubai',code:'UAE'},
+      {lat:51.5074,lng:-0.1278,name:'Reino Unido',code:'UK'},
+      {lat:40.4637,lng:-3.7492,name:'Espanha',code:'ES'},
+      {lat:46.2276,lng:2.2137,name:'França',code:'FR'}
+    ];
+    const allPoints = [centerLoc,...destinations];
+    const arcsData = destinations.map(dest=>({startLat:centerLoc.lat,startLng:centerLoc.lng,endLat:dest.lat,endLng:dest.lng,color:['#00FF88','#FF4444']}));
+    globeInfo = Globe()(globeViz)
+      .globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
+      .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
+      .backgroundColor('rgba(0,0,0,0)')
+      .arcsData(arcsData).arcColor('color').arcDashLength(0.5).arcDashGap(2).arcDashAnimateTime(1500).arcStroke(1.2)
+      .labelsData(allPoints).labelLat(d=>d.lat).labelLng(d=>d.lng).labelText(d=>d.code).labelSize(1.5).labelDotRadius(0.5).labelColor(()=>'rgba(255,255,255,1)').labelResolution(2);
+    globeInfo.controls().autoRotate=true;
+    globeInfo.controls().autoRotateSpeed=0.5;
+    globeInfo.controls().enableZoom=false;
+    globeInfo.controls().enableRotate=false;
+    globeInfo.pointOfView({lat:25,lng:-40,altitude:2.5});
+
+    const toggleBtn = document.getElementById('toggle-map-btn-info');
+    const zoomHint = document.getElementById('zoom-hint-info');
+    let isMapActive = false;
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click',()=>{
+        isMapActive=!isMapActive;
+        if(isMapActive){
+          globeViz.classList.remove('map-locked');globeViz.classList.add('map-unlocked');
+          globeInfo.controls().enableZoom=true;globeInfo.controls().enableRotate=true;globeInfo.controls().autoRotate=false;
+          if(zoomHint)zoomHint.style.opacity='1';
+          const spanEl=toggleBtn.querySelector('span');if(spanEl)spanEl.textContent=t('closeMap');
+          toggleBtn.style.background='rgba(34,197,94,0.3)';toggleBtn.style.borderColor='#22c55e';
+        } else {
+          globeViz.classList.remove('map-unlocked');globeViz.classList.add('map-locked');
+          globeInfo.controls().enableZoom=false;globeInfo.controls().enableRotate=false;globeInfo.controls().autoRotate=true;
+          globeInfo.pointOfView({lat:25,lng:-40,altitude:2.5},1000);
+          if(zoomHint)zoomHint.style.opacity='0';
+          const spanEl=toggleBtn.querySelector('span');if(spanEl)spanEl.textContent=t('exploreMap');
+          toggleBtn.style.background='rgba(255,255,255,0.1)';toggleBtn.style.borderColor='rgba(255,255,255,0.3)';
+        }
+      });
+    }
+    infoRO=new ResizeObserver(()=>hardResizeInfoGlobe(false));
+    infoRO.observe(globeViz);
+    setTimeout(()=>hardResizeInfoGlobe(true),60);
+    window.addEventListener('resize',()=>hardResizeInfoGlobe(false));
+  }
+
+  // Anti-context-menu / drag
+  document.addEventListener('contextmenu',event=>event.preventDefault());
+  document.addEventListener('dragstart',(e)=>{if(e.target.nodeName==='IMG')e.preventDefault();});
+  document.onselectstart=function(){return false;};
+  </script>
+</body>
+</html>

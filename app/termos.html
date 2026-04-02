@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Termos de Uso - Bro Pharmaceuticals</title>
+  <style>
+    /* ===== Variáveis do Seu Design ===== */
+    :root {
+      --background: #000000;
+      --foreground: #ffffff;
+      --card: #0a0a0a;
+      --card-hover: #111111;
+      --muted: #1a1a1a;
+      --muted-foreground: #888888;
+      --border: #222222;
+      --border-light: #333333;
+      --radius: 1.25rem;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--background);
+      color: var(--foreground);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    /* ===== Container Principal ===== */
+    .terms-container {
+      max-width: 850px;
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 3.5rem;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+      animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== Cabeçalho ===== */
+    .header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .icon-circle {
+      width: 64px;
+      height: 64px;
+      background: var(--muted);
+      border: 1px solid var(--border-light);
+      border-radius: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: var(--foreground);
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: var(--muted-foreground);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ===== Conteúdo ===== */
+    .terms-content {
+      color: var(--muted-foreground);
+    }
+
+    .section {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--muted);
+    }
+
+    .section:last-child { border: none; }
+
+    h2 {
+      color: var(--foreground);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    h2 span {
+      color: var(--muted-foreground);
+      font-size: 0.9rem;
+      font-family: monospace;
+    }
+
+    p { margin-bottom: 1.2rem; font-size: 0.95rem; }
+
+    .license-list {
+      background: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      list-style: none;
+    }
+
+    .license-list li {
+      margin-bottom: 0.8rem;
+      padding-left: 1.5rem;
+      position: relative;
+      font-size: 0.9rem;
+    }
+
+    .license-list li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--foreground);
+    }
+
+    /* ===== Footer & Botão ===== */
+    .footer-box {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .btn-action {
+      background: var(--foreground);
+      color: var(--background);
+      border: none;
+      padding: 1rem 3rem;
+      border-radius: 0.75rem;
+      font-weight: 800;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-action:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255,255,255,0.1);
+    }
+
+    /* ===== Mobile ===== */
+    @media (max-width: 640px) {
+      .terms-container { padding: 2rem 1.5rem; border: none; }
+      h1 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="terms-container">
+    <header class="header">
+      <div class="icon-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+      </div>
+      <h1>Termos de Serviço</h1>
+      <p class="subtitle">Bro Pharmaceuticals</p>
+    </header>
+
+    <div class="terms-content">
+      <div class="section">
+        <h2><span>01.</span> Aceitação dos Termos</h2>
+        <p>Ao acessar ao site <strong>Bro Pharmaceuticals</strong>, concorda em cumprir estes termos de serviço, todas as leis e regulamentos aplicáveis ​​e concorda que é responsável pelo cumprimento de todas as leis locais aplicáveis. Se você não concordar com algum desses termos, está proibido de usar ou acessar este site.</p>
+      </div>
+
+      <div class="section">
+        <h2><span>02.</span> Uso de Licença</h2>
+        <p>É concedida permissão para baixar temporariamente uma cópia dos materiais apenas para visualização transitória pessoal e não comercial. Sob esta licença, você não pode:</p>
+        <ul class="license-list">
+          <li>Modificar ou copiar os materiais;</li>
+          <li>Usar os materiais para qualquer finalidade comercial;</li>
+          <li>Tentar descompilar ou fazer engenharia reversa de qualquer software;</li>
+          <li>Remover quaisquer direitos autorais ou notações de propriedade;</li>
+          <li>Transferir os materiais para outra pessoa ou 'espelhar' em outro servidor.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2><span>03.</span> Isenção de Responsabilidade</h2>
+        <p>Os materiais no site da Bro Pharmaceuticals são fornecidos 'como estão'. Bro Pharmaceuticals não oferece garantias, expressas ou implícitas, e, por este meio, isenta e nega todas as outras garantias, incluindo, sem limitação, garantias implícitas de comercialização ou adequação a um fim específico.</p>
+      </div>
+
+      <div class="section">
+        <h2><span>04.</span> Limitações</h2>
+        <p>Em nenhum caso o Bro Pharmaceuticals ou seus fornecedores serão responsáveis ​​por quaisquer danos decorrentes do uso ou da incapacidade de usar os materiais, mesmo que notificados da possibilidade de tais danos.</p>
+      </div>
+
+      <div class="section">
+        <h2><span>05.</span> Precisão e Links</h2>
+        <p>Os materiais exibidos podem incluir erros técnicos ou fotográficos. Bro Pharmaceuticals não garante que qualquer material seja preciso ou atual. Não somos responsáveis pelo conteúdo de nenhum site vinculado.</p>
+      </div>
+
+      <div class="section" style="border: none;">
+        <h2>Lei Aplicável</h2>
+        <p>Estes termos e condições são regidos e interpretados de acordo com as leis do Bro Pharmaceuticals e você se submete irrevogavelmente à jurisdição exclusiva dos tribunais naquele estado ou localidade.</p>
+      </div>
+
+      <footer class="footer-box">
+        <button class="btn-action" onclick="window.location.href='/app'">Eu Concordo e Desejo Voltar</button>
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    // Bloqueio de seleção de texto e fotos
+    document.addEventListener('selectstart', e => e.preventDefault());
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('dragstart', e => { if (e.target.nodeName === 'IMG') e.preventDefault(); });
+  </script>
+
+</body>
+</html>
