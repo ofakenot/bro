@@ -20,23 +20,12 @@
         }
 
         /* ══ LANGUAGE SWITCHER ══ */
-        .lang-switcher {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
+        .lang-switcher { display: flex; align-items: center; gap: 4px; }
         .lang-btn {
-            background: transparent;
-            border: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.4);
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 4px 8px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            letter-spacing: 0.5px;
-            font-family: 'Inter', sans-serif;
+            background: transparent; border: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.4); font-size: 0.7rem; font-weight: 700;
+            padding: 4px 8px; border-radius: 6px; cursor: pointer;
+            transition: all 0.2s ease; letter-spacing: 0.5px; font-family: 'Inter', sans-serif;
         }
         .lang-btn:hover { color: #fff; border-color: rgba(255,255,255,0.3); }
         .lang-btn.active { background: rgba(255,255,255,0.08); color: #fff; border-color: rgba(255,255,255,0.25); }
@@ -75,13 +64,11 @@
         header {
             position: fixed; top: 0; width: 100%; z-index: 50;
             background: rgba(8,8,8,0.85); backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease;
         }
         header.scrolled { background: rgba(8,8,8,0.95); }
         nav {
-            max-width: 1280px; margin: 0 auto;
-            padding: 1rem 1.5rem;
+            max-width: 1280px; margin: 0 auto; padding: 1rem 1.5rem;
             display: flex; justify-content: space-between; align-items: center;
         }
         .logo {
@@ -160,8 +147,7 @@
             position: relative; height: 420px; background: #000;
             border: 1px solid rgba(255,255,255,0.05); border-radius: 35px;
             padding: 45px; transition: transform 0.2s ease-out, border-color 0.4s ease;
-            transform-style: preserve-3d; cursor: pointer; overflow: hidden;
-            display: flex; flex-direction: column;
+            transform-style: preserve-3d; cursor: pointer; overflow: hidden; display: flex; flex-direction: column;
         }
         .card-bg-image { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.12; filter: grayscale(1); z-index: 1; }
         .card-bg-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, #000 10%, transparent 50%, #000 90%); z-index: 2; }
@@ -190,9 +176,9 @@
         .eco-h-content { display: flex; flex-direction: column; justify-content: center; z-index: 3; padding: 30px; }
         .eco-id { font-family: monospace; color: rgba(255,255,255,0.2); font-size: 0.7rem; font-weight: 800; letter-spacing: 2px; margin-bottom: 10px; }
         .eco-h-content p { color: rgba(255,255,255,0.4); font-size: 1rem; line-height: 1.8; margin-bottom: 35px; font-weight: 300; max-width: 400px; }
-        .eco-link, .eco-btn-rastrear { color: #fff; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; display: flex; align-items: center; gap: 12px; transition: all 0.3s ease; opacity: 0.5; background: none; border: none; cursor: pointer; }
+        .eco-link { color: #fff; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; display: flex; align-items: center; gap: 12px; transition: all 0.3s ease; opacity: 0.5; background: none; border: none; cursor: pointer; }
         .eco-h-card:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.15); transform: translateY(-8px); }
-        .eco-link:hover, .eco-btn-rastrear:hover { opacity: 1; gap: 20px; }
+        .eco-link:hover { opacity: 1; gap: 20px; }
 
         /* ══ COMMUNITY ══ */
         .avatar-stack-item { width: 75px; height: 75px; border-radius: 50%; border: 4px solid #050505; overflow: hidden; margin-left: -28px; box-shadow: 0 15px 35px rgba(0,0,0,0.5); background: #111; transition: all 0.4s cubic-bezier(0.175,0.885,0.32,1.275); cursor: pointer; }
@@ -242,7 +228,6 @@
         .slider-item { flex-shrink: 0; padding: 0 56px; display: flex; align-items: center; justify-content: center; }
         .slider-item svg.slider-svg, .slider-item svg.slider-svg text, .slider-item svg.slider-svg rect, .slider-item svg.slider-svg path { stroke: none !important; stroke-width: 0 !important; fill: revert-layer; }
         @keyframes slideInfinite { from { transform: translateX(0); } to { transform: translateX(var(--slide-distance)); } }
-        @media (max-width: 768px) { .slider-item { padding: 0 28px; } .slider-item svg { transform: scale(0.8); } .slider-item img { height: 28px !important; } }
 
         /* ══ SVG ICONS ══ */
         svg:not(.slider-svg) { stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; fill: none; }
@@ -264,10 +249,7 @@
         }
 
         /* RTL eco card */
-        [dir="rtl"] .eco-h-image::after {
-            right: auto; left: 0;
-            background: linear-gradient(to left, transparent, rgba(5,5,5,0.8), #050505);
-        }
+        [dir="rtl"] .eco-h-image::after { right: auto; left: 0; background: linear-gradient(to left, transparent, rgba(5,5,5,0.8), #050505); }
         [dir="rtl"] .eco-h-content { padding: 40px 60px 40px 20px !important; }
 
         .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
@@ -302,80 +284,85 @@
         </nav>
     </header>
 
-  <section class="hero" style="position: relative; overflow: hidden; min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: #080808;">
-    
-    <div style="position: absolute; inset: 0; z-index: 0; pointer-events: none;">
-        <video id="hero-video" autoplay loop muted playsinline preload="auto" style="width:100%; height:100%; object-fit:cover; opacity:0.5; transition: all 1s;">
-            <source src="https://videos.pexels.com/video-files/35968183/15249566_1920_1080_30fps.mp4" type="video/mp4">
-        </video>
-        <div style="position:absolute; inset:0; background:linear-gradient(to top, #080808 0%, rgba(8,8,8,0.3) 50%, #080808 100%);"></div>
-    </div>
+    <section class="hero" style="position: relative; overflow: hidden; min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: #080808;">
+        <div style="position: absolute; inset: 0; z-index: 0; pointer-events: none;">
+            <video id="hero-video" autoplay loop muted playsinline preload="auto" style="width:100%; height:100%; object-fit:cover; opacity:0.5; transition: all 1s;">
+                <source src="https://videos.pexels.com/video-files/35968183/15249566_1920_1080_30fps.mp4" type="video/mp4">
+            </video>
+            <div style="position:absolute; inset:0; background:linear-gradient(to top, #080808 0%, rgba(8,8,8,0.3) 50%, #080808 100%);"></div>
+        </div>
 
-    <div class="hero-container" style="position:relative; z-index:10; width:100%; max-width:950px; padding:0 24px;">
-        <div class="hero-content">
-            <div style="margin-bottom: 2.5rem;">
-                <span class="badge" style="display:inline-block; padding:8px 16px; border-radius:99px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:#fff; font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:4px; margin-bottom:25px;" data-i18n="hero.badge">Hub de Performance</span>
-                
-                <h1 style="font-size:clamp(2.8rem, 8vw, 4.5rem); color:#fff; font-weight:900; letter-spacing:-3px; line-height:1.05; margin:0;" data-i18n="hero.title">
-                    Saúde, Performance <br>e <span style="opacity: 0.5;">Evolução.</span>
-                </h1>
-            </div>
-
-            <p class="hero-description" style="color: #e0e0e0; font-size: 1.2rem; line-height: 1.7; max-width: 700px; margin: 0 auto 3rem; font-weight: 400;" data-i18n="hero.description">
-                Bro Pharmaceuticals é o hub definitivo para quem leva a sério sua performance. Protocolos integrados de treino, nutrição e ciência industrial.
-            </p>
-
-            <div class="button-group" style="display:flex; justify-content:center; gap:1.5rem; flex-wrap:wrap;">
-                <button class="btn-primary" onclick="downloadApp()" style="background:#fff; color:#000; padding:18px 40px; border-radius:14px; font-weight:800; font-size:0.9rem; letter-spacing:1px; border:none; cursor:pointer; display:flex; align-items:center; gap:12px; transition: 0.3s;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                    <span data-i18n="hero.cta1">Acessar App</span>
-                </button>
-                <button class="btn-secondary" onclick="scrollToSection('about')" style="background:transparent; color:#fff; padding:18px 40px; border-radius:14px; font-weight:800; font-size:0.9rem; letter-spacing:1px; border:1px solid rgba(255,255,255,0.2); cursor:pointer; transition: 0.3s;" data-i18n="hero.cta2">Explorar Ecossistema</button>
-            </div>
-
-            <div style="display:flex; justify-content:center; gap:4rem; margin-top:4rem; width:100%; flex-wrap:wrap;">
-                <div style="text-align:center;">
-                    <div style="font-size:2.5rem; font-weight:900; color:#fff; letter-spacing:-1px;">50K+</div>
-                    <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:2px; color:rgba(255,255,255,0.4); font-weight:700;" data-i18n="stats.members">Membros Ativos</div>
+        <div class="hero-container" style="position:relative; z-index:10; width:100%; max-width:950px; padding:0 24px;">
+            <div class="hero-content">
+                <div style="margin-bottom: 2.5rem;">
+                    <span class="badge" style="display:inline-block; padding:8px 16px; border-radius:99px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:#fff; font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:4px; margin-bottom:25px;" data-i18n="hero.badge">Hub de Performance</span>
+                    <h1 style="font-size:clamp(2.8rem, 8vw, 4.5rem); color:#fff; font-weight:900; letter-spacing:-3px; line-height:1.05; margin:0;" data-i18n="hero.title">
+                        Saúde, Performance <br>e <span style="opacity: 0.5;">Evolução.</span>
+                    </h1>
                 </div>
-                <div style="text-align:center;">
-                    <div style="font-size:2.5rem; font-weight:900; color:#fff; letter-spacing:-1px;">1M+</div>
-                    <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:2px; color:rgba(255,255,255,0.4); font-weight:700;" data-i18n="stats.workouts">Protocolos</div>
+
+                <p class="hero-description" style="color: #e0e0e0; font-size: 1.2rem; line-height: 1.7; max-width: 700px; margin: 0 auto 3rem; font-weight: 400;" data-i18n="hero.description">
+                    Bro Pharmaceuticals é o hub definitivo para quem leva a sério sua performance. Protocolos integrados de treino, nutrição e ciência industrial.
+                </p>
+
+                <div class="button-group" style="display:flex; justify-content:center; gap:1.5rem; flex-wrap:wrap;">
+                    <!-- Botão BRXPHARMA -->
+                    <button class="btn-primary" onclick="downloadApp()" style="background:#fff; color:#000; padding:18px 40px; border-radius:14px; font-weight:800; font-size:0.9rem; letter-spacing:1px; border:none; cursor:pointer; display:flex; align-items:center; gap:12px; transition: 0.3s;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        <span data-i18n="hero.cta1">Acessar BRXPHARMA</span>
+                    </button>
+
+                    <!-- Botão ELEVIA -->
+                    <a href="https://www.goelevia.com" target="_blank" class="btn-primary" style="background:#fff; color:#000; padding:18px 40px; border-radius:14px; font-weight:800; font-size:0.9rem; letter-spacing:1px; border:none; cursor:pointer; display:flex; align-items:center; gap:12px; transition: 0.3s; text-decoration:none;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        <span data-i18n="hero.cta2">Acessar Elevia</span>
+                    </a>
+
+                    <button class="btn-secondary" onclick="scrollToSection('about')" style="background:transparent; color:#fff; padding:18px 40px; border-radius:14px; font-weight:800; font-size:0.9rem; letter-spacing:1px; border:1px solid rgba(255,255,255,0.2); cursor:pointer; transition: 0.3s;" data-i18n="hero.cta3">Explorar Ecossistema</button>
                 </div>
-                <div style="text-align:center;">
-                    <div style="font-size:2.5rem; font-weight:900; color:#fff; letter-spacing:-1px;">10K+</div>
-                    <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:2px; color:rgba(255,255,255,0.4); font-weight:700;" data-i18n="stats.transformations">Resultados</div>
+
+                <div style="display:flex; justify-content:center; gap:4rem; margin-top:4rem; width:100%; flex-wrap:wrap;">
+                    <div style="text-align:center;">
+                        <div style="font-size:2.5rem; font-weight:900; color:#fff; letter-spacing:-1px;">50K+</div>
+                        <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:2px; color:rgba(255,255,255,0.4); font-weight:700;" data-i18n="stats.members">Membros Ativos</div>
+                    </div>
+                    <div style="text-align:center;">
+                        <div style="font-size:2.5rem; font-weight:900; color:#fff; letter-spacing:-1px;">1M+</div>
+                        <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:2px; color:rgba(255,255,255,0.4); font-weight:700;" data-i18n="stats.workouts">Protocolos</div>
+                    </div>
+                    <div style="text-align:center;">
+                        <div style="font-size:2.5rem; font-weight:900; color:#fff; letter-spacing:-1px;">10K+</div>
+                        <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:2px; color:rgba(255,255,255,0.4); font-weight:700;" data-i18n="stats.transformations">Resultados</div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var video = document.getElementById('hero-video');
-        
-        // Tenta tocar o vídeo assim que o DOM carregar
-        var playPromise = video.play();
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var video = document.getElementById('hero-video');
+            var playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    document.body.addEventListener('touchstart', function() { video.play(); }, {once: true});
+                });
+            }
+        });
+    </script>
 
-        if (playPromise !== undefined) {
-            playPromise.catch(error => {
-                // Auto-play foi impedido (provavelmente modo de economia)
-                // Vamos tentar tocar novamente no primeiro clique/scroll do usuário
-                document.body.addEventListener('touchstart', function() {
-                    video.play();
-                }, {once: true});
-            });
-        }
-    });
-</script>
     <!-- ══ SLIDER ══ -->
     <div style="background:rgba(0,0,0,0.6);padding:2.5rem 0;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);">
         <div class="slider-outer">
             <div class="slider-track" id="slider-track">
                 <div class="slider-item">
                     <svg class="slider-svg" width="170" height="38" viewBox="0 0 170 38" xmlns="http://www.w3.org/2000/svg" style="overflow:visible;display:block;">
-                        <defs><linearGradient id="grad-running" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#ff6a00;stop-opacity:1"/><stop offset="100%" style="stop-color:#cc0000;stop-opacity:1"/></linearGradient></defs>
+                        <defs>
+                            <linearGradient id="grad-running" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#ff6a00;stop-opacity:1"/>
+                                <stop offset="100%" style="stop-color:#cc0000;stop-opacity:1"/>
+                            </linearGradient>
+                        </defs>
                         <text x="0" y="28" font-family="Verdana,sans-serif" font-weight="900" font-style="italic" font-size="20" style="fill:url(#grad-running);stroke:none;" letter-spacing="-1">BRX</text>
                         <text x="46" y="28" font-family="Inter,sans-serif" font-weight="300" font-size="17" style="fill:#ffffff;stroke:none;">RUNNING</text>
                         <rect x="0" y="33" width="40" height="2.5" style="fill:url(#grad-running);stroke:none;"/>
@@ -383,6 +370,9 @@
                 </div>
                 <div class="slider-item">
                     <img src="images/h2f.png" alt="H2F Shipping" style="height:34px;width:auto;object-fit:contain;opacity:0.85;">
+                </div>
+                <div class="slider-item">
+                    <img src="images/elevialogo.png" alt="Elevia" style="height:70px;width:auto;object-fit:contain;opacity:1;">
                 </div>
                 <div class="slider-item">
                     <svg class="slider-svg" width="200" height="38" viewBox="0 0 200 38" xmlns="http://www.w3.org/2000/svg" style="overflow:visible;display:block;">
@@ -398,601 +388,374 @@
         </div>
     </div>
 
-<section id="about" style="background:#050505; padding:120px 0; overflow:hidden; font-family: sans-serif;">
-    <div class="section-container" style="max-width:1200px; margin:0 auto; padding:0 24px;">
-        <div class="about-grid" style="display: grid; grid-template-columns:repeat(auto-fit,minmax(350px,1fr)); gap:80px; align-items:center;">
-            
-            <div style="position:relative; border-radius:40px; overflow:hidden; height:600px; border:1px solid rgba(255,255,255,0.1); box-shadow:0 30px 60px rgba(0,0,0,0.5);">
-                <img src="images/brxindustry.png" alt="Bro Pharmaceuticals Industry" style="width:100%; height:100%; object-fit:cover; display:block;">
-                <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.7), transparent);"></div>
-                <div style="position:absolute; bottom:30px; right:30px; background:rgba(255,255,255,0.05); color:#fff; padding:12px 24px; border-radius:12px; font-weight:800; font-size:0.7rem; letter-spacing:2px; border:1px solid rgba(255,255,255,0.2); backdrop-filter:blur(10px); z-index:2;">EST. 2024</div>
+    <section id="about" style="background:#050505; padding:120px 0; overflow:hidden; font-family: sans-serif;">
+        <div class="section-container" style="max-width:1200px; margin:0 auto; padding:0 24px;">
+            <div class="about-grid" style="display: grid; grid-template-columns:repeat(auto-fit,minmax(350px,1fr)); gap:80px; align-items:center;">
+                <div style="position:relative; border-radius:40px; overflow:hidden; height:600px; border:1px solid rgba(255,255,255,0.1); box-shadow:0 30px 60px rgba(0,0,0,0.5);">
+                    <img src="images/brxindustry.png" alt="Bro Pharmaceuticals Industry" style="width:100%; height:100%; object-fit:cover; display:block;">
+                    <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.7), transparent);"></div>
+                    <div style="position:absolute; bottom:30px; right:30px; background:rgba(255,255,255,0.05); color:#fff; padding:12px 24px; border-radius:12px; font-weight:800; font-size:0.7rem; letter-spacing:2px; border:1px solid rgba(255,255,255,0.2); backdrop-filter:blur(10px); z-index:2;">EST. 2024</div>
+                </div>
+                <div class="about-content-wrapper">
+                    <div class="section-header" style="margin-bottom:3rem;">
+                        <span class="section-eyebrow" style="font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; display: block; margin-bottom: 15px; background: linear-gradient(90deg, #ff6a00 0%, #ff0000 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" data-i18n="about.eyebrow">A Nova Era</span>
+                        <h2 style="font-size:clamp(2.5rem, 6vw, 3.5rem); color:#fff; font-weight:900; letter-spacing:-2px; line-height:1.1; margin:0;" data-i18n="about.title">Ciência e Performance Implacável</h2>
+                        <p style="margin-top:2rem; color:#e0e0e0; font-size:1.15rem; line-height:1.8; font-weight:400;" data-i18n="about.description">Não entregamos apenas produtos, entregamos o caminho. O ecossistema Bro Pharmaceuticals foi desenhado para quem não aceita o mediano.</p>
+                    </div>
+                    <div class="feature-list" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:3rem;">
+                        <div class="feature-item" style="display: flex; flex-direction: column; gap: 15px;">
+                            <div style="width:24px; height:24px; color: #fff; opacity: 0.8;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="1"></circle><path d="M12 1v6m0 6v6M1 12h6m6 0h6"></path></svg></div>
+                            <div class="feature-content">
+                                <h3 style="color: #fff; font-size: 1.1rem; font-weight: 800; margin-bottom: 8px;" data-i18n="about.f1.title">Sincronia Total</h3>
+                                <p style="color: rgba(255,255,255,0.5); font-size: 0.95rem; line-height: 1.5; margin: 0;" data-i18n="about.f1.desc">App e logística em uma única experiência integrada.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item" style="display: flex; flex-direction: column; gap: 15px;">
+                            <div style="width:24px; height:24px; color: #fff; opacity: 0.8;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 16V8l-9-5-9 5v8l9 5 9-5z"></path></svg></div>
+                            <div class="feature-content">
+                                <h3 style="color: #fff; font-size: 1.1rem; font-weight: 800; margin-bottom: 8px;" data-i18n="about.f2.title">Foco Técnico</h3>
+                                <p style="color: rgba(255,255,255,0.5); font-size: 0.95rem; line-height: 1.5; margin: 0;" data-i18n="about.f2.desc">Protocolos industriais baseados em dados laboratoriais.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item" style="display: flex; flex-direction: column; gap: 15px;">
+                            <div style="width:24px; height:24px; color: #fff; opacity: 0.8;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg></div>
+                            <div class="feature-content">
+                                <h3 style="color: #fff; font-size: 1.1rem; font-weight: 800; margin-bottom: 8px;" data-i18n="about.f3.title">Elite Social</h3>
+                                <p style="color: rgba(255,255,255,0.5); font-size: 0.95rem; line-height: 1.5; margin: 0;" data-i18n="about.f3.desc">Comunidade exclusiva focada em performance absoluta.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item" style="display: flex; flex-direction: column; gap: 15px;">
+                            <div style="width:24px; height:24px; color: #fff; opacity: 0.8;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline></svg></div>
+                            <div class="feature-content">
+                                <h3 style="color: #fff; font-size: 1.1rem; font-weight: 800; margin-bottom: 8px;" data-i18n="about.f4.title">Escalabilidade</h3>
+                                <p style="color: rgba(255,255,255,0.5); font-size: 0.95rem; line-height: 1.5; margin: 0;" data-i18n="about.f4.desc">Evolução contínua em cada etapa do desenvolvimento.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="about-content-wrapper">
-                <div class="section-header" style="margin-bottom:3rem;">
-                    <span class="section-eyebrow" style="font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; display: block; margin-bottom: 15px; background: linear-gradient(90deg, #ff6a00 0%, #ff0000 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" data-i18n="about.eyebrow">A Nova Era</span>
-                    
-                    <h2 style="font-size:clamp(2.5rem, 6vw, 3.5rem); color:#fff; font-weight:900; letter-spacing:-2px; line-height:1.1; margin:0;" data-i18n="about.title">
-                        Ciência e <span style="color: #fff; opacity: 0.9;">Performance</span> Implacável
+    <section id="pillars" style="padding:120px 0; background:#050505; overflow:hidden; font-family: sans-serif;">
+        <div class="section-container" style="max-width:1200px; margin:0 auto; padding:0 24px;">
+            <div class="section-header" style="text-align:center; margin-bottom:6rem;">
+                <span class="section-eyebrow" style="font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; display: block; margin-bottom: 15px; background: linear-gradient(90deg, #ff6a00 0%, #ff0000 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" data-i18n="pillars.eyebrow">Protocolos Base</span>
+                <h2 style="font-size:clamp(2.5rem, 6vw, 3.5rem); color:#fff; font-weight:900; letter-spacing:-2px; margin:0; line-height: 1;" data-i18n="pillars.title">Pilares de <span style="color: #fff; opacity: 0.9;">Performance.</span></h2>
+            </div>
+            <div class="pillars-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+                <div class="card-3d-wrapper" style="perspective: 1200px;">
+                    <div class="card-3d" onmousemove="handleCardMove(event,this)" onmouseleave="handleCardReset(this)" style="position: relative; height: 420px; background: #000; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 35px; padding: 45px; transition: transform 0.2s ease-out; transform-style: preserve-3d; overflow: hidden; display: flex; flex-direction: column;">
+                        <div class="card-shine" style="position: absolute; inset: 0; pointer-events: none; z-index: 3; opacity: 0;"></div>
+                        <div class="card-bg-image" style="background-image:url('images/treino.jpg'); position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.2; filter: grayscale(1); z-index: 1;"></div>
+                        <div class="card-content" style="position: relative; z-index: 4; transform: translateZ(50px); height: 100%; display: flex; flex-direction: column;">
+                            <span class="card-number" style="font-family: monospace; color: #fff; opacity: 0.4; font-size: 0.65rem; letter-spacing: 3px; font-weight: 800; margin-bottom: 20px; display: block;"></span>
+                            <h3 style="color: #fff; font-size: 1.8rem; font-weight: 800; margin: 0 0 15px 0; letter-spacing: -1px;" data-i18n="pillars.c1.title">Treino Híbrido</h3>
+                            <p style="color: #e0e0e0; font-size: 1rem; line-height: 1.6; font-weight: 400; margin: 0;" data-i18n="pillars.c1.desc">Protocolos proprietários Bro Pharma: sincronização de força bruta e resistência aeróbica de elite em um único sistema.</p>
+                            <div class="card-footer-tech" style="margin-top: auto; font-family: monospace; font-size: 0.6rem; color: #fff; opacity: 0.2; letter-spacing: 4px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">HIGH LEVEL</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-3d-wrapper" style="perspective: 1200px;">
+                    <div class="card-3d" onmousemove="handleCardMove(event,this)" onmouseleave="handleCardReset(this)" style="position: relative; height: 420px; background: #000; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 35px; padding: 45px; transition: transform 0.2s ease-out; transform-style: preserve-3d; overflow: hidden; display: flex; flex-direction: column;">
+                        <div class="card-shine" style="position: absolute; inset: 0; pointer-events: none; z-index: 3; opacity: 0;"></div>
+                        <div class="card-bg-image" style="background-image:url('images/dna.webp'); position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.2; filter: grayscale(1); z-index: 1;"></div>
+                        <div class="card-content" style="position: relative; z-index: 4; transform: translateZ(50px); height: 100%; display: flex; flex-direction: column;">
+                            <span class="card-number" style="font-family: monospace; color: #fff; opacity: 0.4; font-size: 0.65rem; letter-spacing: 3px; font-weight: 800; margin-bottom: 20px; display: block;"></span>
+                            <h3 style="color: #fff; font-size: 1.8rem; font-weight: 800; margin: 0 0 15px 0; letter-spacing: -1px;" data-i18n="pillars.c2.title">Bio Nutrição</h3>
+                            <p style="color: #e0e0e0; font-size: 1rem; line-height: 1.6; font-weight: 400; margin: 0;" data-i18n="pillars.c2.desc">Estratégias de abastecimento celular e otimização metabólica para recuperação acelerada e performance constante.</p>
+                            <div class="card-footer-tech" style="margin-top: auto; font-family: monospace; font-size: 0.6rem; color: #fff; opacity: 0.2; letter-spacing: 4px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">WELLNESS</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-3d-wrapper" style="perspective: 1200px;">
+                    <div class="card-3d" onmousemove="handleCardMove(event,this)" onmouseleave="handleCardReset(this)" style="position: relative; height: 420px; background: #000; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 35px; padding: 45px; transition: transform 0.2s ease-out; transform-style: preserve-3d; overflow: hidden; display: flex; flex-direction: column;">
+                        <div class="card-shine" style="position: absolute; inset: 0; pointer-events: none; z-index: 3; opacity: 0;"></div>
+                        <div class="card-bg-image" style="background-image:url('images/society.png'); position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.2; filter: grayscale(1); z-index: 1;"></div>
+                        <div class="society-svg-wrapper" style="position: absolute; top: 40px; right: 40px; width: 45px; height: 45px; opacity: 0.4; z-index: 5;">
+                            <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" style="stroke:#fff; stroke-width: 2; fill:none;"/><path d="M50 20 L50 80 M20 50 L80 50" style="stroke:#fff; stroke-width:1; fill:none;"/><circle cx="50" cy="50" r="8" style="fill:#fff; stroke:none;"/></svg>
+                        </div>
+                        <div class="card-content" style="position: relative; z-index: 4; transform: translateZ(50px); height: 100%; display: flex; flex-direction: column;">
+                            <span class="card-number" style="font-family: monospace; color: #fff; opacity: 0.4; font-size: 0.65rem; letter-spacing: 3px; font-weight: 800; margin-bottom: 20px; display: block;"></span>
+                            <h3 style="color: #fff; font-size: 1.8rem; font-weight: 800; margin: 0 0 15px 0; letter-spacing: -1px;" data-i18n="pillars.c3.title">Network & Foco</h3>
+                            <p style="color: #e0e0e0; font-size: 1rem; line-height: 1.6; font-weight: 400; margin: 0;" data-i18n="pillars.c3.desc">Acesso exclusivo à BRX Society: conexões de alto impacto e o desenvolvimento de uma mentalidade industrial imparável.</p>
+                            <div class="card-footer-tech" style="margin-top: auto; font-family: monospace; font-size: 0.6rem; color: #fff; opacity: 0.2; letter-spacing: 4px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">PRIVATE</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ecosystem" style="background:#050505; padding:120px 0; overflow:hidden; font-family: sans-serif;">
+        <div class="section-container" style="max-width:1100px; margin:0 auto; padding:0 24px;">
+            <div class="section-header" style="text-align:left; margin-bottom:5rem;">
+                <span class="section-eyebrow" style="font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; display: block; margin-bottom: 15px; background: linear-gradient(90deg, #ff6a00 0%, #ff0000 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" data-i18n="eco.eyebrow">Industrial Network</span>
+                <h2 style="font-size:clamp(2.5rem, 5vw, 3.2rem); color:#fff; font-weight:900; letter-spacing:-2px; margin:0; line-height: 1;" data-i18n="eco.title">Integração <span style="color: #fff; opacity: 0.9;">Total</span></h2>
+            </div>
+            <div style="display:grid; gap:32px;">
+
+                <!-- ELEVIA -->
+                <div class="eco-h-card">
+                    <div class="eco-h-image" style="background-image:url('images/serum.png'); background-color: #111;"><div class="image-overlay-fix"></div></div>
+                    <div class="eco-h-content">
+                        <div style="margin-bottom:20px;"><img src="images/elevialogo.png" alt="Elevia" style="height:55px; width:auto; filter: brightness(1.1);"></div>
+                        <p data-i18n="eco.c4.desc">Inovação e tecnologia aplicada ao bem-estar e performance. Conheça o próximo nível da suplementação inteligente.</p>
+                        <a href="https://www.goelevia.com" target="_blank" class="eco-link"><span>VISITAR WEBSITE</span> <span>→</span></a>
+                    </div>
+                </div>
+
+                <!-- BRX RUNNING -->
+                <div class="eco-h-card">
+                    <div class="eco-h-image" style="background-image:url('images/brxrunning.jpeg');"><div class="image-overlay-fix"></div></div>
+                    <div class="eco-h-content">
+                        <div style="margin-bottom:20px;">
+                            <svg width="170" height="38" viewBox="0 0 170 38" xmlns="http://www.w3.org/2000/svg" style="overflow:visible;">
+                                <defs><linearGradient id="grad-rc" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#ff6a00;stop-opacity:1"/><stop offset="100%" style="stop-color:#cc0000;stop-opacity:1"/></linearGradient></defs>
+                                <text x="0" y="28" font-family="Verdana,sans-serif" font-weight="900" font-style="italic" font-size="22" style="fill:url(#grad-rc);stroke:none;" letter-spacing="-1">BRX</text>
+                                <text x="50" y="28" font-family="Inter,sans-serif" font-weight="300" font-size="18" style="fill:#ffffff;stroke:none;">RUNNING</text>
+                                <rect x="0" y="33" width="45" height="3" style="fill:url(#grad-rc);stroke:none;"/>
+                            </svg>
+                        </div>
+                        <p data-i18n="eco.c1.desc">Alta performance integrada: a convergência definitiva entre resistência aeróbica e força industrial.</p>
+                        <a href="https://brxrunning.com" target="_blank" class="eco-link"><span data-i18n="eco.c1.btn">CONHECER HUB</span> <span>→</span></a>
+                    </div>
+                </div>
+
+                <!-- BRX SOCIETY -->
+                <div class="eco-h-card">
+                    <div class="eco-h-image" style="background-image:url('images/jato.png');"><div class="image-overlay-fix"></div></div>
+                    <div class="eco-h-content">
+                        <div style="margin-bottom:20px;">
+                            <svg width="200" height="38" viewBox="0 0 200 38" xmlns="http://www.w3.org/2000/svg" style="overflow:visible;">
+                                <text x="0" y="28" font-family="Verdana,sans-serif" font-weight="900" font-style="italic" font-size="22" style="fill:#d4af37;stroke:none;" letter-spacing="-1">BRX</text>
+                                <text x="50" y="28" font-family="Inter,sans-serif" font-weight="300" font-size="18" style="fill:#ffffff;stroke:none;">SOCIETY</text>
+                                <rect x="0" y="33" width="45" height="3" style="fill:#d4af37;stroke:none;"/>
+                            </svg>
+                        </div>
+                        <p data-i18n="eco.c2.desc">Networking de alto impacto e protocolos de elite para membros selecionados no ecossistema.</p>
+                        <a href="https://brxsociety.com" target="_blank" class="eco-link"><span data-i18n="eco.c2.btn">ACESSAR SOCIETY</span> <span>→</span></a>
+                    </div>
+                </div>
+
+                <!-- H2F SHIPPING -->
+                <div class="eco-h-card">
+                    <div class="eco-h-image" style="background-image:url('images/caminhao-h2f.jpeg');"><div class="image-overlay-fix"></div></div>
+                    <div class="eco-h-content">
+                        <div style="margin-bottom:20px; display:flex; align-items:center; gap:20px;">
+                            <img src="images/h2f.png" alt="H2F Shipping" style="height:32px; width:auto; filter:brightness(1.5);">
+                            <div style="width:1px; height:24px; background:rgba(255,255,255,0.2);"></div>
+                            <img src="images/logobro.png" alt="BRO" style="height:42px; width:auto;">
+                        </div>
+                        <p data-i18n="eco.c3.desc">Logística 4.0 com rastreabilidade total e agilidade industrial própria Bro Pharmaceuticals.</p>
+                        <a href="https://h2fshipping.com" target="_blank" class="eco-link"><span>VISITAR H2F SHIPPING</span> <span>→</span></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .eco-h-card { display: flex; flex-direction: row; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 32px; overflow: hidden; min-height: 340px; transition: all 0.3s ease; }
+        .eco-h-image { width: 50%; background-size: cover; background-position: center; position: relative; }
+        .image-overlay-fix { position: absolute; top: 0; right: 0; width: 15%; height: 100%; background: linear-gradient(to right, transparent, #050505); z-index: 2; }
+        .eco-h-content { width: 50%; padding: 40px 50px; display: flex; flex-direction: column; justify-content: center; background: #050505; }
+        .eco-h-content p { color: #e0e0e0; font-size: 1rem; line-height: 1.7; margin-bottom: 30px; }
+        .eco-link { color: #fff; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; display: flex; align-items: center; gap: 12px; opacity: 0.6; transition: 0.3s; }
+        .eco-link:hover { opacity: 1; }
+        @media (max-width: 768px) {
+            .eco-h-card { flex-direction: column !important; height: auto !important; min-height: unset !important; }
+            .eco-h-image { width: 100% !important; height: 200px !important; }
+            .image-overlay-fix { width: 100% !important; height: 20% !important; bottom: 0 !important; top: auto !important; background: linear-gradient(to bottom, transparent, #050505) !important; }
+            .eco-h-content { width: 100% !important; padding: 30px 24px !important; }
+        }
+    </style>
+
+    <section id="community" style="background:#050505;padding:120px 0;overflow:hidden; font-family: sans-serif;">
+        <div class="section-container" style="max-width:1000px;margin:0 auto;padding:0 24px;text-align:center;">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:30px;margin-bottom:5rem;">
+                <div class="data-mesh-visual" style="position: relative; height: 100px; width: 100%; display: flex; justify-content: center; align-items: center; opacity: 0.8;">
+                    <svg width="240" height="80" viewBox="0 0 240 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 40L60 20M60 20L100 50M100 50L140 20M140 20L180 60M180 60L220 30" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                        <circle cx="20" cy="40" r="3" fill="#fff" opacity="0.2"/>
+                        <circle cx="60" cy="20" r="3" fill="#fff" opacity="0.5"/>
+                        <circle cx="100" cy="50" r="4" fill="#fff"/>
+                        <circle cx="140" cy="20" r="3" fill="#fff" opacity="0.5"/>
+                        <circle cx="180" cy="60" r="3" fill="#fff" opacity="0.2"/>
+                        <circle cx="220" cy="30" r="3" fill="#fff" opacity="0.4"/>
+                        <circle cx="100" cy="50" r="8" stroke="#fff" stroke-opacity="0.2">
+                            <animate attributeName="r" from="8" to="20" dur="1.5s" repeatCount="indefinite" />
+                            <animate attributeName="stroke-opacity" from="0.2" to="0" dur="1.5s" repeatCount="indefinite" />
+                        </circle>
+                    </svg>
+                </div>
+                <div style="margin-top: -20px;">
+                    <span class="section-eyebrow" style="font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; display: block; margin-bottom: 20px; background: linear-gradient(90deg, #ff6a00 0%, #ff0000 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" data-i18n="community.eyebrow">Network Global</span>
+                    <h2 style="font-size:clamp(2.5rem,6vw,3.8rem);color:#fff;font-weight:900;letter-spacing:-2px;line-height:1.1;margin:0;">
+                        <span data-i18n="community.title1">Impacto Global.</span><br>
+                        <span style="background:linear-gradient(to right,#fff,rgba(255,255,255,0.25));-webkit-background-clip:text;-webkit-text-fill-color:transparent;" data-i18n="community.title2">Ciência Aplicada.</span>
                     </h2>
-                    <p style="margin-top:2rem; color:#e0e0e0; font-size:1.15rem; line-height:1.8; font-weight:400;" data-i18n="about.description">
-                        Não entregamos apenas produtos, entregamos o caminho. O ecossistema Bro Pharmaceuticals foi desenhado para quem não aceita o mediano.
-                    </p>
+                    <p style="color:#e0e0e0;max-width:620px;margin:2rem auto 0;line-height:1.8;font-weight:400;font-size:1.1rem;" data-i18n="community.description">O ecossistema definitivo de performance industrial, unindo milhares de membros através de protocolos de precisão.</p>
                 </div>
-
-                <div class="feature-list" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:3rem;">
-                    <div class="feature-item" style="display: flex; flex-direction: column; gap: 15px;">
-                        <div style="width:24px; height:24px; color: #fff; opacity: 0.8;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="1"></circle><path d="M12 1v6m0 6v6M1 12h6m6 0h6"></path></svg></div>
-                        <div class="feature-content">
-                            <h3 style="color: #fff; font-size: 1.1rem; font-weight: 800; margin-bottom: 8px;" data-i18n="about.f1.title">Sincronia Total</h3>
-                            <p style="color: rgba(255,255,255,0.5); font-size: 0.95rem; line-height: 1.5; margin: 0;" data-i18n="about.f1.desc">App e logística em uma única experiência integrada.</p>
-                        </div>
+            </div>
+            <div class="stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px;">
+                <div class="stat-card" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 50px 30px; border-radius: 32px; transition: 0.3s;">
+                    <div class="stat-number-wrapper" style="font-size: 3rem; font-weight: 900; color: #fff; margin-bottom: 12px; letter-spacing: -2px;">
+                        <span class="stat-number" data-target="50">0</span><span style="opacity: 0.3;">K+</span>
                     </div>
-
-                    <div class="feature-item" style="display: flex; flex-direction: column; gap: 15px;">
-                        <div style="width:24px; height:24px; color: #fff; opacity: 0.8;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 16V8l-9-5-9 5v8l9 5 9-5z"></path></svg></div>
-                        <div class="feature-content">
-                            <h3 style="color: #fff; font-size: 1.1rem; font-weight: 800; margin-bottom: 8px;" data-i18n="about.f2.title">Foco Técnico</h3>
-                            <p style="color: rgba(255,255,255,0.5); font-size: 0.95rem; line-height: 1.5; margin: 0;" data-i18n="about.f2.desc">Protocolos industriais baseados em dados laboratoriais.</p>
-                        </div>
+                    <div class="stat-label" style="font-size: 0.75rem; color: #fff; opacity: 0.5; text-transform: uppercase; letter-spacing: 3px; font-weight: 700;" data-i18n="stats.members">Membros Ativos</div>
+                </div>
+                <div class="stat-card" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 50px 30px; border-radius: 32px; transition: 0.3s;">
+                    <div class="stat-number-wrapper" style="font-size: 3rem; font-weight: 900; color: #fff; margin-bottom: 12px; letter-spacing: -2px;">
+                        <span class="stat-number" data-target="1">0</span><span style="opacity: 0.3;">M+</span>
                     </div>
-
-                    <div class="feature-item" style="display: flex; flex-direction: column; gap: 15px;">
-                        <div style="width:24px; height:24px; color: #fff; opacity: 0.8;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg></div>
-                        <div class="feature-content">
-                            <h3 style="color: #fff; font-size: 1.1rem; font-weight: 800; margin-bottom: 8px;" data-i18n="about.f3.title">Elite Social</h3>
-                            <p style="color: rgba(255,255,255,0.5); font-size: 0.95rem; line-height: 1.5; margin: 0;" data-i18n="about.f3.desc">Comunidade exclusiva focada em performance absoluta.</p>
-                        </div>
+                    <div class="stat-label" style="font-size: 0.75rem; color: #fff; opacity: 0.5; text-transform: uppercase; letter-spacing: 3px; font-weight: 700;" data-i18n="stats.protocols">Protocolos Concluídos</div>
+                </div>
+                <div class="stat-card" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 50px 30px; border-radius: 32px; transition: 0.3s;">
+                    <div class="stat-number-wrapper" style="font-size: 3rem; font-weight: 900; color: #fff; margin-bottom: 12px; letter-spacing: -2px;">
+                        <span class="stat-number" data-target="10">0</span><span style="opacity: 0.3;">K+</span>
                     </div>
-
-                    <div class="feature-item" style="display: flex; flex-direction: column; gap: 15px;">
-                        <div style="width:24px; height:24px; color: #fff; opacity: 0.8;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline></svg></div>
-                        <div class="feature-content">
-                            <h3 style="color: #fff; font-size: 1.1rem; font-weight: 800; margin-bottom: 8px;" data-i18n="about.f4.title">Escalabilidade</h3>
-                            <p style="color: rgba(255,255,255,0.5); font-size: 0.95rem; line-height: 1.5; margin: 0;" data-i18n="about.f4.desc">Evolução contínua em cada etapa do desenvolvimento.</p>
-                        </div>
-                    </div>
+                    <div class="stat-label" style="font-size: 0.75rem; color: #fff; opacity: 0.5; text-transform: uppercase; letter-spacing: 3px; font-weight: 700;" data-i18n="stats.transformations">Transformações</div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
- <section id="pillars" style="padding:120px 0; background:#050505; overflow:hidden; font-family: sans-serif;">
-    <div class="section-container" style="max-width:1200px; margin:0 auto; padding:0 24px;">
-        
-        <div class="section-header" style="text-align:center; margin-bottom:6rem;">
-            <span class="section-eyebrow" style="font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; display: block; margin-bottom: 15px; background: linear-gradient(90deg, #ff6a00 0%, #ff0000 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" data-i18n="pillars.eyebrow">Protocolos Base</span>
-            
-            <h2 style="font-size:clamp(2.5rem, 6vw, 3.5rem); color:#fff; font-weight:900; letter-spacing:-2px; margin:0; line-height: 1;" data-i18n="pillars.title">
-                Pilares de <span style="color: #fff; opacity: 0.9;">Performance.</span>
-            </h2>
-        </div>
-
-        <div class="pillars-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
-            
-            <div class="card-3d-wrapper" style="perspective: 1200px;">
-                <div class="card-3d" onmousemove="handleCardMove(event,this)" onmouseleave="handleCardReset(this)" style="position: relative; height: 420px; background: #000; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 35px; padding: 45px; transition: transform 0.2s ease-out; transform-style: preserve-3d; overflow: hidden; display: flex; flex-direction: column;">
-                    <div class="card-shine" style="position: absolute; inset: 0; pointer-events: none; z-index: 3; opacity: 0;"></div>
-                    <div class="card-bg-image" style="background-image:url('images/treino.jpg'); position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.2; filter: grayscale(1); z-index: 1;"></div>
-                    
-                    <div class="card-content" style="position: relative; z-index: 4; transform: translateZ(50px); height: 100%; display: flex; flex-direction: column;">
-                        <span class="card-number" style="font-family: monospace; color: #fff; opacity: 0.4; font-size: 0.65rem; letter-spacing: 3px; font-weight: 800; margin-bottom: 20px; display: block;"></span>
-                        <h3 style="color: #fff; font-size: 1.8rem; font-weight: 800; margin: 0 0 15px 0; letter-spacing: -1px;" data-i18n="pillars.c1.title">Treino Híbrido</h3>
-                        <p style="color: #e0e0e0; font-size: 1rem; line-height: 1.6; font-weight: 400; margin: 0;" data-i18n="pillars.c1.desc">Protocolos proprietários Bro Pharma: sincronização de força bruta e resistência aeróbica de elite em um único sistema.</p>
-                        <div class="card-footer-tech" style="margin-top: auto; font-family: monospace; font-size: 0.6rem; color: #fff; opacity: 0.2; letter-spacing: 4px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">HIGH LEVEL</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-3d-wrapper" style="perspective: 1200px;">
-                <div class="card-3d" onmousemove="handleCardMove(event,this)" onmouseleave="handleCardReset(this)" style="position: relative; height: 420px; background: #000; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 35px; padding: 45px; transition: transform 0.2s ease-out; transform-style: preserve-3d; overflow: hidden; display: flex; flex-direction: column;">
-                    <div class="card-shine" style="position: absolute; inset: 0; pointer-events: none; z-index: 3; opacity: 0;"></div>
-                    <div class="card-bg-image" style="background-image:url('images/dna.webp'); position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.2; filter: grayscale(1); z-index: 1;"></div>
-                    
-                    <div class="card-content" style="position: relative; z-index: 4; transform: translateZ(50px); height: 100%; display: flex; flex-direction: column;">
-                        <span class="card-number" style="font-family: monospace; color: #fff; opacity: 0.4; font-size: 0.65rem; letter-spacing: 3px; font-weight: 800; margin-bottom: 20px; display: block;"></span>
-                        <h3 style="color: #fff; font-size: 1.8rem; font-weight: 800; margin: 0 0 15px 0; letter-spacing: -1px;" data-i18n="pillars.c2.title">Bio Nutrição</h3>
-                        <p style="color: #e0e0e0; font-size: 1rem; line-height: 1.6; font-weight: 400; margin: 0;" data-i18n="pillars.c2.desc">Estratégias de abastecimento celular e otimização metabólica para recuperação acelerada e performance constante.</p>
-                        <div class="card-footer-tech" style="margin-top: auto; font-family: monospace; font-size: 0.6rem; color: #fff; opacity: 0.2; letter-spacing: 4px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">WELLNESS</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-3d-wrapper" style="perspective: 1200px;">
-                <div class="card-3d" onmousemove="handleCardMove(event,this)" onmouseleave="handleCardReset(this)" style="position: relative; height: 420px; background: #000; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 35px; padding: 45px; transition: transform 0.2s ease-out; transform-style: preserve-3d; overflow: hidden; display: flex; flex-direction: column;">
-                    <div class="card-shine" style="position: absolute; inset: 0; pointer-events: none; z-index: 3; opacity: 0;"></div>
-                    <div class="card-bg-image" style="background-image:url('images/society.png'); position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.2; filter: grayscale(1); z-index: 1;"></div>
-                    
-                    <div class="society-svg-wrapper" style="position: absolute; top: 40px; right: 40px; width: 45px; height: 45px; opacity: 0.4; z-index: 5;">
-                        <svg viewBox="0 0 100 100">
-                            <circle cx="50" cy="50" r="48" style="stroke:#fff; stroke-width: 2; fill:none;"/>
-                            <path d="M50 20 L50 80 M20 50 L80 50" style="stroke:#fff; stroke-width:1; fill:none;"/>
-                            <circle cx="50" cy="50" r="8" style="fill:#fff; stroke:none;"/>
-                        </svg>
-                    </div>
-
-                    <div class="card-content" style="position: relative; z-index: 4; transform: translateZ(50px); height: 100%; display: flex; flex-direction: column;">
-                        <span class="card-number" style="font-family: monospace; color: #fff; opacity: 0.4; font-size: 0.65rem; letter-spacing: 3px; font-weight: 800; margin-bottom: 20px; display: block;"></span>
-                        <h3 style="color: #fff; font-size: 1.8rem; font-weight: 800; margin: 0 0 15px 0; letter-spacing: -1px;" data-i18n="pillars.c3.title">Network & Foco</h3>
-                        <p style="color: #e0e0e0; font-size: 1rem; line-height: 1.6; font-weight: 400; margin: 0;" data-i18n="pillars.c3.desc">Acesso exclusivo à BRX Society: conexões de alto impacto e o desenvolvimento de uma mentalidade industrial imparável.</p>
-                        <div class="card-footer-tech" style="margin-top: auto; font-family: monospace; font-size: 0.6rem; color: #fff; opacity: 0.2; letter-spacing: 4px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">PRIVATE</div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
- <section id="app" style="background:#080808; padding:120px 0; overflow:hidden; font-family: sans-serif;">
-    <div class="section-container" style="max-width:1100px; margin:0 auto; padding:0 24px;">
-        <div class="app-layout" style="display:flex; flex-wrap:wrap; align-items:center; gap:80px; justify-content:center;">
-            
-            <div class="app-text" style="flex:1; min-width:320px;">
-                <span class="section-eyebrow" style="font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; display: block; margin-bottom: 20px; background: linear-gradient(90deg, #ff6a00 0%, #ff0000 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" data-i18n="app.eyebrow">Ecossistema Industrial</span>
-                
-                <h2 style="font-size:clamp(2.5rem, 5vw, 3.2rem); line-height:1; margin-bottom:2.5rem; font-weight:900; letter-spacing:-2px; color: #fff;">
-                    <span data-i18n="app.title">Tecnologia Laboratorial</span><br>
-                    <span style="color: #fff; opacity: 0.9; font-weight: 300;" data-i18n="app.subtitle">na palma da sua mão.</span>
+    <section id="global-presence" style="background:#050505; padding:120px 0; overflow:hidden; font-family: sans-serif;">
+        <div class="section-container" style="max-width:1100px; margin:0 auto; padding:0 24px; text-align:center;">
+            <div style="margin-bottom:6rem;">
+                <span class="section-eyebrow" style="font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; display: block; margin-bottom: 20px; background: linear-gradient(90deg, #ff6a00 0%, #ff0000 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" data-i18n="global.eyebrow">Presença Global</span>
+                <h2 style="font-size:clamp(2.5rem, 6vw, 4rem); color:#fff; font-weight:900; letter-spacing:-3px; line-height:1; margin:0;">
+                    <span class="global-counter" style="background: linear-gradient(180deg, #fff 30%, rgba(255,255,255,0.5) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" data-target="10">0</span>
+                    <span data-i18n="global.title" style="color: #fff; opacity: 1;"> países atendidos</span>
                 </h2>
-
-                <div style="border-left:2px solid rgba(255,255,255,0.2); padding-left:30px; margin-bottom:3.5rem;">
-                    <p style="color: #e0e0e0; line-height:1.8; font-size:1.1rem; font-weight:400; margin-bottom:1.5rem;" data-i18n="app.p1">
-                        O App BRO Pharmaceuticals é o canal direto para o nosso complexo industrial.
-                    </p>
-                    <p style="color: #e0e0e0; line-height:1.8; font-size:1.1rem; font-weight:400;" data-i18n="app.p2">
-                        Além de nossa linha proprietária, o hub integra o catálogo de revendas oficiais das maiores marcas globais.
-                    </p>
-                </div>
-
-                <div style="display:grid; gap:1.5rem;">
-                    <div style="display:flex; align-items:center; gap:15px;">
-                        <div style="width:6px; height:6px; background:#fff; border-radius:50%; opacity: 0.8;"></div>
-                        <p style="color:#fff; font-size:0.9rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; opacity: 0.9;" data-i18n="app.bullet1">Insumos de Fabricação Própria</p>
-                    </div>
-                    <div style="display:flex; align-items:center; gap:15px;">
-                        <div style="width:6px; height:6px; background:#fff; border-radius:50%; opacity: 0.8;"></div>
-                        <p style="color:#fff; font-size:0.9rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; opacity: 0.9;" data-i18n="app.bullet2">Distribuição Oficial Multimarcas</p>
-                    </div>
-                    <div style="display:flex; align-items:center; gap:15px;">
-                        <div style="width:6px; height:6px; background:#fff; border-radius:50%; opacity: 0.8;"></div>
-                        <p style="color:#fff; font-size:0.9rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; opacity: 0.9;" data-i18n="app.bullet3">Certificação de Procedência B2B</p>
-                    </div>
-                </div>
+                <div style="width: 40px; height: 2px; background: rgba(255,255,255,0.1); margin: 30px auto 0;"></div>
             </div>
-
-            <div class="app-visual" style="flex:1; min-width:300px; display:flex; flex-direction:column; align-items:center;">
-                <div style="position:relative;">
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:140%; height:90%; background:radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%); pointer-events:none;"></div>
-                    
-                    <img src="images/brx.png" alt="App Interface" style="width:280px; height:auto; border-radius:30px; object-fit:cover; display:block; position:relative; z-index:2; box-shadow:0 50px 100px rgba(0,0,0,0.9); border:1px solid rgba(255,255,255,0.15);">
-                </div>
-
-                <button onclick="downloadApp()" style="margin-top:60px; width:280px; padding:22px; background:#fff; color:#000; border:none; border-radius:15px; font-weight:900; font-size:0.9rem; letter-spacing:3px; cursor:pointer; transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275); text-transform: uppercase;" 
-                onmouseover="this.style.transform='scale(1.05) translateY(-8px)'; this.style.boxShadow='0 25px 50px rgba(255,255,255,0.15)';" 
-                onmouseout="this.style.transform='scale(1) translateY(0)';" 
-                data-i18n="app.btn">ACESSAR APP</button>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<section id="ecosystem" style="background:#050505; padding:120px 0; overflow:hidden; font-family: sans-serif;">
-    <div class="section-container" style="max-width:1100px; margin:0 auto; padding:0 24px;">
-        
-        <div class="section-header" style="text-align:left; margin-bottom:5rem;">
-            <span class="section-eyebrow" style="font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; display: block; margin-bottom: 15px; background: linear-gradient(90deg, #ff6a00 0%, #ff0000 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" data-i18n="eco.eyebrow">Industrial Network</span>
-            <h2 style="font-size:clamp(2.5rem, 5vw, 3.2rem); color:#fff; font-weight:900; letter-spacing:-2px; margin:0; line-height: 1;" data-i18n="eco.title">
-                Integração <span style="color: #fff; opacity: 0.9;">Total</span>
-            </h2>
-        </div>
-
-        <div style="display:grid; gap:32px;">
-            
-            <div class="eco-h-card">
-                <div class="eco-h-image" style="background-image:url('images/brxrunning.jpeg');">
-                    <div class="image-overlay-fix"></div>
-                </div>
-                <div class="eco-h-content">
-                    
-                    <div style="margin-bottom:20px;">
-                        <svg width="170" height="38" viewBox="0 0 170 38" xmlns="http://www.w3.org/2000/svg" style="overflow:visible;">
-                            <defs><linearGradient id="grad-rc" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#ff6a00;stop-opacity:1"/><stop offset="100%" style="stop-color:#cc0000;stop-opacity:1"/></linearGradient></defs>
-                            <text x="0" y="28" font-family="Verdana,sans-serif" font-weight="900" font-style="italic" font-size="22" style="fill:url(#grad-rc);stroke:none;" letter-spacing="-1">BRX</text>
-                            <text x="50" y="28" font-family="Inter,sans-serif" font-weight="300" font-size="18" style="fill:#ffffff;stroke:none;">RUNNING</text>
-                            <rect x="0" y="33" width="45" height="3" style="fill:url(#grad-rc);stroke:none;"/>
-                        </svg>
-                    </div>
-                    <p data-i18n="eco.c1.desc">Alta performance integrada: a convergência definitiva entre resistência aeróbica e força industrial.</p>
-                    <a href="https://brxrunning.com" target="_blank" class="eco-link"><span data-i18n="eco.c1.btn">CONHECER HUB</span> <span>→</span></a>
-                </div>
-            </div>
-
-            <div class="eco-h-card">
-                <div class="eco-h-image" style="background-image:url('images/jato.png');">
-                    <div class="image-overlay-fix"></div>
-                </div>
-                <div class="eco-h-content">
-    
-                    <div style="margin-bottom:20px;">
-                        <svg width="200" height="38" viewBox="0 0 200 38" xmlns="http://www.w3.org/2000/svg" style="overflow:visible;">
-                            <text x="0" y="28" font-family="Verdana,sans-serif" font-weight="900" font-style="italic" font-size="22" style="fill:#d4af37;stroke:none;" letter-spacing="-1">BRX</text>
-                            <text x="50" y="28" font-family="Inter,sans-serif" font-weight="300" font-size="18" style="fill:#ffffff;stroke:none;">SOCIETY</text>
-                            <rect x="0" y="33" width="45" height="3" style="fill:#d4af37;stroke:none;"/>
-                        </svg>
-                    </div>
-                    <p data-i18n="eco.c2.desc">Networking de alto impacto e protocolos de elite para membros selecionados no ecossistema.</p>
-                    <a href="https://brxsociety.com" target="_blank" class="eco-link"><span data-i18n="eco.c2.btn">ACESSAR SOCIETY</span> <span>→</span></a>
-                </div>
-            </div>
-
-            <div class="eco-h-card">
-                <div class="eco-h-image" style="background-image:url('images/caminhao-h2f.jpeg');">
-                    <div class="image-overlay-fix"></div>
-                </div>
-                <div class="eco-h-content">
-                    
-                    <div style="margin-bottom:20px; display:flex; align-items:center; gap:20px;">
-                        <img src="images/h2f.png" alt="H2F" style="height:32px; width:auto; filter:brightness(1.5);">
-                        <div style="width:1px; height:24px; background:rgba(255,255,255,0.2);"></div>
-                        <img src="images/logobro.png" alt="BRO" style="height:42px; width:auto;">
-                    </div>
-                    <p data-i18n="eco.c3.desc">Logística 4.0 com rastreabilidade total e agilidade industrial própria Bro Pharmaceuticals.</p>
-                    <button onclick="alert('Rastrear')" class="eco-btn-rastrear"><span data-i18n="eco.c3.btn">RASTREAR PEDIDO</span> <span>→</span></button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<style>
-    /* Desktop Estilos */
-    .eco-h-card {
-        display: flex;
-        flex-direction: row;
-        background: rgba(255,255,255,0.02);
-        border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 32px;
-        overflow: hidden;
-        min-height: 340px;
-        transition: all 0.3s ease;
-    }
-    .eco-h-image {
-        width: 50%;
-        background-size: cover;
-        background-position: center;
-        position: relative;
-    }
-    .image-overlay-fix {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 15%;
-        height: 100%;
-        background: linear-gradient(to right, transparent, #050505);
-        z-index: 2;
-    }
-    .eco-h-content {
-        width: 50%;
-        padding: 40px 50px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        background: #050505;
-    }
-    .eco-h-content p {
-        color: #e0e0e0;
-        font-size: 1rem;
-        line-height: 1.7;
-        margin-bottom: 30px;
-    }
-    .eco-link, .eco-btn-rastrear {
-        color: #fff;
-        font-weight: 800;
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        opacity: 0.6;
-        transition: 0.3s;
-        background: none;
-        border: none;
-        padding: 0;
-        cursor: pointer;
-    }
-
-    /* MOBILE FIX */
-    @media (max-width: 768px) {
-        .eco-h-card {
-            flex-direction: column !important;
-            height: auto !important;
-            min-height: unset !important;
-        }
-        .eco-h-image {
-            width: 100% !important;
-            height: 200px !important;
-        }
-        .image-overlay-fix {
-            width: 100% !important;
-            height: 20% !important;
-            bottom: 0 !important;
-            top: auto !important;
-            background: linear-gradient(to bottom, transparent, #050505) !important;
-        }
-        .eco-h-content {
-            width: 100% !important;
-            padding: 30px 24px !important;
-        }
-    }
-</style>
-
- <section id="community" style="background:#050505;padding:120px 0;overflow:hidden; font-family: sans-serif;">
-    <div class="section-container" style="max-width:1000px;margin:0 auto;padding:0 24px;text-align:center;">
-        
-        <div style="display:flex;flex-direction:column;align-items:center;gap:30px;margin-bottom:5rem;">
-            
-            <div class="data-mesh-visual" style="position: relative; height: 100px; width: 100%; display: flex; justify-content: center; align-items: center; opacity: 0.8;">
-                <svg width="240" height="80" viewBox="0 0 240 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20 40L60 20M60 20L100 50M100 50L140 20M140 20L180 60M180 60L220 30" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-                    <circle cx="20" cy="40" r="3" fill="#fff" opacity="0.2"/>
-                    <circle cx="60" cy="20" r="3" fill="#fff" opacity="0.5"/>
-                    <circle cx="100" cy="50" r="4" fill="#fff"/> 
-                    <circle cx="140" cy="20" r="3" fill="#fff" opacity="0.5"/>
-                    <circle cx="180" cy="60" r="3" fill="#fff" opacity="0.2"/>
-                    <circle cx="220" cy="30" r="3" fill="#fff" opacity="0.4"/>
-                    <circle cx="100" cy="50" r="8" stroke="#fff" stroke-opacity="0.2">
-                        <animate attributeName="r" from="8" to="20" dur="1.5s" repeatCount="indefinite" />
-                        <animate attributeName="stroke-opacity" from="0.2" to="0" dur="1.5s" repeatCount="indefinite" />
-                    </circle>
-                </svg>
-            </div>
-
-            <div style="margin-top: -20px;">
-                <span class="section-eyebrow" style="font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; display: block; margin-bottom: 20px; background: linear-gradient(90deg, #ff6a00 0%, #ff0000 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" data-i18n="community.eyebrow">Network Global</span>
-                
-                <h2 style="font-size:clamp(2.5rem,6vw,3.8rem);color:#fff;font-weight:900;letter-spacing:-2px;line-height:1.1;margin:0;">
-                    <span data-i18n="community.title1">Impacto Global.</span><br>
-                    <span style="background:linear-gradient(to right,#fff,rgba(255,255,255,0.25));-webkit-background-clip:text;-webkit-text-fill-color:transparent;" data-i18n="community.title2">Ciência Aplicada.</span>
-                </h2>
-                <p style="color:#e0e0e0;max-width:620px;margin:2rem auto 0;line-height:1.8;font-weight:400;font-size:1.1rem;" data-i18n="community.description">O ecossistema definitivo de performance industrial, unindo milhares de membros através de protocolos de precisão.</p>
+            <div class="countries-grid" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; max-width: 900px; margin: 0 auto;">
+                <div class="country-card"><img src="https://flagcdn.com/w80/us.png" alt="EUA" class="country-flag"><span class="country-name">EUA</span></div>
+                <div class="country-card"><img src="https://flagcdn.com/w80/br.png" alt="Brasil" class="country-flag"><span class="country-name">BRASIL</span></div>
+                <div class="country-card"><img src="https://flagcdn.com/w80/py.png" alt="Paraguai" class="country-flag"><span class="country-name">PARAGUAI</span></div>
+                <div class="country-card"><img src="https://flagcdn.com/w80/ar.png" alt="Argentina" class="country-flag"><span class="country-name">ARGENTINA</span></div>
+                <div class="country-card"><img src="https://flagcdn.com/w80/co.png" alt="Colômbia" class="country-flag"><span class="country-name">COLÔMBIA</span></div>
+                <div class="country-card"><img src="https://flagcdn.com/w80/mx.png" alt="México" class="country-flag"><span class="country-name">MÉXICO</span></div>
+                <div class="country-card"><img src="https://flagcdn.com/w80/ae.png" alt="Dubai" class="country-flag"><span class="country-name">DUBAI</span></div>
+                <div class="country-card"><img src="https://flagcdn.com/w80/fr.png" alt="França" class="country-flag"><span class="country-name">FRANCE</span></div>
+                <div class="country-card"><img src="https://flagcdn.com/w80/gb.png" alt="Reino Unido" class="country-flag"><span class="country-name">UK</span></div>
+                <div class="country-card"><img src="https://flagcdn.com/w80/es.png" alt="Espanha" class="country-flag"><span class="country-name">ESPANHA</span></div>
             </div>
         </div>
+    </section>
 
-        <div class="stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px;">
-            
-            <div class="stat-card" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 50px 30px; border-radius: 32px; transition: 0.3s; cursor: default;">
-                <div class="stat-number-wrapper" style="font-size: 3rem; font-weight: 900; color: #fff; margin-bottom: 12px; letter-spacing: -2px;">
-                    <span class="stat-number" data-target="50">0</span><span style="opacity: 0.3;">K+</span>
+    <style>
+        .country-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 25px 15px; border-radius: 20px; display: flex; flex-direction: column; align-items: center; gap: 12px; transition: all 0.3s ease; }
+        .country-card:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.2); transform: translateY(-5px); }
+        .country-flag { width: 35px; height: auto; border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .country-name { font-size: 0.6rem; font-weight: 800; letter-spacing: 2px; color: rgba(255,255,255,0.4); text-transform: uppercase; }
+        @media (max-width: 991px) { .countries-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+    </style>
+
+    <div style="display:flex;justify-content:center;align-items:center;min-height:80vh;padding:20px;background:transparent;">
+        <div class="bro-card-contact" style="position:relative;max-width:480px;width:100%;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:40px;padding:50px;text-align:left;backdrop-filter:blur(20px);box-shadow:0 40px 100px rgba(0,0,0,0.5);opacity:0;transform:translateY(30px);animation:cardReveal 0.8s cubic-bezier(0.16,1,0.3,1) forwards; margin: 0 auto;">
+            <div style="position:relative;z-index:2;">
+                <span class="badge" style="font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; display: inline-block; margin-bottom: 20px; background: linear-gradient(90deg, #ff6a00 0%, #ff0000 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" data-i18n="contact.badge">Contato</span>
+                <h2 style="font-size:2.8rem;font-weight:900;color:#fff;margin:0 0 45px 0;letter-spacing:-2px;line-height:1.1;" data-i18n="contact.title">Fale com <br>a BRO</h2>
+                <div style="display:flex;flex-direction:column;gap:25px;">
+                    <a href="mailto:contact@bropharmaceuticals.com" class="contact-item-link" style="text-decoration:none;display:flex;align-items:center;gap:20px;">
+                        <div class="icon-circle" style="width:54px;height:54px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08);border-radius:16px;display:flex;align-items:center;justify-content:center;color:#fff;transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9.5C2 7 4 5 6.5 5h11C20 5 22 7 22 9.5V17z"></path><path d="M22 9L13.5 14.5a2.5 2.5 0 0 1-3 0L2 9"></path></svg>
+                        </div>
+                        <div style="flex:1;">
+                            <span style="display:block;color:rgba(255,255,255,0.2);font-size:0.6rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:4px;font-weight:700;" data-i18n="contact.email.label">E-mail Oficial</span>
+                            <span class="link-text" style="color:#fff;font-size:0.95rem;font-weight:500;opacity:0.6;transition:all 0.3s ease;">contact@bropharmaceuticals.com</span>
+                        </div>
+                    </a>
+                    <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.05),transparent);width:100%;"></div>
+                    <a href="https://instagram.com/brxpharma" target="_blank" class="contact-item-link" style="text-decoration:none;display:flex;align-items:center;gap:20px;">
+                        <div class="icon-circle" style="width:54px;height:54px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08);border-radius:16px;display:flex;align-items:center;justify-content:center;color:#fff;transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="6" ry="6"></rect><circle cx="12" cy="12" r="4.5"></circle><circle cx="18" cy="6" r="1" fill="currentColor"></circle></svg>
+                        </div>
+                        <div style="flex:1;">
+                            <span style="display:block;color:rgba(255,255,255,0.2);font-size:0.6rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:4px;font-weight:700;" data-i18n="contact.ig.label">Instagram Hub</span>
+                            <span class="link-text" style="color:#fff;font-size:0.95rem;font-weight:500;opacity:0.6;transition:all 0.3s ease;">@BRXPHARMA</span>
+                        </div>
+                    </a>
                 </div>
-                <div class="stat-label" style="font-size: 0.75rem; color: #fff; opacity: 0.5; text-transform: uppercase; letter-spacing: 3px; font-weight: 700;" data-i18n="stats.members">Membros Ativos</div>
-            </div>
-
-            <div class="stat-card" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 50px 30px; border-radius: 32px; transition: 0.3s; cursor: default;">
-                <div class="stat-number-wrapper" style="font-size: 3rem; font-weight: 900; color: #fff; margin-bottom: 12px; letter-spacing: -2px;">
-                    <span class="stat-number" data-target="1">0</span><span style="opacity: 0.3;">M+</span>
-                </div>
-                <div class="stat-label" style="font-size: 0.75rem; color: #fff; opacity: 0.5; text-transform: uppercase; letter-spacing: 3px; font-weight: 700;" data-i18n="stats.protocols">Protocolos Concluídos</div>
-            </div>
-
-            <div class="stat-card" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 50px 30px; border-radius: 32px; transition: 0.3s; cursor: default;">
-                <div class="stat-number-wrapper" style="font-size: 3rem; font-weight: 900; color: #fff; margin-bottom: 12px; letter-spacing: -2px;">
-                    <span class="stat-number" data-target="10">0</span><span style="opacity: 0.3;">K+</span>
-                </div>
-                <div class="stat-label" style="font-size: 0.75rem; color: #fff; opacity: 0.5; text-transform: uppercase; letter-spacing: 3px; font-weight: 700;" data-i18n="stats.transformations">Transformações</div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<section id="global-presence" style="background:#050505; padding:120px 0; overflow:hidden; font-family: sans-serif;">
-    <div class="section-container" style="max-width:1100px; margin:0 auto; padding:0 24px; text-align:center;">
-        
-        <div style="margin-bottom:6rem;">
-            <span class="section-eyebrow" style="font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; display: block; margin-bottom: 20px; background: linear-gradient(90deg, #ff6a00 0%, #ff0000 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" data-i18n="global.eyebrow">Presença Global</span>
-            
-            <h2 style="font-size:clamp(2.5rem, 6vw, 4rem); color:#fff; font-weight:900; letter-spacing:-3px; line-height:1; margin:0;">
-                <span class="global-counter" style="background: linear-gradient(180deg, #fff 30%, rgba(255,255,255,0.5) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" data-target="10">0</span> 
-                <span data-i18n="global.title" style="color: #fff; opacity: 1;">países atendidos</span>
-            </h2>
-            
-            <div style="width: 40px; height: 2px; background: rgba(255,255,255,0.1); margin: 30px auto 0;"></div>
-        </div>
-
-        <div class="countries-grid" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; max-width: 900px; margin: 0 auto;">
-            <div class="country-card"><img src="https://flagcdn.com/w80/us.png" alt="EUA" class="country-flag"><span class="country-name">EUA</span></div>
-            <div class="country-card"><img src="https://flagcdn.com/w80/br.png" alt="Brasil" class="country-flag"><span class="country-name">BRASIL</span></div>
-            <div class="country-card"><img src="https://flagcdn.com/w80/py.png" alt="Paraguai" class="country-flag"><span class="country-name">PARAGUAI</span></div>
-            <div class="country-card"><img src="https://flagcdn.com/w80/ar.png" alt="Argentina" class="country-flag"><span class="country-name">ARGENTINA</span></div>
-            <div class="country-card"><img src="https://flagcdn.com/w80/co.png" alt="Colômbia" class="country-flag"><span class="country-name">COLÔMBIA</span></div>
-            
-            <div class="country-card"><img src="https://flagcdn.com/w80/mx.png" alt="México" class="country-flag"><span class="country-name">MÉXICO</span></div>
-            <div class="country-card"><img src="https://flagcdn.com/w80/ae.png" alt="Dubai" class="country-flag"><span class="country-name">DUBAI</span></div>
-            <div class="country-card"><img src="https://flagcdn.com/w80/fr.png" alt="França" class="country-flag"><span class="country-name">FRANCE</span></div>
-            <div class="country-card"><img src="https://flagcdn.com/w80/gb.png" alt="Reino Unido" class="country-flag"><span class="country-name">UK</span></div>
-            <div class="country-card"><img src="https://flagcdn.com/w80/es.png" alt="Espanha" class="country-flag"><span class="country-name">ESPANHA</span></div>
-        </div>
-    </div>
-</section>
-
-<style>
-    /* Estilos de suporte para os cards */
-    .country-card {
-        background: rgba(255, 255, 255, 0.02);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        padding: 25px 15px;
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-        transition: all 0.3s ease;
-    }
-    .country-card:hover {
-        background: rgba(255, 255, 255, 0.05);
-        border-color: rgba(255, 255, 255, 0.2);
-        transform: translateY(-5px);
-    }
-    .country-flag {
-        width: 35px;
-        height: auto;
-        border-radius: 4px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
-    .country-name {
-        font-size: 0.6rem;
-        font-weight: 800;
-        letter-spacing: 2px;
-        color: rgba(255, 255, 255, 0.4);
-        text-transform: uppercase;
-    }
-
-    /* Responsividade */
-    @media (max-width: 991px) {
-        .countries-grid { grid-template-columns: repeat(2, 1fr) !important; }
-    }
-</style>
-
-<div style="display:flex;justify-content:center;align-items:center;min-height:80vh;padding:20px;background:transparent;">
-    <div class="bro-card-contact" style="position:relative;max-width:480px;width:100%;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:40px;padding:50px;text-align:left;backdrop-filter:blur(20px);box-shadow:0 40px 100px rgba(0,0,0,0.5);opacity:0;transform:translateY(30px);animation:cardReveal 0.8s cubic-bezier(0.16,1,0.3,1) forwards; margin: 0 auto;">
-        
-        <div style="position:relative;z-index:2;">
-            <span class="badge" style="font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; display: inline-block; margin-bottom: 20px; background: linear-gradient(90deg, #ff6a00 0%, #ff0000 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" data-i18n="contact.badge">Contato</span>
-            
-            <h2 style="font-size:2.8rem;font-weight:900;color:#fff;margin:0 0 45px 0;letter-spacing:-2px;line-height:1.1;" data-i18n="contact.title">Fale com <br>a BRO</h2>
-            
-            <div style="display:flex;flex-direction:column;gap:25px;">
-                <a href="mailto:contact@bropharmaceuticals.com" class="contact-item-link" style="text-decoration:none;display:flex;align-items:center;gap:20px;">
-                    <div class="icon-circle" style="width:54px;height:54px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08);border-radius:16px;display:flex;align-items:center;justify-content:center;color:#fff;transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9.5C2 7 4 5 6.5 5h11C20 5 22 7 22 9.5V17z"></path>
-                            <path d="M22 9L13.5 14.5a2.5 2.5 0 0 1-3 0L2 9"></path>
-                        </svg>
-                    </div>
-                    <div style="flex:1;">
-                        <span style="display:block;color:rgba(255,255,255,0.2);font-size:0.6rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:4px;font-weight:700;" data-i18n="contact.email.label">E-mail Oficial</span>
-                        <span class="link-text" style="color:#fff;font-size:0.95rem;font-weight:500;opacity:0.6;transition:all 0.3s ease;">contact@bropharmaceuticals.com</span>
-                    </div>
-                </a>
-
-                <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.05),transparent);width:100%;"></div>
-
-                <a href="https://instagram.com/bropharmaceuticals" target="_blank" class="contact-item-link" style="text-decoration:none;display:flex;align-items:center;gap:20px;">
-                    <div class="icon-circle" style="width:54px;height:54px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08);border-radius:16px;display:flex;align-items:center;justify-content:center;color:#fff;transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="2" width="20" height="20" rx="6" ry="6"></rect>
-                            <circle cx="12" cy="12" r="4.5"></circle>
-                            <circle cx="18" cy="6" r="1" fill="currentColor"></circle>
-                        </svg>
-                    </div>
-                    <div style="flex:1;">
-                        <span style="display:block;color:rgba(255,255,255,0.2);font-size:0.6rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:4px;font-weight:700;" data-i18n="contact.ig.label">Instagram Hub</span>
-                        <span class="link-text" style="color:#fff;font-size:0.95rem;font-weight:500;opacity:0.6;transition:all 0.3s ease;">@bropharmaceuticals</span>
-                    </div>
-                </a>
             </div>
         </div>
     </div>
-</div>
 
-<style>
-    @media (max-width: 768px) {
-        .bro-card-contact {
-            padding: 40px 30px !important;
-            width: 85% !important;
+    <style>
+        @media (max-width: 768px) {
+            .bro-card-contact { padding: 40px 30px !important; width: 85% !important; }
+            .contact-item-link { flex-direction: column !important; text-align: center !important; gap: 12px !important; }
         }
-        .contact-item-link {
-            flex-direction: column !important;
-            text-align: center !important;
-            gap: 12px !important;
-        }
-    }
-</style>
-<footer style="background: #000; padding: 120px 0 60px; font-family: 'Inter', sans-serif; border-top: 1px solid rgba(255,255,255,0.05);">
-    <div style="max-width: 1300px; margin: 0 auto; padding: 0 24px;">
-        
-        <div style="display: flex; justify-content: space-between; gap: 60px; flex-wrap: wrap; margin-bottom: 80px;">
-            
-            <div style="flex: 1.5; min-width: 280px;">
-                <img src="images/logobro.png" alt="BRO Logo" style="height: 48px; margin-bottom: 30px; filter: brightness(1.1);">
-                <p style="color: #888; font-size: 0.95rem; line-height: 1.8; font-weight: 300; max-width: 340px;" data-i18n="footer.description">
-                    Liderando a fronteira da performance humana através de inovação farmacêutica e integração de ecossistemas globais.
-                </p>
-            </div>
+    </style>
 
-            <div style="flex: 0.8; min-width: 160px; display: flex; flex-direction: column; gap: 16px;">
-                <span style="font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 10px; display: block; background: linear-gradient(90deg, #ff6a00 0%, #ff0000 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" data-i18n="footer.map">Navegação</span>
-                <a href="#about" class="f-link-tech" style="color: #666; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s;" data-i18n="footer.about">Sobre Nós</a>
-                <a href="#ecosystem" class="f-link-tech" style="color: #666; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s;" data-i18n="footer.ecosystem">Ecossistema</a>
-                <a href="#global-presence" class="f-link-tech" style="color: #666; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s;" data-i18n="footer.logistics">Logística</a>
+    <footer style="background: #000; padding: 120px 0 60px; font-family: 'Inter', sans-serif; border-top: 1px solid rgba(255,255,255,0.05);">
+        <div style="max-width: 1300px; margin: 0 auto; padding: 0 24px;">
+            <div style="display: flex; justify-content: space-between; gap: 60px; flex-wrap: wrap; margin-bottom: 80px;">
+                <div style="flex: 1.5; min-width: 280px;">
+                    <img src="images/logobro.png" alt="BRO Logo" style="height: 48px; margin-bottom: 30px; filter: brightness(1.1);">
+                    <p style="color: #888; font-size: 0.95rem; line-height: 1.8; font-weight: 300; max-width: 340px;" data-i18n="footer.description">Liderando a fronteira da performance humana através de inovação farmacêutica e integração de ecossistemas globais.</p>
+                    <div class="address-container" style="display: flex; align-items: flex-start; gap: 12px; margin-top: 32px; transition: 0.3s;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff6a00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 2px; flex-shrink: 0;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <span style="color: #aaa; font-size: 0.85rem; line-height: 1.6; font-weight: 400; letter-spacing: 0.3px;">
+                            <strong style="color: #fff; display: block; margin-bottom: 2px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px;">Sede Global</strong>
+                            72TH Innovation Ave<br>Houston, TX, USA
+                        </span>
+                    </div>
+                </div>
+                <div style="flex: 0.8; min-width: 160px; display: flex; flex-direction: column; gap: 16px;">
+                    <span style="font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 10px; display: block; background: linear-gradient(90deg, #ff6a00 0%, #ff0000 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" data-i18n="footer.map">Navegação</span>
+                    <a href="#about" class="f-link-tech" style="color: #666; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s;" data-i18n="footer.about">Sobre Nós</a>
+                    <a href="#ecosystem" class="f-link-tech" style="color: #666; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s;" data-i18n="footer.ecosystem">Ecossistema</a>
+                    <a href="#global-presence" class="f-link-tech" style="color: #666; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s;" data-i18n="footer.logistics">Logística</a>
+                </div>
+                <div style="flex: 0.8; min-width: 160px; display: flex; flex-direction: column; gap: 16px;">
+                    <span style="font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 10px; display: block; background: linear-gradient(90deg, #ff6a00 0%, #ff0000 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" data-i18n="footer.support">Governança</span>
+                    <a href="#" class="f-link-tech" style="color: #666; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s;" data-i18n="footer.compliance">Compliance</a>
+                    <a href="#" class="f-link-tech" style="color: #666; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s;" data-i18n="footer.privacy">Termos & Privacidade</a>
+                    <a href="#contact" class="f-link-tech" style="color: #666; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s;" data-i18n="footer.contact">Centro de Contato</a>
+                </div>
+                <div class="footer-actions" style="flex: 1.2; min-width: 280px; display: flex; flex-direction: column; gap: 12px;">
+                    <a href="https://instagram.com/brxpharma" target="_blank" style="width: 100%; background: #fff; color: #000; padding: 16px; border-radius: 12px; font-weight: 800; font-size: 0.8rem; text-decoration: none; letter-spacing: 1px; transition: 0.3s; text-align: center; border: 1px solid #fff;">@BRXPHARMA</a>
+                    <a href="mailto:contact@bropharmaceuticals.com" style="width: 100%; background: transparent; border: 1px solid rgba(255,255,255,0.15); color: #fff; padding: 16px; border-radius: 12px; font-weight: 700; font-size: 0.8rem; text-decoration: none; letter-spacing: 1px; transition: 0.3s; text-align: center;" onmouseover="this.style.background='rgba(255,255,255,0.05)';" onmouseout="this.style.background='transparent';">E-MAIL CORPORATIVO</a>
+                </div>
             </div>
-
-            <div style="flex: 0.8; min-width: 160px; display: flex; flex-direction: column; gap: 16px;">
-                <span style="font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 10px; display: block; background: linear-gradient(90deg, #ff6a00 0%, #ff0000 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" data-i18n="footer.support">Governança</span>
-                <a href="#" class="f-link-tech" style="color: #666; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s;" data-i18n="footer.compliance">Compliance</a>
-                <a href="#" class="f-link-tech" style="color: #666; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s;" data-i18n="footer.privacy">Termos & Privacidade</a>
-                <a href="#contact" class="f-link-tech" style="color: #666; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s;" data-i18n="footer.contact">Centro de Contato</a>
-            </div>
-
-            <div class="footer-actions" style="flex: 1.2; min-width: 280px; display: flex; flex-direction: column; gap: 12px;">
-                <a href="https://instagram.com/bropharmaceuticals" target="_blank" style="width: 100%; background: #fff; color: #000; padding: 16px; border-radius: 12px; font-weight: 800; font-size: 0.8rem; text-decoration: none; letter-spacing: 1px; transition: 0.3s; text-align: center; border: 1px solid #fff;">
-                    @BROPharmaceuticals
-                </a>
-                <a href="mailto:contact@bropharmaceuticals.com" style="width: 100%; background: transparent; border: 1px solid rgba(255,255,255,0.15); color: #fff; padding: 16px; border-radius: 12px; font-weight: 700; font-size: 0.8rem; text-decoration: none; letter-spacing: 1px; transition: 0.3s; text-align: center;" onmouseover="this.style.background='rgba(255,255,255,0.05)';" onmouseout="this.style.background='transparent';">
-                    E-MAIL CORPORATIVO
-                </a>
+            <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px;">
+                <div style="display: flex; flex-direction: column; gap: 4px;">
+                    <span style="color: #555; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.5px;" data-i18n="footer.copyright">© 2026 BRO PHARMACEUTICALS.</span>
+                    <span style="color: #333; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700;">Performance Industrial Lab</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 12px; background: rgba(245, 158, 11, 0.03); padding: 10px 18px; border-radius: 100px; border: 1px solid rgba(245, 158, 11, 0.1);">
+                    <div class="status-pulse" style="width: 7px; height: 7px; background: #f59e0b; border-radius: 50%; box-shadow: 0 0 10px #f59e0b;"></div>
+                    <span style="color: #f59e0b; font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 1.5px;" data-i18n="footer.realtime">Operação em Tempo Real</span>
+                </div>
             </div>
         </div>
+    </footer>
 
-        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px;">
-            <div style="display: flex; flex-direction: column; gap: 4px;">
-                <span style="color: #555; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.5px;" data-i18n="footer.copyright">© 2024 BRO PHARMACEUTICALS HUB.</span>
-                <span style="color: #333; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700;">Performance Industrial Lab</span>
-            </div>
-            
-            <div style="display: flex; align-items: center; gap: 12px; background: rgba(245, 158, 11, 0.03); padding: 10px 18px; border-radius: 100px; border: 1px solid rgba(245, 158, 11, 0.1);">
-                <div class="status-pulse" style="width: 7px; height: 7px; background: #f59e0b; border-radius: 50%; box-shadow: 0 0 10px #f59e0b;"></div>
-                <span style="color: #f59e0b; font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 1.5px;" data-i18n="footer.realtime">Operação em Tempo Real</span>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<style>
-    .f-link-tech:hover {
-        color: #fff !important;
-        transform: translateX(5px);
-    }
-    
-    .status-pulse {
-        animation: statusAnimate 2s infinite ease-in-out;
-    }
-
-    @keyframes statusAnimate {
-        0% { transform: scale(0.9); opacity: 0.6; }
-        50% { transform: scale(1.15); opacity: 1; box-shadow: 0 0 15px #f59e0b; }
-        100% { transform: scale(0.9); opacity: 0.6; }
-    }
-
-    @media (min-width: 851px) {
-        .footer-actions { align-items: flex-end !important; }
-    }
-
-    @media (max-width: 850px) {
-        footer { padding: 80px 0 40px !important; text-align: center; }
-        div[style*="display: flex"] { justify-content: center !important; align-items: center !important; }
-        p[data-i18n="footer.description"] { margin: 0 auto 30px !important; }
-        .f-link-tech:hover { transform: none; }
-        .footer-actions { align-items: center !important; width: 100%; }
-        div[style*="justify-content: space-between"] { flex-direction: column; }
-    }
-</style>
+    <style>
+        .f-link-tech:hover { color: #fff !important; transform: translateX(5px); }
+        .address-container:hover { filter: brightness(1.3); }
+        .status-pulse { animation: statusAnimate 2s infinite ease-in-out; }
+        @keyframes statusAnimate {
+            0% { transform: scale(0.9); opacity: 0.6; }
+            50% { transform: scale(1.15); opacity: 1; box-shadow: 0 0 15px #f59e0b; }
+            100% { transform: scale(0.9); opacity: 0.6; }
+        }
+        @media (min-width: 851px) { .footer-actions { align-items: flex-end !important; } }
+        @media (max-width: 850px) {
+            footer { padding: 80px 0 40px !important; text-align: center; }
+            div[style*="display: flex"] { justify-content: center !important; align-items: center !important; }
+            p[data-i18n="footer.description"] { margin: 0 auto 30px !important; }
+            .f-link-tech:hover { transform: none; }
+            .footer-actions { align-items: center !important; width: 100%; }
+            div[style*="justify-content: space-between"] { flex-direction: column; }
+            .address-container { justify-content: center !important; }
+        }
+    </style>
 
     <script>
     // ══════════════════════════════════════════
@@ -1000,379 +763,179 @@
     // ══════════════════════════════════════════
     const translations = {
         pt: {
-            "nav.about": "Sobre",
-            "nav.pillars": "Pilares",
-            "nav.app": "App",
-            "nav.ecosystem": "Ecossistema",
+            "nav.about": "Sobre", "nav.pillars": "Pilares", "nav.app": "App", "nav.ecosystem": "Ecossistema",
             "header.app": "App",
             "hero.badge": "Hub de Performance",
             "hero.title": "Saúde, Performance e Evolução em um Único Ecossistema",
             "hero.description": "Bro Pharmaceuticals é o hub completo para quem leva a sério sua performance. Treino, nutrição, comunidade e produtos farmacêuticos de alta performance. Tudo integrado em um único lugar.",
-            "hero.cta1": "Acessar App",
-            "hero.cta2": "Explorar o Ecossistema",
-            "stats.members": "Membros Ativos",
-            "stats.workouts": "Treinos",
-            "stats.transformations": "Transformações",
-            "stats.protocols": "Protocolos Concluídos",
-            "about.eyebrow": "A Nova Era",
-            "about.title": "Ciência e Performance Implacável",
-            "about.description": "Não entregamos apenas produtos, entregamos o caminho. O ecossistema Bro Pharmaceuticals foi desenhado para quem não aceita o mediano. Ciência industrial, nutrição e tecnologia integrados em um único protocolo.",
-            "about.f1.title": "Sincronia Total",
-            "about.f1.desc": "App e logística em uma única experiência integrada.",
-            "about.f2.title": "Foco Técnico",
-            "about.f2.desc": "Protocolos industriais baseados em dados laboratoriais.",
-            "about.f3.title": "Elite Social",
-            "about.f3.desc": "Comunidade exclusiva focada em performance absoluta.",
-            "about.f4.title": "Escalabilidade",
-            "about.f4.desc": "Evolução contínua em cada etapa do seu desenvolvimento.",
-            "pillars.eyebrow": "Protocolos Base",
-            "pillars.title": "Pilares de Performance.",
-            "pillars.c1.title": "Treino Híbrido",
-            "pillars.c1.desc": "Protocolos proprietários Bro Pharma: sincronização de força bruta e resistência aeróbica de elite em um único sistema.",
-            "pillars.c2.title": "Bio Nutrição",
-            "pillars.c2.desc": "Estratégias de abastecimento celular e otimização metabólica para recuperação acelerada e performance constante.",
-            "pillars.c3.title": "Network & Foco",
-            "pillars.c3.desc": "Acesso exclusivo à BRX Society: conexões de alto impacto e o desenvolvimento de uma mentalidade industrial imparável.",
-            "app.eyebrow": "Ecossistema Industrial",
-            "app.title": "Tecnologia Laboratorial",
-            "app.subtitle": "na palma da sua mão.",
-            "app.p1": "O App BRO Pharmaceuticals é o canal direto para o nosso complexo industrial. Acesse com exclusividade produtos fabricados em nossos próprios laboratórios sob os mais rígidos protocolos de pureza.",
-            "app.p2": "Além de nossa linha proprietária, o hub integra o catálogo de revendas oficiais das maiores marcas globais, garantindo procedência, rastreabilidade técnica e logística prioritária.",
-            "app.bullet1": "Insumos de Fabricação Própria",
-            "app.bullet2": "Distribuição Oficial Multimarcas",
-            "app.bullet3": "Certificação de Procedência B2B",
-            "app.btn": "ACESSAR APP",
-            "eco.eyebrow": "Industrial Network",
-            "eco.title": "Integração Total",
-            "eco.c1.desc": "Alta performance integrada: a convergência definitiva entre resistência aeróbica e força industrial.",
-            "eco.c1.btn": "CONHECER HUB",
-            "eco.c2.desc": "Networking de alto impacto e protocolos de elite para membros selecionados no ecossistema.",
-            "eco.c2.btn": "ACESSAR SOCIETY",
-            "eco.c3.desc": "Logística 4.0 com rastreabilidade total e agilidade industrial própria Bro Pharmaceuticals.",
-            "eco.c3.btn": "RASTREAR PEDIDO",
-            "community.eyebrow": "Network Global",
-            "community.title1": "Pessoas Reais.",
-            "community.title2": "Resultados Reais.",
-            "community.description": "O maior ecossistema de performance industrial da América Latina. Unimos ciência e tecnologia para transformar potencial em evolução absoluta.",
-            "global.eyebrow": "Presença Global",
-            "global.title": "países atendidos",
-            "contact.badge": "Contato",
-            "contact.title": "Fale com a BRO",
-            "contact.description": "Preencha o formulário abaixo e entraremos em contato. Sua mensagem será enviada diretamente para nossa equipe.",
-            "contact.email.label": "E-mail Oficial",
-            "contact.ig.label": "Instagram Hub",
-            "footer.description": "Inovação farmacêutica e soluções transcontinentais de alta performance. Conectando mercados com excelência operacional.",
-            "footer.map": "Mapa",
-            "footer.about": "Sobre Nós",
-            "footer.ecosystem": "Ecossistema",
-            "footer.logistics": "Logística",
-            "footer.support": "Suporte",
-            "footer.compliance": "Compliance",
-            "footer.privacy": "Privacidade",
-            "footer.contact": "Fale Conosco",
-            "footer.email": "E-mail Corporativo",
-            "footer.copyright": "© 2024 BRO Pharmaceuticals Hub. Todos os direitos reservados.",
-            "footer.realtime": "Operação em Tempo Real"
+            "hero.cta1": "Acessar BRXPHARMA",
+            "hero.cta2": "Acessar Elevia",
+            "hero.cta3": "Explorar Ecossistema",
+            "stats.members": "Membros Ativos", "stats.workouts": "Protocolos", "stats.transformations": "Resultados", "stats.protocols": "Protocolos Concluídos",
+            "about.eyebrow": "A Nova Era", "about.title": "Ciência e Performance Implacável",
+            "about.description": "Não entregamos apenas produtos, entregamos o caminho. O ecossistema Bro Pharmaceuticals foi desenhado para quem não aceita o mediano.",
+            "about.f1.title": "Sincronia Total", "about.f1.desc": "App e logística em uma única experiência integrada.",
+            "about.f2.title": "Foco Técnico", "about.f2.desc": "Protocolos industriais baseados em dados laboratoriais.",
+            "about.f3.title": "Elite Social", "about.f3.desc": "Comunidade exclusiva focada em performance absoluta.",
+            "about.f4.title": "Escalabilidade", "about.f4.desc": "Evolução contínua em cada etapa do desenvolvimento.",
+            "pillars.eyebrow": "Protocolos Base", "pillars.title": "Pilares de Performance.",
+            "pillars.c1.title": "Treino Híbrido", "pillars.c1.desc": "Protocolos proprietários Bro Pharma: sincronização de força bruta e resistência aeróbica de elite em um único sistema.",
+            "pillars.c2.title": "Bio Nutrição", "pillars.c2.desc": "Estratégias de abastecimento celular e otimização metabólica para recuperação acelerada e performance constante.",
+            "pillars.c3.title": "Network & Foco", "pillars.c3.desc": "Acesso exclusivo à BRX Society: conexões de alto impacto e o desenvolvimento de uma mentalidade industrial imparável.",
+            "eco.eyebrow": "Industrial Network", "eco.title": "Integração Total",
+            "eco.c1.desc": "Alta performance integrada: a convergência definitiva entre resistência aeróbica e força industrial.", "eco.c1.btn": "CONHECER HUB",
+            "eco.c2.desc": "Networking de alto impacto e protocolos de elite para membros selecionados no ecossistema.", "eco.c2.btn": "ACESSAR SOCIETY",
+            "eco.c3.desc": "Logística 4.0 com rastreabilidade total e agilidade industrial própria Bro Pharmaceuticals.", "eco.c3.btn": "VISITAR H2F SHIPPING",
+            "eco.c4.desc": "Inovação e tecnologia aplicada ao bem-estar e performance. Conheça o próximo nível da suplementação inteligente.",
+            "community.eyebrow": "Network Global", "community.title1": "Impacto Global.", "community.title2": "Ciência Aplicada.",
+            "community.description": "O ecossistema definitivo de performance industrial, unindo milhares de membros através de protocolos de precisão.",
+            "global.eyebrow": "Presença Global", "global.title": "países atendidos",
+            "contact.badge": "Contato", "contact.title": "Fale com a BRO",
+            "contact.email.label": "E-mail Oficial", "contact.ig.label": "Instagram Hub",
+            "footer.description": "Liderando a fronteira da performance humana através de inovação farmacêutica e integração de ecossistemas globais.",
+            "footer.map": "Navegação", "footer.about": "Sobre Nós", "footer.ecosystem": "Ecossistema", "footer.logistics": "Logística",
+            "footer.support": "Governança", "footer.compliance": "Compliance", "footer.privacy": "Termos & Privacidade", "footer.contact": "Centro de Contato",
+            "footer.copyright": "© 2026 BRO PHARMACEUTICALS.", "footer.realtime": "Operação em Tempo Real"
         },
         en: {
-            "nav.about": "About",
-            "nav.pillars": "Pillars",
-            "nav.app": "App",
-            "nav.ecosystem": "Ecosystem",
+            "nav.about": "About", "nav.pillars": "Pillars", "nav.app": "App", "nav.ecosystem": "Ecosystem",
             "header.app": "App",
             "hero.badge": "Performance Hub",
             "hero.title": "Health, Performance and Evolution in a Single Ecosystem",
             "hero.description": "Bro Pharmaceuticals is the complete hub for those who take their performance seriously. Training, nutrition, community and high-performance pharmaceutical products. All integrated in one place.",
-            "hero.cta1": "Access App",
-            "hero.cta2": "Explore the Ecosystem",
-            "stats.members": "Active Members",
-            "stats.workouts": "Workouts",
-            "stats.transformations": "Transformations",
-            "stats.protocols": "Completed Protocols",
-            "about.eyebrow": "The New Era",
-            "about.title": "Science and Relentless Performance",
-            "about.description": "We don't just deliver products, we deliver the path. The Bro Pharmaceuticals ecosystem was designed for those who don't accept mediocrity. Industrial science, nutrition and technology integrated in a single protocol.",
-            "about.f1.title": "Full Sync",
-            "about.f1.desc": "App and logistics in a single integrated experience.",
-            "about.f2.title": "Technical Focus",
-            "about.f2.desc": "Industrial protocols based on laboratory data.",
-            "about.f3.title": "Social Elite",
-            "about.f3.desc": "Exclusive community focused on absolute performance.",
-            "about.f4.title": "Scalability",
-            "about.f4.desc": "Continuous evolution at every stage of your development.",
-            "pillars.eyebrow": "Base Protocols",
-            "pillars.title": "Performance Pillars.",
-            "pillars.c1.title": "Hybrid Training",
-            "pillars.c1.desc": "Proprietary Bro Pharma protocols: synchronization of brute strength and elite aerobic endurance in a single system.",
-            "pillars.c2.title": "Bio Nutrition",
-            "pillars.c2.desc": "Cellular fueling strategies and metabolic optimization for accelerated recovery and consistent performance.",
-            "pillars.c3.title": "Network & Focus",
-            "pillars.c3.desc": "Exclusive access to BRX Society: high-impact connections and the development of an unstoppable industrial mindset.",
-            "app.eyebrow": "Industrial Ecosystem",
-            "app.title": "Laboratory Technology",
-            "app.subtitle": "in the palm of your hand.",
-            "app.p1": "The BRO Pharmaceuticals App is the direct channel to our industrial complex. Get exclusive access to products manufactured in our own laboratories under the strictest purity protocols.",
-            "app.p2": "Beyond our proprietary line, the hub integrates the official resale catalog of the world's largest brands, ensuring provenance, technical traceability and priority logistics.",
-            "app.bullet1": "In-House Manufacturing Inputs",
-            "app.bullet2": "Official Multi-Brand Distribution",
-            "app.bullet3": "B2B Provenance Certification",
-            "app.btn": "ACCESS APP",
-            "eco.eyebrow": "Industrial Network",
-            "eco.title": "Total Integration",
-            "eco.c1.desc": "Integrated high performance: the definitive convergence between aerobic endurance and industrial strength.",
-            "eco.c1.btn": "DISCOVER HUB",
-            "eco.c2.desc": "High-impact networking and elite protocols for selected members in the ecosystem.",
-            "eco.c2.btn": "ACCESS SOCIETY",
-            "eco.c3.desc": "4.0 logistics with full traceability and Bro Pharmaceuticals' own industrial agility.",
-            "eco.c3.btn": "TRACK ORDER",
-            "community.eyebrow": "Global Network",
-            "community.title1": "Real People.",
-            "community.title2": "Real Results.",
-            "community.description": "The largest industrial performance ecosystem in Latin America. We combine science and technology to transform potential into absolute evolution.",
-            "global.eyebrow": "Global Presence",
-            "global.title": "countries served",
-            "contact.badge": "Contact",
-            "contact.title": "Talk to BRO",
-            "contact.description": "Fill out the form below and we will get back to you. Your message will be sent directly to our team.",
-            "contact.email.label": "Official Email",
-            "contact.ig.label": "Instagram Hub",
-            "footer.description": "Pharmaceutical innovation and transcontinental high-performance solutions. Connecting markets with operational excellence.",
-            "footer.map": "Map",
-            "footer.about": "About Us",
-            "footer.ecosystem": "Ecosystem",
-            "footer.logistics": "Logistics",
-            "footer.support": "Support",
-            "footer.compliance": "Compliance",
-            "footer.privacy": "Privacy",
-            "footer.contact": "Contact Us",
-            "footer.email": "Corporate Email",
-            "footer.copyright": "© 2024 BRO Pharmaceuticals Hub. All rights reserved.",
-            "footer.realtime": "Real-Time Operations"
+            "hero.cta1": "Access BRXPHARMA",
+            "hero.cta2": "Access Elevia",
+            "hero.cta3": "Explore Ecosystem",
+            "stats.members": "Active Members", "stats.workouts": "Protocols", "stats.transformations": "Results", "stats.protocols": "Completed Protocols",
+            "about.eyebrow": "The New Era", "about.title": "Science and Relentless Performance",
+            "about.description": "We don't just deliver products, we deliver the path. The Bro Pharmaceuticals ecosystem was designed for those who don't accept mediocrity.",
+            "about.f1.title": "Full Sync", "about.f1.desc": "App and logistics in a single integrated experience.",
+            "about.f2.title": "Technical Focus", "about.f2.desc": "Industrial protocols based on laboratory data.",
+            "about.f3.title": "Social Elite", "about.f3.desc": "Exclusive community focused on absolute performance.",
+            "about.f4.title": "Scalability", "about.f4.desc": "Continuous evolution at every stage of your development.",
+            "pillars.eyebrow": "Base Protocols", "pillars.title": "Performance Pillars.",
+            "pillars.c1.title": "Hybrid Training", "pillars.c1.desc": "Proprietary Bro Pharma protocols: synchronization of brute strength and elite aerobic endurance in a single system.",
+            "pillars.c2.title": "Bio Nutrition", "pillars.c2.desc": "Cellular fueling strategies and metabolic optimization for accelerated recovery and consistent performance.",
+            "pillars.c3.title": "Network & Focus", "pillars.c3.desc": "Exclusive access to BRX Society: high-impact connections and the development of an unstoppable industrial mindset.",
+            "eco.eyebrow": "Industrial Network", "eco.title": "Total Integration",
+            "eco.c1.desc": "Integrated high performance: the definitive convergence between aerobic endurance and industrial strength.", "eco.c1.btn": "DISCOVER HUB",
+            "eco.c2.desc": "High-impact networking and elite protocols for selected members in the ecosystem.", "eco.c2.btn": "ACCESS SOCIETY",
+            "eco.c3.desc": "4.0 logistics with full traceability and Bro Pharmaceuticals' own industrial agility.", "eco.c3.btn": "VISIT H2F SHIPPING",
+            "eco.c4.desc": "Innovation and technology applied to wellness and performance. Discover the next level of intelligent supplementation.",
+            "community.eyebrow": "Global Network", "community.title1": "Global Impact.", "community.title2": "Applied Science.",
+            "community.description": "The definitive industrial performance ecosystem, uniting thousands of members through precision protocols.",
+            "global.eyebrow": "Global Presence", "global.title": "countries served",
+            "contact.badge": "Contact", "contact.title": "Talk to BRO",
+            "contact.email.label": "Official Email", "contact.ig.label": "Instagram Hub",
+            "footer.description": "Leading the frontier of human performance through pharmaceutical innovation and global ecosystem integration.",
+            "footer.map": "Navigation", "footer.about": "About Us", "footer.ecosystem": "Ecosystem", "footer.logistics": "Logistics",
+            "footer.support": "Governance", "footer.compliance": "Compliance", "footer.privacy": "Terms & Privacy", "footer.contact": "Contact Center",
+            "footer.copyright": "© 2026 BRO PHARMACEUTICALS.", "footer.realtime": "Real-Time Operations"
         },
         es: {
-            "nav.about": "Sobre",
-            "nav.pillars": "Pilares",
-            "nav.app": "App",
-            "nav.ecosystem": "Ecosistema",
+            "nav.about": "Sobre", "nav.pillars": "Pilares", "nav.app": "App", "nav.ecosystem": "Ecosistema",
             "header.app": "App",
             "hero.badge": "Hub de Rendimiento",
             "hero.title": "Salud, Rendimiento y Evolución en un Solo Ecosistema",
-            "hero.description": "Bro Pharmaceuticals es el hub completo para quienes se toman en serio su rendimiento. Entrenamiento, nutrición, comunidad y productos farmacéuticos de alto rendimiento. Todo integrado en un solo lugar.",
-            "hero.cta1": "Acceder a la App",
-            "hero.cta2": "Explorar el Ecosistema",
-            "stats.members": "Miembros Activos",
-            "stats.workouts": "Entrenamientos",
-            "stats.transformations": "Transformaciones",
-            "stats.protocols": "Protocolos Completados",
-            "about.eyebrow": "La Nueva Era",
-            "about.title": "Ciencia y Rendimiento Implacable",
-            "about.description": "No solo entregamos productos, entregamos el camino. El ecosistema Bro Pharmaceuticals fue diseñado para quienes no aceptan la mediocridad. Ciencia industrial, nutrición y tecnología integradas en un único protocolo.",
-            "about.f1.title": "Sincronía Total",
-            "about.f1.desc": "App y logística en una sola experiencia integrada.",
-            "about.f2.title": "Enfoque Técnico",
-            "about.f2.desc": "Protocolos industriales basados en datos de laboratorio.",
-            "about.f3.title": "Élite Social",
-            "about.f3.desc": "Comunidad exclusiva enfocada en el rendimiento absoluto.",
-            "about.f4.title": "Escalabilidad",
-            "about.f4.desc": "Evolución continua en cada etapa de tu desarrollo.",
-            "pillars.eyebrow": "Protocolos Base",
-            "pillars.title": "Pilares de Rendimiento.",
-            "pillars.c1.title": "Entrenamiento Híbrido",
-            "pillars.c1.desc": "Protocolos propietarios Bro Pharma: sincronización de fuerza bruta y resistencia aeróbica de élite en un solo sistema.",
-            "pillars.c2.title": "Bio Nutrición",
-            "pillars.c2.desc": "Estrategias de abastecimiento celular y optimización metabólica para recuperación acelerada y rendimiento constante.",
-            "pillars.c3.title": "Red & Enfoque",
-            "pillars.c3.desc": "Acceso exclusivo a BRX Society: conexiones de alto impacto y el desarrollo de una mentalidad industrial imparable.",
-            "app.eyebrow": "Ecosistema Industrial",
-            "app.title": "Tecnología de Laboratorio",
-            "app.subtitle": "en la palma de tu mano.",
-            "app.p1": "La App BRO Pharmaceuticals es el canal directo a nuestro complejo industrial. Accede exclusivamente a productos fabricados en nuestros propios laboratorios bajo los más estrictos protocolos de pureza.",
-            "app.p2": "Además de nuestra línea propia, el hub integra el catálogo de reventas oficiales de las mayores marcas globales, garantizando procedencia, trazabilidad técnica y logística prioritaria.",
-            "app.bullet1": "Insumos de Fabricación Propia",
-            "app.bullet2": "Distribución Oficial Multimarca",
-            "app.bullet3": "Certificación de Procedencia B2B",
-            "app.btn": "ACCEDER A LA APP",
-            "eco.eyebrow": "Red Industrial",
-            "eco.title": "Integración Total",
-            "eco.c1.desc": "Alto rendimiento integrado: la convergencia definitiva entre resistencia aeróbica y fuerza industrial.",
-            "eco.c1.btn": "CONOCER HUB",
-            "eco.c2.desc": "Networking de alto impacto y protocolos de élite para miembros seleccionados del ecosistema.",
-            "eco.c2.btn": "ACCEDER A SOCIETY",
-            "eco.c3.desc": "Logística 4.0 con trazabilidad total y agilidad industrial propia de Bro Pharmaceuticals.",
-            "eco.c3.btn": "RASTREAR PEDIDO",
-            "community.eyebrow": "Red Global",
-            "community.title1": "Personas Reales.",
-            "community.title2": "Resultados Reales.",
-            "community.description": "El mayor ecosistema de rendimiento industrial de América Latina. Combinamos ciencia y tecnología para transformar el potencial en evolución absoluta.",
-            "global.eyebrow": "Presencia Global",
-            "global.title": "países atendidos",
-            "contact.badge": "Contacto",
-            "contact.title": "Habla con BRO",
-            "contact.description": "Completa el formulario a continuación y nos pondremos en contacto. Tu mensaje será enviado directamente a nuestro equipo.",
-            "contact.email.label": "Email Oficial",
-            "contact.ig.label": "Instagram Hub",
-            "footer.description": "Innovación farmacéutica y soluciones transcontinentales de alto rendimiento. Conectando mercados con excelencia operacional.",
-            "footer.map": "Mapa",
-            "footer.about": "Sobre Nosotros",
-            "footer.ecosystem": "Ecosistema",
-            "footer.logistics": "Logística",
-            "footer.support": "Soporte",
-            "footer.compliance": "Cumplimiento",
-            "footer.privacy": "Privacidad",
-            "footer.contact": "Contáctenos",
-            "footer.email": "Email Corporativo",
-            "footer.copyright": "© 2024 BRO Pharmaceuticals Hub. Todos los derechos reservados.",
-            "footer.realtime": "Operación en Tiempo Real"
+            "hero.description": "Bro Pharmaceuticals es el hub completo para quienes se toman en serio su rendimiento. Entrenamiento, nutrición, comunidad y productos farmacéuticos de alto rendimiento.",
+            "hero.cta1": "Acceder a BRXPHARMA",
+            "hero.cta2": "Acceder a Elevia",
+            "hero.cta3": "Explorar Ecosistema",
+            "stats.members": "Miembros Activos", "stats.workouts": "Protocolos", "stats.transformations": "Resultados", "stats.protocols": "Protocolos Completados",
+            "about.eyebrow": "La Nueva Era", "about.title": "Ciencia y Rendimiento Implacable",
+            "about.description": "No solo entregamos productos, entregamos el camino. El ecosistema Bro Pharmaceuticals fue diseñado para quienes no aceptan la mediocridad.",
+            "about.f1.title": "Sincronía Total", "about.f1.desc": "App y logística en una sola experiencia integrada.",
+            "about.f2.title": "Enfoque Técnico", "about.f2.desc": "Protocolos industriales basados en datos de laboratorio.",
+            "about.f3.title": "Élite Social", "about.f3.desc": "Comunidad exclusiva enfocada en el rendimiento absoluto.",
+            "about.f4.title": "Escalabilidad", "about.f4.desc": "Evolución continua en cada etapa de tu desarrollo.",
+            "pillars.eyebrow": "Protocolos Base", "pillars.title": "Pilares de Rendimiento.",
+            "pillars.c1.title": "Entrenamiento Híbrido", "pillars.c1.desc": "Protocolos propietarios Bro Pharma: sincronización de fuerza bruta y resistencia aeróbica de élite en un solo sistema.",
+            "pillars.c2.title": "Bio Nutrición", "pillars.c2.desc": "Estrategias de abastecimiento celular y optimización metabólica para recuperación acelerada y rendimiento constante.",
+            "pillars.c3.title": "Red & Enfoque", "pillars.c3.desc": "Acceso exclusivo a BRX Society: conexiones de alto impacto y desarrollo de una mentalidad industrial imparable.",
+            "eco.eyebrow": "Red Industrial", "eco.title": "Integración Total",
+            "eco.c1.desc": "Alto rendimiento integrado: la convergencia definitiva entre resistencia aeróbica y fuerza industrial.", "eco.c1.btn": "CONOCER HUB",
+            "eco.c2.desc": "Networking de alto impacto y protocolos de élite para miembros seleccionados del ecosistema.", "eco.c2.btn": "ACCEDER A SOCIETY",
+            "eco.c3.desc": "Logística 4.0 con trazabilidad total y agilidad industrial propia de Bro Pharmaceuticals.", "eco.c3.btn": "VISITAR H2F SHIPPING",
+            "eco.c4.desc": "Innovación y tecnología aplicada al bienestar y rendimiento. Descubre el próximo nivel de suplementación inteligente.",
+            "community.eyebrow": "Red Global", "community.title1": "Impacto Global.", "community.title2": "Ciencia Aplicada.",
+            "community.description": "El ecosistema definitivo de rendimiento industrial, uniendo miles de miembros a través de protocolos de precisión.",
+            "global.eyebrow": "Presencia Global", "global.title": "países atendidos",
+            "contact.badge": "Contacto", "contact.title": "Habla con BRO",
+            "contact.email.label": "Email Oficial", "contact.ig.label": "Instagram Hub",
+            "footer.description": "Liderando la frontera del rendimiento humano mediante innovación farmacéutica e integración de ecosistemas globales.",
+            "footer.map": "Navegación", "footer.about": "Sobre Nosotros", "footer.ecosystem": "Ecosistema", "footer.logistics": "Logística",
+            "footer.support": "Gobernanza", "footer.compliance": "Cumplimiento", "footer.privacy": "Términos & Privacidad", "footer.contact": "Centro de Contacto",
+            "footer.copyright": "© 2026 BRO PHARMACEUTICALS.", "footer.realtime": "Operación en Tiempo Real"
         },
         fr: {
-            "nav.about": "À propos",
-            "nav.pillars": "Piliers",
-            "nav.app": "App",
-            "nav.ecosystem": "Écosystème",
+            "nav.about": "À propos", "nav.pillars": "Piliers", "nav.app": "App", "nav.ecosystem": "Écosystème",
             "header.app": "App",
             "hero.badge": "Hub de Performance",
             "hero.title": "Santé, Performance et Évolution dans un Seul Écosystème",
-            "hero.description": "Bro Pharmaceuticals est le hub complet pour ceux qui prennent leur performance au sérieux. Entraînement, nutrition, communauté et produits pharmaceutiques haute performance. Tout intégré en un seul endroit.",
-            "hero.cta1": "Accéder à l'App",
-            "hero.cta2": "Explorer l'Écosystème",
-            "stats.members": "Membres Actifs",
-            "stats.workouts": "Entraînements",
-            "stats.transformations": "Transformations",
-            "stats.protocols": "Protocoles Complétés",
-            "about.eyebrow": "La Nouvelle Ère",
-            "about.title": "Science et Performance Implacable",
-            "about.description": "Nous ne livrons pas seulement des produits, nous livrons le chemin. L'écosystème Bro Pharmaceuticals a été conçu pour ceux qui n'acceptent pas la médiocrité. Science industrielle, nutrition et technologie intégrées dans un protocole unique.",
-            "about.f1.title": "Synchronisation Totale",
-            "about.f1.desc": "App et logistique dans une seule expérience intégrée.",
-            "about.f2.title": "Focus Technique",
-            "about.f2.desc": "Protocoles industriels basés sur des données de laboratoire.",
-            "about.f3.title": "Élite Sociale",
-            "about.f3.desc": "Communauté exclusive axée sur la performance absolue.",
-            "about.f4.title": "Évolutivité",
-            "about.f4.desc": "Évolution continue à chaque étape de votre développement.",
-            "pillars.eyebrow": "Protocoles de Base",
-            "pillars.title": "Piliers de Performance.",
-            "pillars.c1.title": "Entraînement Hybride",
-            "pillars.c1.desc": "Protocoles propriétaires Bro Pharma : synchronisation de la force brute et de l'endurance aérobie d'élite dans un système unique.",
-            "pillars.c2.title": "Bio Nutrition",
-            "pillars.c2.desc": "Stratégies d'approvisionnement cellulaire et d'optimisation métabolique pour une récupération accélérée et des performances constantes.",
-            "pillars.c3.title": "Réseau & Focus",
-            "pillars.c3.desc": "Accès exclusif à BRX Society : connexions à fort impact et développement d'un état d'esprit industriel imparable.",
-            "app.eyebrow": "Écosystème Industriel",
-            "app.title": "Technologie de Laboratoire",
-            "app.subtitle": "dans la paume de votre main.",
-            "app.p1": "L'App BRO Pharmaceuticals est le canal direct vers notre complexe industriel. Accédez en exclusivité à des produits fabriqués dans nos propres laboratoires selon les protocoles de pureté les plus stricts.",
-            "app.p2": "En plus de notre ligne propre, le hub intègre le catalogue de revendes officielles des plus grandes marques mondiales, garantissant provenance, traçabilité technique et logistique prioritaire.",
-            "app.bullet1": "Intrants de Fabrication Propre",
-            "app.bullet2": "Distribution Officielle Multimaque",
-            "app.bullet3": "Certification de Provenance B2B",
-            "app.btn": "ACCÉDER À L'APP",
-            "eco.eyebrow": "Réseau Industriel",
-            "eco.title": "Intégration Totale",
-            "eco.c1.desc": "Haute performance intégrée : la convergence définitive entre endurance aérobie et force industrielle.",
-            "eco.c1.btn": "DÉCOUVRIR LE HUB",
-            "eco.c2.desc": "Networking à fort impact et protocoles d'élite pour les membres sélectionnés de l'écosystème.",
-            "eco.c2.btn": "ACCÉDER À SOCIETY",
-            "eco.c3.desc": "Logistique 4.0 avec traçabilité totale et agilité industrielle propre à Bro Pharmaceuticals.",
-            "eco.c3.btn": "SUIVRE LA COMMANDE",
-            "community.eyebrow": "Réseau Mondial",
-            "community.title1": "Personnes Réelles.",
-            "community.title2": "Résultats Réels.",
-            "community.description": "Le plus grand écosystème de performance industrielle d'Amérique Latine. Nous combinons science et technologie pour transformer le potentiel en évolution absolue.",
-            "global.eyebrow": "Présence Mondiale",
-            "global.title": "pays desservis",
-            "contact.badge": "Contact",
-            "contact.title": "Parlez à BRO",
-            "contact.description": "Remplissez le formulaire ci-dessous et nous vous contacterons. Votre message sera envoyé directement à notre équipe.",
-            "contact.email.label": "Email Officiel",
-            "contact.ig.label": "Instagram Hub",
-            "footer.description": "Innovation pharmaceutique et solutions transcontinentales haute performance. Connecter les marchés avec excellence opérationnelle.",
-            "footer.map": "Plan",
-            "footer.about": "À Propos",
-            "footer.ecosystem": "Écosystème",
-            "footer.logistics": "Logistique",
-            "footer.support": "Support",
-            "footer.compliance": "Conformité",
-            "footer.privacy": "Confidentialité",
-            "footer.contact": "Contactez-Nous",
-            "footer.email": "Email Corporatif",
-            "footer.copyright": "© 2024 BRO Pharmaceuticals Hub. Tous droits réservés.",
-            "footer.realtime": "Opération en Temps Réel"
+            "hero.description": "Bro Pharmaceuticals est le hub complet pour ceux qui prennent leur performance au sérieux. Entraînement, nutrition, communauté et produits pharmaceutiques haute performance.",
+            "hero.cta1": "Accéder à BRXPHARMA",
+            "hero.cta2": "Accéder à Elevia",
+            "hero.cta3": "Explorer l'Écosystème",
+            "stats.members": "Membres Actifs", "stats.workouts": "Protocoles", "stats.transformations": "Résultats", "stats.protocols": "Protocoles Complétés",
+            "about.eyebrow": "La Nouvelle Ère", "about.title": "Science et Performance Implacable",
+            "about.description": "Nous ne livrons pas seulement des produits, nous livrons le chemin. L'écosystème Bro Pharmaceuticals a été conçu pour ceux qui n'acceptent pas la médiocrité.",
+            "about.f1.title": "Synchronisation Totale", "about.f1.desc": "App et logistique dans une seule expérience intégrée.",
+            "about.f2.title": "Focus Technique", "about.f2.desc": "Protocoles industriels basés sur des données de laboratoire.",
+            "about.f3.title": "Élite Sociale", "about.f3.desc": "Communauté exclusive axée sur la performance absolue.",
+            "about.f4.title": "Évolutivité", "about.f4.desc": "Évolution continue à chaque étape de votre développement.",
+            "pillars.eyebrow": "Protocoles de Base", "pillars.title": "Piliers de Performance.",
+            "pillars.c1.title": "Entraînement Hybride", "pillars.c1.desc": "Protocoles propriétaires Bro Pharma : synchronisation de la force brute et de l'endurance aérobie d'élite dans un système unique.",
+            "pillars.c2.title": "Bio Nutrition", "pillars.c2.desc": "Stratégies d'approvisionnement cellulaire et d'optimisation métabolique pour une récupération accélérée et des performances constantes.",
+            "pillars.c3.title": "Réseau & Focus", "pillars.c3.desc": "Accès exclusif à BRX Society : connexions à fort impact et développement d'un état d'esprit industriel imparable.",
+            "eco.eyebrow": "Réseau Industriel", "eco.title": "Intégration Totale",
+            "eco.c1.desc": "Haute performance intégrée : la convergence définitive entre endurance aérobie et force industrielle.", "eco.c1.btn": "DÉCOUVRIR LE HUB",
+            "eco.c2.desc": "Networking à fort impact et protocoles d'élite pour les membres sélectionnés de l'écosystème.", "eco.c2.btn": "ACCÉDER À SOCIETY",
+            "eco.c3.desc": "Logistique 4.0 avec traçabilité totale et agilité industrielle propre à Bro Pharmaceuticals.", "eco.c3.btn": "VISITER H2F SHIPPING",
+            "eco.c4.desc": "Innovation et technologie appliquées au bien-être et à la performance. Découvrez le prochain niveau de la supplémentation intelligente.",
+            "community.eyebrow": "Réseau Mondial", "community.title1": "Impact Mondial.", "community.title2": "Science Appliquée.",
+            "community.description": "L'écosystème définitif de performance industrielle, unissant des milliers de membres à travers des protocoles de précision.",
+            "global.eyebrow": "Présence Mondiale", "global.title": "pays desservis",
+            "contact.badge": "Contact", "contact.title": "Parlez à BRO",
+            "contact.email.label": "Email Officiel", "contact.ig.label": "Instagram Hub",
+            "footer.description": "En tête de la frontière de la performance humaine grâce à l'innovation pharmaceutique et l'intégration d'écosystèmes mondiaux.",
+            "footer.map": "Navigation", "footer.about": "À Propos", "footer.ecosystem": "Écosystème", "footer.logistics": "Logistique",
+            "footer.support": "Gouvernance", "footer.compliance": "Conformité", "footer.privacy": "Termes & Confidentialité", "footer.contact": "Centre de Contact",
+            "footer.copyright": "© 2026 BRO PHARMACEUTICALS.", "footer.realtime": "Opération en Temps Réel"
         },
         ar: {
-            "nav.about": "حول",
-            "nav.pillars": "الأعمدة",
-            "nav.app": "التطبيق",
-            "nav.ecosystem": "النظام البيئي",
+            "nav.about": "حول", "nav.pillars": "الأعمدة", "nav.app": "التطبيق", "nav.ecosystem": "النظام البيئي",
             "header.app": "التطبيق",
             "hero.badge": "مركز الأداء",
             "hero.title": "الصحة والأداء والتطور في نظام بيئي واحد",
-            "hero.description": "برو فارماسيوتيكالز هو المركز الشامل لمن يأخذ أداءه بجدية. تدريب، تغذية، مجتمع ومنتجات صيدلانية عالية الأداء. كل شيء متكامل في مكان واحد.",
-            "hero.cta1": "الوصول للتطبيق",
-            "hero.cta2": "استكشاف النظام البيئي",
-            "stats.members": "الأعضاء النشطون",
-            "stats.workouts": "جلسات التدريب",
-            "stats.transformations": "التحولات",
-            "stats.protocols": "البروتوكولات المكتملة",
-            "about.eyebrow": "العصر الجديد",
-            "about.title": "العلم والأداء الذي لا يرحم",
-            "about.description": "لا نقدم فقط المنتجات، بل نقدم المسار. تم تصميم نظام برو فارماسيوتيكالز لمن لا يقبل بالمتوسط. علوم صناعية وتغذية وتكنولوجيا متكاملة في بروتوكول واحد.",
-            "about.f1.title": "تزامن كامل",
-            "about.f1.desc": "التطبيق والخدمات اللوجستية في تجربة متكاملة واحدة.",
-            "about.f2.title": "تركيز تقني",
-            "about.f2.desc": "بروتوكولات صناعية مبنية على بيانات مختبرية.",
-            "about.f3.title": "النخبة الاجتماعية",
-            "about.f3.desc": "مجتمع حصري يركز على الأداء المطلق.",
-            "about.f4.title": "قابلية التوسع",
-            "about.f4.desc": "تطور مستمر في كل مرحلة من مراحل تطورك.",
-            "pillars.eyebrow": "البروتوكولات الأساسية",
-            "pillars.title": "ركائز الأداء.",
-            "pillars.c1.title": "التدريب الهجين",
-            "pillars.c1.desc": "بروتوكولات برو فارما الخاصة: مزامنة القوة الخام والتحمل الهوائي النخبوي في نظام واحد.",
-            "pillars.c2.title": "التغذية الحيوية",
-            "pillars.c2.desc": "استراتيجيات تغذية الخلايا وتحسين التمثيل الغذائي للتعافي المتسارع والأداء الثابت.",
-            "pillars.c3.title": "الشبكة والتركيز",
-            "pillars.c3.desc": "وصول حصري إلى BRX Society: اتصالات عالية التأثير وتطوير عقلية صناعية لا تُوقف.",
-            "app.eyebrow": "النظام البيئي الصناعي",
-            "app.title": "تكنولوجيا المختبر",
-            "app.subtitle": "في راحة يدك.",
-            "app.p1": "تطبيق برو فارماسيوتيكالز هو القناة المباشرة لمجمعنا الصناعي. احصل على وصول حصري للمنتجات المصنوعة في مختبراتنا الخاصة وفق أشد بروتوكولات النقاء صرامة.",
-            "app.p2": "بالإضافة إلى خطنا الخاص، يدمج المركز كتالوج إعادة بيع رسمية لأكبر العلامات التجارية العالمية، مما يضمن المصدر والتتبع التقني والخدمات اللوجستية ذات الأولوية.",
-            "app.bullet1": "مدخلات التصنيع الداخلي",
-            "app.bullet2": "التوزيع الرسمي متعدد العلامات",
-            "app.bullet3": "شهادة مصدر B2B",
-            "app.btn": "الوصول للتطبيق",
-            "eco.eyebrow": "الشبكة الصناعية",
-            "eco.title": "تكامل كامل",
-            "eco.c1.desc": "أداء عالٍ متكامل: التقارب النهائي بين التحمل الهوائي والقوة الصناعية.",
-            "eco.c1.btn": "اكتشف المركز",
-            "eco.c2.desc": "شبكة عالية التأثير وبروتوكولات نخبوية للأعضاء المختارين في النظام البيئي.",
-            "eco.c2.btn": "الوصول للمجتمع",
-            "eco.c3.desc": "لوجستيك 4.0 مع تتبع كامل وسرعة صناعية خاصة ببرو فارماسيوتيكالز.",
-            "eco.c3.btn": "تتبع الطلب",
-            "community.eyebrow": "شبكة عالمية",
-            "community.title1": "أشخاص حقيقيون.",
-            "community.title2": "نتائج حقيقية.",
-            "community.description": "أكبر نظام بيئي للأداء الصناعي في أمريكا اللاتينية. نجمع العلم والتكنولوجيا لتحويل الإمكانات إلى تطور مطلق.",
-            "global.eyebrow": "حضور عالمي",
-            "global.title": "دول تخدمها",
-            "contact.badge": "تواصل معنا",
-            "contact.title": "تحدث مع BRO",
-            "contact.description": "أكمل النموذج أدناه وسنتواصل معك. ستُرسل رسالتك مباشرةً إلى فريقنا.",
-            "contact.email.label": "البريد الرسمي",
-            "contact.ig.label": "انستغرام",
-            "footer.description": "ابتكار صيدلاني وحلول عابرة للقارات عالية الأداء. ربط الأسواق بالتميز التشغيلي.",
-            "footer.map": "الخريطة",
-            "footer.about": "من نحن",
-            "footer.ecosystem": "النظام البيئي",
-            "footer.logistics": "اللوجستيات",
-            "footer.support": "الدعم",
-            "footer.compliance": "الامتثال",
-            "footer.privacy": "الخصوصية",
-            "footer.contact": "اتصل بنا",
-            "footer.email": "البريد المؤسسي",
-            "footer.copyright": "© 2024 BRO Pharmaceuticals Hub. جميع الحقوق محفوظة.",
-            "footer.realtime": "عمليات في الوقت الفعلي"
+            "hero.description": "برو فارماسيوتيكالز هو المركز الشامل لمن يأخذ أداءه بجدية. تدريب، تغذية، مجتمع ومنتجات صيدلانية عالية الأداء.",
+            "hero.cta1": "الوصول إلى BRXPHARMA",
+            "hero.cta2": "الوصول إلى Elevia",
+            "hero.cta3": "استكشاف النظام البيئي",
+            "stats.members": "الأعضاء النشطون", "stats.workouts": "البروتوكولات", "stats.transformations": "النتائج", "stats.protocols": "البروتوكولات المكتملة",
+            "about.eyebrow": "العصر الجديد", "about.title": "العلم والأداء الذي لا يرحم",
+            "about.description": "لا نقدم فقط المنتجات، بل نقدم المسار. تم تصميم نظام برو فارماسيوتيكالز لمن لا يقبل بالمتوسط.",
+            "about.f1.title": "تزامن كامل", "about.f1.desc": "التطبيق والخدمات اللوجستية في تجربة متكاملة واحدة.",
+            "about.f2.title": "تركيز تقني", "about.f2.desc": "بروتوكولات صناعية مبنية على بيانات مختبرية.",
+            "about.f3.title": "النخبة الاجتماعية", "about.f3.desc": "مجتمع حصري يركز على الأداء المطلق.",
+            "about.f4.title": "قابلية التوسع", "about.f4.desc": "تطور مستمر في كل مرحلة من مراحل تطورك.",
+            "pillars.eyebrow": "البروتوكولات الأساسية", "pillars.title": "ركائز الأداء.",
+            "pillars.c1.title": "التدريب الهجين", "pillars.c1.desc": "بروتوكولات برو فارما الخاصة: مزامنة القوة الخام والتحمل الهوائي النخبوي في نظام واحد.",
+            "pillars.c2.title": "التغذية الحيوية", "pillars.c2.desc": "استراتيجيات تغذية الخلايا وتحسين التمثيل الغذائي للتعافي المتسارع والأداء الثابت.",
+            "pillars.c3.title": "الشبكة والتركيز", "pillars.c3.desc": "وصول حصري إلى BRX Society: اتصالات عالية التأثير وتطوير عقلية صناعية لا تُوقف.",
+            "eco.eyebrow": "الشبكة الصناعية", "eco.title": "تكامل كامل",
+            "eco.c1.desc": "أداء عالٍ متكامل: التقارب النهائي بين التحمل الهوائي والقوة الصناعية.", "eco.c1.btn": "اكتشف المركز",
+            "eco.c2.desc": "شبكة عالية التأثير وبروتوكولات نخبوية للأعضاء المختارين في النظام البيئي.", "eco.c2.btn": "الوصول للمجتمع",
+            "eco.c3.desc": "لوجستيك 4.0 مع تتبع كامل وسرعة صناعية خاصة ببرو فارماسيوتيكالز.", "eco.c3.btn": "زيارة H2F SHIPPING",
+            "eco.c4.desc": "ابتكار وتكنولوجيا مطبقة على الصحة والأداء. اكتشف المستوى التالي من المكملات الذكية.",
+            "community.eyebrow": "شبكة عالمية", "community.title1": "تأثير عالمي.", "community.title2": "علم مطبق.",
+            "community.description": "النظام البيئي النهائي للأداء الصناعي، يجمع آلاف الأعضاء عبر بروتوكولات الدقة.",
+            "global.eyebrow": "حضور عالمي", "global.title": "دول تخدمها",
+            "contact.badge": "تواصل معنا", "contact.title": "تحدث مع BRO",
+            "contact.email.label": "البريد الرسمي", "contact.ig.label": "انستغرام",
+            "footer.description": "في طليعة حدود الأداء البشري من خلال الابتكار الصيدلاني وتكامل النظم البيئية العالمية.",
+            "footer.map": "التنقل", "footer.about": "من نحن", "footer.ecosystem": "النظام البيئي", "footer.logistics": "اللوجستيات",
+            "footer.support": "الحوكمة", "footer.compliance": "الامتثال", "footer.privacy": "الشروط والخصوصية", "footer.contact": "مركز الاتصال",
+            "footer.copyright": "© 2026 BRO PHARMACEUTICALS.", "footer.realtime": "عمليات في الوقت الفعلي"
         }
     };
 
@@ -1381,60 +944,27 @@
     function applyTranslations(lang) {
         const t = translations[lang];
         if (!t) return;
-
-        // Apply text translations
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
-            if (t[key] !== undefined) {
-                // Handle elements that may have nested spans (like headings with opacity)
-                if (el.tagName === 'H2' && el.innerHTML.includes('<span')) {
-                    // Only update text nodes, not child spans
-                    const spans = el.querySelectorAll('span');
-                    // For about title special case
-                    if (key === 'about.title') {
-                        el.childNodes.forEach(node => {
-                            if (node.nodeType === Node.TEXT_NODE) {
-                                // reconstruct
-                            }
-                        });
-                    }
-                }
-                el.textContent = t[key];
-            }
+            if (t[key] !== undefined) el.textContent = t[key];
         });
-
-        // Update html dir and lang
         const html = document.documentElement;
         if (lang === 'ar') {
-            html.setAttribute('dir', 'rtl');
-            html.setAttribute('lang', 'ar');
-            document.body.setAttribute('lang', 'ar');
+            html.setAttribute('dir', 'rtl'); html.setAttribute('lang', 'ar'); document.body.setAttribute('lang', 'ar');
         } else {
             html.setAttribute('dir', 'ltr');
             const langMap = { pt: 'pt-br', en: 'en', es: 'es', fr: 'fr' };
-            html.setAttribute('lang', langMap[lang] || lang);
-            document.body.removeAttribute('lang');
+            html.setAttribute('lang', langMap[lang] || lang); document.body.removeAttribute('lang');
         }
-
-        // Update active btn
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-        });
-
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-lang') === lang));
         currentLang = lang;
     }
 
-    // Language button listeners
     document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const lang = btn.getAttribute('data-lang');
-            applyTranslations(lang);
-        });
+        btn.addEventListener('click', () => applyTranslations(btn.getAttribute('data-lang')));
     });
 
-    // ══════════════════════════════════════════
-    // SLIDER
-    // ══════════════════════════════════════════
+    // ══ SLIDER ══
     (function(){
         var track = document.getElementById('slider-track');
         if (!track) return;
@@ -1462,21 +992,14 @@
         setTimeout(buildSlider, 1000);
     })();
 
-    // ══════════════════════════════════════════
-    // HEADER SCROLL
-    // ══════════════════════════════════════════
+    // ══ HEADER SCROLL ══
     const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-        header.classList.toggle('scrolled', window.scrollY > 50);
-    });
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
 
-    // ══════════════════════════════════════════
-    // CARD 3D
-    // ══════════════════════════════════════════
+    // ══ CARD 3D ══
     function handleCardMove(e, card) {
         const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+        const x = e.clientX - rect.left, y = e.clientY - rect.top;
         const rotateX = ((y / rect.height) - 0.5) * -18;
         const rotateY = ((x / rect.width) - 0.5) * 18;
         card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
@@ -1489,9 +1012,7 @@
         card.querySelector('.card-shine').style.opacity = '0';
     }
 
-    // ══════════════════════════════════════════
-    // COUNTERS
-    // ══════════════════════════════════════════
+    // ══ COUNTERS ══
     function animateCounters() {
         document.querySelectorAll('.stat-number, .global-counter').forEach(counter => {
             const target = +counter.getAttribute('data-target');
@@ -1500,8 +1021,7 @@
             function animation(currentTime) {
                 if (!startTime) startTime = currentTime;
                 const progress = Math.min((currentTime - startTime) / duration, 1);
-                const val = Math.round(target * (1 - Math.pow(2, -10 * progress)));
-                counter.innerText = val;
+                counter.innerText = Math.round(target * (1 - Math.pow(2, -10 * progress)));
                 if (progress < 1) requestAnimationFrame(animation);
             }
             requestAnimationFrame(animation);
@@ -1510,32 +1030,19 @@
 
     const uiObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                if (['community','global-presence'].includes(entry.target.id)) animateCounters();
-                uiObserver.unobserve(entry.target);
-            }
+            if (entry.isIntersecting) { if (['community','global-presence'].includes(entry.target.id)) animateCounters(); uiObserver.unobserve(entry.target); }
         });
     }, { threshold: 0.3 });
 
     document.addEventListener('DOMContentLoaded', () => {
-        ['community','global-presence'].forEach(id => {
-            const el = document.getElementById(id);
-            if (el) uiObserver.observe(el);
-        });
+        ['community','global-presence'].forEach(id => { const el = document.getElementById(id); if (el) uiObserver.observe(el); });
     });
 
-    // ══════════════════════════════════════════
-    // HELPERS
-    // ══════════════════════════════════════════
-    function downloadApp() {
-        window.open('https://bropharmaceutical.com/app', '_blank');
-    }
+    // ══ HELPERS ══
+    function downloadApp() { window.open('https://bropharmaceutical.com/app', '_blank'); }
     function scrollToSection(sectionId) {
         const element = document.getElementById(sectionId);
-        if (element) {
-            const offsetPosition = element.getBoundingClientRect().top + window.pageYOffset - 80;
-            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-        }
+        if (element) window.scrollTo({ top: element.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' });
     }
     </script>
 </body>
