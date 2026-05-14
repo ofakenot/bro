@@ -13,15 +13,9 @@
         body { font-family: 'Inter', sans-serif; margin: 0; overflow-x: hidden; background: #fff5f8; }
         canvas { display: block; width: 100vw; height: 100vh; position: fixed; inset: 0; z-index: 0; pointer-events: none; }
         
-        /* Container principal com margem para não bater no seletor */
         .main-wrapper {
-            position: relative;
-            z-index: 10;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            min-height: 100vh;
+            position: relative; z-index: 10; display: flex; flex-direction: column;
+            align-items: center; padding: 20px; min-height: 100vh;
         }
 
         .glass-container {
@@ -30,7 +24,7 @@
             -webkit-backdrop-filter: blur(25px);
             border: 1px solid rgba(255, 255, 255, 0.7);
             box-shadow: 0 25px 50px -12px rgba(255, 182, 198, 0.3);
-            margin-top: 20px; /* Espaço entre seletor e caixa */
+            margin-top: 20px;
         }
 
         .input-elegant {
@@ -47,19 +41,12 @@
         }
         .btn-verify:hover { transform: scale(1.02); filter: brightness(1.08); }
 
-        /* Estilo do Seletor Centralizado */
-        .lang-selector {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-
         .lang-btn {
             font-size: 11px; font-weight: 800; padding: 6px 12px; border-radius: 99px;
             background: rgba(255, 255, 255, 0.5);
             border: 1px solid rgba(255, 133, 161, 0.2); color: #8a5a65; transition: 0.3s;
         }
-        .lang-btn.active { background: #ff85a1; color: white; border-color: #ff85a1; box-shadow: 0 4px 12px rgba(255, 133, 161, 0.2); }
+        .lang-btn.active { background: #ff85a1; color: white; border-color: #ff85a1; }
 
         #productPhoto {
             max-width: 180px; border-radius: 24px; border: 6px solid white;
@@ -75,7 +62,7 @@
     <canvas id="shaderCanvas"></canvas>
     
     <div class="main-wrapper">
-        <div class="lang-selector">
+        <div class="flex gap-3 mb-4">
             <button onclick="setLanguage('pt')" id="btn-pt" class="lang-btn">PORTUGUÊS</button>
             <button onclick="setLanguage('en')" id="btn-en" class="lang-btn">ENGLISH</button>
             <button onclick="setLanguage('es')" id="btn-es" class="lang-btn">ESPAÑOL</button>
@@ -84,13 +71,14 @@
         <div class="glass-container w-full max-w-sm p-10 rounded-[50px] text-center">
             <header class="mb-8">
                 <img src="https://bropharmaceutical.com/images/elevialogo.png" alt="Elevia" class="h-20 mx-auto mb-6 object-contain">
+                
                 <span class="status-badge bg-white px-3 py-1 rounded-full text-[10px] font-extrabold text-[#ff85a1] uppercase tracking-widest shadow-sm">Industrial Performance Lab</span>
                 <h1 id="txt-title" class="text-3xl font-extrabold text-[#4a1d28] mt-6 tracking-tighter uppercase">Autenticidade</h1>
                 <p id="txt-subtitle" class="text-[#8a5a65] text-sm mt-2 font-medium">Valide seu lote Bro Pharmaceuticals</p>
             </header>
 
             <div class="space-y-8">
-                <input type="text" id="loteInput" data-i18n-placeholder="placeholder" 
+                <input type="text" id="loteInput" maxlength="9" placeholder="CÓDIGO DO LOTE" 
                     class="input-elegant w-full py-3 text-center text-[#4a1d28] font-bold text-lg uppercase tracking-widest">
 
                 <button id="verifyBtn" class="btn-verify w-full py-5 rounded-3xl text-white font-extrabold text-sm uppercase tracking-widest">
@@ -127,6 +115,7 @@
     </div>
 
     <script>
+        // Shader Background Logic
         const canvas = document.getElementById('shaderCanvas');
         const gl = canvas.getContext('webgl');
         const vs = `attribute vec4 a_position; void main() { gl_Position = a_position; }`;
@@ -156,56 +145,19 @@
             gl.uniform1f(timeLoc, time * 0.001); gl.drawArrays(gl.TRIANGLES, 0, 6); requestAnimationFrame(draw);
         }
         requestAnimationFrame(draw);
-    </script>
 
-    <script>
+        // i18n
         const i18n = {
-            pt: {
-                title: "Autenticidade",
-                subtitle: "Valide seu lote Bro Pharmaceuticals",
-                placeholder: "CÓDIGO DO LOTE",
-                verifyBtn: "Verificar Procedência",
-                verifying: "VERIFICANDO...",
-                success: "Autenticidade Confirmada",
-                error: "Lote não identificado",
-                prodLabel: "Produto Identificado",
-                back: "Voltar ao Site",
-                manufacturer: "Fabricado por:"
-            },
-            en: {
-                title: "Authenticity",
-                subtitle: "Validate your Bro Pharmaceuticals batch",
-                placeholder: "BATCH CODE",
-                verifyBtn: "Verify Provenance",
-                verifying: "VERIFYING...",
-                success: "Authenticity Confirmed",
-                error: "Batch not identified",
-                prodLabel: "Identified Product",
-                back: "Back to Site",
-                manufacturer: "Manufactured by:"
-            },
-            es: {
-                title: "Autenticidad",
-                subtitle: "Valide su lote de Bro Pharmaceuticals",
-                placeholder: "CÓDIGO DE LOTE",
-                verifyBtn: "Verificar Procedencia",
-                verifying: "VERIFICANDO...",
-                success: "Autenticidad Confirmada",
-                error: "Lote no identificado",
-                prodLabel: "Producto Identificado",
-                back: "Volver al sitio",
-                manufacturer: "Fabricado por:"
-            }
+            pt: { title: "Autenticidade", subtitle: "Valide seu lote Bro Pharmaceuticals", placeholder: "CÓDIGO DO LOTE", verifyBtn: "Verificar Procedência", verifying: "VERIFICANDO...", success: "Autenticidade Confirmada", error: "Lote não identificado", prodLabel: "Produto Identificado", back: "Voltar ao Site", manufacturer: "Fabricado por:" },
+            en: { title: "Authenticity", subtitle: "Validate your Bro Pharmaceuticals batch", placeholder: "BATCH CODE", verifyBtn: "Verify Provenance", verifying: "VERIFYING...", success: "Authenticity Confirmed", error: "Batch not identified", prodLabel: "Identified Product", back: "Back to Site", manufacturer: "Manufactured by:" },
+            es: { title: "Autenticidad", subtitle: "Valide su lote de Bro Pharmaceuticals", placeholder: "CÓDIGO DE LOTE", verifyBtn: "Verificar Procedencia", verifying: "VERIFICANDO...", success: "Autenticidad Confirmada", error: "Lote no identificado", prodLabel: "Producto Identificado", back: "Volver al sitio", manufacturer: "Fabricado por:" }
         };
 
         let currentLang = 'pt';
-
         function setLanguage(lang) {
             currentLang = lang;
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            const activeBtn = document.getElementById(`btn-${lang}`);
-            if(activeBtn) activeBtn.classList.add('active');
-            
+            document.getElementById(`btn-${lang}`).classList.add('active');
             document.getElementById('txt-title').innerText = i18n[lang].title;
             document.getElementById('txt-subtitle').innerText = i18n[lang].subtitle;
             document.getElementById('loteInput').placeholder = i18n[lang].placeholder;
@@ -214,11 +166,9 @@
             document.getElementById('txt-btn-back').innerText = i18n[lang].back;
             document.getElementById('txt-manufacturer').innerText = i18n[lang].manufacturer;
         }
+        setLanguage(i18n[navigator.language.split('-')[0]] ? navigator.language.split('-')[0] : 'en');
 
-        const browserLang = navigator.language.split('-')[0];
-        setLanguage(i18n[browserLang] ? browserLang : 'en');
-
-        // Config Supabase - Use suas chaves aqui
+        // Supabase
         const SB_URL = "https://wyayantyqqmupgzmraia.supabase.co"; 
         const SB_KEY = "sb_publishable_ZSGPE2fUyQEZ5aqkWi6_DQ_F9T1aR4k"; 
         const _supabase = supabase.createClient(SB_URL, SB_KEY);
@@ -235,22 +185,23 @@
         const instagramVerified = `<svg class="status-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121L9.707 19.121Z" fill="#0095F6"/></svg>`;
         const errorIcon = `<svg class="status-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="#ff4d6d"/><path d="M15 9l-6 6M9 9l6 6" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>`;
 
+        // Máscara Automática FH1008/26
+        input.addEventListener('input', (e) => {
+            let val = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+            if (val.length > 6) {
+                val = val.slice(0, 6) + '/' + val.slice(6, 8);
+            }
+            e.target.value = val;
+        });
+
         btn.addEventListener('click', async () => {
             const code = input.value.trim().toUpperCase();
             if (!code) return;
-
             btn.innerText = i18n[currentLang].verifying;
             btn.disabled = true;
-
             try {
-                const { data, error } = await _supabase
-                    .from('lotes')
-                    .select('*')
-                    .eq('codigo', code)
-                    .single();
-
+                const { data, error } = await _supabase.from('lotes').select('*').eq('codigo', code).single();
                 resultArea.classList.remove('hidden');
-
                 if (error || !data) {
                     statusIconContainer.innerHTML = errorIcon;
                     statusTitle.innerText = i18n[currentLang].error;
@@ -263,14 +214,9 @@
                     statusTitle.style.color = "#0095F6";
                     productName.innerText = data.produto;
                     productInfo.classList.remove('hidden');
-                    if (data.foto_url) {
-                        productPhoto.src = data.foto_url;
-                        productPhoto.style.display = "block";
-                    }
+                    if (data.foto_url) { productPhoto.src = data.foto_url; productPhoto.style.display = "block"; }
                 }
-            } catch (err) {
-                alert("Error");
-            } finally {
+            } catch (err) { alert("Error"); } finally {
                 btn.innerText = i18n[currentLang].verifyBtn;
                 btn.disabled = false;
             }
