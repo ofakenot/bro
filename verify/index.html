@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bro Pharmaceuticals | Autenticidade</title>
+    <title>Bro Pharmaceuticals | Authenticity</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -13,131 +13,117 @@
         body { font-family: 'Inter', sans-serif; margin: 0; overflow-x: hidden; background: #fff5f8; }
         canvas { display: block; width: 100vw; height: 100vh; position: fixed; inset: 0; z-index: 0; pointer-events: none; }
         
+        /* Container principal com margem para não bater no seletor */
+        .main-wrapper {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
         .glass-container {
             background: rgba(255, 255, 255, 0.45);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
             border: 1px solid rgba(255, 255, 255, 0.7);
             box-shadow: 0 25px 50px -12px rgba(255, 182, 198, 0.3);
+            margin-top: 20px; /* Espaço entre seletor e caixa */
         }
 
         .input-elegant {
-            background: transparent;
-            border: none;
+            background: transparent; border: none;
             border-bottom: 2px solid rgba(255, 133, 161, 0.3);
             transition: all 0.3s ease;
         }
-
-        .input-elegant:focus {
-            outline: none;
-            border-bottom-color: #ff85a1;
-            transform: translateY(-2px);
-        }
+        .input-elegant:focus { outline: none; border-bottom-color: #ff85a1; transform: translateY(-2px); }
 
         .btn-verify {
             background: #ff85a1;
             box-shadow: 0 10px 25px rgba(255, 133, 161, 0.4);
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+        .btn-verify:hover { transform: scale(1.02); filter: brightness(1.08); }
 
-        .btn-verify:hover {
-            transform: scale(1.02);
-            filter: brightness(1.08);
-            box-shadow: 0 15px 35px rgba(255, 133, 161, 0.5);
+        /* Estilo do Seletor Centralizado */
+        .lang-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
         }
 
-        .btn-back {
-            background: rgba(255, 255, 255, 0.8);
-            border: 1px solid rgba(255, 133, 161, 0.2);
-            color: #8a5a65;
-            transition: all 0.3s ease;
+        .lang-btn {
+            font-size: 11px; font-weight: 800; padding: 6px 12px; border-radius: 99px;
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 133, 161, 0.2); color: #8a5a65; transition: 0.3s;
         }
-
-        .btn-back:hover {
-            background: white;
-            color: #ff85a1;
-            border-color: #ff85a1;
-        }
+        .lang-btn.active { background: #ff85a1; color: white; border-color: #ff85a1; box-shadow: 0 4px 12px rgba(255, 133, 161, 0.2); }
 
         #productPhoto {
-            max-width: 180px;
-            border-radius: 24px;
-            border: 6px solid white;
-            display: none;
-            animation: slideUp 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+            max-width: 180px; border-radius: 24px; border: 6px solid white;
+            display: none; animation: slideUp 0.6s ease forwards;
         }
 
-        @keyframes slideUp { 
-            from { opacity: 0; transform: translateY(30px) scale(0.9); } 
-            to { opacity: 1; transform: translateY(0) scale(1); } 
-        }
-
-        .status-badge {
-            background: white;
-            padding: 4px 12px;
-            border-radius: 99px;
-            font-size: 10px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #ff85a1;
-        }
-
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         .status-svg { width: 64px; height: 64px; margin: 0 auto 1rem; }
     </style>
 </head>
-<body class="flex items-center justify-center min-h-screen py-10">
+<body class="flex flex-col items-center">
 
     <canvas id="shaderCanvas"></canvas>
     
-    <div class="relative z-10 glass-container w-full max-w-sm p-10 rounded-[50px] text-center mx-4">
-        <header class="mb-8">
-            <img src="https://bropharmaceutical.com/images/elevialogo.png" alt="Elevia" class="h-20 mx-auto mb-6 object-contain">
-            
-            <span class="status-badge shadow-sm">Industrial Performance Lab</span>
-            <h1 class="text-3xl font-extrabold text-[#4a1d28] mt-6 tracking-tighter">Autenticidade</h1>
-            <p class="text-[#8a5a65] text-sm mt-2 font-medium">Valide seu lote Bro Pharmaceuticals</p>
-        </header>
-
-        <div class="space-y-8">
-            <div class="relative">
-                <input type="text" id="loteInput" placeholder="CÓDIGO DO LOTE" 
-                    class="input-elegant w-full py-3 text-center text-[#4a1d28] font-bold text-lg placeholder:text-[#8a5a65]/40 uppercase tracking-widest">
-            </div>
-
-            <button id="verifyBtn" class="btn-verify w-full py-5 rounded-3xl text-white font-extrabold text-sm uppercase tracking-widest">
-                Verificar Procedência
-            </button>
+    <div class="main-wrapper">
+        <div class="lang-selector">
+            <button onclick="setLanguage('pt')" id="btn-pt" class="lang-btn">PORTUGUÊS</button>
+            <button onclick="setLanguage('en')" id="btn-en" class="lang-btn">ENGLISH</button>
+            <button onclick="setLanguage('es')" id="btn-es" class="lang-btn">ESPAÑOL</button>
         </div>
 
-        <div id="resultArea" class="mt-10 pt-8 border-t border-white/60 hidden">
-            <div id="statusIconContainer"></div>
-            <h3 id="statusTitle" class="text-xl font-extrabold mb-4"></h3>
-            
-            <img id="productPhoto" src="" alt="Produto" class="mx-auto my-6 shadow-2xl">
-            
-            <div id="productInfo" class="hidden">
-                <p class="text-[10px] uppercase tracking-[3px] text-[#8a5a65] font-bold mb-1">Produto Identificado</p>
-                <p id="productName" class="text-xl font-black leading-tight mb-6"></p>
+        <div class="glass-container w-full max-w-sm p-10 rounded-[50px] text-center">
+            <header class="mb-8">
+                <img src="https://bropharmaceutical.com/images/elevialogo.png" alt="Elevia" class="h-20 mx-auto mb-6 object-contain">
+                <span class="status-badge bg-white px-3 py-1 rounded-full text-[10px] font-extrabold text-[#ff85a1] uppercase tracking-widest shadow-sm">Industrial Performance Lab</span>
+                <h1 id="txt-title" class="text-3xl font-extrabold text-[#4a1d28] mt-6 tracking-tighter uppercase">Autenticidade</h1>
+                <p id="txt-subtitle" class="text-[#8a5a65] text-sm mt-2 font-medium">Valide seu lote Bro Pharmaceuticals</p>
+            </header>
+
+            <div class="space-y-8">
+                <input type="text" id="loteInput" data-i18n-placeholder="placeholder" 
+                    class="input-elegant w-full py-3 text-center text-[#4a1d28] font-bold text-lg uppercase tracking-widest">
+
+                <button id="verifyBtn" class="btn-verify w-full py-5 rounded-3xl text-white font-extrabold text-sm uppercase tracking-widest">
+                    Verificar Procedência
+                </button>
             </div>
 
-            <a href="https://bropharmaceutical.com" class="btn-back inline-flex items-center justify-center w-full py-4 rounded-2xl font-bold text-xs uppercase tracking-widest mt-4">
-                Voltar ao Site
-            </a>
-        </div>
-        
-        <footer class="mt-12 pt-6 border-t border-white/40">
-            <div class="flex flex-col items-center">
-                <p class="text-[9px] text-[#8a5a65]/80 uppercase tracking-widest font-bold mb-3">Fabricado por:</p>
-                <img src="https://bropharmaceutical.com/images/logo-brx.png" alt="BRX Global" class="h-6 mb-4 opacity-80">
-                <div class="text-[9px] text-[#8a5a65]/60 font-semibold leading-relaxed">
-                    Sede Global<br>
-                    72TH Innovation Ave<br>
-                    Houston, TX, USA
+            <div id="resultArea" class="mt-10 pt-8 border-t border-white/60 hidden">
+                <div id="statusIconContainer"></div>
+                <h3 id="statusTitle" class="text-xl font-extrabold mb-4"></h3>
+                
+                <img id="productPhoto" src="" alt="Produto" class="mx-auto my-6 shadow-2xl">
+                
+                <div id="productInfo" class="hidden text-center">
+                    <p id="txt-prod-label" class="text-[10px] uppercase tracking-[3px] text-[#8a5a65] font-bold mb-1">Produto Identificado</p>
+                    <p id="productName" class="text-xl font-black leading-tight mb-6 text-[#d63384] uppercase"></p>
                 </div>
+
+                <a href="https://bropharmaceutical.com" id="txt-btn-back" class="inline-flex items-center justify-center w-full py-4 rounded-2xl font-bold text-xs uppercase tracking-widest mt-4 bg-white/80 border border-pink-100 text-[#8a5a65] hover:text-[#ff85a1]">
+                    Voltar ao Site
+                </a>
             </div>
-            <p class="mt-6 text-[8px] text-[#8a5a65]/40 uppercase tracking-tighter">EST. 2024 | BRO PHARMACEUTICALS</p>
-        </footer>
+            
+            <footer class="mt-12 pt-6 border-t border-white/40">
+                <div class="flex flex-col items-center">
+                    <p id="txt-manufacturer" class="text-[9px] text-[#8a5a65]/80 uppercase tracking-widest font-bold mb-3">Fabricado por:</p>
+                    <img src="https://bropharmaceutical.com/images/logo-brx.png" alt="BRX Global" class="h-6 mb-4 opacity-80">
+                    <div class="text-[9px] text-[#8a5a65]/60 font-semibold leading-relaxed">
+                        Sede Global<br>72TH Innovation Ave<br>Houston, TX, USA
+                    </div>
+                </div>
+            </footer>
+        </div>
     </div>
 
     <script>
@@ -173,6 +159,66 @@
     </script>
 
     <script>
+        const i18n = {
+            pt: {
+                title: "Autenticidade",
+                subtitle: "Valide seu lote Bro Pharmaceuticals",
+                placeholder: "CÓDIGO DO LOTE",
+                verifyBtn: "Verificar Procedência",
+                verifying: "VERIFICANDO...",
+                success: "Autenticidade Confirmada",
+                error: "Lote não identificado",
+                prodLabel: "Produto Identificado",
+                back: "Voltar ao Site",
+                manufacturer: "Fabricado por:"
+            },
+            en: {
+                title: "Authenticity",
+                subtitle: "Validate your Bro Pharmaceuticals batch",
+                placeholder: "BATCH CODE",
+                verifyBtn: "Verify Provenance",
+                verifying: "VERIFYING...",
+                success: "Authenticity Confirmed",
+                error: "Batch not identified",
+                prodLabel: "Identified Product",
+                back: "Back to Site",
+                manufacturer: "Manufactured by:"
+            },
+            es: {
+                title: "Autenticidad",
+                subtitle: "Valide su lote de Bro Pharmaceuticals",
+                placeholder: "CÓDIGO DE LOTE",
+                verifyBtn: "Verificar Procedencia",
+                verifying: "VERIFICANDO...",
+                success: "Autenticidad Confirmada",
+                error: "Lote no identificado",
+                prodLabel: "Producto Identificado",
+                back: "Volver al sitio",
+                manufacturer: "Fabricado por:"
+            }
+        };
+
+        let currentLang = 'pt';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            const activeBtn = document.getElementById(`btn-${lang}`);
+            if(activeBtn) activeBtn.classList.add('active');
+            
+            document.getElementById('txt-title').innerText = i18n[lang].title;
+            document.getElementById('txt-subtitle').innerText = i18n[lang].subtitle;
+            document.getElementById('loteInput').placeholder = i18n[lang].placeholder;
+            document.getElementById('verifyBtn').innerText = i18n[lang].verifyBtn;
+            document.getElementById('txt-prod-label').innerText = i18n[lang].prodLabel;
+            document.getElementById('txt-btn-back').innerText = i18n[lang].back;
+            document.getElementById('txt-manufacturer').innerText = i18n[lang].manufacturer;
+        }
+
+        const browserLang = navigator.language.split('-')[0];
+        setLanguage(i18n[browserLang] ? browserLang : 'en');
+
+        // Config Supabase - Use suas chaves aqui
         const SB_URL = "https://wyayantyqqmupgzmraia.supabase.co"; 
         const SB_KEY = "sb_publishable_ZSGPE2fUyQEZ5aqkWi6_DQ_F9T1aR4k"; 
         const _supabase = supabase.createClient(SB_URL, SB_KEY);
@@ -193,7 +239,7 @@
             const code = input.value.trim().toUpperCase();
             if (!code) return;
 
-            btn.innerText = "VERIFICANDO...";
+            btn.innerText = i18n[currentLang].verifying;
             btn.disabled = true;
 
             try {
@@ -204,32 +250,28 @@
                     .single();
 
                 resultArea.classList.remove('hidden');
-                resultArea.scrollIntoView({ behavior: 'smooth' });
 
                 if (error || !data) {
                     statusIconContainer.innerHTML = errorIcon;
-                    statusTitle.innerText = "Lote não identificado";
+                    statusTitle.innerText = i18n[currentLang].error;
                     statusTitle.style.color = "#ff4d6d";
                     productPhoto.style.display = "none";
                     productInfo.classList.add('hidden');
                 } else {
                     statusIconContainer.innerHTML = instagramVerified;
-                    statusTitle.innerText = "Autenticidade Confirmada";
+                    statusTitle.innerText = i18n[currentLang].success;
                     statusTitle.style.color = "#0095F6";
                     productName.innerText = data.produto;
-                    productName.style.color = "#d63384";
                     productInfo.classList.remove('hidden');
-                    
                     if (data.foto_url) {
                         productPhoto.src = data.foto_url;
                         productPhoto.style.display = "block";
                     }
                 }
             } catch (err) {
-                console.error(err);
-                alert("Erro de conexão.");
+                alert("Error");
             } finally {
-                btn.innerText = "Verificar Procedência";
+                btn.innerText = i18n[currentLang].verifyBtn;
                 btn.disabled = false;
             }
         });
