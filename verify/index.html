@@ -88,7 +88,7 @@
 </header>
 
             <div class="space-y-8">
-                <input type="text" id="loteInput" maxlength="9" placeholder="CÓDIGO DO LOTE" 
+                <input type="text" id="loteInput" maxlength="13" placeholder="CÓDIGO DO LOTE" 
                     class="input-elegant w-full py-3 text-center text-[#4a1d28] font-bold text-lg uppercase tracking-widest">
 
                 <button id="verifyBtn" class="btn-verify w-full py-5 rounded-3xl text-white font-extrabold text-sm uppercase tracking-widest">
@@ -109,6 +109,9 @@
 
                 <a href="https://bropharmaceutical.com" id="txt-btn-back" class="inline-flex items-center justify-center w-full py-4 rounded-2xl font-bold text-xs uppercase tracking-widest mt-4 bg-white/80 border border-pink-100 text-[#8a5a65] hover:text-[#ff85a1]">
                     Voltar ao Site
+                </a>
+                <a href="https://bropharmaceutical.com/app" id="txt-btn-explore" class="inline-flex items-center justify-center w-full py-4 rounded-2xl font-bold text-xs uppercase tracking-widest mt-3 bg-[#ff85a1] text-white hover:brightness-110 shadow-md">
+                    Explorar Mais
                 </a>
             </div>
             
@@ -158,9 +161,9 @@
 
         // i18n
         const i18n = {
-            pt: { title: "Autenticidade", subtitle: "Valide seu lote Bro Pharmaceuticals", placeholder: "CÓDIGO DO LOTE", verifyBtn: "Verificar Procedência", verifying: "VERIFICANDO...", success: "Autenticidade Confirmada", error: "Lote não identificado", prodLabel: "Produto Identificado", back: "Voltar ao Site", manufacturer: "Fabricado por:" },
-            en: { title: "Authenticity", subtitle: "Validate your Bro Pharmaceuticals batch", placeholder: "BATCH CODE", verifyBtn: "Verify Provenance", verifying: "VERIFYING...", success: "Authenticity Confirmed", error: "Batch not identified", prodLabel: "Identified Product", back: "Back to Site", manufacturer: "Manufactured by:" },
-            es: { title: "Autenticidad", subtitle: "Valide su lote de Bro Pharmaceuticals", placeholder: "CÓDIGO DE LOTE", verifyBtn: "Verificar Procedencia", verifying: "VERIFICANDO...", success: "Autenticidad Confirmada", error: "Lote no identificado", prodLabel: "Producto Identificado", back: "Volver al sitio", manufacturer: "Fabricado por:" }
+            pt: { title: "Autenticidade", subtitle: "Valide seu lote Bro Pharmaceuticals", placeholder: "CÓDIGO DO LOTE", verifyBtn: "Verificar Procedência", verifying: "VERIFICANDO...", success: "Autenticidade Confirmada", error: "Lote não identificado", prodLabel: "Produto Identificado", back: "Voltar ao Site", explore: "Explorar Mais", manufacturer: "Fabricado por:" },
+            en: { title: "Authenticity", subtitle: "Validate your Bro Pharmaceuticals batch", placeholder: "BATCH CODE", verifyBtn: "Verify Provenance", verifying: "VERIFYING...", success: "Authenticity Confirmed", error: "Batch not identified", prodLabel: "Identified Product", back: "Back to Site", explore: "Explore More", manufacturer: "Manufactured by:" },
+            es: { title: "Autenticidad", subtitle: "Valide su lote de Bro Pharmaceuticals", placeholder: "CÓDIGO DE LOTE", verifyBtn: "Verificar Procedencia", verifying: "VERIFICANDO...", success: "Autenticidad Confirmada", error: "Lote no identificado", prodLabel: "Producto Identificado", back: "Volver al sitio", explore: "Explorar Más", manufacturer: "Fabricado por:" }
         };
 
         let currentLang = 'pt';
@@ -174,6 +177,7 @@
             document.getElementById('verifyBtn').innerText = i18n[lang].verifyBtn;
             document.getElementById('txt-prod-label').innerText = i18n[lang].prodLabel;
             document.getElementById('txt-btn-back').innerText = i18n[lang].back;
+            document.getElementById('txt-btn-explore').innerText = i18n[lang].explore;
             document.getElementById('txt-manufacturer').innerText = i18n[lang].manufacturer;
         }
         setLanguage(i18n[navigator.language.split('-')[0]] ? navigator.language.split('-')[0] : 'en');
@@ -195,18 +199,26 @@
         const instagramVerified = `<svg class="status-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121L9.707 19.121Z" fill="#0095F6"/></svg>`;
         const errorIcon = `<svg class="status-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="#ff4d6d"/><path d="M15 9l-6 6M9 9l6 6" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>`;
 
-        // Máscara Automática FH1008/26
+        // Máscara automática: AAA-AAAAAA/NN
+        // 3 chars + "-" + 6 chars + "/" + 2 chars = BRX-FH1008/26
         input.addEventListener('input', (e) => {
-            let val = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
-            if (val.length > 6) {
-                val = val.slice(0, 6) + '/' + val.slice(6, 8);
+            let raw = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+            raw = raw.slice(0, 11); // 3 + 6 + 2 = 11 chars brutos
+
+            let formatted = raw;
+            if (raw.length > 3) {
+                formatted = raw.slice(0, 3) + '-' + raw.slice(3);
             }
-            e.target.value = val;
+            if (raw.length > 9) {
+                formatted = raw.slice(0, 3) + '-' + raw.slice(3, 9) + '/' + raw.slice(9);
+            }
+
+            e.target.value = formatted;
         });
 
         btn.addEventListener('click', async () => {
             const code = input.value.trim().toUpperCase();
-            if (!code) return;
+            if (!code || code.length < 5) return;
             btn.innerText = i18n[currentLang].verifying;
             btn.disabled = true;
             try {
