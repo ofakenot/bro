@@ -950,7 +950,7 @@ const productData = {
     makeProduct(10, "SS - 31 10mg", `SS - 31 10mg${verifiedBadge}`, "Tetrapéptido sintético (Elamipretida 10mg) dirigido a la cardiolipina en la membrana mitocondrial interna. Restaura la bioenergética mitocondrial y optimiza la síntesis de ATP.", "Bro Pharma", "bropharma", ["images/SS31_4600c956-f7e5-438b-918f-5380addb08d7.webp", "images/ss31_7f27bf2d-cbd5-4ad3-9b6c-cadf093acaea.webp"], "¡Hola! Me interesa el SS-31 10 mg"),
     makeProduct(11, "Semax 10mg", `Semax 10mg${verifiedBadge}`, "Péptido nootrópico sintético derivado de un fragmento de ACTH (4-10). Estimula la síntesis de BDNF y NGF, promoviendo neuroprotección, claridad mental y mejora cognitiva.", "Bro Pharma", "bropharma", ["images/Semax_76a81cb4-0dd4-4287-bfaf-fbc03b0aac38.webp", "images/semax_ba02e6d5-aafc-4619-b984-b2c5d2ee78de.webp"], "¡Hola! Me interesa el Semax 10 mg"),
     makeProduct(12, "MOTS - C 10mg", `MOTS - C 10mg${verifiedBadge}`, "Péptido derivado del genoma mitocondrial (MDP). Actúa como regulador metabólico sistémico, promoviendo la captación de glucosa y aumentando la sensibilidad a la insulina.", "Bro Pharma", "bropharma", ["images/Mots_C.webp", "images/mots_c_b24cbd8f-ed3f-4720-901f-f653f56801a3.webp"], "¡Hola! Me interesa el MOTS-C 10 mg"),
-    makeProduct(17, "Retatrutide 40mg Synedica", `Retatrutide 40mg Synedica${verifiedBadge}`, "Ayuda en el control del apetito y soporte metabólico. Pluma con aplicación práctica.", "Synedica", "synedica", ["images/retasynedicanew.jpeg"], "¡Hola! Me interesa el Retatrutide 40mg (Pluma)"),
+    makeProduct(17, "Retatrutide 40mg Synedica", `Retatrutide 40mg Synedica${verifiedBadge}`, "Ayuda en el control del apetite y soporte metabólico. Pluma con aplicación práctica.", "Synedica", "synedica", ["images/retasynedicanew.jpeg"], "¡Hola! Me interesa el Retatrutide 40mg (Pluma)"),
     makeProduct(33, "Glow GHK-CU Synedica", `Glow GHK-CU Synedica${verifiedBadge}`, "Combinación de BPC-157, TB-500 y GHK-CU. Ayuda en la recuperación física, regeneración de la piel y estimulación de colágeno. Versión Synedica.", "Synedica", "synedica", ["images/glowsynedicanew.png"], "¡Hola! Me interesa el Glow GHK-CU Synedica"),
     makeProduct(26, "Sérum GHK-Cu Elevia", `Sérum GHK-Cu Elevia${verifiedBadge}`, "Sérum facial regenerativo de alto rendimiento formulado con tripéptido de cobre GHK-Cu. Estimula la producción de colágeno y elastina, reafirma la piel, reduce líneas de expresión y acelera la renovación celular.", "Elevia", "elevia", ["images/elevianew.png", "images/serum-elevia.png"], "¡Hola! Me interesa el Sérum GHK-Cu Elevia"),
   ],
@@ -978,7 +978,7 @@ const productData = {
     makeProduct(12, "MOTS - C 10mg", `MOTS - C 10mg${verifiedBadge}`, "Peptide dérivé du génome mitochondrial (MDP). Agit comme un régulateur métabolique systémique, favorisant l'absorption du glucose et augmentant la sensibilité à l'insuline.", "Bro Pharma", "bropharma", ["images/Mots_C.webp", "images/mots_c_b24cbd8f-ed3f-4720-901f-f653f56801a3.webp"], "Bonjour ! Je suis intéressé par MOTS-C 10 mg"),
     makeProduct(17, "Retatrutide 40mg Synedica", `Retatrutide 40mg Synedica${verifiedBadge}`, "Aide au contrôle de l'appétit et au soutien métabolique. Stylo avec application pratique.", "Synedica", "synedica", ["images/retasynedicanew.jpeg"], "Bonjour ! Je suis intéressé par Retatrutide 40mg (Stylo)"),
     makeProduct(33, "Glow GHK-CU Synedica", `Glow GHK-CU Synedica${verifiedBadge}`, "Combinaison de BPC-157, TB-500 et GHK-CU. Aide à la récupération physique, régénération de la peau et stimulation du collagène. Version Synedica.", "Synedica", "synedica", ["images/glowsynedicanew.png"], "Bonjour ! Je suis intéressé par Glow GHK-CU Synedica"),
-    makeProduct(26, "Sérum GHK-Cu Elevia", `Sérum GHK-Cu Elevia${verifiedBadge}`, "Sérum facial régénérant haute performance formulé avec le tripeptide de cuivre GHK-Cu. Stimule la production de collagène et d'élastine, raffermit la peau, réduit les rides et accélère le renouvellement cellulaire.", "Elevia", "elevia", ["images/elevianew.png", "images/serum-elevia.png"], "Bonjour ! Je suis intéressé par le Sérum GHK-Cu Elevia"),
+    makeProduct(26, "Sérum GHK-Cu Elevia", `Sérum GHK-Cu Elevia${verifiedBadge}`, "Sérum facial régénérant haute performance formulé avec le tripeptide de cuivre GHK-Cu. Stimules la production de collagène et d'élastine, raffermit la peau, réduit les rides et accélère le renouvellement cellulaire.", "Elevia", "elevia", ["images/elevianew.png", "images/serum-elevia.png"], "Bonjour ! Je suis intéressé par le Sérum GHK-Cu Elevia"),
   ]
 };
 
@@ -1002,8 +1002,8 @@ const ICONS = {
 
 const WA = "595973729018";
 let currentTab = 'home';
-let currentCat  = 'all';
-let products = productData.pt;
+let currentCat = 'bropharma'; // Alterado de 'all' para 'bropharma'
+let products   = productData.pt;
 let selectedProduct = null;
 
 function waLink(msg){ return `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`; }
@@ -1054,11 +1054,11 @@ function renderCatBar(){
 }
 
 function renderProducts(){
-  const filtered = currentCat==='all' ? products : products.filter(p=>p.category===currentCat);
+  const filtered = products.filter(p => p.category === currentCat);
   const cats = getCategories();
-  const cat = cats.find(c=>c.id===currentCat);
-  secTitle.textContent = currentCat==='all' ? t('sectionAll') : (cat ? t(cat.nameKey) : '');
-  const suf = filtered.length===1 ? t('productCountSuffix') : t('productCountSuffixPlural');
+  const cat = cats.find(c => c.id === currentCat);
+  secTitle.textContent = cat ? t(cat.nameKey) : '';
+  const suf = filtered.length === 1 ? t('productCountSuffix') : t('productCountSuffixPlural');
   secCount.textContent = `${filtered.length} ${suf}`;
 
   gridEl.innerHTML = filtered.map((p,i)=>`
