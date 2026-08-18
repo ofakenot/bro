@@ -6,7 +6,7 @@
     <title>Bro Pharmaceuticals | Authenticity</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <style>
@@ -161,9 +161,10 @@
 
         // i18n
         const i18n = {
-            pt: { title: "Autenticidade", subtitle: "Valide seu lote Bro Pharmaceuticals", placeholder: "CÓDIGO DO LOTE", verifyBtn: "Verificar Procedência", verifying: "VERIFICANDO...", success: "Autenticidade Confirmada", error: "Lote não identificado", prodLabel: "Produto Identificado", back: "Voltar ao Site", explore: "Explorar Mais", manufacturer: "Fabricado por:" },
-            en: { title: "Authenticity", subtitle: "Validate your Bro Pharmaceuticals batch", placeholder: "BATCH CODE", verifyBtn: "Verify Provenance", verifying: "VERIFYING...", success: "Authenticity Confirmed", error: "Batch not identified", prodLabel: "Identified Product", back: "Back to Site", explore: "Explore More", manufacturer: "Manufactured by:" },
-            es: { title: "Autenticidad", subtitle: "Valide su lote de Bro Pharmaceuticals", placeholder: "CÓDIGO DE LOTE", verifyBtn: "Verificar Procedencia", verifying: "VERIFICANDO...", success: "Autenticidad Confirmada", error: "Lote no identificado", prodLabel: "Producto Identificado", back: "Volver al sitio", explore: "Explorar Más", manufacturer: "Fabricado por:" }
+                        pt: { title: "Autenticidade", subtitle: "Valide seu lote Bro Pharmaceuticals", placeholder: "CÓDIGO DO LOTE", verifyBtn: "Verificar Procedência", verifying: "VERIFICANDO...", success: "Produto Autenticado", error: "Lote não identificado", prodLabel: "Produto Identificado", productName: "Sérum Elevia GHK-CU e PDRN", back: "Voltar ao Site", explore: "Explorar Mais", manufacturer: "Fabricado por:" },
+            en: { title: "Authenticity", subtitle: "Validate your Bro Pharmaceuticals batch", placeholder: "BATCH CODE", verifyBtn: "Verify Provenance", verifying: "VERIFYING...", success: "Product Authenticated", error: "Batch not identified", prodLabel: "Identified Product", productName: "Elevia GHK-CU and PDRN Serum", back: "Back to Site", explore: "Explore More", manufacturer: "Manufactured by:" },
+            es: { title: "Autenticidad", subtitle: "Valide su lote de Bro Pharmaceuticals", placeholder: "CÓDIGO DE LOTE", verifyBtn: "Verificar Procedencia", verifying: "VERIFICANDO...", success: "Producto Autenticado", error: "Lote no identificado", prodLabel: "Producto Identificado", productName: "Sérum Elevia GHK-CU y PDRN", back: "Volver al sitio", explore: "Explorar Más", manufacturer: "Fabricado por:" }
+
         };
 
         let currentLang = 'pt';
@@ -182,10 +183,7 @@
         }
         setLanguage(i18n[navigator.language.split('-')[0]] ? navigator.language.split('-')[0] : 'en');
 
-        // Supabase
-        const SB_URL = "https://wyayantyqqmupgzmraia.supabase.co"; 
-        const SB_KEY = "sb_publishable_ZSGPE2fUyQEZ5aqkWi6_DQ_F9T1aR4k"; 
-        const _supabase = supabase.createClient(SB_URL, SB_KEY);
+        
 
         const btn = document.getElementById('verifyBtn');
         const input = document.getElementById('loteInput');
@@ -216,33 +214,48 @@
             e.target.value = formatted;
         });
 
-        btn.addEventListener('click', async () => {
+        // Verificação local: não requer banco de dados nem conexão com API.
+        const VERIFIED_CODE = "BRX-FH1008/26";
+        const PRODUCT_IMAGE = "https://bropharmaceutical.com/images/eleviaverify.png";
+
+        btn.addEventListener('click', () => {
             const code = input.value.trim().toUpperCase();
             if (!code || code.length < 5) return;
+
             btn.innerText = i18n[currentLang].verifying;
             btn.disabled = true;
-            try {
-                const { data, error } = await _supabase.from('lotes').select('*').eq('codigo', code).single();
-                resultArea.classList.remove('hidden');
-                if (error || !data) {
+            resultArea.classList.remove('hidden');
+
+            // Pequeno atraso visual para comunicar o processo de verificação.
+            setTimeout(() => {
+                const isValid = code === VERIFIED_CODE;
+                if (!isValid) {
                     statusIconContainer.innerHTML = errorIcon;
                     statusTitle.innerText = i18n[currentLang].error;
                     statusTitle.style.color = "#ff4d6d";
+                    productPhoto.removeAttribute('src');
                     productPhoto.style.display = "none";
                     productInfo.classList.add('hidden');
                 } else {
                     statusIconContainer.innerHTML = instagramVerified;
                     statusTitle.innerText = i18n[currentLang].success;
                     statusTitle.style.color = "#0095F6";
-                    productName.innerText = data.produto;
+                    productName.innerText = i18n[currentLang].productName;
+                    productPhoto.src = PRODUCT_IMAGE;
+                    productPhoto.alt = i18n[currentLang].productName;
+                    productPhoto.style.display = "block";
                     productInfo.classList.remove('hidden');
-                    if (data.foto_url) { productPhoto.src = data.foto_url; productPhoto.style.display = "block"; }
                 }
-            } catch (err) { alert("Error"); } finally {
+
                 btn.innerText = i18n[currentLang].verifyBtn;
                 btn.disabled = false;
-            }
+            }, 450);
         });
+
+        input.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') btn.click();
+        });
+
     </script>
 </body>
 </html>
