@@ -19,13 +19,25 @@
         }
 
         .glass-container {
-            background: rgba(255, 255, 255, 0.45);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.7);
-            box-shadow: 0 25px 50px -12px rgba(255, 182, 198, 0.3);
+            background: linear-gradient(145deg, rgba(255,255,255,.88), rgba(255,247,250,.72));
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border: 1px solid rgba(255,255,255,.95);
+            box-shadow: 0 30px 80px rgba(103, 28, 52, .14), 0 8px 24px rgba(255, 133, 161, .16), inset 0 1px 0 rgba(255,255,255,.95);
             margin-top: 20px;
+            position: relative;
+            overflow: hidden;
         }
+        .glass-container::before { content: ''; position: absolute; inset: 0 0 auto; height: 5px; background: linear-gradient(90deg, #7d173c, #ff85a1, #7d173c); }
+        .trust-strip { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 18px 0 26px; padding: 10px 14px; border: 1px solid rgba(125,23,60,.12); border-radius: 14px; background: rgba(255,255,255,.62); color: #6d3045; font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+        .trust-dot { width: 8px; height: 8px; border-radius: 50%; background: #1da66a; box-shadow: 0 0 0 4px rgba(29,166,106,.13); }
+        .verified-details { margin: 20px 0 24px; padding: 16px; border-radius: 18px; text-align: center; background: rgba(255,255,255,.7); border: 1px solid rgba(125,23,60,.1); }
+        .verified-details-label { margin: 0 0 7px; color: #8a5a65; font-size: 9px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+        .verified-details-value { margin: 0; color: #4a1d28; font-size: 13px; font-weight: 700; line-height: 1.55; }
+        .address-card { display: flex; gap: 10px; align-items: center; justify-content: center; margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(125,23,60,.1); }
+        .address-icon { color: #b12d63; font-size: 17px; line-height: 1; }
+        .address-card .verified-details-value { text-align: center; }
+        .secure-note { margin-top: 14px; color: #6c8c7b; font-size: 10px; font-weight: 700; letter-spacing: .04em; }
 
         .input-elegant {
             background: transparent; border: none;
@@ -68,16 +80,17 @@
             <button onclick="setLanguage('es')" id="btn-es" class="lang-btn">ESPAÑOL</button>
         </div>
 
-        <div class="glass-container w-full max-w-sm p-10 rounded-[50px] text-center">
+        <div class="glass-container w-full max-w-md p-10 rounded-[42px] text-center">
             <header class="mb-8">
     <img src="https://bropharmaceutical.com/images/logoelevia.png" 
          alt="Elevia" 
          class="h-32 w-full mx-auto mb-6 object-contain">
     
-    <span class="status-badge bg-white px-3 py-1 rounded-full text-[10px] font-extrabold text-[#ff85a1] uppercase tracking-widest shadow-sm">
+                <span class="status-badge bg-white px-3 py-1 rounded-full text-[10px] font-extrabold text-[#ff85a1] uppercase tracking-widest shadow-sm">
         Industrial Performance Lab
     </span>
-    
+    <div class="trust-strip"><span class="trust-dot"></span><span id="txt-trust">Secure Product Verification</span></div>
+
     <h1 id="txt-title" class="text-3xl font-extrabold text-[#4a1d28] mt-6 tracking-tighter uppercase">
         Autenticidade
     </h1>
@@ -104,7 +117,19 @@
                 
                 <div id="productInfo" class="hidden text-center">
                     <p id="txt-prod-label" class="text-[10px] uppercase tracking-[3px] text-[#8a5a65] font-bold mb-1">Produto Identificado</p>
-                    <p id="productName" class="text-xl font-black leading-tight mb-6 text-[#d63384] uppercase"></p>
+                    <p id="productName" class="text-xl font-black leading-tight mb-2 text-[#d63384] uppercase"></p>
+                    <div class="verified-details">
+                        <p class="verified-details-label" id="txt-auth-label">Status de autenticação</p>
+                        <p class="verified-details-value" id="txt-auth-value">Código verificado com sucesso</p>
+                        <div class="address-card">
+                            <span class="address-icon">⌖</span>
+                            <div>
+                                <p class="verified-details-label" id="txt-hq-label">Sede Global</p>
+                                <p class="verified-details-value">72TH Innovation Ave<br>Houston, TX, USA</p>
+                            </div>
+                        </div>
+                        <p class="secure-note" id="txt-secure-note">Registro confirmado pela Bro Pharmaceuticals</p>
+                    </div>
                 </div>
 
                 <a href="https://bropharmaceutical.com" id="txt-btn-back" class="inline-flex items-center justify-center w-full py-4 rounded-2xl font-bold text-xs uppercase tracking-widest mt-4 bg-white/80 border border-pink-100 text-[#8a5a65] hover:text-[#ff85a1]">
@@ -161,9 +186,9 @@
 
         // i18n
         const i18n = {
-                        pt: { title: "Autenticidade", subtitle: "Valide seu lote Bro Pharmaceuticals", placeholder: "CÓDIGO DO LOTE", verifyBtn: "Verificar Procedência", verifying: "VERIFICANDO...", success: "Produto Autenticado", error: "Lote não identificado", prodLabel: "Produto Identificado", productName: "Sérum Elevia GHK-CU e PDRN", back: "Voltar ao Site", explore: "Explorar Mais", manufacturer: "Fabricado por:" },
-            en: { title: "Authenticity", subtitle: "Validate your Bro Pharmaceuticals batch", placeholder: "BATCH CODE", verifyBtn: "Verify Provenance", verifying: "VERIFYING...", success: "Product Authenticated", error: "Batch not identified", prodLabel: "Identified Product", productName: "Elevia GHK-CU and PDRN Serum", back: "Back to Site", explore: "Explore More", manufacturer: "Manufactured by:" },
-            es: { title: "Autenticidad", subtitle: "Valide su lote de Bro Pharmaceuticals", placeholder: "CÓDIGO DE LOTE", verifyBtn: "Verificar Procedencia", verifying: "VERIFICANDO...", success: "Producto Autenticado", error: "Lote no identificado", prodLabel: "Producto Identificado", productName: "Sérum Elevia GHK-CU y PDRN", back: "Volver al sitio", explore: "Explorar Más", manufacturer: "Fabricado por:" }
+                        pt: { title: "Autenticidade", subtitle: "Valide seu lote Bro Pharmaceuticals", placeholder: "CÓDIGO DO LOTE", verifyBtn: "Verificar Procedência", verifying: "VERIFICANDO...", success: "Produto Autenticado", error: "Lote não identificado", prodLabel: "Produto Identificado", productName: "Sérum Elevia GHK-CU e PDRN", trust: "Verificação Segura do Produto", authLabel: "Status de autenticação", authValue: "Código verificado com sucesso", hqLabel: "Sede Global", secureNote: "Registro confirmado pela Bro Pharmaceuticals", back: "Voltar ao Site", explore: "Explorar Mais", manufacturer: "Fabricado por:" },
+            en: { title: "Authenticity", subtitle: "Validate your Bro Pharmaceuticals batch", placeholder: "BATCH CODE", verifyBtn: "Verify Provenance", verifying: "VERIFYING...", success: "Product Authenticated", error: "Batch not identified", prodLabel: "Identified Product", productName: "Elevia GHK-CU and PDRN Serum", trust: "Secure Product Verification", authLabel: "Authentication status", authValue: "Code successfully verified", hqLabel: "Global Headquarters", secureNote: "Record confirmed by Bro Pharmaceuticals", back: "Back to Site", explore: "Explore More", manufacturer: "Manufactured by:" },
+            es: { title: "Autenticidad", subtitle: "Valide su lote de Bro Pharmaceuticals", placeholder: "CÓDIGO DE LOTE", verifyBtn: "Verificar Procedencia", verifying: "VERIFICANDO...", success: "Producto Autenticado", error: "Lote no identificado", prodLabel: "Producto Identificado", productName: "Sérum Elevia GHK-CU y PDRN", trust: "Verificación Segura del Producto", authLabel: "Estado de autenticación", authValue: "Código verificado correctamente", hqLabel: "Sede Global", secureNote: "Registro confirmado por Bro Pharmaceuticals", back: "Volver al sitio", explore: "Explorar Más", manufacturer: "Fabricado por:" }
 
         };
 
@@ -176,8 +201,14 @@
             document.getElementById('txt-subtitle').innerText = i18n[lang].subtitle;
             document.getElementById('loteInput').placeholder = i18n[lang].placeholder;
             document.getElementById('verifyBtn').innerText = i18n[lang].verifyBtn;
-            document.getElementById('txt-prod-label').innerText = i18n[lang].prodLabel;
+                        document.getElementById('txt-prod-label').innerText = i18n[lang].prodLabel;
+            document.getElementById('txt-trust').innerText = i18n[lang].trust;
+            document.getElementById('txt-auth-label').innerText = i18n[lang].authLabel;
+            document.getElementById('txt-auth-value').innerText = i18n[lang].authValue;
+            document.getElementById('txt-hq-label').innerText = i18n[lang].hqLabel;
+            document.getElementById('txt-secure-note').innerText = i18n[lang].secureNote;
             document.getElementById('txt-btn-back').innerText = i18n[lang].back;
+
             document.getElementById('txt-btn-explore').innerText = i18n[lang].explore;
             document.getElementById('txt-manufacturer').innerText = i18n[lang].manufacturer;
         }
