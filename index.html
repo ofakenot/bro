@@ -16,11 +16,15 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body { width: 100%; height: 100%; }
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #fbfbfd;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            letter-spacing: -0.011em;
+            background-color: #f5f5f7;
             background-image:
-                radial-gradient(circle at 10% 10%, rgba(0, 113, 227, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 90% 90%, rgba(45, 150, 93, 0.03) 0%, transparent 50%);
+                radial-gradient(circle at 10% 10%, rgba(0, 113, 227, 0.10) 0%, transparent 50%),
+                radial-gradient(circle at 90% 40%, rgba(166, 107, 224, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 20% 75%, rgba(43, 184, 212, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 90% 90%, rgba(45, 150, 93, 0.08) 0%, transparent 50%);
+            background-attachment: fixed;
             color: #1d1d1f;
             overflow-x: hidden;
             scroll-behavior: smooth;
@@ -31,9 +35,9 @@
         .lang-switcher { display: flex; align-items: center; gap: 4px; }
         .lang-btn {
             background: rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.05);
-            color: #86868b; font-size: 0.7rem; font-weight: 700;
+            color: #6e6e73; font-size: 0.7rem; font-weight: 700;
             padding: 4px 8px; border-radius: 6px; cursor: pointer;
-            transition: all 0.2s ease; letter-spacing: 0.5px; font-family: 'Inter', sans-serif;
+            transition: all 0.2s ease; letter-spacing: 0.5px; font-family: inherit;
         }
         .lang-btn:hover { color: #1d1d1f; border-color: rgba(0,0,0,0.12); }
         .lang-btn.active { background: #ffffff; color: #0071e3; border-color: rgba(0,0,0,0.05); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
@@ -84,11 +88,11 @@
             font-weight: 700; font-size: 1.125rem; letter-spacing: -0.02em; color: #1d1d1f;
         }
         .logo span {
-            font-weight: 300; color: #86868b; font-size: 0.5625rem;
+            font-weight: 300; color: #6e6e73; font-size: 0.5625rem;
             text-transform: uppercase; letter-spacing: 0.28em; margin-left: 0.25rem;
         }
         nav ul { display: none; gap: 2rem; list-style: none; font-size: 0.875rem; font-weight: 500; }
-        nav ul li a { color: #86868b; text-decoration: none; transition: color 0.3s ease; }
+        nav ul li a { color: #6e6e73; text-decoration: none; transition: color 0.3s ease; }
         nav ul li a:hover { color: #1d1d1f; }
         @media (min-width: 1024px) { nav ul { display: flex; } }
         .header-actions { display: flex; align-items: center; gap: 0.75rem; }
@@ -116,7 +120,7 @@
         }
         .hero-content { display: flex; flex-direction: column; align-items: center; gap: 2rem; animation: revealIn 0.7s ease forwards; }
         h1 { font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.1; }
-        .hero-description { max-width: 650px; font-size: 1.1rem; color: #3a3a3c; margin: 0 auto; }
+        .hero-description { max-width: 650px; font-size: 1.1rem; color: #424245; margin: 0 auto; }
         .button-group { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
         .btn-primary {
             background: #0071e3; color: #ffffff; border: none; box-shadow: 0 4px 16px rgba(0,113,227,0.25);
@@ -137,9 +141,9 @@
         section { padding: 5rem 1.5rem; border-top: 1px solid #e8e8ed; }
         .section-container { max-width: 1280px; margin: 0 auto; }
         section h2 { font-size: clamp(2.2rem, 5vw, 3rem); font-weight: 700; line-height: 1.2; margin-top: 1.5rem; margin-bottom: 1.5rem; }
-        section p { font-size: 1.125rem; color: #86868b; line-height: 1.6; }
+        section p { font-size: 1.125rem; color: #6e6e73; line-height: 1.6; }
         .section-header { margin-bottom: 4rem; }
-        .section-eyebrow { color: #86868b; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 5px; display: block; margin-bottom: 15px; }
+        .section-eyebrow { color: #6e6e73; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 5px; display: block; margin-bottom: 15px; }
 
         /* ══ ABOUT ══ */
         .about-grid { display: grid; gap: 3rem; }
@@ -147,7 +151,7 @@
         .feature-item { display: flex; flex-direction: column; gap: 1rem; transition: all 0.3s ease; }
         .feature-item:hover { transform: translateY(-5px); }
         .feature-content h3 { color: #1d1d1f; font-size: 1rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
-        .feature-content p { color: #86868b; font-size: 0.9rem; line-height: 1.5; font-weight: 300; }
+        .feature-content p { color: #6e6e73; font-size: 0.9rem; line-height: 1.5; font-weight: 300; }
 
         /* ══ PILLARS ══ */
         .card-3d-wrapper { perspective: 1200px; }
@@ -160,10 +164,10 @@
         .card-bg-image { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.12; filter: grayscale(1); z-index: 1; }
         .card-bg-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(255,255,255,0.85) 10%, transparent 50%, rgba(255,255,255,0.85) 90%); z-index: 2; }
         .card-content { position: relative; z-index: 4; transform: translateZ(50px); height: 100%; display: flex; flex-direction: column; pointer-events: none; }
-        .card-number { font-family: monospace; color: #86868b; font-size: 0.6rem; letter-spacing: 3px; font-weight: 800; }
+        .card-number { font-family: monospace; color: #6e6e73; font-size: 0.6rem; letter-spacing: 3px; font-weight: 800; }
         .card-content h3 { color: #1d1d1f; font-size: 1.8rem; margin: 20px 0 15px; font-weight: 800; letter-spacing: -1px; }
-        .card-content p { color: #86868b; font-size: 1rem; line-height: 1.7; font-weight: 300; margin: 0; }
-        .card-footer-tech { margin-top: auto; font-family: monospace; font-size: 0.55rem; color: #86868b; letter-spacing: 4px; border-top: 1px solid rgba(226,232,240,0.8); padding-top: 20px; }
+        .card-content p { color: #6e6e73; font-size: 1rem; line-height: 1.7; font-weight: 300; margin: 0; }
+        .card-footer-tech { margin-top: auto; font-family: monospace; font-size: 0.55rem; color: #6e6e73; letter-spacing: 4px; border-top: 1px solid rgba(226,232,240,0.8); padding-top: 20px; }
         .card-shine { position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity 0.3s; z-index: 3; }
         .card-3d:hover { border-color: rgba(0,113,227,0.4) !important; background: rgba(255,255,255,0.9) !important; box-shadow: 0 22px 46px rgba(30,40,90,0.12), inset 0 1px 0 rgba(255,255,255,0.9) !important; }
 
@@ -182,8 +186,8 @@
         }
         .eco-h-image { width: 100%; height: 250px; background-size: cover; background-position: center; position: relative; transition: transform 0.6s ease; }
         .eco-h-content { display: flex; flex-direction: column; justify-content: center; z-index: 3; padding: 30px; }
-        .eco-id { font-family: monospace; color: #86868b; font-size: 0.7rem; font-weight: 800; letter-spacing: 2px; margin-bottom: 10px; }
-        .eco-h-content p { color: #86868b; font-size: 1rem; line-height: 1.8; margin-bottom: 35px; font-weight: 300; max-width: 400px; }
+        .eco-id { font-family: monospace; color: #6e6e73; font-size: 0.7rem; font-weight: 800; letter-spacing: 2px; margin-bottom: 10px; }
+        .eco-h-content p { color: #6e6e73; font-size: 1rem; line-height: 1.8; margin-bottom: 35px; font-weight: 300; max-width: 400px; }
         .eco-link { color: #1d1d1f; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; display: flex; align-items: center; gap: 12px; transition: all 0.3s ease; opacity: 0.5; background: none; border: none; cursor: pointer; }
         .eco-h-card:hover { background: rgba(255,255,255,0.9); border-color: rgba(226,232,240,0.8); transform: translateY(-8px); }
         .eco-link:hover { opacity: 1; gap: 20px; }
@@ -199,7 +203,7 @@
         .stat-number-wrapper { display: flex; justify-content: center; align-items: baseline; color: #1d1d1f; }
         .stat-number { font-size: 4rem; font-weight: 900; letter-spacing: -3px; line-height: 1; }
         .stat-suffix { font-size: 1.5rem; font-weight: 800; margin-left: 4px; opacity: 0.5; }
-        .stat-label { font-size: 0.75rem; color: #86868b; text-transform: uppercase; letter-spacing: 3px; font-weight: 700; margin-top: 15px; }
+        .stat-label { font-size: 0.75rem; color: #6e6e73; text-transform: uppercase; letter-spacing: 3px; font-weight: 700; margin-top: 15px; }
 
         /* ══ COUNTRIES ══ */
         .countries-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
@@ -208,7 +212,7 @@
         .country-card:hover { background: rgba(255,255,255,0.9); border-color: rgba(0,113,227,0.4); transform: translateY(-8px); }
         .country-flag { width: 45px; height: auto; border-radius: 4px; filter: grayscale(20%) brightness(0.9); transition: all 0.4s ease; }
         .country-card:hover .country-flag { filter: grayscale(0%) brightness(1.1); transform: scale(1.1); }
-        .country-name { color: #86868b; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; transition: color 0.4s ease; }
+        .country-name { color: #6e6e73; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; transition: color 0.4s ease; }
         .country-card:hover .country-name { color: #0071e3; }
 
         /* ══ CONTACT ══ */
@@ -216,7 +220,7 @@
         .contact-item-link:hover .link-text { opacity: 1 !important; }
 
         /* ══ FOOTER ══ */
-        .f-link { color: #86868b; text-decoration: none; font-size: 0.85rem; transition: color 0.3s; display: block; margin-bottom: 12px; }
+        .f-link { color: #6e6e73; text-decoration: none; font-size: 0.85rem; transition: color 0.3s; display: block; margin-bottom: 12px; }
         .f-link:hover { color: #0071e3; }
         .f-title { color: #0071e3; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; display: block; }
         .f-btn { display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.62); border: 1px solid rgba(226,232,240,0.8); padding: 14px 24px; border-radius: 12px; color: #1d1d1f; text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: 0.3s; width: 240px; margin-bottom: 15px; }
@@ -268,12 +272,12 @@
             border-radius: 50%; filter: blur(70px); will-change: transform;
         }
         body::before {
-            width: 520px; height: 520px; top: -80px; left: -60px; opacity: 0.35;
+            width: 560px; height: 560px; top: -80px; left: -60px; opacity: 0.5;
             background: radial-gradient(circle, #4f7cf0 0%, rgba(79,124,240,0) 70%);
             animation: blobFloat1 18s ease-in-out infinite;
         }
         body::after {
-            width: 460px; height: 460px; bottom: -80px; right: -80px; opacity: 0.3;
+            width: 500px; height: 500px; bottom: -80px; right: -80px; opacity: 0.45;
             background: radial-gradient(circle, #a66be0 0%, rgba(166,107,224,0) 70%);
             animation: blobFloat2 22s ease-in-out infinite;
         }
@@ -281,6 +285,151 @@
         @keyframes blobFloat2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-180px, -60px) scale(0.9); } }
         @media (prefers-reduced-motion: reduce) { body::before, body::after { animation: none; } }
         ::selection { background: rgba(0,113,227,0.18); }
+
+        /* ══ GLASS iOS / macOS ══ */
+        :root {
+            --primary: #0071e3;
+            --dark: #1d1d1f;
+            --label-2: #424245;
+            --label-3: #6e6e73;
+            --hairline: rgba(0,0,0,0.08);
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
+            --glass-ios: rgba(255,255,255,0.55);
+            --glass-ios-blur: blur(30px) saturate(200%);
+            --glass-ios-edge: inset 0 1px 0 rgba(255,255,255,0.95), inset 0 -1px 0 rgba(255,255,255,0.35), inset 0 0 0 1px rgba(255,255,255,0.45);
+        }
+        h1, h2, h3 { color: var(--dark); -webkit-font-smoothing: antialiased; }
+        header, footer, .eco-h-card, .stat-card, .country-card, .bro-card-contact, .btn-secondary, .icon-circle {
+            backdrop-filter: var(--glass-ios-blur) !important;
+            -webkit-backdrop-filter: var(--glass-ios-blur) !important;
+        }
+        .eco-h-card, .stat-card, .country-card, .bro-card-contact {
+            background: var(--glass-ios) !important;
+            border: 1px solid rgba(255,255,255,0.7) !important;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 12px 40px rgba(30,40,90,0.08), var(--glass-ios-edge) !important;
+        }
+        .eco-h-card:hover, .stat-card:hover, .country-card:hover {
+            background: rgba(255,255,255,0.75) !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04), 0 22px 50px rgba(30,40,90,0.13), var(--glass-ios-edge) !important;
+        }
+
+        /* Pilares: vidro colorido, foto visível */
+        .card-3d {
+            background: linear-gradient(160deg, rgba(225,236,255,0.70) 0%, rgba(255,255,255,0.35) 55%, rgba(214,230,255,0.55) 100%) !important;
+            border: 1px solid rgba(255,255,255,0.75) !important;
+            backdrop-filter: var(--glass-ios-blur) !important;
+            -webkit-backdrop-filter: var(--glass-ios-blur) !important;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 18px 50px rgba(30,60,140,0.14), var(--glass-ios-edge) !important;
+        }
+        .card-3d-wrapper:nth-child(2) .card-3d { background: linear-gradient(160deg, rgba(222,246,236,0.72) 0%, rgba(255,255,255,0.35) 55%, rgba(205,240,226,0.55) 100%) !important; box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 18px 50px rgba(20,110,70,0.14), var(--glass-ios-edge) !important; }
+        .card-3d-wrapper:nth-child(3) .card-3d { background: linear-gradient(160deg, rgba(238,230,255,0.72) 0%, rgba(255,255,255,0.35) 55%, rgba(228,214,252,0.55) 100%) !important; box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 18px 50px rgba(110,60,180,0.14), var(--glass-ios-edge) !important; }
+        .card-3d .card-bg-image { opacity: 0.55 !important; filter: saturate(1.05) contrast(1.05) !important; mix-blend-mode: multiply; }
+        .card-3d .card-bg-image::after { background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.55) 42%, rgba(255,255,255,0.15) 70%, rgba(255,255,255,0.7) 100%) !important; }
+        .card-3d .card-content p { color: var(--label-2) !important; }
+        .card-3d .card-footer-tech { color: var(--dark) !important; opacity: 0.55 !important; border-top-color: rgba(0,0,0,0.1) !important; }
+        .card-3d:hover { box-shadow: 0 2px 4px rgba(0,0,0,0.05), 0 28px 60px rgba(30,60,140,0.2), var(--glass-ios-edge) !important; }
+
+        /* ══ ARTIGOS (estilo New Life) ══ */
+        .st-block { margin: 120px 0 0; text-align: left; }
+        .st-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 22px; }
+        .st-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: #2d965d; }
+        .st-head h3 { font-size: 1.9rem; font-weight: 800; letter-spacing: -0.02em; color: var(--dark); margin: 6px 0 4px; }
+        .st-head p { color: var(--label-3); font-size: 1rem; line-height: 1.55; max-width: 620px; margin: 0; }
+        .st-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 1fr; gap: 18px; }
+        .st-card { position: relative; display: flex; flex-direction: column; text-align: left; border: 1px solid rgba(255,255,255,0.75); border-radius: 22px; overflow: hidden; background: var(--glass-ios); backdrop-filter: var(--glass-ios-blur); -webkit-backdrop-filter: var(--glass-ios-blur); box-shadow: 0 10px 30px rgba(30,40,90,0.07), var(--glass-ios-edge); cursor: pointer; font: inherit; color: inherit; padding: 0; transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease); }
+        .st-card:hover, .st-card:focus-visible { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(30,40,90,0.13), var(--glass-ios-edge); outline: none; }
+        .st-card:focus-visible { box-shadow: 0 0 0 3px rgba(0,113,227,0.35); }
+        .st-card.st-featured { grid-column: span 2; grid-row: span 2; }
+        .st-grid:not(.is-open) .st-extra { display: none; }
+        .st-more-wrap { display: flex; justify-content: center; margin-top: 22px; }
+        .st-more-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 26px; border-radius: 980px; border: 1px solid rgba(255,255,255,0.8); background: rgba(255,255,255,0.6); backdrop-filter: var(--glass-ios-blur); -webkit-backdrop-filter: var(--glass-ios-blur); box-shadow: 0 6px 20px rgba(30,40,90,0.08), var(--glass-ios-edge); color: var(--dark); font: inherit; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: background 0.3s ease, transform 0.3s var(--ease); }
+        .st-more-btn:hover { background: rgba(255,255,255,0.85); transform: translateY(-1px); }
+        .st-more-btn[hidden] { display: none; }
+        .st-cover { position: relative; height: 120px; overflow: hidden; flex-shrink: 0; }
+        .st-featured .st-cover { height: auto; flex: 1; min-height: 220px; }
+        .st-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+        .st-cover.has-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,0.35)); }
+        .st-cover.has-photo .st-word { display: none; }
+        .st-word { position: absolute; right: -6px; bottom: -14px; font-size: 3.4rem; font-weight: 900; letter-spacing: -0.04em; color: rgba(29,29,31,0.07); white-space: nowrap; line-height: 1; }
+        .st-featured .st-word { font-size: 6.5rem; bottom: -22px; }
+        .st-body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+        .st-featured .st-body { padding: 22px 26px 24px; flex: none; }
+        .st-kicker { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase; color: var(--primary); }
+        .st-title { font-size: 1rem; font-weight: 800; line-height: 1.3; color: var(--dark); letter-spacing: -0.01em; }
+        .st-featured .st-title { font-size: 1.45rem; }
+        .st-teaser { display: none; font-size: 0.92rem; line-height: 1.55; color: var(--label-3); }
+        .st-featured .st-teaser { display: block; }
+        .st-meta { margin-top: auto; padding-top: 8px; display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 0.78rem; color: var(--label-3); }
+        .st-read { font-weight: 700; color: var(--dark); display: inline-flex; align-items: center; gap: 6px; }
+        .st-arrow { display: inline-block; transition: transform 0.3s; }
+        .st-card:hover .st-arrow { transform: translateX(3px); }
+
+        .st-modal { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 20px; background: rgba(0,0,0,0.45); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); opacity: 0; pointer-events: none; transition: opacity 0.4s var(--ease); }
+        .st-modal.active { opacity: 1; pointer-events: auto; }
+        .st-reader { position: relative; width: 100%; max-width: 760px; max-height: 92vh; overflow-y: auto; overscroll-behavior: contain; background: #fff; border-radius: 24px; border: 1px solid rgba(255,255,255,0.8); box-shadow: 0 30px 60px rgba(0,0,0,0.15); transform: scale(0.95); transition: transform 0.4s var(--ease); text-align: left; }
+        .st-modal.active .st-reader { transform: scale(1); }
+        .st-progress { position: sticky; top: 0; height: 2px; z-index: 3; }
+        .st-progress span { display: block; height: 100%; width: 0; background: var(--dark); transition: width 0.1s linear; }
+        .st-r-close { position: sticky; top: 14px; float: right; margin: 12px 14px -54px 0; z-index: 4; width: 38px; height: 38px; border-radius: 50%; border: none; background: rgba(255,255,255,0.92); box-shadow: 0 2px 10px rgba(0,0,0,0.12); font-size: 1.35rem; line-height: 1; cursor: pointer; color: var(--dark); }
+        .st-r-close:focus { outline: none; }
+        .st-r-close:focus-visible { box-shadow: 0 0 0 3px rgba(0,113,227,0.4); }
+        .st-r-hero { position: relative; overflow: hidden; background: #f5f5f7; }
+        .st-r-head { position: relative; max-width: 620px; margin: 0 auto; padding: 64px 24px 8px; }
+        .st-r-hero.has-photo { min-height: 400px; display: flex; align-items: flex-end; }
+        .st-r-hero.has-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.72)); }
+        .st-r-hero.has-photo .st-r-head { z-index: 1; width: 100%; padding: 0 24px 30px; color: #fff; }
+        .st-r-hero.has-photo .st-r-head h2 { color: #fff; }
+        .st-r-kicker { font-size: 0.75rem; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--primary); }
+        .st-r-hero.has-photo .st-r-kicker { color: rgba(255,255,255,0.85); }
+        .st-r-head h2 { font-size: 2.3rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; margin: 10px 0 12px; color: var(--dark); }
+        .st-r-meta { font-size: 0.85rem; opacity: 0.75; }
+        .st-r-body { max-width: 620px; margin: 0 auto; padding: 34px 24px 20px; color: #2b2b2e; }
+        .st-r-body p { font-size: 1.08rem; line-height: 1.8; margin: 0 0 20px; color: #2b2b2e; }
+        .st-r-body .st-r-lead { font-size: 1.28rem; line-height: 1.55; color: var(--dark); font-weight: 500; margin-bottom: 28px; }
+        .st-r-body h3 { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.015em; color: var(--dark); margin: 40px 0 14px; }
+        .st-r-foot { margin-top: 40px; padding-top: 18px; border-top: 1px solid #e8e8ed; font-size: 0.8rem; color: var(--label-3); line-height: 1.6; }
+        .st-r-foot > span { font-weight: 700; color: var(--dark); }
+        .st-r-foot ol { margin: 6px 0 12px; padding-left: 18px; }
+        .st-r-body .st-r-foot p { font-size: 0.8rem; line-height: 1.6; margin: 0; color: var(--label-3); }
+        .st-r-foot a { color: inherit; }
+        .st-r-nav { display: flex; justify-content: space-between; gap: 16px; max-width: 620px; margin: 0 auto; padding: 8px 24px 30px; }
+        .st-r-nav button { flex: 1; display: flex; flex-direction: column; gap: 4px; text-align: left; border: none; background: none; cursor: pointer; font: inherit; padding: 0; color: var(--dark); }
+        .st-r-nav button:last-child { text-align: right; align-items: flex-end; }
+        .st-r-nav small { font-size: 0.78rem; color: var(--label-3); }
+        .st-r-nav span { font-weight: 700; font-size: 0.95rem; line-height: 1.35; }
+        .st-r-nav button:hover span { color: var(--primary); }
+        [dir="rtl"] .st-block, [dir="rtl"] .st-card, [dir="rtl"] .st-reader { text-align: right; }
+        @media (max-width: 900px) {
+            .st-head { flex-direction: column; align-items: flex-start; }
+            .st-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: auto; gap: 14px; }
+            .st-card.st-featured { grid-column: 1 / -1; grid-row: auto; }
+            .st-featured .st-cover { flex: none; min-height: 0; height: 230px; }
+            .st-featured .st-word { font-size: 4.6rem; bottom: -16px; }
+            .st-featured .st-body { padding: 18px 20px 20px; flex: 1; }
+            .st-featured .st-title { font-size: 1.3rem; }
+            .st-card .st-teaser { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-size: 0.86rem; }
+            .st-featured .st-teaser { -webkit-line-clamp: 3; font-size: 0.95rem; }
+            .st-more-btn { width: 100%; max-width: 420px; justify-content: center; }
+            .st-r-hero.has-photo { min-height: 300px; }
+            .st-r-head { padding-left: 20px; padding-right: 20px; }
+            .st-r-head h2 { font-size: 1.7rem; }
+            .st-r-body { padding: 26px 20px 16px; }
+            .st-r-body p { font-size: 1.02rem; }
+            .st-r-body .st-r-lead { font-size: 1.15rem; }
+            .st-r-nav { padding: 8px 20px 24px; }
+        }
+        @media (max-width: 600px) {
+            .st-block { margin-top: 80px; }
+            .st-head h3 { font-size: 1.5rem; }
+            .st-grid { grid-template-columns: 1fr; gap: 12px; }
+            .st-featured .st-cover { height: 200px; }
+            .st-card:not(.st-featured) { flex-direction: row; border-radius: 18px; }
+            .st-card:not(.st-featured) .st-cover { width: 116px; height: auto; min-height: 128px; flex: none; }
+            .st-card:not(.st-featured) .st-word { font-size: 2.4rem; bottom: -8px; }
+            .st-card:not(.st-featured) .st-body { padding: 14px 16px; gap: 5px; }
+            .st-card:not(.st-featured) .st-title { font-size: 0.98rem; }
+            .st-card:not(.st-featured) .st-meta { padding-top: 4px; }
+        }
     </style>
 </head>
 <body>
@@ -326,7 +475,7 @@
                     </h1>
                 </div>
 
-                <p data-i18n="hero.description" style="color: #3a3a3c; font-size: 1.2rem; line-height: 1.7; max-width: 700px; margin: 0 auto 3rem; font-weight: 400;">
+                <p data-i18n="hero.description" style="color: #424245; font-size: 1.2rem; line-height: 1.7; max-width: 700px; margin: 0 auto 3rem; font-weight: 400;">
                     Bro Pharmaceuticals é o hub definitivo para quem leva a sério sua performance. Protocolos integrados de treino, nutrição e ciência industrial.
                 </p>
 
@@ -347,15 +496,15 @@
                 <div style="display:flex; justify-content:center; gap:clamp(1.5rem, 5vw, 4rem); margin-top:4rem; width:100%; flex-wrap:wrap;">
                     <div style="text-align:center;">
                         <div style="font-size:2.5rem; font-weight:900; color:#1d1d1f; letter-spacing:-1px;">50K+</div>
-                        <div data-i18n="stats.members" style="font-size:0.75rem; text-transform:uppercase; letter-spacing:2px; color:#86868b; font-weight:700;">Membros Ativos</div>
+                        <div data-i18n="stats.members" style="font-size:0.75rem; text-transform:uppercase; letter-spacing:2px; color:#6e6e73; font-weight:700;">Membros Ativos</div>
                     </div>
                     <div style="text-align:center;">
                         <div style="font-size:2.5rem; font-weight:900; color:#1d1d1f; letter-spacing:-1px;">1M+</div>
-                        <div data-i18n="stats.workouts" style="font-size:0.75rem; text-transform:uppercase; letter-spacing:2px; color:#86868b; font-weight:700;">Protocolos</div>
+                        <div data-i18n="stats.workouts" style="font-size:0.75rem; text-transform:uppercase; letter-spacing:2px; color:#6e6e73; font-weight:700;">Protocolos</div>
                     </div>
                     <div style="text-align:center;">
                         <div style="font-size:2.5rem; font-weight:900; color:#1d1d1f; letter-spacing:-1px;">10K+</div>
-                        <div data-i18n="stats.transformations" style="font-size:0.75rem; text-transform:uppercase; letter-spacing:2px; color:#86868b; font-weight:700;">Resultados</div>
+                        <div data-i18n="stats.transformations" style="font-size:0.75rem; text-transform:uppercase; letter-spacing:2px; color:#6e6e73; font-weight:700;">Resultados</div>
                     </div>
                 </div>
             </div>
@@ -417,7 +566,7 @@
     </div>
 
     <!-- ══ ABOUT ══ -->
-    <section id="about" style="background:transparent; padding:120px 0; overflow:hidden; font-family: sans-serif;">
+    <section id="about" style="background:transparent; padding:120px 0; overflow:hidden; font-family: inherit;">
         <div class="section-container" style="max-width:1200px; margin:0 auto; padding:0 24px;">
             <div class="about-grid" style="display: grid; grid-template-columns:repeat(auto-fit,minmax(350px,1fr)); gap:80px; align-items:center;">
                 <div style="position:relative; border-radius:40px; overflow:hidden; height:600px; border:1px solid rgba(255,255,255,0.9); box-shadow:0 25px 50px -12px rgba(30,40,90,0.15);">
@@ -429,45 +578,57 @@
                     <div class="section-header" style="margin-bottom:3rem;">
                         <span data-i18n="about.eyebrow" class="section-eyebrow" style="font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; display: block; margin-bottom: 15px; background: linear-gradient(90deg, #0071e3 0%, #2bb8d4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">A Nova Era</span>
                         <h2 data-i18n="about.title" style="font-size:clamp(2.5rem, 6vw, 3.5rem); color:#1d1d1f; font-weight:900; letter-spacing:-2px; line-height:1.1; margin:0;">Ciência e Performance Implacável</h2>
-                        <p data-i18n="about.description" style="margin-top:2rem; color:#3a3a3c; font-size:1.15rem; line-height:1.8; font-weight:400;">Não entregamos apenas produtos, entregamos o caminho. O ecossistema Bro Pharmaceuticals foi desenhado para quem não aceita o mediano.</p>
+                        <p data-i18n="about.description" style="margin-top:2rem; color:#424245; font-size:1.15rem; line-height:1.8; font-weight:400;">Não entregamos apenas produtos, entregamos o caminho. O ecossistema Bro Pharmaceuticals foi desenhado para quem não aceita o mediano.</p>
                     </div>
                     <div class="feature-list" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:3rem;">
                         <div class="feature-item" style="display: flex; flex-direction: column; gap: 15px;">
                             <div style="width:24px; height:24px; color: #1d1d1f; opacity: 0.8;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="1"></circle><path d="M12 1v6m0 6v6M1 12h6m6 0h6"></path></svg></div>
                             <div class="feature-content">
                                 <h3 data-i18n="about.f1.title" style="color: #1d1d1f; font-size: 1.1rem; font-weight: 800; margin-bottom: 8px;">Sincronia Total</h3>
-                                <p data-i18n="about.f1.desc" style="color: #86868b; font-size: 0.95rem; line-height: 1.5; margin: 0;">App e logística em uma única experiência integrada.</p>
+                                <p data-i18n="about.f1.desc" style="color: #6e6e73; font-size: 0.95rem; line-height: 1.5; margin: 0;">App e logística em uma única experiência integrada.</p>
                             </div>
                         </div>
                         <div class="feature-item" style="display: flex; flex-direction: column; gap: 15px;">
                             <div style="width:24px; height:24px; color: #1d1d1f; opacity: 0.8;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 16V8l-9-5-9 5v8l9 5 9-5z"></path></svg></div>
                             <div class="feature-content">
                                 <h3 data-i18n="about.f2.title" style="color: #1d1d1f; font-size: 1.1rem; font-weight: 800; margin-bottom: 8px;">Foco Técnico</h3>
-                                <p data-i18n="about.f2.desc" style="color: #86868b; font-size: 0.95rem; line-height: 1.5; margin: 0;">Protocolos industriais baseados em dados laboratoriais.</p>
+                                <p data-i18n="about.f2.desc" style="color: #6e6e73; font-size: 0.95rem; line-height: 1.5; margin: 0;">Protocolos industriais baseados em dados laboratoriais.</p>
                             </div>
                         </div>
                         <div class="feature-item" style="display: flex; flex-direction: column; gap: 15px;">
                             <div style="width:24px; height:24px; color: #1d1d1f; opacity: 0.8;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg></div>
                             <div class="feature-content">
                                 <h3 data-i18n="about.f3.title" style="color: #1d1d1f; font-size: 1.1rem; font-weight: 800; margin-bottom: 8px;">Elite Social</h3>
-                                <p data-i18n="about.f3.desc" style="color: #86868b; font-size: 0.95rem; line-height: 1.5; margin: 0;">Comunidade exclusiva focada em performance absoluta.</p>
+                                <p data-i18n="about.f3.desc" style="color: #6e6e73; font-size: 0.95rem; line-height: 1.5; margin: 0;">Comunidade exclusiva focada em performance absoluta.</p>
                             </div>
                         </div>
                         <div class="feature-item" style="display: flex; flex-direction: column; gap: 15px;">
                             <div style="width:24px; height:24px; color: #1d1d1f; opacity: 0.8;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline></svg></div>
                             <div class="feature-content">
                                 <h3 data-i18n="about.f4.title" style="color: #1d1d1f; font-size: 1.1rem; font-weight: 800; margin-bottom: 8px;">Escalabilidade</h3>
-                                <p data-i18n="about.f4.desc" style="color: #86868b; font-size: 0.95rem; line-height: 1.5; margin: 0;">Evolução contínua em cada etapa do desenvolvimento.</p>
+                                <p data-i18n="about.f4.desc" style="color: #6e6e73; font-size: 0.95rem; line-height: 1.5; margin: 0;">Evolução contínua em cada etapa do desenvolvimento.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- ══ ARTIGOS DE PEPTÍDEOS ══ -->
+            <div class="st-block" id="artigos">
+                <div class="st-head">
+                    <div>
+                        <span class="st-eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 18h8"></path><path d="M3 22h18"></path><path d="M14 22a7 7 0 1 0 0-14h-1"></path><path d="M9 14h2"></path><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"></path><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"></path></svg> <span id="st-eyebrow">Descoberta → mecanismo → pesquisa</span></span>
+                        <h3 id="st-title">Fronteiras da pesquisa em peptídeos</h3>
+                        <p id="st-sub"></p>
+                    </div>
+                </div>
+                <div class="st-grid" id="stories-container"></div>
+                <div class="st-more-wrap"><button type="button" class="st-more-btn" id="st-more"></button></div>
+            </div>
         </div>
     </section>
 
     <!-- ══ PILLARS ══ -->
-    <section id="pillars" style="padding:120px 0; background:transparent; overflow:hidden; font-family: sans-serif;">
+    <section id="pillars" style="padding:120px 0; background:transparent; overflow:hidden; font-family: inherit;">
         <div class="section-container" style="max-width:1200px; margin:0 auto; padding:0 24px;">
             <div class="section-header" style="text-align:center; margin-bottom:6rem;">
                 <span data-i18n="pillars.eyebrow" class="section-eyebrow" style="font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; display: block; margin-bottom: 15px; background: linear-gradient(90deg, #0071e3 0%, #2bb8d4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Protocolos Base</span>
@@ -482,7 +643,7 @@
                         <div class="card-content" style="position: relative; z-index: 4; transform: translateZ(50px); height: 100%; display: flex; flex-direction: column;">
                             <span class="card-number" style="font-family: monospace; color: #1d1d1f; opacity: 0.4; font-size: 0.65rem; letter-spacing: 3px; font-weight: 800; margin-bottom: 20px; display: block;"></span>
                             <h3 data-i18n="pillars.c1.title" style="color: #1d1d1f; font-size: 1.8rem; font-weight: 800; margin: 0 0 15px 0; letter-spacing: -1px;">Treino Híbrido</h3>
-                            <p data-i18n="pillars.c1.desc" style="color: #3a3a3c; font-size: 1rem; line-height: 1.6; font-weight: 400; margin: 0;">Protocolos proprietários Bro Pharma: sincronização de força bruta e resistência aeróbica de elite em um único sistema.</p>
+                            <p data-i18n="pillars.c1.desc" style="color: #424245; font-size: 1rem; line-height: 1.6; font-weight: 400; margin: 0;">Protocolos proprietários Bro Pharma: sincronização de força bruta e resistência aeróbica de elite em um único sistema.</p>
                             <div class="card-footer-tech" style="margin-top: auto; font-family: monospace; font-size: 0.6rem; color: #1d1d1f; opacity: 0.2; letter-spacing: 4px; border-top: 1px solid rgba(226,232,240,0.8); padding-top: 20px;">HIGH LEVEL</div>
                         </div>
                     </div>
@@ -494,7 +655,7 @@
                         <div class="card-content" style="position: relative; z-index: 4; transform: translateZ(50px); height: 100%; display: flex; flex-direction: column;">
                             <span class="card-number" style="font-family: monospace; color: #1d1d1f; opacity: 0.4; font-size: 0.65rem; letter-spacing: 3px; font-weight: 800; margin-bottom: 20px; display: block;"></span>
                             <h3 data-i18n="pillars.c2.title" style="color: #1d1d1f; font-size: 1.8rem; font-weight: 800; margin: 0 0 15px 0; letter-spacing: -1px;">Bio Nutrição</h3>
-                            <p data-i18n="pillars.c2.desc" style="color: #3a3a3c; font-size: 1rem; line-height: 1.6; font-weight: 400; margin: 0;">Estratégias de abastecimento celular e otimização metabólica para recuperação acelerada e performance constante.</p>
+                            <p data-i18n="pillars.c2.desc" style="color: #424245; font-size: 1rem; line-height: 1.6; font-weight: 400; margin: 0;">Estratégias de abastecimento celular e otimização metabólica para recuperação acelerada e performance constante.</p>
                             <div class="card-footer-tech" style="margin-top: auto; font-family: monospace; font-size: 0.6rem; color: #1d1d1f; opacity: 0.2; letter-spacing: 4px; border-top: 1px solid rgba(226,232,240,0.8); padding-top: 20px;">WELLNESS</div>
                         </div>
                     </div>
@@ -509,7 +670,7 @@
                         <div class="card-content" style="position: relative; z-index: 4; transform: translateZ(50px); height: 100%; display: flex; flex-direction: column;">
                             <span class="card-number" style="font-family: monospace; color: #1d1d1f; opacity: 0.4; font-size: 0.65rem; letter-spacing: 3px; font-weight: 800; margin-bottom: 20px; display: block;"></span>
                             <h3 data-i18n="pillars.c3.title" style="color: #1d1d1f; font-size: 1.8rem; font-weight: 800; margin: 0 0 15px 0; letter-spacing: -1px;">Network &amp; Foco</h3>
-                            <p data-i18n="pillars.c3.desc" style="color: #3a3a3c; font-size: 1rem; line-height: 1.6; font-weight: 400; margin: 0;">Acesso exclusivo à BRX Society: conexões de alto impacto e o desenvolvimento de uma mentalidade industrial imparável.</p>
+                            <p data-i18n="pillars.c3.desc" style="color: #424245; font-size: 1rem; line-height: 1.6; font-weight: 400; margin: 0;">Acesso exclusivo à BRX Society: conexões de alto impacto e o desenvolvimento de uma mentalidade industrial imparável.</p>
                             <div class="card-footer-tech" style="margin-top: auto; font-family: monospace; font-size: 0.6rem; color: #1d1d1f; opacity: 0.2; letter-spacing: 4px; border-top: 1px solid rgba(226,232,240,0.8); padding-top: 20px;">PRIVATE</div>
                         </div>
                     </div>
@@ -519,7 +680,7 @@
     </section>
 
     <!-- ══ ECOSYSTEM ══ -->
-<section id="ecosystem" style="background:transparent; padding:120px 0; overflow:hidden; font-family: sans-serif;">
+<section id="ecosystem" style="background:transparent; padding:120px 0; overflow:hidden; font-family: inherit;">
         <div class="section-container" style="max-width:1100px; margin:0 auto; padding:0 24px;">
             <div class="section-header" style="text-align:left; margin-bottom:5rem;">
                 <span data-i18n="eco.eyebrow" class="section-eyebrow" style="font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; display: block; margin-bottom: 15px; background: linear-gradient(90deg, #0071e3 0%, #2bb8d4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Industrial Network</span>
@@ -604,7 +765,7 @@
         .eco-h-image { width: 50%; background-size: cover; background-position: center; position: relative; }
         .image-overlay-fix { position: absolute; top: 0; right: 0; width: 15%; height: 100%; background: linear-gradient(to right, transparent, rgba(255,255,255,0.75)); z-index: 2; }
         .eco-h-content { width: 50%; padding: 40px 50px; display: flex; flex-direction: column; justify-content: center; background: transparent; }
-        .eco-h-content p { color: #3a3a3c; font-size: 1rem; line-height: 1.7; margin-bottom: 30px; }
+        .eco-h-content p { color: #424245; font-size: 1rem; line-height: 1.7; margin-bottom: 30px; }
         .eco-link { color: #0071e3; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; display: flex; align-items: center; gap: 12px; opacity: 0.85; transition: 0.3s; }
         .eco-link:hover { opacity: 1; }
         @media (max-width: 768px) {
@@ -616,7 +777,7 @@
     </style>
 
     <!-- ══ COMMUNITY ══ -->
-    <section id="community" style="background:transparent;padding:120px 0;overflow:hidden; font-family: sans-serif;">
+    <section id="community" style="background:transparent;padding:120px 0;overflow:hidden; font-family: inherit;">
         <div class="section-container" style="max-width:1000px;margin:0 auto;padding:0 24px;text-align:center;">
             <div style="display:flex;flex-direction:column;align-items:center;gap:30px;margin-bottom:5rem;">
                 <div class="data-mesh-visual" style="position: relative; height: 100px; width: 100%; display: flex; justify-content: center; align-items: center; opacity: 0.8;">
@@ -641,7 +802,7 @@
                         <span id="community-title1">Impacto Global.</span><br>
                         <span id="community-title2" style="background:linear-gradient(to right,#1d1d1f,rgba(29,29,31,0.35));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Ciência Aplicada.</span>
                     </h2>
-                    <p data-i18n="community.description" style="color:#3a3a3c;max-width:620px;margin:2rem auto 0;line-height:1.8;font-weight:400;font-size:1.1rem;">O ecossistema definitivo de performance industrial, unindo milhares de membros através de protocolos de precisão.</p>
+                    <p data-i18n="community.description" style="color:#424245;max-width:620px;margin:2rem auto 0;line-height:1.8;font-weight:400;font-size:1.1rem;">O ecossistema definitivo de performance industrial, unindo milhares de membros através de protocolos de precisão.</p>
                 </div>
             </div>
             <div class="stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px;">
@@ -668,7 +829,7 @@
     </section>
 
     <!-- ══ GLOBAL PRESENCE ══ -->
-    <section id="global-presence" style="background:transparent; padding:120px 0; overflow:hidden; font-family: sans-serif;">
+    <section id="global-presence" style="background:transparent; padding:120px 0; overflow:hidden; font-family: inherit;">
         <div class="section-container" style="max-width:1100px; margin:0 auto; padding:0 24px; text-align:center;">
             <div style="margin-bottom:6rem;">
                 <span data-i18n="global.eyebrow" class="section-eyebrow" style="font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; display: block; margin-bottom: 20px; background: linear-gradient(90deg, #0071e3 0%, #2bb8d4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Presença Global</span>
@@ -698,7 +859,7 @@
         .country-card { background: rgba(255,255,255,0.62); border: 1px solid rgba(255,255,255,0.9); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); box-shadow: 0 10px 30px rgba(30,40,90,0.07), inset 0 1px 0 rgba(255,255,255,0.9); padding: 25px 15px; border-radius: 20px; display: flex; flex-direction: column; align-items: center; gap: 12px; transition: all 0.3s ease; }
         .country-card:hover { background: rgba(255,255,255,0.9); border-color: rgba(0,113,227,0.4); transform: translateY(-5px); }
         .country-flag { width: 35px; height: auto; border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
-        .country-name { font-size: 0.6rem; font-weight: 800; letter-spacing: 2px; color: #86868b; text-transform: uppercase; }
+        .country-name { font-size: 0.6rem; font-weight: 800; letter-spacing: 2px; color: #6e6e73; text-transform: uppercase; }
         @media (max-width: 991px) { .countries-grid { grid-template-columns: repeat(2, 1fr) !important; } }
     </style>
 
@@ -717,7 +878,7 @@
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9.5C2 7 4 5 6.5 5h11C20 5 22 7 22 9.5V17z"></path><path d="M22 9L13.5 14.5a2.5 2.5 0 0 1-3 0L2 9"></path></svg>
                         </div>
                         <div style="flex:1;">
-                            <span data-i18n="contact.email.label" style="display:block;color:#86868b;font-size:0.65rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:6px;font-weight:800;">E-mail Oficial</span>
+                            <span data-i18n="contact.email.label" style="display:block;color:#6e6e73;font-size:0.65rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:6px;font-weight:800;">E-mail Oficial</span>
                             <span class="link-text" style="color:#1d1d1f;font-size:1rem;font-weight:500;opacity:0.8;transition:all 0.3s ease; word-break: break-all;">contact@bropharmaceutical.com</span>
                         </div>
                     </a>
@@ -728,7 +889,7 @@
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="6" ry="6"></rect><circle cx="12" cy="12" r="4.5"></circle><circle cx="18" cy="6" r="1" fill="currentColor"></circle></svg>
                         </div>
                         <div style="flex:1;">
-                            <span data-i18n="contact.ig.label" style="display:block;color:#86868b;font-size:0.65rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:6px;font-weight:800;">Instagram Hub</span>
+                            <span data-i18n="contact.ig.label" style="display:block;color:#6e6e73;font-size:0.65rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:6px;font-weight:800;">Instagram Hub</span>
                             <span class="link-text" style="color:#1d1d1f;font-size:1.1rem;font-weight:700;opacity:0.8;transition:all 0.3s ease;">@BROPHARMACEUTICALS</span>
                         </div>
                     </a>
@@ -756,15 +917,15 @@
     </style>
 
     <!-- ══ FOOTER ══ -->
-    <footer style="background: rgba(255,255,255,0.75); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); padding: 120px 0 60px; font-family: 'Inter', sans-serif; border-top: 1px solid rgba(226,232,240,0.7);">
+    <footer style="background: rgba(255,255,255,0.75); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); padding: 120px 0 60px; font-family: inherit; border-top: 1px solid rgba(226,232,240,0.7);">
         <div style="max-width: 1300px; margin: 0 auto; padding: 0 24px;">
             <div style="display: flex; justify-content: space-between; gap: 60px; flex-wrap: wrap; margin-bottom: 80px;">
                 <div style="flex: 1.5; min-width: 280px;">
                     <img src="images/logo-brx.png" alt="BRO Logo" style="height: 48px; margin-bottom: 30px; filter: brightness(1.1);">
-                    <p data-i18n="footer.description" style="color: #86868b; font-size: 0.95rem; line-height: 1.8; font-weight: 300; max-width: 340px;">Liderando a fronteira da performance humana através de inovação farmacêutica e integração de ecossistemas globais.</p>
+                    <p data-i18n="footer.description" style="color: #6e6e73; font-size: 0.95rem; line-height: 1.8; font-weight: 300; max-width: 340px;">Liderando a fronteira da performance humana através de inovação farmacêutica e integração de ecossistemas globais.</p>
                     <div class="address-container" style="display: flex; align-items: flex-start; gap: 12px; margin-top: 32px; transition: 0.3s;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0071e3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 2px; flex-shrink: 0;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        <span style="color: #86868b; font-size: 0.85rem; line-height: 1.6; font-weight: 400; letter-spacing: 0.3px;">
+                        <span style="color: #6e6e73; font-size: 0.85rem; line-height: 1.6; font-weight: 400; letter-spacing: 0.3px;">
                             <strong style="color: #1d1d1f; display: block; margin-bottom: 2px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px;">Sede Global</strong>
                             72TH Innovation Ave<br>Houston, TX, USA
                         </span>
@@ -772,15 +933,15 @@
                 </div>
                 <div style="flex: 0.8; min-width: 160px; display: flex; flex-direction: column; gap: 16px;">
                     <span data-i18n="footer.map" style="font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 10px; display: block; background: linear-gradient(90deg, #0071e3 0%, #2bb8d4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Navegação</span>
-                    <a href="#about" data-i18n="footer.about" class="f-link-tech" style="color: #86868b; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s;">Sobre Nós</a>
-                    <a href="#ecosystem" data-i18n="footer.ecosystem" class="f-link-tech" style="color: #86868b; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s;">Ecossistema</a>
-                    <a href="#global-presence" data-i18n="footer.logistics" class="f-link-tech" style="color: #86868b; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s;">Logística</a>
+                    <a href="#about" data-i18n="footer.about" class="f-link-tech" style="color: #6e6e73; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s;">Sobre Nós</a>
+                    <a href="#ecosystem" data-i18n="footer.ecosystem" class="f-link-tech" style="color: #6e6e73; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s;">Ecossistema</a>
+                    <a href="#global-presence" data-i18n="footer.logistics" class="f-link-tech" style="color: #6e6e73; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s;">Logística</a>
                 </div>
                 <div style="flex: 0.8; min-width: 160px; display: flex; flex-direction: column; gap: 16px;">
                     <span data-i18n="footer.support" style="font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 10px; display: block; background: linear-gradient(90deg, #0071e3 0%, #2bb8d4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Governança</span>
-                    <a href="#" data-i18n="footer.compliance" class="f-link-tech" style="color: #86868b; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s;">Compliance</a>
-                    <a href="#" data-i18n="footer.privacy" class="f-link-tech" style="color: #86868b; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s;">Termos &amp; Privacidade</a>
-                    <a href="#contact" data-i18n="footer.contact" class="f-link-tech" style="color: #86868b; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s;">Centro de Contato</a>
+                    <a href="#" data-i18n="footer.compliance" class="f-link-tech" style="color: #6e6e73; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s;">Compliance</a>
+                    <a href="#" data-i18n="footer.privacy" class="f-link-tech" style="color: #6e6e73; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s;">Termos &amp; Privacidade</a>
+                    <a href="#contact" data-i18n="footer.contact" class="f-link-tech" style="color: #6e6e73; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s;">Centro de Contato</a>
                 </div>
                 <div class="footer-actions" style="flex: 1.2; min-width: 280px; display: flex; flex-direction: column; gap: 12px;">
                     <a href="https://instagram.com/bropharmaceuticals" target="_blank" style="width: 100%; background: #0071e3; color: #ffffff; padding: 16px; border-radius: 12px; font-weight: 800; font-size: 0.8rem; text-decoration: none; letter-spacing: 1px; transition: 0.3s; text-align: center; border: 1px solid #0071e3; box-shadow: 0 4px 16px rgba(0,113,227,0.25);">@BROPHARMACEUTICALS</a>
@@ -789,7 +950,7 @@
             </div>
             <div style="border-top: 1px solid #e8e8ed; padding-top: 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px;">
                 <div style="display: flex; flex-direction: column; gap: 4px;">
-                    <span data-i18n="footer.copyright" style="color: #86868b; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.5px;">© 2024 BRO PHARMACEUTICALS.</span>
+                    <span data-i18n="footer.copyright" style="color: #6e6e73; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.5px;">© 2024 BRO PHARMACEUTICALS.</span>
                     <span style="color: #a1a1a6; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700;">Performance Industrial Lab</span>
                 </div>
                 <div style="display: flex; align-items: center; gap: 12px; background: rgba(45, 150, 93, 0.08); padding: 10px 18px; border-radius: 100px; border: 1px solid rgba(45, 150, 93, 0.3);">
@@ -1252,6 +1413,7 @@
         });
 
         currentLang = lang;
+        if (typeof renderStories === 'function') renderStories();
     }
 
     // Bind nos botões de idioma
@@ -1345,6 +1507,144 @@
         const element = document.getElementById(sectionId);
         if (element) window.scrollTo({ top: element.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' });
     }
+    </script>
+
+    <!-- ══ LEITOR DE ARTIGOS ══ -->
+    <div class="st-modal" id="story-modal" aria-hidden="true">
+        <div class="st-reader" role="dialog" aria-modal="true" aria-labelledby="st-r-title" id="story-reader"></div>
+    </div>
+    <script>
+    // ══ ARTIGOS DE PEPTÍDEOS ══
+    const BRO_STORIES_UI = {
+        pt: { more: 'Ver mais estudos', less: 'Ver menos', photo: 'Foto de capa', eyebrow: 'Descoberta → mecanismo → pesquisa', title: 'Fronteiras da pesquisa em peptídeos', sub: 'Da descoberta na natureza ao estudo clínico: como cada molécula chegou à pesquisa avançada, com as fontes científicas de cada etapa.', read: 'Ler a história', min: 'min de leitura', ch2: 'O que a ciência descobriu', sources: 'Fontes', note: 'Conteúdo informativo baseado em literatura científica publicada.', close: 'Fechar história', prev: 'História anterior', next: 'Próxima história' },
+        en: { more: 'See more studies', less: 'See less', photo: 'Cover photo', eyebrow: 'Discovery → mechanism → research', title: 'Frontiers in peptide research', sub: 'From discovery in nature to clinical studies: how each molecule reached advanced research, with the scientific sources for every step.', read: 'Read the story', min: 'min read', ch2: 'What science found', sources: 'Sources', note: 'Informational content based on published scientific literature.', close: 'Close story', prev: 'Previous story', next: 'Next story' },
+        es: { more: 'Ver más estudios', less: 'Ver menos', photo: 'Foto de portada', eyebrow: 'Descubrimiento → mecanismo → investigación', title: 'Fronteras de la investigación en péptidos', sub: 'Del descubrimiento en la naturaleza al estudio clínico: cómo cada molécula llegó a la investigación avanzada, con las fuentes científicas de cada etapa.', read: 'Leer la historia', min: 'min de lectura', ch2: 'Lo que descubrió la ciencia', sources: 'Fuentes', note: 'Contenido informativo basado en literatura científica publicada.', close: 'Cerrar historia', prev: 'Historia anterior', next: 'Siguiente historia' },
+        fr: { more: 'Voir plus d’études', less: 'Voir moins', photo: 'Photo de couverture', eyebrow: 'Découverte → mécanisme → recherche', title: 'Frontières de la recherche sur les peptides', sub: 'De la découverte dans la nature aux études cliniques : comment chaque molécule est arrivée à la recherche avancée, avec les sources scientifiques de chaque étape.', read: 'Lire l’histoire', min: 'min de lecture', ch2: 'Ce que la science a découvert', sources: 'Sources', note: 'Contenu informatif basé sur la littérature scientifique publiée.', close: 'Fermer l’histoire', prev: 'Histoire précédente', next: 'Histoire suivante' },
+        ar: { more: 'عرض المزيد من الدراسات', less: 'عرض أقل', photo: 'صورة الغلاف', eyebrow: 'اكتشاف ← آلية ← بحث', title: 'آفاق أبحاث الببتيدات', sub: 'من الاكتشاف في الطبيعة إلى الدراسات السريرية: كيف وصلت كل جزيئة إلى البحث المتقدم، مع المصادر العلمية لكل مرحلة.', read: 'اقرأ القصة', min: 'دقائق قراءة', ch2: 'ما اكتشفه العلم', sources: 'المصادر', note: 'محتوى معلوماتي مبني على الأدبيات العلمية المنشورة.', close: 'إغلاق القصة', prev: 'القصة السابقة', next: 'القصة التالية' }
+    };
+    // Textos completos existem em pt/en/es; fr e ar usam a versão em inglês.
+    const STORY_TEXT_FALLBACK = { fr: 'en', ar: 'en' };
+    const BRO_STORIES = [{"id":"gila","photo":"Heloderma suspectum (Gila monster) (15535728627).jpg","icon":"fa-dragon","word":"Heloderma","tone":["#fff1e6","#ffe3d1"],"minutes":3,"sources":["Eng J. et al. J Biol Chem, 1992 (exendina-4)","Jastreboff A.M. et al. SURMOUNT-1, N Engl J Med, 2022","Jastreboff A.M. et al. Retatrutide fase 2, N Engl J Med, 2023"],"pt":{"kicker":"Deserto de Sonora","title":"O lagarto que come poucas vezes por ano","teaser":"Como a saliva de um lagarto do deserto abriu caminho para uma nova geração de peptídeos metabólicos.","story":["No deserto entre os Estados Unidos e o México vive o monstro-de-gila, um lagarto lento e venenoso que passa a maior parte do ano escondido. Na natureza, ele pode fazer apenas algumas grandes refeições por ano e, mesmo assim, mantém o açúcar do sangue sob controle.","Em 1992, o endocrinologista John Eng analisou a saliva desse animal e encontrou a exendina-4, um peptídeo muito parecido com o GLP-1, o hormônio que o nosso intestino libera depois de comer. A diferença: a versão do lagarto durava muito mais tempo no organismo.","Essa descoberta inaugurou uma linha inteira de pesquisa sobre hormônios da saciedade, que evoluiu de um único alvo para moléculas que atuam em dois e até três receptores ao mesmo tempo."],"science":["A exendina-4 originou a primeira classe de agonistas do receptor de GLP-1 estudada em regulação de glicose e apetite.","A tirzepatida age em dois receptores (GIP e GLP-1). No estudo SURMOUNT-1, com 72 semanas, a maior dose levou a uma redução média de peso de cerca de 21%, contra 3% no placebo.","A retatrutida acrescenta um terceiro alvo, o receptor de glucagon. No estudo de fase 2, com 48 semanas, a redução média chegou a cerca de 24% na maior dose."]},"en":{"kicker":"Sonoran Desert","title":"The lizard that eats only a few times a year","teaser":"How the saliva of a desert lizard opened the way to a new generation of metabolic peptides.","story":["In the desert between the United States and Mexico lives the Gila monster, a slow, venomous lizard that spends most of the year hidden. In the wild it may eat only a few large meals a year, and still keeps its blood sugar under control.","In 1992, endocrinologist John Eng analysed its saliva and found exendin-4, a peptide very similar to GLP-1, the hormone our gut releases after eating. The difference: the lizard version lasted much longer in the body.","That discovery started a whole line of research on satiety hormones, which evolved from a single target to molecules acting on two and even three receptors at once."],"science":["Exendin-4 gave rise to the first class of GLP-1 receptor agonists studied in glucose and appetite regulation.","Tirzepatide acts on two receptors (GIP and GLP-1). In the 72-week SURMOUNT-1 trial, the highest dose led to an average weight reduction of about 21%, versus 3% on placebo.","Retatrutide adds a third target, the glucagon receptor. In its 48-week phase 2 trial, the average reduction reached about 24% at the highest dose."]},"es":{"kicker":"Desierto de Sonora","title":"El lagarto que come pocas veces al año","teaser":"Cómo la saliva de un lagarto del desierto abrió el camino a una nueva generación de péptidos metabólicos.","story":["En el desierto entre Estados Unidos y México vive el monstruo de Gila, un lagarto lento y venenoso que pasa la mayor parte del año escondido. En la naturaleza puede hacer solo algunas comidas grandes al año y, aun así, mantiene el azúcar en sangre bajo control.","En 1992, el endocrinólogo John Eng analizó su saliva y encontró la exendina-4, un péptido muy parecido al GLP-1, la hormona que nuestro intestino libera después de comer. La diferencia: la versión del lagarto duraba mucho más en el organismo.","Ese hallazgo inauguró toda una línea de investigación sobre hormonas de la saciedad, que evolucionó de un único objetivo a moléculas que actúan sobre dos e incluso tres receptores a la vez."],"science":["La exendina-4 originó la primera clase de agonistas del receptor de GLP-1 estudiada en la regulación de la glucosa y el apetito.","La tirzepatida actúa sobre dos receptores (GIP y GLP-1). En el estudio SURMOUNT-1, de 72 semanas, la dosis más alta logró una reducción media de peso de cerca del 21%, frente al 3% con placebo.","La retatrutida añade un tercer objetivo, el receptor de glucagón. En su estudio de fase 2, de 48 semanas, la reducción media llegó a cerca del 24% en la dosis más alta."]}},{"id":"bpc","photo":"Normal gastric mucosa intermed mag.jpg","icon":"fa-shield","word":"BPC-157","tone":["#eaf6ee","#d9efe0"],"minutes":3,"sources":["Sikirić P. et al. Journal of Physiology (Paris), 1993","Gwyer D., Wragg N.M., Wilson S.L. Cell and Tissue Research, 2019 (revisão BPC-157)"],"pt":{"kicker":"Estômago","title":"O peptídeo que nasceu dentro do suco gástrico","teaser":"O estômago vive mergulhado em ácido e mesmo assim se renova o tempo todo.","story":["O ácido do estômago é forte o bastante para dissolver boa parte do que comemos. Mesmo assim, a parede do estômago não se destrói: ela se protege e se renova continuamente.","No início dos anos 1990, uma equipe da Universidade de Zagreb, na Croácia, liderada por Predrag Sikirić, procurou no suco gástrico humano o que ajudava nessa proteção.","Dali eles derivaram uma sequência de 15 aminoácidos, estável mesmo em ambiente ácido. Ela recebeu o nome de BPC-157, sigla em inglês para composto de proteção do corpo."],"science":["Em estudos com animais, o BPC-157 foi associado à recuperação de tendões, ligamentos, músculos e lesões do trato gastrointestinal, além da formação de novos vasos sanguíneos.","Uma revisão de 2019 reuniu esses achados sobre tecidos moles e destacou que a maior parte das evidências ainda vem de estudos pré-clínicos, o que faz do BPC-157 um tema ativo de pesquisa."]},"en":{"kicker":"Stomach","title":"The peptide that was born in gastric juice","teaser":"The stomach lives bathed in acid and still renews itself all the time.","story":["Stomach acid is strong enough to dissolve much of what we eat. Even so, the stomach wall is not destroyed: it protects and renews itself continuously.","In the early 1990s, a team at the University of Zagreb in Croatia, led by Predrag Sikirić, searched human gastric juice for what helped with this protection.","From it they derived a 15-amino-acid sequence that stays stable even in acid. It was named BPC-157, short for Body Protection Compound."],"science":["In animal studies, BPC-157 has been linked to recovery of tendons, ligaments, muscles and gastrointestinal lesions, as well as the formation of new blood vessels.","A 2019 review gathered these soft-tissue findings and noted that most of the evidence still comes from preclinical studies, which keeps BPC-157 an active research topic."]},"es":{"kicker":"Estómago","title":"El péptido que nació en el jugo gástrico","teaser":"El estómago vive bañado en ácido y aun así se renueva todo el tiempo.","story":["El ácido del estómago es lo bastante fuerte para disolver buena parte de lo que comemos. Aun así, la pared del estómago no se destruye: se protege y se renueva continuamente.","A principios de los años 90, un equipo de la Universidad de Zagreb, en Croacia, liderado por Predrag Sikirić, buscó en el jugo gástrico humano lo que ayudaba en esa protección.","De allí derivaron una secuencia de 15 aminoácidos, estable incluso en ambiente ácido. Recibió el nombre de BPC-157, sigla en inglés de compuesto de protección del cuerpo."],"science":["En estudios con animales, el BPC-157 se asoció a la recuperación de tendones, ligamentos, músculos y lesiones del tracto gastrointestinal, además de la formación de nuevos vasos sanguíneos.","Una revisión de 2019 reunió estos hallazgos sobre tejidos blandos y destacó que la mayor parte de la evidencia aún proviene de estudios preclínicos, lo que mantiene al BPC-157 como un tema activo de investigación."]}},{"id":"copper","photo":"Native Copper from the Keweenaw Peninsula Michigan.jpg","icon":"fa-gem","word":"Cu²⁺","tone":["#e9f7f3","#d5efe7"],"minutes":3,"sources":["Pickart L., Thaler M.M. Nature New Biology, 1973","Pickart L., Margolina A. Int J Mol Sci, 2018 (revisão GHK-Cu)"],"pt":{"kicker":"Sangue jovem","title":"O sinal de cobre que o corpo jovem produz","teaser":"Um experimento dos anos 70 revelou um pequeno peptídeo que diminui com a idade.","story":["Em 1973, o pesquisador Loren Pickart fez uma observação curiosa: quando células do fígado de pessoas mais velhas eram banhadas no plasma de pessoas jovens, elas passavam a se comportar como células mais jovens.","Procurando a causa, ele isolou um peptídeo minúsculo, com apenas três aminoácidos: glicina, histidina e lisina, o GHK. Esse peptídeo tem uma afinidade enorme pelo cobre, um mineral essencial para enzimas que constroem colágeno.","Com o tempo veio outra descoberta: a quantidade de GHK no sangue cai bastante ao longo da vida, de cerca de 200 ng/mL aos 20 anos para perto de 80 ng/mL aos 60."],"science":["O complexo GHK-Cu foi estudado em cicatrização de feridas e na síntese de colágeno e glicosaminoglicanos, componentes da estrutura da pele.","Análises de expressão gênica mostraram que o GHK influencia um grande número de genes ligados a reparo e remodelação de tecidos.","Por isso ele se tornou um dos peptídeos mais estudados em pesquisa de pele, matriz extracelular e longevidade."]},"en":{"kicker":"Young blood","title":"The copper signal the young body makes","teaser":"A 1970s experiment revealed a tiny peptide that declines with age.","story":["In 1973, researcher Loren Pickart made a curious observation: when liver cells from older people were bathed in plasma from young people, they began to behave like younger cells.","Looking for the cause, he isolated a tiny peptide with just three amino acids: glycine, histidine and lysine, called GHK. It binds copper very strongly, a mineral essential for the enzymes that build collagen.","Another finding followed: the amount of GHK in blood falls considerably over a lifetime, from about 200 ng/mL at age 20 to around 80 ng/mL at 60."],"science":["The GHK-Cu complex has been studied in wound healing and in the synthesis of collagen and glycosaminoglycans, structural components of skin.","Gene expression analyses showed that GHK influences a large number of genes linked to tissue repair and remodelling.","That made it one of the most studied peptides in skin, extracellular matrix and longevity research."]},"es":{"kicker":"Sangre joven","title":"La señal de cobre que produce el cuerpo joven","teaser":"Un experimento de los años 70 reveló un pequeño péptido que disminuye con la edad.","story":["En 1973, el investigador Loren Pickart hizo una observación curiosa: cuando células del hígado de personas mayores se bañaban en plasma de personas jóvenes, empezaban a comportarse como células más jóvenes.","Buscando la causa, aisló un péptido diminuto, con solo tres aminoácidos: glicina, histidina y lisina, el GHK. Este péptido tiene una gran afinidad por el cobre, un mineral esencial para las enzimas que construyen colágeno.","Luego llegó otro hallazgo: la cantidad de GHK en la sangre cae bastante a lo largo de la vida, de unos 200 ng/mL a los 20 años a cerca de 80 ng/mL a los 60."],"science":["El complejo GHK-Cu se ha estudiado en cicatrización de heridas y en la síntesis de colágeno y glicosaminoglicanos, componentes estructurales de la piel.","Análisis de expresión génica mostraron que el GHK influye en un gran número de genes ligados a la reparación y remodelación de tejidos.","Por eso se convirtió en uno de los péptidos más estudiados en investigación de piel, matriz extracelular y longevidad."]}},{"id":"incretin","photo":"Intestinal villi through microscope.jpg","icon":"fa-utensils","word":"GIP","tone":["#fff4e0","#ffe9c2"],"minutes":3,"sources":["McIntyre N., Holdsworth C.D., Turner D.S. Lancet, 1964 (efeito incretina)","Brown J.C., Dryburgh J.R. Canadian Journal of Biochemistry, 1971 (GIP)","Jastreboff A.M. et al. SURMOUNT-1, N Engl J Med, 2022"],"pt":{"kicker":"Intestino","title":"Por que o açúcar engolido gera mais insulina do que o injetado","teaser":"Um experimento simples dos anos 1960 revelou que o intestino conversa com o pâncreas.","story":["Em 1964, pesquisadores britânicos compararam duas formas de colocar glicose no corpo: pela boca e direto na veia. Mesmo quando o nível de açúcar no sangue ficava igual, a glicose engolida fazia o pâncreas liberar muito mais insulina.","A explicação estava no intestino. Quando o alimento passa por ali, células da parede intestinal liberam mensageiros que avisam o pâncreas de que uma refeição está chegando. Esses mensageiros ganharam o nome de incretinas.","O primeiro a ser identificado, em 1971, foi o GIP. Anos depois veio o GLP-1. Juntos, eles explicam boa parte da insulina que o corpo libera depois de comer."],"science":["Por décadas, o GLP-1 recebeu quase toda a atenção, e o GIP ficou conhecido como a incretina esquecida. A ideia de ativar os dois receptores ao mesmo tempo mudou esse cenário.","A tirzepatida é uma única molécula que age nos receptores de GIP e de GLP-1. No estudo SURMOUNT-1, com 72 semanas, a maior dose levou a uma redução média de peso de cerca de 21%, contra 3% no placebo."]},"en":{"kicker":"Gut","title":"Why swallowed sugar triggers more insulin than injected sugar","teaser":"A simple experiment from the 1960s revealed that the gut talks to the pancreas.","story":["In 1964, British researchers compared two ways of getting glucose into the body: by mouth and straight into a vein. Even when blood sugar ended up the same, swallowed glucose made the pancreas release far more insulin.","The answer was in the gut. As food passes through, cells in the intestinal wall release messengers that tell the pancreas a meal is on its way. These messengers were named incretins.","The first one identified, in 1971, was GIP. GLP-1 came years later. Together they account for much of the insulin the body releases after eating."],"science":["For decades GLP-1 got almost all the attention, and GIP became known as the forgotten incretin. The idea of activating both receptors at once changed that.","Tirzepatide is a single molecule that acts on both GIP and GLP-1 receptors. In the 72-week SURMOUNT-1 trial, the highest dose led to an average weight reduction of about 21%, versus 3% with placebo."]},"es":{"kicker":"Intestino","title":"Por qué el azúcar ingerido genera más insulina que el inyectado","teaser":"Un experimento sencillo de los años 60 reveló que el intestino conversa con el páncreas.","story":["En 1964, investigadores británicos compararon dos formas de introducir glucosa en el cuerpo: por la boca y directamente en la vena. Aun con el mismo nivel de azúcar en sangre, la glucosa ingerida hacía que el páncreas liberara mucha más insulina.","La explicación estaba en el intestino. Cuando el alimento pasa por allí, células de la pared intestinal liberan mensajeros que avisan al páncreas de que llega una comida. Esos mensajeros recibieron el nombre de incretinas.","La primera en identificarse, en 1971, fue el GIP. Años después llegó el GLP-1. Juntas explican buena parte de la insulina que el cuerpo libera después de comer."],"science":["Durante décadas el GLP-1 recibió casi toda la atención y el GIP quedó como la incretina olvidada. La idea de activar ambos receptores a la vez cambió ese panorama.","La tirzepatida es una sola molécula que actúa en los receptores de GIP y de GLP-1. En el estudio SURMOUNT-1, de 72 semanas, la dosis más alta llevó a una reducción media de peso de cerca del 21%, frente al 3% con placebo."]}},{"id":"mito","photo":"Mitochondria, mammalian lung - TEM.jpg","icon":"fa-bacterium","word":"mtDNA","tone":["#eef0ff","#e0e4ff"],"minutes":3,"sources":["Lee C. et al. Cell Metabolism, 2015 (descoberta do MOTS-c)","Reynolds J.C. et al. Nature Communications, 2021"],"pt":{"kicker":"2 bilhões de anos atrás","title":"A bactéria que virou a usina das nossas células","teaser":"As mitocôndrias já foram seres independentes e ainda guardam o próprio DNA, com mensagens escondidas.","story":["Há cerca de 2 bilhões de anos, uma célula engoliu uma bactéria e, em vez de digeri-la, passou a viver com ela. Essa parceria deu origem às mitocôndrias, as estruturas que produzem a energia de quase todas as nossas células.","Como herança desse passado, as mitocôndrias ainda carregam um DNA próprio, pequeno, com apenas 37 genes. Durante décadas, achou-se que ele não tinha mais segredos.","Em 2015, a equipe do pesquisador Changhan Lee encontrou dentro desse DNA a receita de um peptídeo de 16 aminoácidos que até então ninguém conhecia: o MOTS-c."],"science":["Em camundongos, o MOTS-c agiu principalmente no músculo esquelético e foi estudado na sensibilidade à insulina e no ganho de peso induzido por dieta.","Em 2021, pesquisadores mostraram que os níveis de MOTS-c aumentam com o exercício físico em humanos.","No mesmo trabalho, animais idosos tratados com o peptídeo apresentaram melhor desempenho físico, o que colocou o MOTS-c no centro da pesquisa sobre envelhecimento metabólico."]},"en":{"kicker":"2 billion years ago","title":"The bacterium that became our cells' power plant","teaser":"Mitochondria were once independent organisms and still keep their own DNA, with hidden messages.","story":["About 2 billion years ago, a cell swallowed a bacterium and, instead of digesting it, began living with it. That partnership gave rise to mitochondria, the structures that produce energy in almost all of our cells.","As a legacy of that past, mitochondria still carry their own small DNA, with only 37 genes. For decades it was thought to hold no more secrets.","In 2015, researcher Changhan Lee's team found inside that DNA the recipe for a previously unknown 16-amino-acid peptide: MOTS-c."],"science":["In mice, MOTS-c acted mainly on skeletal muscle and was studied in insulin sensitivity and diet-induced weight gain.","In 2021, researchers showed that MOTS-c levels rise with exercise in humans.","In the same work, older animals treated with the peptide showed better physical performance, putting MOTS-c at the centre of metabolic ageing research."]},"es":{"kicker":"Hace 2 mil millones de años","title":"La bacteria que se convirtió en la central de nuestras células","teaser":"Las mitocondrias fueron seres independientes y aún guardan su propio ADN, con mensajes ocultos.","story":["Hace unos 2 mil millones de años, una célula engulló una bacteria y, en lugar de digerirla, empezó a vivir con ella. Esa alianza dio origen a las mitocondrias, las estructuras que producen la energía de casi todas nuestras células.","Como herencia de ese pasado, las mitocondrias aún llevan un ADN propio y pequeño, con solo 37 genes. Durante décadas se pensó que ya no guardaba secretos.","En 2015, el equipo del investigador Changhan Lee encontró en ese ADN la receta de un péptido de 16 aminoácidos hasta entonces desconocido: el MOTS-c."],"science":["En ratones, el MOTS-c actuó principalmente en el músculo esquelético y se estudió en la sensibilidad a la insulina y el aumento de peso inducido por dieta.","En 2021, investigadores mostraron que los niveles de MOTS-c aumentan con el ejercicio físico en humanos.","En el mismo trabajo, animales mayores tratados con el péptido mostraron mejor rendimiento físico, lo que situó al MOTS-c en el centro de la investigación sobre envejecimiento metabólico."]}},{"id":"thymus","photo":"Thymic corpuscle.jpg","icon":"fa-seedling","word":"Timo","word_en":"Thymus","tone":["#f0f4ff","#e1e9fe"],"minutes":3,"sources":["Low T.L.K., Hu S.K., Goldstein A.L. PNAS, 1981 (timosina beta-4)","Malinda K.M. et al. Journal of Investigative Dermatology, 1999","Goldstein A.L. et al. Trends in Molecular Medicine, 2005"],"pt":{"kicker":"Timo","title":"A glândula que encolhe com a idade e deixou um segredo","teaser":"O timo é enorme na infância e quase desaparece na vida adulta. Dentro dele havia um peptídeo de reparo.","story":["Atrás do osso do peito existe uma glândula chamada timo. Ela é grande nas crianças, treina as células de defesa do corpo e vai encolhendo com o passar dos anos.","Nos anos 1960 e 1970, o pesquisador Allan Goldstein estudou extratos de timo de bezerro em busca dos hormônios que essa glândula produzia. Ao conjunto ele deu o nome de timosinas.","Em 1981, sua equipe isolou uma delas, a timosina beta-4. Depois se descobriu que ela está presente em quase todas as células do corpo, e não só no timo."],"science":["A timosina beta-4 se liga à actina, a proteína que dá estrutura e movimento às células. Isso ajuda as células a migrarem até onde há uma lesão.","Em 1999, um estudo em ratos mostrou cicatrização de feridas mais rápida com timosina beta-4. O TB-500 é a versão sintética usada em pesquisa para estudar esse mecanismo de reparo."]},"en":{"kicker":"Thymus","title":"The gland that shrinks with age and left a secret behind","teaser":"The thymus is large in childhood and nearly disappears in adulthood. Inside it was a repair peptide.","story":["Behind the breastbone sits a gland called the thymus. It is large in children, trains the body's defense cells and shrinks over the years.","In the 1960s and 1970s, researcher Allan Goldstein studied calf thymus extracts looking for the hormones this gland produced. He named the group thymosins.","In 1981 his team isolated one of them, thymosin beta-4. It was later found in almost every cell of the body, not just the thymus."],"science":["Thymosin beta-4 binds to actin, the protein that gives cells their structure and movement. This helps cells migrate to where there is an injury.","In 1999, a rat study showed faster wound healing with thymosin beta-4. TB-500 is the synthetic version used in research to study this repair mechanism."]},"es":{"kicker":"Timo","title":"La glándula que se encoge con la edad y dejó un secreto","teaser":"El timo es enorme en la infancia y casi desaparece en la vida adulta. Dentro había un péptido de reparación.","story":["Detrás del esternón hay una glándula llamada timo. Es grande en los niños, entrena a las células de defensa del cuerpo y se va encogiendo con los años.","En los años 60 y 70, el investigador Allan Goldstein estudió extractos de timo de ternero en busca de las hormonas que producía esta glándula. Al conjunto lo llamó timosinas.","En 1981 su equipo aisló una de ellas, la timosina beta-4. Después se descubrió que está presente en casi todas las células del cuerpo, y no solo en el timo."],"science":["La timosina beta-4 se une a la actina, la proteína que da estructura y movimiento a las células. Eso ayuda a las células a migrar hacia donde hay una lesión.","En 1999, un estudio en ratas mostró una cicatrización de heridas más rápida con timosina beta-4. El TB-500 es la versión sintética usada en investigación para estudiar este mecanismo de reparación."]}},{"id":"tuftsin","photo":"SEM blood cells.jpg","icon":"fa-shield-virus","word":"Tuftsina","tone":["#f3eefe","#e8defd"],"minutes":3,"sources":["Najjar V.A., Nishioka K. Nature, 1970 (tuftsina)","Instituto de Genética Molecular da Academia Russa de Ciências (Selank e Semax)"],"pt":{"kicker":"Sistema imune","title":"O pedaço de anticorpo que inspirou peptídeos para o cérebro","teaser":"Um fragmento minúsculo das nossas defesas virou ponto de partida para pesquisas sobre estresse e foco.","story":["Os anticorpos são grandes proteínas de defesa. Em 1970, os pesquisadores Victor Najjar e Kenji Nishioka descobriram que, quando um tipo de anticorpo é cortado no baço, ele libera um fragmento de apenas quatro aminoácidos: a tuftsina.","Esse pequeno fragmento ativava células de defesa, mas também chamou a atenção de neurocientistas por seus efeitos no sistema nervoso.","No Instituto de Genética Molecular da Academia Russa de Ciências, cientistas pegaram a tuftsina e um trecho do hormônio ACTH e adicionaram uma pequena cauda de aminoácidos para torná-los mais estáveis. Assim nasceram o Selank e o Semax."],"science":["O Selank foi estudado em modelos de ansiedade e na sua interação com o sistema GABAérgico, o principal sistema calmante do cérebro.","O Semax foi estudado em modelos de isquemia cerebral e no aumento da expressão de BDNF, uma proteína ligada à plasticidade dos neurônios.","Os dois se tornaram referências na pesquisa de peptídeos neuroativos de cadeia curta."]},"en":{"kicker":"Immune system","title":"The antibody fragment that inspired brain peptides","teaser":"A tiny piece of our defences became the starting point for research on stress and focus.","story":["Antibodies are large defence proteins. In 1970, researchers Victor Najjar and Kenji Nishioka found that when one type of antibody is cut in the spleen, it releases a fragment of just four amino acids: tuftsin.","This small fragment activated defence cells, but it also caught the attention of neuroscientists for its effects on the nervous system.","At the Institute of Molecular Genetics of the Russian Academy of Sciences, scientists took tuftsin and a stretch of the hormone ACTH and added a short amino-acid tail to make them more stable. That is how Selank and Semax were born."],"science":["Selank has been studied in anxiety models and in its interaction with the GABAergic system, the brain's main calming system.","Semax has been studied in cerebral ischaemia models and in increasing the expression of BDNF, a protein linked to neuronal plasticity.","Both became references in research on short-chain neuroactive peptides."]},"es":{"kicker":"Sistema inmune","title":"El fragmento de anticuerpo que inspiró péptidos para el cerebro","teaser":"Un pedazo diminuto de nuestras defensas se convirtió en el punto de partida de investigaciones sobre estrés y enfoque.","story":["Los anticuerpos son grandes proteínas de defensa. En 1970, los investigadores Victor Najjar y Kenji Nishioka descubrieron que, cuando un tipo de anticuerpo se corta en el bazo, libera un fragmento de solo cuatro aminoácidos: la tuftsina.","Este pequeño fragmento activaba células de defensa, pero también llamó la atención de los neurocientíficos por sus efectos en el sistema nervioso.","En el Instituto de Genética Molecular de la Academia Rusa de Ciencias, los científicos tomaron la tuftsina y un tramo de la hormona ACTH y les añadieron una pequeña cola de aminoácidos para hacerlos más estables. Así nacieron Selank y Semax."],"science":["El Selank se ha estudiado en modelos de ansiedad y en su interacción con el sistema GABAérgico, el principal sistema calmante del cerebro.","El Semax se ha estudiado en modelos de isquemia cerebral y en el aumento de la expresión de BDNF, una proteína ligada a la plasticidad neuronal.","Ambos se convirtieron en referencias en la investigación de péptidos neuroactivos de cadena corta."]}},{"id":"fat","photo":"Histology of Adipose tissue.jpg","icon":"fa-bullseye","word":"Adipócito","word_en":"Adipocyte","word_es":"Adipocito","tone":["#fdf0f6","#fae0ee"],"minutes":3,"sources":["Vispute S.S. et al. Journal of Strength and Conditioning Research, 2011","Spalding K.L. et al. Nature, 2008","Caliway Biopharmaceuticals, estudos clínicos de fase 2 (ClinicalTrials.gov)"],"pt":{"kicker":"Gordura localizada","title":"Por que a gordura não sai de onde a gente quer","teaser":"Fazer abdominais não queima a gordura da barriga. A ciência explica por quê.","story":["Muita gente acredita que exercitar uma região do corpo queima a gordura daquele lugar. Em 2011, um estudo testou isso: seis semanas de exercícios abdominais não reduziram a gordura da barriga.","O motivo é que o corpo busca energia na gordura do corpo inteiro, e não só no músculo que está trabalhando. Cada pessoa tem regiões onde a gordura é mais teimosa.","Além disso, as células de gordura duram anos. Um estudo de 2008 mostrou que só cerca de 10% delas são trocadas por ano em adultos. Emagrecer esvazia essas células, mas não as elimina."],"science":["Essa teimosia levou pesquisadores a buscar formas de agir direto na gordura localizada, sem depender do emagrecimento geral.","O CBL-514, desenvolvido pela Caliway Biopharmaceuticals, é uma molécula injetável em pesquisa que foi desenhada para induzir a morte programada das células de gordura no local da aplicação. Ela vem sendo avaliada em estudos clínicos de fase 2 para redução de gordura subcutânea localizada."]},"en":{"kicker":"Stubborn fat","title":"Why fat doesn't leave where we want it to","teaser":"Doing crunches doesn't burn belly fat. Science explains why.","story":["Many people believe that exercising one area burns the fat in that spot. A 2011 study tested this: six weeks of abdominal exercises did not reduce belly fat.","The reason is that the body draws energy from fat all over, not just near the muscle that is working. Everyone has areas where fat is more stubborn.","On top of that, fat cells last for years. A 2008 study showed that only about 10% of them are replaced each year in adults. Losing weight empties these cells but does not remove them."],"science":["This stubbornness led researchers to look for ways to act directly on localized fat, without relying on overall weight loss.","CBL-514, developed by Caliway Biopharmaceuticals, is an investigational injectable molecule designed to trigger programmed death of fat cells at the injection site. It is being evaluated in phase 2 clinical studies for localized subcutaneous fat reduction."]},"es":{"kicker":"Grasa localizada","title":"Por qué la grasa no se va de donde queremos","teaser":"Hacer abdominales no quema la grasa de la barriga. La ciencia explica por qué.","story":["Mucha gente cree que ejercitar una zona del cuerpo quema la grasa de ese lugar. En 2011, un estudio lo puso a prueba: seis semanas de ejercicios abdominales no redujeron la grasa de la barriga.","El motivo es que el cuerpo obtiene energía de la grasa de todo el cuerpo, y no solo del músculo que trabaja. Cada persona tiene zonas donde la grasa es más terca.","Además, las células de grasa duran años. Un estudio de 2008 mostró que solo cerca del 10% se renuevan por año en adultos. Adelgazar vacía esas células, pero no las elimina."],"science":["Esa terquedad llevó a los investigadores a buscar formas de actuar directamente sobre la grasa localizada, sin depender de la pérdida de peso general.","El CBL-514, desarrollado por Caliway Biopharmaceuticals, es una molécula inyectable en investigación diseñada para inducir la muerte programada de las células de grasa en el lugar de aplicación. Se está evaluando en estudios clínicos de fase 2 para la reducción de grasa subcutánea localizada."]}},{"id":"sleep","photo":"Noche de luna llena - Full moon night.jpg","icon":"fa-moon","word":"Sono","word_en":"Sleep","word_es":"Sueño","tone":["#e8f1fd","#d8e7fb"],"minutes":3,"sources":["Takahashi Y. et al. J Clin Invest, 1968","Falutz J. et al. N Engl J Med, 2007 (tesamorelina)","Teichman S.L. et al. J Clin Endocrinol Metab, 2006 (CJC-1295)"],"pt":{"kicker":"Sono profundo","title":"Por que o corpo se reconstrói enquanto dormimos","teaser":"O maior pulso de hormônio do crescimento do dia acontece logo depois que pegamos no sono.","story":["Em 1968, pesquisadores que monitoravam voluntários durante a noite perceberam algo marcante: logo depois do início do sono profundo, o corpo libera o maior pulso de hormônio do crescimento (GH) de todo o dia.","Esse pulso é comandado por um mensageiro do cérebro, o GHRH, que avisa a hipófise a hora de liberar o GH. Por isso dormir bem está tão ligado à recuperação do corpo.","Entender esse mecanismo levou cientistas a criar versões modificadas do GHRH, mais estáveis e duradouras, para estudar o eixo do hormônio do crescimento em laboratório."],"science":["A tesamorelina é um análogo do GHRH. Em um estudo publicado em 2007, ela reduziu a gordura visceral abdominal em cerca de 15% em 26 semanas no grupo estudado.","O CJC-1295 é um análogo do GHRH de longa duração: em voluntários, uma aplicação elevou os níveis de GH e IGF-1 por vários dias.","O ipamorelin é estudado como secretagogo seletivo do GH, por imitar o sinal da grelina."]},"en":{"kicker":"Deep sleep","title":"Why the body rebuilds itself while we sleep","teaser":"The largest growth hormone pulse of the day happens right after we fall asleep.","story":["In 1968, researchers monitoring volunteers overnight noticed something striking: shortly after deep sleep begins, the body releases the largest growth hormone (GH) pulse of the whole day.","That pulse is driven by a messenger from the brain, GHRH, which tells the pituitary when to release GH. That is why good sleep is so closely tied to the body's recovery.","Understanding this mechanism led scientists to create modified, more stable and longer-lasting versions of GHRH to study the growth hormone axis in the lab."],"science":["Tesamorelin is a GHRH analogue. In a study published in 2007, it reduced visceral abdominal fat by about 15% over 26 weeks in the group studied.","CJC-1295 is a long-acting GHRH analogue: in volunteers, a single dose raised GH and IGF-1 levels for several days.","Ipamorelin is studied as a selective GH secretagogue because it mimics the ghrelin signal."]},"es":{"kicker":"Sueño profundo","title":"Por qué el cuerpo se reconstruye mientras dormimos","teaser":"El mayor pulso de hormona del crecimiento del día ocurre justo después de dormirnos.","story":["En 1968, investigadores que monitorizaban a voluntarios durante la noche notaron algo llamativo: poco después del inicio del sueño profundo, el cuerpo libera el mayor pulso de hormona del crecimiento (GH) de todo el día.","Ese pulso lo dirige un mensajero del cerebro, el GHRH, que le indica a la hipófisis cuándo liberar la GH. Por eso dormir bien está tan ligado a la recuperación del cuerpo.","Entender este mecanismo llevó a los científicos a crear versiones modificadas del GHRH, más estables y duraderas, para estudiar el eje de la hormona del crecimiento en el laboratorio."],"science":["La tesamorelina es un análogo del GHRH. En un estudio publicado en 2007, redujo la grasa visceral abdominal en cerca de un 15% en 26 semanas en el grupo estudiado.","El CJC-1295 es un análogo del GHRH de larga duración: en voluntarios, una dosis elevó los niveles de GH e IGF-1 durante varios días.","El ipamorelin se estudia como secretagogo selectivo de GH, por imitar la señal de la grelina."]}},{"id":"kpv","photo":"3D Medical Animation Still of Skin Tanning.jpg","icon":"fa-sun","word":"α-MSH","tone":["#fff7e0","#ffefc2"],"minutes":3,"sources":["Catania A. et al. Pharmacological Reviews, 2004 (α-MSH e inflamação)","Dalmasso G. et al. Gastroenterology, 2008 (KPV)"],"pt":{"kicker":"Sol e pele","title":"O hormônio do bronzeado que também acalma inflamações","teaser":"O mesmo sinal que escurece a pele no verão guarda, na ponta, três aminoácidos curiosos.","story":["Quando a pele recebe sol, ela produz um hormônio chamado alfa-MSH. Ele avisa os melanócitos para fabricar mais melanina, o pigmento que escurece a pele e a protege da radiação.","Estudando esse hormônio, pesquisadores perceberam que ele fazia mais do que bronzear: o alfa-MSH também reduzia sinais de inflamação em vários tecidos.","O mais surpreendente veio depois. Os três últimos aminoácidos da molécula, lisina, prolina e valina, conservavam boa parte desse efeito. Esse fragmento ficou conhecido como KPV."],"science":["Uma revisão de 2004 reuniu as evidências sobre o papel do alfa-MSH e de seus fragmentos no controle da inflamação.","Em 2008, um estudo em camundongos mostrou que o KPV reduziu a inflamação intestinal em modelos de colite, entrando nas células por um transportador chamado PepT1."]},"en":{"kicker":"Sun and skin","title":"The tanning hormone that also calms inflammation","teaser":"The same signal that darkens skin in summer holds three curious amino acids at its tip.","story":["When skin gets sun, it produces a hormone called alpha-MSH. It tells melanocytes to make more melanin, the pigment that darkens skin and protects it from radiation.","Studying this hormone, researchers noticed it did more than tan: alpha-MSH also reduced signs of inflammation in several tissues.","The biggest surprise came later. The molecule's last three amino acids, lysine, proline and valine, kept much of that effect. This fragment became known as KPV."],"science":["A 2004 review gathered the evidence on the role of alpha-MSH and its fragments in controlling inflammation.","In 2008, a mouse study showed that KPV reduced intestinal inflammation in colitis models, entering cells through a transporter called PepT1."]},"es":{"kicker":"Sol y piel","title":"La hormona del bronceado que también calma la inflamación","teaser":"La misma señal que oscurece la piel en verano guarda, en la punta, tres aminoácidos curiosos.","story":["Cuando la piel recibe sol, produce una hormona llamada alfa-MSH. Esta avisa a los melanocitos para fabricar más melanina, el pigmento que oscurece la piel y la protege de la radiación.","Al estudiar esta hormona, los investigadores notaron que hacía más que broncear: el alfa-MSH también reducía señales de inflamación en varios tejidos.","Lo más sorprendente llegó después. Los tres últimos aminoácidos de la molécula, lisina, prolina y valina, conservaban buena parte de ese efecto. Ese fragmento pasó a conocerse como KPV."],"science":["Una revisión de 2004 reunió la evidencia sobre el papel del alfa-MSH y sus fragmentos en el control de la inflamación.","En 2008, un estudio en ratones mostró que el KPV redujo la inflamación intestinal en modelos de colitis, entrando en las células por un transportador llamado PepT1."]}},{"id":"glucagon","photo":"Human pancreatic islet.jpg","icon":"fa-fire","word":"Glucagon","tone":["#ffeceb","#ffdcd9"],"minutes":3,"sources":["Kimball C.P., Murlin J.R. Journal of Biological Chemistry, 1923","Jastreboff A.M. et al. Retatrutida fase 2, N Engl J Med, 2023","Sanyal A.J. et al. Nature Medicine, 2024 (gordura hepática)"],"pt":{"kicker":"Pâncreas","title":"O \"contaminante\" da insulina que virou alvo de pesquisa","teaser":"Em 1923, um efeito estranho nos extratos de pâncreas revelou um segundo hormônio.","story":["Logo depois da descoberta da insulina, pesquisadores notaram algo curioso: alguns extratos de pâncreas, em vez de baixar o açúcar do sangue, primeiro faziam ele subir.","Em 1923, Kimball e Murlin mostraram que não era defeito do extrato. Havia ali outro hormônio, com efeito oposto ao da insulina. Eles o chamaram de glucagon.","O glucagon é o hormônio do jejum. Quando ficamos sem comer, ele faz o fígado liberar energia guardada e ajuda o corpo a usar gordura como combustível."],"science":["Essa capacidade de aumentar o gasto de energia e a queima de gordura no fígado inspirou uma ideia ousada: somar o receptor de glucagon aos receptores de GIP e GLP-1 numa única molécula.","A retatrutida é esse agonista triplo. No estudo de fase 2, com 48 semanas, a redução média de peso chegou a cerca de 24% na maior dose. Um subestudo mostrou também grande redução da gordura no fígado."]},"en":{"kicker":"Pancreas","title":"The insulin \"contaminant\" that became a research target","teaser":"In 1923, an odd effect in pancreas extracts revealed a second hormone.","story":["Soon after insulin was discovered, researchers noticed something odd: some pancreas extracts, instead of lowering blood sugar, first made it rise.","In 1923, Kimball and Murlin showed it was not a flaw in the extract. There was another hormone in it, with the opposite effect of insulin. They called it glucagon.","Glucagon is the fasting hormone. When we go without food, it makes the liver release stored energy and helps the body use fat as fuel."],"science":["This ability to raise energy expenditure and fat burning in the liver inspired a bold idea: adding the glucagon receptor to the GIP and GLP-1 receptors in a single molecule.","Retatrutide is that triple agonist. In the 48-week phase 2 trial, average weight reduction reached about 24% at the highest dose. A substudy also showed a large reduction in liver fat."]},"es":{"kicker":"Páncreas","title":"El \"contaminante\" de la insulina que se volvió objeto de investigación","teaser":"En 1923, un efecto extraño en los extractos de páncreas reveló una segunda hormona.","story":["Poco después del descubrimiento de la insulina, los investigadores notaron algo curioso: algunos extractos de páncreas, en lugar de bajar el azúcar en sangre, primero lo hacían subir.","En 1923, Kimball y Murlin demostraron que no era un defecto del extracto. Había allí otra hormona, con el efecto opuesto al de la insulina. La llamaron glucagón.","El glucagón es la hormona del ayuno. Cuando pasamos tiempo sin comer, hace que el hígado libere energía almacenada y ayuda al cuerpo a usar la grasa como combustible."],"science":["Esa capacidad de aumentar el gasto energético y la quema de grasa en el hígado inspiró una idea audaz: sumar el receptor de glucagón a los receptores de GIP y GLP-1 en una sola molécula.","La retatrutida es ese agonista triple. En el estudio de fase 2, de 48 semanas, la reducción media de peso llegó a cerca del 24% con la dosis más alta. Un subestudio mostró además una gran reducción de la grasa en el hígado."]}},{"id":"acth","photo":"Neurons (Purkinje cells).jpg","icon":"fa-brain","word":"ACTH","tone":["#eef3ff","#dde7ff"],"minutes":3,"sources":["De Wied D. — fragmentos de ACTH e memória (anos 1960–1970)","Dolotov O.V. et al. Brain Research, 2006 (Semax e BDNF)","Instituto de Genética Molecular da Academia Russa de Ciências"],"pt":{"kicker":"Cérebro","title":"Um pedaço do hormônio do estresse que ajuda o cérebro a focar","teaser":"Cientistas descobriram que um fragmento do ACTH mexia com atenção e memória sem agir como hormônio.","story":["Quando passamos por uma situação de estresse, o cérebro libera ACTH, um hormônio que manda as glândulas suprarrenais produzirem cortisol.","Nos anos 1960 e 1970, o pesquisador holandês David de Wied percebeu algo inesperado: pequenos pedaços do ACTH influenciavam o aprendizado e a memória de animais, mesmo sem estimular a produção de cortisol.","O problema é que esses fragmentos duravam pouquíssimo no corpo. Em Moscou, o Instituto de Genética Molecular acrescentou três aminoácidos a um deles e criou uma versão estável, o Semax."],"science":["O Semax tem sete aminoácidos e foi desenvolvido para manter o efeito do fragmento por mais tempo. Na Rússia, ele é estudado e usado clinicamente há décadas.","Em 2006, um estudo em ratos mostrou que o Semax aumentou os níveis de BDNF no hipocampo, uma proteína ligada à formação de novas conexões entre neurônios."]},"en":{"kicker":"Brain","title":"A piece of the stress hormone that helps the brain focus","teaser":"Scientists found that a fragment of ACTH affected attention and memory without acting as a hormone.","story":["When we go through stress, the brain releases ACTH, a hormone that tells the adrenal glands to produce cortisol.","In the 1960s and 1970s, Dutch researcher David de Wied noticed something unexpected: small pieces of ACTH influenced learning and memory in animals, even without stimulating cortisol.","The problem was that these fragments lasted very briefly in the body. In Moscow, the Institute of Molecular Genetics added three amino acids to one of them and created a stable version, Semax."],"science":["Semax has seven amino acids and was designed to keep the fragment's effect for longer. In Russia it has been studied and used clinically for decades.","In 2006, a rat study showed that Semax raised BDNF levels in the hippocampus, a protein linked to forming new connections between neurons."]},"es":{"kicker":"Cerebro","title":"Un trozo de la hormona del estrés que ayuda al cerebro a concentrarse","teaser":"Los científicos descubrieron que un fragmento de la ACTH influía en la atención y la memoria sin actuar como hormona.","story":["Cuando pasamos por una situación de estrés, el cerebro libera ACTH, una hormona que ordena a las glándulas suprarrenales producir cortisol.","En los años 60 y 70, el investigador neerlandés David de Wied notó algo inesperado: pequeños trozos de la ACTH influían en el aprendizaje y la memoria de animales, incluso sin estimular el cortisol.","El problema era que esos fragmentos duraban muy poco en el cuerpo. En Moscú, el Instituto de Genética Molecular añadió tres aminoácidos a uno de ellos y creó una versión estable, el Semax."],"science":["El Semax tiene siete aminoácidos y fue diseñado para mantener el efecto del fragmento por más tiempo. En Rusia se estudia y se usa clínicamente desde hace décadas.","En 2006, un estudio en ratas mostró que el Semax aumentó los niveles de BDNF en el hipocampo, una proteína ligada a la formación de nuevas conexiones entre neuronas."]}},{"id":"ghrelin","photo":"Large plate of food - Flickr - miguel.discart.jpg","icon":"fa-bowl-food","word":"Grelina","word_en":"Ghrelin","word_es":"Grelina","tone":["#fff3ea","#ffe6d4"],"minutes":3,"sources":["Kojima M. et al. Nature, 1999 (descoberta da grelina)","Raun K. et al. European Journal of Endocrinology, 1998 (ipamorelina)","Teichman S.L. et al. J Clin Endocrinol Metab, 2006 (CJC-1295)"],"pt":{"kicker":"Fome","title":"O hormônio da fome que também chama o hormônio do crescimento","teaser":"Os cientistas já conheciam a fechadura antes de encontrar a chave natural.","story":["Nos anos 1980 e 1990, laboratórios criaram moléculas sintéticas que faziam o corpo liberar hormônio do crescimento. Elas agiam num receptor específico, mas ninguém sabia qual substância natural usava aquele receptor.","A resposta veio em 1999, de um lugar inesperado: o estômago. Pesquisadores japoneses descobriram ali um hormônio que se encaixava nesse receptor e o chamaram de grelina.","A grelina sobe antes das refeições e é o sinal de fome que o estômago manda ao cérebro. Ao mesmo tempo, ela estimula a liberação de hormônio do crescimento."],"science":["A ipamorelina foi descrita em 1998 como um secretagogo seletivo: nos estudos, ela liberou hormônio do crescimento sem elevar de forma importante o cortisol, algo que outros compostos da mesma família faziam.","O CJC-1295 age em outro receptor, o do GHRH, e mantém o estímulo por vários dias. Por isso os dois são estudados juntos, cada um ativando um caminho diferente do mesmo eixo."]},"en":{"kicker":"Hunger","title":"The hunger hormone that also calls growth hormone","teaser":"Scientists knew the lock long before they found the natural key.","story":["In the 1980s and 1990s, labs created synthetic molecules that made the body release growth hormone. They acted on a specific receptor, but nobody knew which natural substance used it.","The answer came in 1999 from an unexpected place: the stomach. Japanese researchers found a hormone there that fit this receptor and named it ghrelin.","Ghrelin rises before meals and is the hunger signal the stomach sends to the brain. At the same time, it stimulates growth hormone release."],"science":["Ipamorelin was described in 1998 as a selective secretagogue: in studies it released growth hormone without a significant rise in cortisol, something other compounds in the same family did.","CJC-1295 acts on a different receptor, the GHRH receptor, and keeps the stimulus going for several days. That is why the two are studied together, each activating a different path on the same axis."]},"es":{"kicker":"Hambre","title":"La hormona del hambre que también llama a la hormona del crecimiento","teaser":"Los científicos conocían la cerradura mucho antes de encontrar la llave natural.","story":["En los años 80 y 90, los laboratorios crearon moléculas sintéticas que hacían que el cuerpo liberara hormona del crecimiento. Actuaban en un receptor específico, pero nadie sabía qué sustancia natural lo usaba.","La respuesta llegó en 1999 desde un lugar inesperado: el estómago. Investigadores japoneses encontraron allí una hormona que encajaba en ese receptor y la llamaron grelina.","La grelina sube antes de las comidas y es la señal de hambre que el estómago envía al cerebro. Al mismo tiempo, estimula la liberación de hormona del crecimiento."],"science":["La ipamorelina se describió en 1998 como un secretagogo selectivo: en los estudios liberó hormona del crecimiento sin elevar de forma importante el cortisol, algo que otros compuestos de la misma familia sí hacían.","El CJC-1295 actúa en otro receptor, el de GHRH, y mantiene el estímulo durante varios días. Por eso ambos se estudian juntos, cada uno activando un camino distinto del mismo eje."]}}];
+
+    function stLang() { return currentLang; }
+    function stText(st) { const l = stLang(); return st[l] || st[STORY_TEXT_FALLBACK[l]] || st.pt; }
+    function stUI() { return BRO_STORIES_UI[stLang()] || BRO_STORIES_UI.pt; }
+    function stPhotoUrl(st, w) { return 'https://commons.wikimedia.org/wiki/Special:FilePath/' + encodeURIComponent(st.photo.replace(/ /g, '_')) + '?width=' + w; }
+    function stPhotoPage(st) { return 'https://commons.wikimedia.org/wiki/File:' + encodeURIComponent(st.photo.replace(/ /g, '_')); }
+    function stPhoto(st, w, cls) { return st.photo ? `<img class="${cls}" src="${stPhotoUrl(st, w)}" alt="" loading="${w > 1200 ? 'eager' : 'lazy'}" referrerpolicy="no-referrer" onload="this.parentNode.classList.add('has-photo')" onerror="this.remove()">` : ''; }
+    function stWord(st) { const l = stLang(); return st['word_' + l] || st['word_' + (STORY_TEXT_FALLBACK[l] || '')] || st.word; }
+    function stEsc(t) { return String(t).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
+
+    let stShowAll = false;
+    let currentStory = 0;
+
+    function renderStories() {
+        const ui = stUI();
+        const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+        set('st-eyebrow', ui.eyebrow); set('st-title', ui.title); set('st-sub', ui.sub);
+        const box = document.getElementById('stories-container');
+        if (!box) return;
+        box.innerHTML = BRO_STORIES.map((st, i) => {
+            const t = stText(st);
+            return `<button type="button" class="st-card${i === 0 ? ' st-featured' : ''}${i >= 5 ? ' st-extra' : ''}" data-story="${i}">
+                <div class="st-cover" style="background: linear-gradient(135deg, ${st.tone[0]}, ${st.tone[1]});">
+                    ${stPhoto(st, i === 0 ? 1200 : 640, 'st-photo')}
+                    <span class="st-word" aria-hidden="true">${stEsc(stWord(st))}</span>
+                </div>
+                <div class="st-body">
+                    <span class="st-kicker">${stEsc(t.kicker)}</span>
+                    <span class="st-title">${stEsc(t.title)}</span>
+                    <span class="st-teaser">${stEsc(t.teaser)}</span>
+                    <span class="st-meta"><span class="st-read">${ui.read} <span class="st-arrow">→</span></span><span>${st.minutes} ${ui.min}</span></span>
+                </div>
+            </button>`;
+        }).join('');
+        box.querySelectorAll('.st-card').forEach(b => b.addEventListener('click', () => openStory(+b.dataset.story)));
+        box.classList.toggle('is-open', stShowAll);
+        const more = document.getElementById('st-more');
+        if (more) {
+            const extra = BRO_STORIES.length - 5;
+            more.hidden = extra <= 0;
+            more.textContent = stShowAll ? `${ui.less} ↑` : `${ui.more} (${extra}) ↓`;
+            more.onclick = () => {
+                stShowAll = !stShowAll;
+                renderStories();
+                if (!stShowAll) box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            };
+        }
+        const modal = document.getElementById('story-modal');
+        if (modal && modal.classList.contains('active')) openStory(currentStory, true);
+    }
+
+    function openStory(i, keepScroll) {
+        const n = BRO_STORIES.length;
+        currentStory = ((i % n) + n) % n;
+        const st = BRO_STORIES[currentStory];
+        const t = stText(st);
+        const ui = stUI();
+        const prev = BRO_STORIES[(currentStory - 1 + n) % n], next = BRO_STORIES[(currentStory + 1) % n];
+        const ttl = (s) => stEsc(stText(s).title);
+        const reader = document.getElementById('story-reader');
+        const scrollTop = reader.scrollTop;
+        reader.innerHTML = `
+            <div class="st-progress"><span id="st-progress"></span></div>
+            <button type="button" class="st-r-close" id="st-r-close" aria-label="${ui.close}">&times;</button>
+            <div class="st-r-hero">
+                ${stPhoto(st, 1400, 'st-photo')}
+                <div class="st-r-head">
+                    <span class="st-r-kicker">${stEsc(t.kicker)}</span>
+                    <h2 id="st-r-title">${stEsc(t.title)}</h2>
+                    <span class="st-r-meta">${st.minutes} ${ui.min}</span>
+                </div>
+            </div>
+            <article class="st-r-body">
+                <p class="st-r-lead">${stEsc(t.teaser)}</p>
+                ${t.story.map(p => `<p>${stEsc(p)}</p>`).join('')}
+                <h3>${ui.ch2}</h3>
+                ${t.science.map(p => `<p>${stEsc(p)}</p>`).join('')}
+                <div class="st-r-foot">
+                    <span>${ui.sources}</span>
+                    <ol>${st.sources.map(x => `<li>${stEsc(x)}</li>`).join('')}</ol>
+                    <p>${st.photo ? `${ui.photo}: <a href="${stPhotoPage(st)}" target="_blank" rel="noopener">Wikimedia Commons</a>. ` : ''}${ui.note}</p>
+                </div>
+            </article>
+            <div class="st-r-nav">
+                <button type="button" data-go="-1"><small>${ui.prev}</small><span>${ttl(prev)}</span></button>
+                <button type="button" data-go="1"><small>${ui.next}</small><span>${ttl(next)}</span></button>
+            </div>`;
+        reader.querySelector('#st-r-close').onclick = closeStory;
+        reader.querySelectorAll('[data-go]').forEach(b => b.onclick = () => openStory(currentStory + (+b.dataset.go)));
+        reader.onscroll = () => {
+            const max = reader.scrollHeight - reader.clientHeight;
+            const bar = document.getElementById('st-progress');
+            if (bar) bar.style.width = (max > 0 ? reader.scrollTop / max * 100 : 0) + '%';
+        };
+        reader.scrollTop = keepScroll ? scrollTop : 0;
+        reader.onscroll();
+        const modal = document.getElementById('story-modal');
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        if (!keepScroll) reader.querySelector('#st-r-close').focus({ preventScroll: true });
+    }
+
+    function closeStory() {
+        const modal = document.getElementById('story-modal');
+        if (!modal) return;
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+
+    document.getElementById('story-modal').addEventListener('click', (e) => { if (e.target.id === 'story-modal') closeStory(); });
+    document.addEventListener('keydown', (e) => {
+        const modal = document.getElementById('story-modal');
+        if (!modal.classList.contains('active')) return;
+        if (e.key === 'Escape') closeStory();
+        else if (e.key === 'ArrowRight') openStory(currentStory + 1);
+        else if (e.key === 'ArrowLeft') openStory(currentStory - 1);
+    });
+    renderStories();
     </script>
 </body>
 </html>
