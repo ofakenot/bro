@@ -329,8 +329,8 @@
         .card-3d .card-footer-tech { color: var(--dark) !important; opacity: 0.55 !important; border-top-color: rgba(0,0,0,0.1) !important; }
         .card-3d:hover { box-shadow: 0 2px 4px rgba(0,0,0,0.05), 0 28px 60px rgba(30,60,140,0.2), var(--glass-ios-edge) !important; }
 
-        /* Hero: vídeo nítido, texto legível por cima */
-        .hero-content h1, .hero-content p { text-shadow: 0 1px 24px rgba(255,255,255,0.65), 0 0 2px rgba(255,255,255,0.5); }
+        /* Ecossistema: fotos sem véu */
+        .eco-h-image::after, .image-overlay-fix { display: none !important; }
 
         /* ══ ARTIGOS (estilo New Life) ══ */
         .st-block { margin: 0; text-align: left; }
@@ -461,10 +461,10 @@
     <!-- ══ HERO ══ -->
     <section class="hero" style="position: relative; overflow: hidden; min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: transparent;">
         <div style="position: absolute; inset: 0; z-index: 0; pointer-events: none;">
-            <video id="hero-video" autoplay loop muted playsinline preload="auto" style="width:100%; height:100%; object-fit:cover; opacity:1; transition: all 1s;">
+            <video id="hero-video" autoplay loop muted playsinline preload="auto" style="width:100%; height:100%; object-fit:cover; opacity:0.5; transition: all 1s;">
                 <source src="https://videos.pexels.com/video-files/35968183/15249566_1920_1080_30fps.mp4" type="video/mp4">
             </video>
-            <div style="position:absolute; inset:0; background:linear-gradient(to top, #f5f5f7 0%, rgba(245,245,247,0.15) 35%, rgba(245,245,247,0.25) 65%, rgba(245,245,247,0.85) 100%);"></div>
+            <div style="position:absolute; inset:0; background:linear-gradient(to top, #fbfbfd 0%, rgba(251,251,253,0.55) 50%, #fbfbfd 100%);"></div>
         </div>
 
         <div class="hero-container" style="position:relative; z-index:10; width:100%; max-width:950px; padding:0 24px;">
