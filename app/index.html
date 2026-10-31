@@ -19,17 +19,19 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:       #050505;
-      --bg2:      #0a0a0a;
-      --bg3:      #111111;
-      --border:   #1e1e1e;
-      --border2:  #2a2a2a;
-      --text:     #f0f0f0;
-      --muted:    #666666;
-      --muted2:   #3a3a3a;
-      --gold:     #c9a84c;
-      --gold2:    #f0d080;
-      --gold3:    #8a6820;
+      --bg:       #f5f5f7;
+      --bg2:      rgba(255,255,255,0.62);
+      --bg3:      #ffffff;
+      --border:   rgba(0,0,0,0.07);
+      --border2:  rgba(0,0,0,0.12);
+      --text:     #1d1d1f;
+      --muted:    #6e6e73;
+      --muted2:   #a1a1a6;
+      --gold:     #0071e3;
+      --gold2:    #2b8cff;
+      --gold3:    rgba(0,113,227,0.45);
+      --glass-blur: blur(24px) saturate(180%);
+      --glass-edge: inset 0 1px 0 rgba(255,255,255,0.95);
       --radius:   1.1rem;
       --font-display: 'Bebas Neue', sans-serif;
       --font-body:    'DM Sans', sans-serif;
@@ -52,7 +54,7 @@
     @keyframes slideUp   { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
     @keyframes fadeIn    { from { opacity:0; } to { opacity:1; } }
     @keyframes shimmer   { 0%,100% { opacity:.4; } 50% { opacity:1; } }
-    @keyframes goldPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(201,168,76,0); } 60% { box-shadow: 0 0 12px 3px rgba(201,168,76,0.35); } }
+    @keyframes goldPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(0,113,227,0); } 60% { box-shadow: 0 0 12px 3px rgba(0,113,227,0.35); } }
     @keyframes scanline  { from { left:-200%; } 30% { left:200%; } to { left:200%; } }
     @keyframes badgePop  { 0% { transform:scale(.8) translateY(-2px); opacity:0; } 100% { transform:scale(1) translateY(0); opacity:1; } }
     @keyframes float     { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-6px); } }
@@ -66,7 +68,7 @@
     /* HEADER */
     .header {
       position: sticky; top: 0; z-index: 200;
-      background: rgba(5,5,5,0.92);
+      background: rgba(255,255,255,0.78);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
       height: 56px;
@@ -77,10 +79,10 @@
     .header::after {
       content: '';
       position: absolute; top: 0; left: -200%; width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.06) 50%, transparent 100%);
+      background: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.06) 50%, transparent 100%);
       animation: scanline 7s infinite;
     }
-    .header-logo { height: 1.8rem; filter: brightness(1.4) grayscale(.3); z-index: 2; }
+    .header-logo { height: 1.8rem; z-index: 2; }
     .header-center {
       position: absolute; left: 50%; transform: translateX(-50%);
       font-family: var(--font-display);
@@ -105,12 +107,12 @@
       border-bottom: 1px solid var(--border);
     }
     .hero-orb { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; }
-    .hero-orb-1 { width: 300px; height: 300px; background: rgba(201,168,76,.06); top: -80px; left: -60px; }
-    .hero-orb-2 { width: 250px; height: 250px; background: rgba(255,255,255,.03); bottom: -60px; right: -40px; }
+    .hero-orb-1 { width: 300px; height: 300px; background: rgba(0,113,227,.06); top: -80px; left: -60px; }
+    .hero-orb-2 { width: 250px; height: 250px; background: rgba(0,0,0,.03); bottom: -60px; right: -40px; }
 
     .lang-selector {
       display: inline-flex; align-items: center; gap: .2rem;
-      background: rgba(255,255,255,.04); border: 1px solid var(--border2);
+      background: rgba(0,0,0,.04); border: 1px solid var(--border2);
       border-radius: 999px; padding: .2rem;
       margin-bottom: 2rem; position: relative; z-index: 2;
     }
@@ -130,14 +132,14 @@
     .hero-tag {
       display: inline-flex; align-items: center; gap: .4rem;
       padding: .3rem .9rem;
-      background: rgba(201,168,76,.08); border: 1px solid rgba(201,168,76,.2);
+      background: rgba(0,113,227,.08); border: 1px solid rgba(0,113,227,.2);
       border-radius: 999px; color: var(--gold);
       font-size: .65rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
       margin-bottom: 1.25rem; position: relative; z-index: 2;
     }
     .hero-logo {
       width: 90px; margin-bottom: 1.25rem;
-      filter: drop-shadow(0 0 20px rgba(201,168,76,.15));
+      filter: drop-shadow(0 0 20px rgba(0,113,227,.15));
       animation: float 4s ease-in-out infinite;
       position: relative; z-index: 2;
     }
@@ -162,7 +164,7 @@
     /* CATEGORY FILTER */
     .cat-bar {
       position: sticky; top: 56px; z-index: 100;
-      background: rgba(5,5,5,.95); backdrop-filter: blur(20px);
+      background: rgba(255,255,255,0.78); backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
       padding: .9rem 0 .75rem;
     }
@@ -183,14 +185,14 @@
       letter-spacing: .5px; text-transform: uppercase; white-space: nowrap;
       cursor: pointer; transition: all .25s; position: relative; overflow: hidden;
     }
-    .cat-btn:hover { border-color: var(--border2); color: #ccc; background: var(--bg3); }
+    .cat-btn:hover { border-color: var(--border2); color: var(--text); background: var(--bg3); }
     .cat-btn.active { background: var(--text); border-color: var(--text); color: var(--bg); }
     .cat-btn:active { transform: scale(.94); }
-    .cat-btn[data-category="bropharma"] { border-color: var(--gold3); color: var(--gold); background: rgba(201,168,76,.07); }
-    .cat-btn[data-category="bropharma"]:hover { border-color: var(--gold); background: rgba(201,168,76,.13); color: var(--gold2); }
+    .cat-btn[data-category="bropharma"] { border-color: var(--gold3); color: var(--gold); background: rgba(0,113,227,.07); }
+    .cat-btn[data-category="bropharma"]:hover { border-color: var(--gold); background: rgba(0,113,227,.13); color: var(--gold2); }
     .cat-btn[data-category="bropharma"].active {
-      background: linear-gradient(135deg, #c9a84c, #f0d080, #c9a84c);
-      border-color: var(--gold2); color: #1a0e00;
+      background: linear-gradient(135deg, #0071e3, #4aa3ff, #0071e3);
+      border-color: var(--gold2); color: #ffffff;
       animation: goldPulse 2.5s infinite; font-weight: 800;
     }
     .cat-official-badge {
@@ -223,18 +225,18 @@
       cursor: pointer; transition: all .35s ease;
       display: flex; flex-direction: column; position: relative;
     }
-    .card:hover { border-color: var(--border2); transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,.55); }
+    .card:hover { border-color: var(--border2); transform: translateY(-4px); box-shadow: 0 12px 36px rgba(30,40,90,.10); }
     .card::before {
       content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
-      background: radial-gradient(ellipse at top left, rgba(255,255,255,.03), transparent 60%);
+      background: radial-gradient(ellipse at top left, rgba(0,0,0,.03), transparent 60%);
       opacity: 0; transition: opacity .35s;
     }
     .card:hover::before { opacity: 1; }
-    .card.is-bropharma { border-color: rgba(201,168,76,.15); }
-    .card.is-bropharma:hover { border-color: rgba(201,168,76,.4); box-shadow: 0 12px 36px rgba(201,168,76,.08); }
+    .card.is-bropharma { border-color: rgba(0,113,227,.15); }
+    .card.is-bropharma:hover { border-color: rgba(0,113,227,.4); box-shadow: 0 12px 36px rgba(0,113,227,.08); }
     .card.is-bropharma::after {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(201,168,76,.5), transparent);
+      background: linear-gradient(90deg, transparent, rgba(0,113,227,.5), transparent);
     }
 
     /* IMAGE AREA — chave da correção */
@@ -286,7 +288,7 @@
       border: 1px solid var(--border2); z-index: 3;
     }
     .card.is-bropharma .card-badge {
-      background: rgba(201,168,76,.12); color: var(--gold); border-color: rgba(201,168,76,.3);
+      background: rgba(0,113,227,.12); color: var(--gold); border-color: rgba(0,113,227,.3);
     }
     .swipe-hint {
       position: absolute; bottom: .5rem; right: .5rem;
@@ -317,15 +319,15 @@
       cursor: pointer; transition: all .25s; position: relative; overflow: hidden;
     }
     .card.is-bropharma .card-cta {
-      background: linear-gradient(135deg, #b8922a, #e8c860, #b8922a);
-      background-size: 200% 100%; color: #1a0e00;
+      background: linear-gradient(135deg, #0060c7, #2b8cff, #0060c7);
+      background-size: 200% 100%; color: #ffffff;
     }
     .card.is-bropharma .card-cta:hover { background-size: 100% 100%; filter: brightness(1.1); }
     .card-cta svg { width: 16px; height: 16px; flex-shrink: 0; }
     .card-cta:hover { transform: scale(1.02); }
     .card-cta::after {
       content: ''; position: absolute; top: 0; left: -200%; width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
+      background: linear-gradient(90deg, transparent, rgba(0,0,0,.12), transparent);
       animation: scanline 6s infinite;
     }
     @media (max-width: 768px) {
@@ -337,7 +339,7 @@
     /* BOTTOM NAV */
     .bot-nav {
       position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000;
-      background: rgba(5,5,5,.96); backdrop-filter: blur(24px);
+      background: rgba(255,255,255,0.78); backdrop-filter: blur(24px);
       border-top: 1px solid var(--border);
       padding-bottom: env(safe-area-inset-bottom, 0); height: 68px;
     }
@@ -354,19 +356,19 @@
     .nav-item.active { color: var(--text); }
     .nav-icon { width: 26px; height: 26px; margin-bottom: 3px; display: flex; align-items: center; justify-content: center; }
     .nav-item svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; transition: transform .2s, filter .2s; }
-    .nav-item.active svg { transform: scale(1.1); filter: drop-shadow(0 0 4px rgba(255,255,255,.3)); }
+    .nav-item.active svg { transform: scale(1.1); filter: drop-shadow(0 0 4px rgba(0,113,227,.25)); }
     .nav-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
 
     /* MODAL */
     .modal-overlay {
       position: fixed; inset: 0; z-index: 2000;
-      background: rgba(0,0,0,.88); backdrop-filter: blur(16px);
+      background: rgba(0,0,0,.30); backdrop-filter: blur(16px);
       display: flex; align-items: flex-end; justify-content: center;
       opacity: 0; visibility: hidden; transition: opacity .35s, visibility .35s;
     }
     .modal-overlay.active { opacity: 1; visibility: visible; }
     .modal-box {
-      background: #070707; width: 100%; max-width: 480px;
+      background: #ffffff; width: 100%; max-width: 480px;
       max-height: 88vh; border-radius: 2rem 2rem 0 0;
       border: 1px solid var(--border); border-bottom: none;
       display: flex; flex-direction: column;
@@ -414,7 +416,7 @@
     .modal-feat svg { width: 1.1rem; height: 1.1rem; flex-shrink: 0; }
     .modal-feat span { font-size: .82rem; color: #ddd; font-weight: 500; }
     .modal-foot {
-      padding: 1rem 1.25rem 1.25rem; border-top: 1px solid var(--border); background: #070707;
+      padding: 1rem 1.25rem 1.25rem; border-top: 1px solid var(--border); background: #ffffff;
     }
     .modal-wa {
       display: flex; align-items: center; justify-content: center; gap: .65rem;
@@ -471,15 +473,15 @@
       cursor: pointer; text-decoration: none; width: 100%; transition: all .25s;
     }
     .cat-card:hover { background: var(--bg3); border-color: var(--border2); transform: translateX(4px); }
-    .cat-card.is-bropharma { border-color: rgba(201,168,76,.2); }
-    .cat-card.is-bropharma:hover { border-color: rgba(201,168,76,.45); background: rgba(201,168,76,.04); }
+    .cat-card.is-bropharma { border-color: rgba(0,113,227,.2); }
+    .cat-card.is-bropharma:hover { border-color: rgba(0,113,227,.45); background: rgba(0,113,227,.04); }
     .cat-icon-box {
       width: 52px; height: 52px; border-radius: 1rem;
       background: var(--text); display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
-    .cat-card.is-bropharma .cat-icon-box { background: linear-gradient(135deg, #c9a84c, #f0d080); }
+    .cat-card.is-bropharma .cat-icon-box { background: linear-gradient(135deg, #0071e3, #4aa3ff); }
     .cat-icon-box svg { width: 26px; height: 26px; stroke: var(--bg); fill: none; stroke-width: 2.2; }
-    .cat-card.is-bropharma .cat-icon-box svg { stroke: #1a0e00; }
+    .cat-card.is-bropharma .cat-icon-box svg { stroke: #ffffff; }
     .cat-info { flex: 1; min-width: 0; }
     .cat-name { font-family: var(--font-display); font-size: 1.05rem; letter-spacing: .05em; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .cat-card.is-bropharma .cat-name { color: var(--gold); }
@@ -489,7 +491,7 @@
     .official-tag {
       display: inline-flex; align-items: center; gap: .3rem;
       padding: .2rem .55rem;
-      background: rgba(201,168,76,.12); border: 1px solid rgba(201,168,76,.3);
+      background: rgba(0,113,227,.12); border: 1px solid rgba(0,113,227,.3);
       border-radius: 999px;
       font-size: .58rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
       color: var(--gold); animation: badgePop .4s ease-out;
@@ -524,44 +526,44 @@
     .vip-wrap { width: 100%; max-width: 360px; }
     .vip-card {
       background: linear-gradient(145deg, var(--bg3), var(--bg));
-      border: 1px solid rgba(201,168,76,.2); border-radius: 1.5rem; padding: 2rem 1.5rem; text-align: center;
+      border: 1px solid rgba(0,113,227,.2); border-radius: 1.5rem; padding: 2rem 1.5rem; text-align: center;
       position: relative; overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,.8), 0 0 0 1px rgba(201,168,76,.05);
+      box-shadow: 0 20px 60px rgba(30,40,90,.10), 0 0 0 1px rgba(0,113,227,.05);
     }
-    .vip-card::before { content: ''; position: absolute; top: -40%; left: -40%; width: 180%; height: 180%; background: radial-gradient(circle, rgba(201,168,76,.04), transparent 60%); pointer-events: none; }
-    .vip-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(201,168,76,.5), transparent); }
-    .vip-badge { display: inline-flex; align-items: center; gap: .4rem; background: rgba(201,168,76,.1); border: 1px solid rgba(201,168,76,.25); padding: .3rem .85rem; border-radius: 999px; font-size: .62rem; font-weight: 800; letter-spacing: 2px; color: var(--gold); margin-bottom: 1rem; text-transform: uppercase; }
-    .vip-title { font-family: var(--font-display); font-size: 1.6rem; letter-spacing: .06em; background: linear-gradient(to bottom, #fff 0%, #888 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: .75rem; }
+    .vip-card::before { content: ''; position: absolute; top: -40%; left: -40%; width: 180%; height: 180%; background: radial-gradient(circle, rgba(0,113,227,.04), transparent 60%); pointer-events: none; }
+    .vip-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(0,113,227,.5), transparent); }
+    .vip-badge { display: inline-flex; align-items: center; gap: .4rem; background: rgba(0,113,227,.1); border: 1px solid rgba(0,113,227,.25); padding: .3rem .85rem; border-radius: 999px; font-size: .62rem; font-weight: 800; letter-spacing: 2px; color: var(--gold); margin-bottom: 1rem; text-transform: uppercase; }
+    .vip-title { font-family: var(--font-display); font-size: 1.6rem; letter-spacing: .06em; background: linear-gradient(to bottom, #1d1d1f 0%, #6e6e73 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: .75rem; }
     .vip-text { color: #999; font-size: .88rem; line-height: 1.55; }
-    .vip-price-box { background: rgba(255,255,255,.02); border: 1px dashed var(--border2); border-radius: 1rem; padding: 1.25rem; margin: 1.5rem 0; }
+    .vip-price-box { background: rgba(0,0,0,.02); border: 1px dashed var(--border2); border-radius: 1rem; padding: 1.25rem; margin: 1.5rem 0; }
     .vip-price-label { font-size: .58rem; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
     .vip-price-amt { font-family: var(--font-display); font-size: 3.5rem; letter-spacing: .02em; color: var(--text); line-height: 1; }
     .vip-price-amt sup { font-size: 1rem; color: var(--muted); vertical-align: super; }
-    .vip-cta { display: flex; align-items: center; justify-content: center; gap: .75rem; width: 100%; height: 3.25rem; background: linear-gradient(180deg, #e8c860 0%, #a07828 100%); color: #1a0e00; border-radius: .9rem; text-decoration: none; font-weight: 900; font-size: .88rem; letter-spacing: .5px; transition: all .3s; box-shadow: 0 8px 24px rgba(201,168,76,.2); position: relative; overflow: hidden; }
-    .vip-cta::after { content: ''; position: absolute; top:0; left:-200%; width:100%; height:100%; background: linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent); animation: scanline 5s infinite; }
+    .vip-cta { display: flex; align-items: center; justify-content: center; gap: .75rem; width: 100%; height: 3.25rem; background: linear-gradient(180deg, #2b8cff 0%, #0058b8 100%); color: #ffffff; border-radius: .9rem; text-decoration: none; font-weight: 900; font-size: .88rem; letter-spacing: .5px; transition: all .3s; box-shadow: 0 8px 24px rgba(0,113,227,.2); position: relative; overflow: hidden; }
+    .vip-cta::after { content: ''; position: absolute; top:0; left:-200%; width:100%; height:100%; background: linear-gradient(90deg,transparent,rgba(0,0,0,.15),transparent); animation: scanline 5s infinite; }
     .vip-cta:hover { transform: scale(1.02); filter: brightness(1.1); }
 
     /* INFO */
     .info-sec { padding-bottom: 8rem; background: var(--bg); }
     .info-hero { padding: 2.5rem 1.25rem 1.5rem; max-width: 820px; margin: 0 auto; text-align: center; }
     .info-title { font-family: var(--font-display); font-size: 2rem; letter-spacing: .06em; color: var(--text); margin-bottom: .75rem; }
-    .info-lead { color: rgba(255,255,255,.7); font-size: .95rem; line-height: 1.7; }
+    .info-lead { color: #424245; font-size: .95rem; line-height: 1.7; }
     .m3-wrap { width:100%; padding:1.5rem 0 2.5rem; }
     .m3-grid { width:min(1100px,100%); margin:0 auto; padding: 0 max(18px,env(safe-area-inset-left)); display:grid; gap:16px; }
     .m3-card { position:relative; overflow:visible; border-radius:22px; perspective:1100px; }
-    .m3-shell { position:relative; overflow:hidden; border-radius:22px; min-height:340px; background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.015)); border:1px solid rgba(255,255,255,.1); box-shadow:0 22px 70px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.07); backdrop-filter:blur(14px); }
-    .m3-bg { position:absolute; inset:0; z-index:0; background:radial-gradient(800px 500px at 18% 20%,rgba(255,255,255,.08),transparent 60%),radial-gradient(700px 440px at 86% 78%,rgba(255,255,255,.04),transparent 62%),linear-gradient(180deg,rgba(255,255,255,.04),rgba(0,0,0,.22)); }
-    .m3-shell::before { content:""; position:absolute; left:-80px; right:-80px; top:-80px; height:200px; z-index:1; pointer-events:none; background:radial-gradient(closest-side at 30% 45%,rgba(255,255,255,.1),rgba(255,255,255,0)); opacity:.8; }
+    .m3-shell { position:relative; overflow:hidden; border-radius:22px; min-height:340px; background:rgba(255,255,255,.62); border:1px solid rgba(255,255,255,.9); box-shadow:0 12px 40px rgba(30,40,90,.08),inset 0 1px 0 rgba(255,255,255,.95); backdrop-filter:blur(24px) saturate(180%); -webkit-backdrop-filter:blur(24px) saturate(180%); }
+    .m3-bg { position:absolute; inset:0; z-index:0; background:radial-gradient(800px 500px at 18% 20%,rgba(0,113,227,.06),transparent 60%),radial-gradient(700px 440px at 86% 78%,rgba(166,107,224,.05),transparent 62%); }
+    .m3-shell::before { content:""; position:absolute; left:-80px; right:-80px; top:-80px; height:200px; z-index:1; pointer-events:none; background:radial-gradient(closest-side at 30% 45%,rgba(0,0,0,.1),rgba(255,255,255,0)); opacity:.8; }
     .m3-float { position:absolute; inset:0 auto 0 0; width:400px; z-index:10; pointer-events:none; overflow:visible; }
-    .m3-img { position:absolute; left:-80px; top:50%; transform:translateY(-50%) translateZ(72px) rotateY(12deg); width:500px; height:auto; filter:drop-shadow(0 70px 150px rgba(0,0,0,.75)) drop-shadow(0 16px 30px rgba(0,0,0,.4)); transition:transform .3s; }
+    .m3-img { position:absolute; left:-80px; top:50%; transform:translateY(-50%) translateZ(72px) rotateY(12deg); width:500px; height:auto; filter:drop-shadow(0 40px 80px rgba(30,40,90,.22)) drop-shadow(0 12px 24px rgba(30,40,90,.15)); transition:transform .3s; }
     .m3-card:hover .m3-img { transform:translateY(-50%) translateZ(100px) rotateY(15deg) scale(1.02); }
-    .m3-content { position:relative; z-index:3; margin-left:400px; padding:48px 48px 40px; max-width:720px; color:#fff; }
-    .m3-title { margin:0 0 8px; font-family:var(--font-display); font-size:clamp(22px,2.2vw,38px); letter-spacing:.04em; font-weight:400; color:#fff; }
-    .m3-lead { margin:0 0 12px; color:rgba(255,255,255,.8); font-size:14px; line-height:1.7; max-width:60ch; }
+    .m3-content { position:relative; z-index:3; margin-left:400px; padding:48px 48px 40px; max-width:720px; color:#1d1d1f; }
+    .m3-title { margin:0 0 8px; font-family:var(--font-display); font-size:clamp(22px,2.2vw,38px); letter-spacing:.04em; font-weight:400; color:#1d1d1f; }
+    .m3-lead { margin:0 0 12px; color:#424245; font-size:14px; line-height:1.7; max-width:60ch; }
     .m3-list { margin:10px 0 14px; padding:0; list-style:none; display:grid; gap:8px; max-width:66ch; }
-    .m3-list li { position:relative; padding-left:14px; color:rgba(255,255,255,.7); font-size:13.5px; line-height:1.6; }
-    .m3-list li::before { content:"•"; position:absolute; left:0; top:0; color:rgba(255,255,255,.9); font-weight:900; }
-    .m3-note { margin:0; font-size:11.5px; color:rgba(255,255,255,.5); }
+    .m3-list li { position:relative; padding-left:14px; color:#424245; font-size:13.5px; line-height:1.6; }
+    .m3-list li::before { content:"•"; position:absolute; left:0; top:0; color:#0071e3; font-weight:900; }
+    .m3-note { margin:0; font-size:11.5px; color:#6e6e73; }
     .m3-in { display:none; }
     @media (max-width:960px) { .m3-shell { min-height:auto; } .m3-float { display:none; } .m3-in { display:block; position:relative; z-index:3; padding:14px 14px 6px; } .m3-in img { width:100%; height:auto; border-radius:14px; filter:drop-shadow(0 24px 50px rgba(0,0,0,.5)); } .m3-content { margin-left:0; padding:12px 14px 16px; } .m3-title { font-size:clamp(19px,5vw,27px); } }
     @media (max-width:480px) { .m3-grid { padding:0 max(16px,env(safe-area-inset-left)); gap:14px; } .m3-shell { border-radius:18px; } .m3-content { padding:10px 12px 14px; } }
@@ -575,7 +577,7 @@
 
     .flags-row { display:flex; align-items:stretch; gap:8px; flex-wrap:nowrap; overflow-x:auto; padding:8px 1rem; margin-top:.6rem; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
     .flags-row::-webkit-scrollbar { display:none; }
-    .flag-card { width:72px; padding:5px 5px 7px; border-radius:10px; display:flex; flex-direction:column; align-items:center; gap:5px; flex-shrink:0; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07); }
+    .flag-card { width:72px; padding:5px 5px 7px; border-radius:10px; display:flex; flex-direction:column; align-items:center; gap:5px; flex-shrink:0; background:rgba(255,255,255,.7); border:1px solid rgba(0,0,0,.06); }
     .flag-card img { width:32px; height:21px; border-radius:3px; object-fit:cover; box-shadow:0 2px 6px rgba(0,0,0,.3); }
     .flag-card span { font-size:.62rem; font-weight:800; color:var(--muted); text-align:center; line-height:1.2; }
 
@@ -588,6 +590,14 @@
     .footer-dot { color:var(--border2); }
     .map-locked { pointer-events:none; }
     .map-unlocked { pointer-events:auto; cursor:grab; }
+  
+    /* ══ Tema claro / glass (igual ao site) ══ */
+    body { background: #f5f5f7 radial-gradient(circle at 10% 0%, rgba(0,113,227,.08), transparent 45%) fixed; }
+    body::before { opacity: .015; }
+    .header, .bottom-nav, .search-bar { -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); }
+    .card, .cat-card, .profile-card, .vip-card, .cat-btn { -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); box-shadow: 0 10px 30px rgba(30,40,90,.06), var(--glass-edge); }
+    .card:hover { box-shadow: 0 18px 40px rgba(30,40,90,.12), var(--glass-edge); border-color: rgba(0,113,227,.35); }
+    .vip-card { background: rgba(255,255,255,.7); }
   </style>
 </head>
 <body>
@@ -890,8 +900,6 @@ const productData = {
     makeProduct(10, "SS - 31 10mg", `SS - 31 10mg${verifiedBadge}`, "Tetrapeptídeo sintético (Elamipretide 10mg) direcionado seletivamente à cardiolipina na membrana mitocondrial interna. Restaura a estrutura bioenergética mitocondrial, otimiza a síntese de ATP e inibe a formação excessiva de espécies reativas de oxigênio (ROS).", "Bro Pharma", "bropharma", ["images/SS31_4600c956-f7e5-438b-918f-5380addb08d7.webp", "images/ss31_7f27bf2d-cbd5-4ad3-9b6c-cadf093acaea.webp"], "Olá! Tenho interesse no SS-31 10 mg"),
     makeProduct(11, "Semax 10mg", `Semax 10mg${verifiedBadge}`, "Peptídeo nootrópico sintético derivado de um fragmento do hormônio adrenocorticotrópico (ACTH 4-10) com modificação estabilizadora. Estimula a síntese endógena do BDNF e NGF (Fatores Neurotróficos), promovendo intensa neuroproteção, plasticidade sináptica, clareza mental e melhora cognitiva.", "Bro Pharma", "bropharma", ["images/Semax_76a81cb4-0dd4-4287-bfaf-fbc03b0aac38.webp", "images/semax_ba02e6d5-aafc-4619-b984-b2c5d2ee78de.webp"], "Olá! Tenho interesse no Semax 10 mg"),
     makeProduct(12, "MOTS - C 10mg", `MOTS - C 10mg${verifiedBadge}`, "Peptídeo derivado do genoma mitocondrial (MDP). Atua como um potente regulador metabólico sistémico, promovendo a captação otimizada de glicose pelo tecido muscular esquelético, aumentando a sensibilidade à insulina e restaurando a homeostase energética diante do estresse celular.", "Bro Pharma", "bropharma", ["images/Mots_C.webp", "images/mots_c_b24cbd8f-ed3f-4720-901f-f653f56801a3.webp"], "Olá! Tenho interesse no MOTS-C 10 mg"),
-    makeProduct(17, "Retatrutide 40mg Synedica", `Retatrutide 40mg Synedica${verifiedBadge}`, "Auxilia no controle do apetite e suporte ao metabolismo. Caneta com aplicação prática e dosagem precisa para protocolos avançados.", "Synedica", "synedica", ["images/retasynedicanew.jpeg"], "Olá! Tenho interesse no Retatrutide 40mg (Caneta)"),
-    makeProduct(33, "Glow GHK-CU Synedica", `Glow GHK-CU Synedica${verifiedBadge}`, "Combinação de BPC-157, TB-500 e GHK-CU. Auxilia na recuperação física, regeneração da pele e estímulo de colágeno. Versão Synedica.", "Synedica", "synedica", ["images/glowsynedicanew.png"], "Olá! Tenho interesse no Glow GHK-CU Synedica"),
     makeProduct(26, "Sérum GHK-CU & PDRN Elevia", `Sérum GHK-CU & PDRN Elevia${verifiedBadge}`, "Sérum facial regenerativo de alta performance formulado com tripeptídeo de cobre GHK-Cu e PDRN. Estimula a síntese profunda de colágeno e elastina, regenera o tecido cutáneo, reduz linhas de expressão e acelera a renovação celular para um efeito rejuvenescedor visível.", "Elevia", "elevia", ["images/elevianew.png", "images/serum-elevia.png"], "Olá! Tenho interesse no Sérum GHK-CU & PDRN Elevia"),
     makeProduct(27, "Creme Facial Elevia Jelly Cream – PDRN, Colágeno e Ácido Hialurônico", `Creme Facial Elevia Jelly Cream${verifiedBadge}`, "Fórmula inovadora de textura jelly que combina PDRN, colágeno hidrolisado e ácido hialurônico. Proporciona hidratação profunda contínua, restaura a firmeza epitelial, preenche finas rugas e melhora substancialmente a elasticidade da pele.", "Elevia", "elevia", ["images/creme1.webp", "images/jelly2.png"], "Olá! Tenho interesse no Creme Facial Elevia Jelly Cream"),
     makeProduct(28, "Elevia Kit - Sérum GHK-Cu + PDRN & Jelly Cream", `Elevia Kit (Sérum + Jelly Cream)${verifiedBadge}`, "Protocolo completo de alta reestruturação dermal que unifica a potência regenerativa do Sérum GHK-Cu & PDRN à hidratação intensa e preenchimento do Jelly Cream. Proporciona ação sinérgica anti-idade, firmeza e rejuvenescimento epitelial acelerado.", "Elevia", "elevia", ["images/kit1.png"], "Olá! Tenho interesse no Elevia Kit - Sérum GHK-Cu + PDRN & Jelly Cream"),
@@ -919,8 +927,6 @@ const productData = {
     makeProduct(10, "SS - 31 10mg", `SS - 31 10mg${verifiedBadge}`, "Synthetic tetrapeptide (Elamipretide 10mg) selectively targeted to cardiolipin in the inner mitochondrial membrane. Restores mitochondrial bioenergetic structure, optimizes ATP synthesis, and inhibits excessive reactive oxygen species (ROS) formation.", "Bro Pharma", "bropharma", ["images/SS31_4600c956-f7e5-438b-918f-5380addb08d7.webp", "images/ss31_7f27bf2d-cbd5-4ad3-9b6c-cadf093acaea.webp"], "Hello! I'm interested in SS-31 10 mg"),
     makeProduct(11, "Semax 10mg", `Semax 10mg${verifiedBadge}`, "Synthetic nootropic peptide derived from an adrenocorticotropic hormone fragment (ACTH 4-10) with stabilizing modification. Stimulates endogenous BDNF and NGF synthesis, promoting neuroprotection, synaptic plasticity, mental clarity, and cognitive enhancement.", "Bro Pharma", "bropharma", ["images/Semax_76a81cb4-0dd4-4287-bfaf-fbc03b0aac38.webp", "images/semax_ba02e6d5-aafc-4619-b984-b2c5d2ee78de.webp"], "Hello! I'm interested in Semax 10 mg"),
     makeProduct(12, "MOTS - C 10mg", `MOTS - C 10mg${verifiedBadge}`, "Mitochondrial genome-derived peptide (MDP). Acts as a potent systemic metabolic regulator, promoting optimized glucose uptake in skeletal muscle, increasing insulin sensitivity, and restoring energy homeostasis under cellular stress.", "Bro Pharma", "bropharma", ["images/Mots_C.webp", "images/mots_c_b24cbd8f-ed3f-4720-901f-f653f56801a3.webp"], "Hello! I'm interested in MOTS-C 10 mg"),
-    makeProduct(17, "Retatrutide 40mg Synedica", `Retatrutide 40mg Synedica${verifiedBadge}`, "Assists in appetite control and metabolic support. Pen with practical application and precise dosing for advanced protocols.", "Synedica", "synedica", ["images/retasynedicanew.jpeg"], "Hello! I'm interested in Retatrutide 40mg (Pen)"),
-    makeProduct(33, "Glow GHK-CU Synedica", `Glow GHK-CU Synedica${verifiedBadge}`, "Combination of BPC-157, TB-500 and GHK-CU. Assists in physical recovery, skin regeneration and collagen stimulation. Synedica version.", "Synedica", "synedica", ["images/glowsynedicanew.png"], "Hello! I'm interested in Glow GHK-CU Synedica"),
     makeProduct(26, "Sérum GHK-CU & PDRN Elevia", `Sérum GHK-CU & PDRN Elevia${verifiedBadge}`, "High-performance regenerative facial serum formulated with GHK-Cu copper tripeptide and PDRN. Stimulates deep collagen and elastin synthesis, regenerates skin tissue, reduces fine lines, and accelerates cellular turnover.", "Elevia", "elevia", ["images/elevianew.png", "images/serum-elevia.png"], "Hello! I'm interested in Sérum GHK-CU & PDRN Elevia"),
     makeProduct(27, "Elevia Jelly Cream Facial Cream – PDRN, Collagen & Hyaluronic Acid", `Elevia Jelly Cream${verifiedBadge}`, "Innovative jelly-texture formula combining PDRN, hydrolyzed collagen, and hyaluronic acid. Delivers continuous deep hydration, restores skin firmness, plumps fine wrinkles, and substantially improves skin elasticity.", "Elevia", "elevia", ["images/creme1.webp", "images/jelly2.png"], "Hello! I'm interested in Elevia Jelly Cream"),
     makeProduct(28, "Elevia Kit - GHK-Cu + PDRN Serum & Jelly Cream", `Elevia Kit (Serum + Jelly Cream)${verifiedBadge}`, "Complete high-dermal restructuring protocol unifying the regenerative power of GHK-Cu & PDRN Serum with the intense hydration and plumping action of Jelly Cream. Delivers synergistic anti-aging, firming, and accelerated skin rejuvenation.", "Elevia", "elevia", ["images/kit1.png"], "Hello! I'm interested in Elevia Kit"),
@@ -948,8 +954,6 @@ const productData = {
     makeProduct(10, "SS - 31 10mg", `SS - 31 10mg${verifiedBadge}`, "Tetrapéptido sintético (Elamipretida 10mg) dirigido a la cardiolipina en la membrana mitocondrial interna. Restaura la bioenergética mitocondrial y optimiza la síntesis de ATP.", "Bro Pharma", "bropharma", ["images/SS31_4600c956-f7e5-438b-918f-5380addb08d7.webp", "images/ss31_7f27bf2d-cbd5-4ad3-9b6c-cadf093acaea.webp"], "¡Hola! Me interesa el SS-31 10 mg"),
     makeProduct(11, "Semax 10mg", `Semax 10mg${verifiedBadge}`, "Péptido nootrópico sintético derivado de un fragmento de ACTH (4-10). Estimula la síntesis de BDNF y NGF, promoviendo neuroprotección, claridad mental y mejora cognitiva.", "Bro Pharma", "bropharma", ["images/Semax_76a81cb4-0dd4-4287-bfaf-fbc03b0aac38.webp", "images/semax_ba02e6d5-aafc-4619-b984-b2c5d2ee78de.webp"], "¡Hola! Me interesa el Semax 10 mg"),
     makeProduct(12, "MOTS - C 10mg", `MOTS - C 10mg${verifiedBadge}`, "Péptido derivado del genoma mitocondrial (MDP). Actúa como regulador metabólico sistémico, promoviendo la captación de glucosa y aumentando la sensibilidad a la insulina.", "Bro Pharma", "bropharma", ["images/Mots_C.webp", "images/mots_c_b24cbd8f-ed3f-4720-901f-f653f56801a3.webp"], "¡Hola! Me interesa el MOTS-C 10 mg"),
-    makeProduct(17, "Retatrutide 40mg Synedica", `Retatrutide 40mg Synedica${verifiedBadge}`, "Ayuda en el control del apetite y soporte metabólico. Pluma con aplicación práctica.", "Synedica", "synedica", ["images/retasynedicanew.jpeg"], "¡Hola! Me interesa el Retatrutide 40mg (Pluma)"),
-    makeProduct(33, "Glow GHK-CU Synedica", `Glow GHK-CU Synedica${verifiedBadge}`, "Combinación de BPC-157, TB-500 y GHK-CU. Ayuda en la recuperación física, regeneración de la piel y estimulación de colágeno. Versión Synedica.", "Synedica", "synedica", ["images/glowsynedicanew.png"], "¡Hola! Me interesa el Glow GHK-CU Synedica"),
     makeProduct(26, "Sérum GHK-CU & PDRN Elevia", `Sérum GHK-CU & PDRN Elevia${verifiedBadge}`, "Sérum facial regenerativo de alto rendimiento formulado con tripéptido de cobre GHK-Cu y PDRN. Estimula la síntesis profunda de colágeno y elastina, regenera el tejido cutáneo, reduce líneas de expresión y acelera la renovación celular.", "Elevia", "elevia", ["images/elevianew.png", "images/serum-elevia.png"], "¡Hola! Me interesa el Sérum GHK-CU & PDRN Elevia"),
     makeProduct(27, "Crema Facial Elevia Jelly Cream – PDRN, Colágeno y Ácido Hialurónico", `Crema Facial Elevia Jelly Cream${verifiedBadge}`, "Fórmula innovadora de textura jelly que combina PDRN, colágeno hidrolizado y ácido hialurónico. Proporciona hidratación profunda continua, restaura la firmeza cutánea, rellena finas arrugas y mejora la elasticidad de la piel.", "Elevia", "elevia", ["images/creme1.webp", "images/jelly2.png"], "¡Hola! Me interesa la Crema Facial Elevia Jelly Cream"),
     makeProduct(28, "Elevia Kit - Sérum GHK-Cu + PDRN & Jelly Cream", `Elevia Kit (Sérum + Jelly Cream)${verifiedBadge}`, "Protocolo completo de alta reestructuración dérmica que une la potencia regenerativa del Sérum GHK-Cu & PDRN a la hidratación intensa del Jelly Cream. Proporciona acción sinérgica antienvejecimiento, firmeza y rejuvenecimiento cutáneo acelerado.", "Elevia", "elevia", ["images/kit1.png"], "¡Hola! Me interesa el Elevia Kit"),
@@ -977,8 +981,6 @@ const productData = {
     makeProduct(10, "SS - 31 10mg", `SS - 31 10mg${verifiedBadge}`, "Tétrapeptide synthétique (Élamiprétide 10mg) ciblant la cardiolipine dans la membrane mitochondriale interne. Restaure la bioénergétique mitochondriale et optimise la synthèse d'ATP.", "Bro Pharma", "bropharma", ["images/SS31_4600c956-f7e5-438b-918f-5380addb08d7.webp", "images/ss31_7f27bf2d-cbd5-4ad3-9b6c-cadf093acaea.webp"], "Bonjour ! Je suis intéressé par SS-31 10 mg"),
     makeProduct(11, "Semax 10mg", `Semax 10mg${verifiedBadge}`, "Peptide nootropique synthétique dérivé d'un fragment d'ACTH (4-10). Stimule la synthèse du BDNF et du NGF, favorisant la neuroprotection, la clarté mentale et l'amélioration cognitive.", "Bro Pharma", "bropharma", ["images/Semax_76a81cb4-0dd4-4287-bfaf-fbc03b0aac38.webp", "images/semax_ba02e6d5-aafc-4619-b984-b2c5d2ee78de.webp"], "Bonjour ! Je suis intéressé par le Semax 10 mg"),
     makeProduct(12, "MOTS - C 10mg", `MOTS - C 10mg${verifiedBadge}`, "Peptide dérivé du génome mitochondrial (MDP). Agit comme un régulateur métabolique systémique, favorisant l'absorption du glucose et augmentant la sensibilité à l'insuline.", "Bro Pharma", "bropharma", ["images/Mots_C.webp", "images/mots_c_b24cbd8f-ed3f-4720-901f-f653f56801a3.webp"], "Bonjour ! Je suis intéressé par MOTS-C 10 mg"),
-    makeProduct(17, "Retatrutide 40mg Synedica", `Retatrutide 40mg Synedica${verifiedBadge}`, "Aide au contrôle de l'appétit et au soutien métabolique. Stylo avec application pratique.", "Synedica", "synedica", ["images/retasynedicanew.jpeg"], "Bonjour ! Je suis intéressé par Retatrutide 40mg (Stylo)"),
-    makeProduct(33, "Glow GHK-CU Synedica", `Glow GHK-CU Synedica${verifiedBadge}`, "Combinaison de BPC-157, TB-500 et GHK-CU. Aide à la récupération physique, régénération de la peau et stimulation du collagène. Version Synedica.", "Synedica", "synedica", ["images/glowsynedicanew.png"], "Bonjour ! Je suis intéressé par Glow GHK-CU Synedica"),
     makeProduct(26, "Sérum GHK-CU & PDRN Elevia", `Sérum GHK-CU & PDRN Elevia${verifiedBadge}`, "Sérum facial régénérant haute performance formulé avec le tripeptide de cuivre GHK-Cu et PDRN. Stimule la synthèse profonde de collagène et d'élastine, régénère le tissu cutané, réduit les rides et accélère le renouvellement cellulaire.", "Elevia", "elevia", ["images/elevianew.png", "images/serum-elevia.png"], "Bonjour ! Je suis intéressé par le Sérum GHK-CU & PDRN Elevia"),
     makeProduct(27, "Crème Visage Elevia Jelly Cream – PDRN, Collagène & Acide Hyaluronique", `Crème Visage Elevia Jelly Cream${verifiedBadge}`, "Formule innovante à texture gelée combinant PDRN, collagène hydrolysé et acide hyaluronique. Offre une hydratation profonde continue, restaure la fermeté de la peau, comble les rides fines et améliore l'élasticité cutanée.", "Elevia", "elevia", ["images/creme1.webp", "images/jelly2.png"], "Bonjour ! Je suis intéressé par la Crème Visage Elevia Jelly Cream"),
     makeProduct(28, "Elevia Kit - Sérum GHK-Cu + PDRN & Jelly Cream", `Elevia Kit (Sérum + Jelly Cream)${verifiedBadge}`, "Protocole complet de haute restructuration dermique unissant la puissance régénérante du Sérum GHK-Cu & PDRN à l'hydratation intense du Jelly Cream. Offre une action synergique anti-âge, fermeté et rajeunissement cutané accéléré.", "Elevia", "elevia", ["images/kit1.png"], "Bonjour ! Je suis intéressé par le Kit Elevia"),
@@ -989,7 +991,6 @@ const productData = {
 function getCategories(){
   return [
     {id:"bropharma", icon:"flask",    name:"Bro Pharma", desc:"Linha de peptídeos Bro Pharma",   nameKey:"catBropharma", descKey:""},
-    {id:"synedica",  icon:"syringe",  name:"Synedica",   desc:"Linha Synedica",                  nameKey:"Synedica",  descKey:""},
     {id:"elevia",    icon:"sparkles", name:"Elevia",     desc:"Linha dermocosmética Elevia",     nameKey:"Elevia",    descKey:""},
   ];
 }
@@ -1128,7 +1129,7 @@ function openModal(id){
     <div class="modal-img-wrap" style="background:#fff;position:relative;">
       ${slider(selectedProduct.images, selectedProduct.name)}
     </div>
-    <span class="modal-badge"${isBro?' style="background:linear-gradient(135deg,#c9a84c,#f0d080);color:#1a0e00;"':''}>${selectedProduct.badge}</span>
+    <span class="modal-badge"${isBro?' style="background:linear-gradient(135deg,#0071e3,#4aa3ff);color:#ffffff;"':''}>${selectedProduct.badge}</span>
     <h2 class="modal-name">${selectedProduct.nameHtml}</h2>
     <p class="modal-desc">${selectedProduct.description}</p>
     <div class="modal-feat">
